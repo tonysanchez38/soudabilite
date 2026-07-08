@@ -1,0 +1,475 @@
+/* =========================================================================
+   Calculateur de Soudabilité — Design system global
+   Direction esthétique (CLAUDE.md #8) : ingénierie moderne épurée, blanc
+   dominant, accent bleu profond #0D3B66, espacement généreux.
+   Aucun style inline dans le HTML : tout est ici.
+   ========================================================================= */
+
+/* ----------------------------------------------------------------------- */
+/* 1. Variables (design tokens)                                            */
+/* ----------------------------------------------------------------------- */
+:root {
+  /* -----------------------------------------------------------------
+     Direction esthétique : DARK MODE (révision actée par Tony).
+     Fond bleu marine, cartes plus claires, accents bleu néon.
+     La version imprimée repasse en blanc / noir (voir @media print).
+     ----------------------------------------------------------------- */
+  --fond: #0F172A;            /* fond général bleu marine */
+  --surface: #1E293B;         /* cartes / panneaux légèrement plus clairs */
+
+  /* Accents bleu néon lumineux */
+  --bleu: #38BDF8;            /* liens + titres de section */
+  --bleu-fonce: #0EA5E9;      /* boutons + éléments interactifs */
+  --bleu-lien: #38BDF8;
+  --bleu-voile: rgba(56, 189, 248, 0.12);   /* fond teinté accent (hover/actif) */
+  --bleu-bordure: rgba(56, 189, 248, 0.55); /* bordure accent au survol */
+
+  /* Neutres — fond sombre dominant */
+  --blanc: #FFFFFF;           /* blanc réel (texte sur bouton, impression) */
+  --gris-fond: #1E293B;       /* panneaux : en-têtes de table, pied, survol nav */
+  --gris-carte: #1E293B;      /* fond des cartes */
+  --gris-bordure: #334155;    /* bordures subtiles */
+  --encre: #F1F5F9;           /* texte principal (blanc cassé) */
+  --texte-doux: #94A3B8;      /* texte secondaire gris bleuté */
+  --texte-faible: #64748B;    /* légendes, mentions */
+
+  /* Verdicts (CLAUDE.md #12) — teintes adaptées au fond sombre */
+  --vert: #4ADE80;
+  --vert-voile: rgba(74, 222, 128, 0.12);
+  --ambre: #FBBF24;
+  --ambre-voile: rgba(251, 191, 36, 0.12);
+  --rouge: #F87171;
+  --rouge-voile: rgba(248, 113, 113, 0.12);
+
+  /* Typographie — Inter / IBM Plex Sans souhaitées (CLAUDE.md #8).
+     Repli sur pile système pour éviter toute dépendance CDN de police
+     (respect RGPD : aucune requête vers un tiers). Self-hosting en Lot 2. */
+  --font-sans: "Inter", "IBM Plex Sans", system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", "Consolas",
+    monospace;
+
+  /* Échelle typographique */
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.15rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2.1rem;
+  --lh: 1.55;
+
+  /* Espacement — base 8 px */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+
+  /* Rayons, ombres, largeurs */
+  --radius: 10px;
+  --radius-sm: 6px;
+  --ombre: 0 1px 2px rgba(0, 0, 0, 0.30),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  --ombre-legere: 0 1px 2px rgba(0, 0, 0, 0.30);
+  --largeur-max: 1080px;
+}
+
+/* ----------------------------------------------------------------------- */
+/* 2. Reset léger et base                                                  */
+/* ----------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  color: var(--encre);
+  background: var(--fond);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--bleu-lien);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--bleu);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Conteneur centré partagé par toutes les pages */
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin-inline: auto;
+  padding-inline: var(--sp-5);
+}
+
+/* ----------------------------------------------------------------------- */
+/* 3. Barre de navigation (topbar + onglets)                               */
+/* ----------------------------------------------------------------------- */
+.topbar {
+  border-bottom: 1px solid var(--gris-bordure);
+  background: var(--fond);
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sp-5);
+  min-height: 64px;
+  flex-wrap: wrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+}
+
+.nav__lien {
+  display: inline-block;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-sm);
+  color: var(--texte-doux);
+  font-size: var(--fs-sm);
+  font-weight: 550;
+}
+
+.nav__lien:hover {
+  background: var(--gris-fond);
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.nav__lien.is-active {
+  color: var(--bleu);
+  background: var(--bleu-voile);
+}
+
+/* ----------------------------------------------------------------------- */
+/* 4. Structure de page                                                    */
+/* ----------------------------------------------------------------------- */
+.page {
+  flex: 1 0 auto;
+  padding-block: var(--sp-6);
+}
+
+/* Onglet Présentation : « une vue, pas de scroll » (CLAUDE.md #13).
+   Espacement resserré pour tenir dans une hauteur d'écran courante. */
+.presentation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+/* --- Hero --- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  text-align: center;
+}
+
+.hero__titre {
+  font-size: var(--fs-2xl);
+  color: var(--encre);
+}
+
+.hero__sous-titre {
+  font-size: var(--fs-lg);
+  font-weight: 550;
+  color: var(--bleu);
+}
+
+.hero__desc {
+  font-size: var(--fs-base);
+  color: var(--texte-doux);
+  align-self: stretch; /* pleine largeur du conteneur, texte centré */
+}
+
+/* --- Grille : normes à gauche, sommaire onglets à droite --- */
+.grille-presentation {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--sp-6);
+  align-items: start;
+}
+
+.bloc__titre {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--sp-3);
+  color: var(--bleu); /* titres de section en bleu néon */
+}
+
+/* --- Tableau des normes --- */
+.normes {
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--ombre-legere);
+  font-size: var(--fs-sm);
+}
+
+.normes thead th {
+  text-align: left;
+  background: var(--gris-fond);
+  color: var(--texte-doux);
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.normes tbody td {
+  padding: var(--sp-2) var(--sp-3);
+  border-top: 1px solid var(--gris-bordure);
+  vertical-align: top;
+  color: var(--texte-doux);
+}
+
+.normes tbody tr:hover td {
+  background: var(--bleu-voile);
+}
+
+.normes__code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--encre);
+  white-space: nowrap;
+}
+
+/* --- Cartes sommaire des onglets --- */
+.cartes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.carte {
+  display: block;
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--radius);
+  background: var(--gris-carte);
+  padding: var(--sp-4);
+  box-shadow: var(--ombre-legere);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.carte--onglet:hover {
+  text-decoration: none;
+  border-color: var(--bleu-bordure);
+  box-shadow: var(--ombre);
+  transform: translateY(-1px);
+}
+
+.carte__titre {
+  font-size: var(--fs-base);
+  color: var(--bleu);
+  margin-bottom: var(--sp-1);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.carte__titre::after {
+  content: "→";
+  color: var(--texte-faible);
+  font-weight: 400;
+}
+
+.carte__texte {
+  font-size: var(--fs-sm);
+  color: var(--texte-doux);
+}
+
+/* --- Bloc auteur + LinkedIn (discret) --- */
+.auteur {
+  text-align: right;
+  font-size: var(--fs-sm);
+  color: var(--texte-faible);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--gris-bordure);
+}
+
+.auteur__nom {
+  color: var(--encre);
+  font-weight: 600;
+}
+
+.auteur__lien {
+  font-size: var(--fs-sm);
+}
+
+/* ----------------------------------------------------------------------- */
+/* 5. Badges de verdict (préparés pour les onglets Analyse — CLAUDE.md #12) */
+/* ----------------------------------------------------------------------- */
+.verdict {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.verdict__icone {
+  font-weight: 700;
+}
+
+.verdict--ok {
+  color: var(--vert);
+  background: var(--vert-voile);
+  border-color: var(--vert);
+}
+
+.verdict--attention {
+  color: var(--ambre);
+  background: var(--ambre-voile);
+  border-color: var(--ambre);
+}
+
+.verdict--refus {
+  color: var(--rouge);
+  background: var(--rouge-voile);
+  border-color: var(--rouge);
+}
+
+/* ----------------------------------------------------------------------- */
+/* 6. Pied de page (disclaimer permanent — CLAUDE.md #3)                    */
+/* ----------------------------------------------------------------------- */
+.pied {
+  flex: none;
+  border-top: 1px solid var(--gris-bordure);
+  background: var(--gris-fond);
+  padding-block: var(--sp-4);
+}
+
+.pied__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.pied__disclaimer {
+  font-size: var(--fs-sm);
+  color: var(--texte-doux);
+  max-width: 70ch;
+}
+
+.pied__compteur {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--texte-faible);
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------------------- */
+/* 7. Responsive de base (CLAUDE.md #14 — polissage mobile en Lot 2)        */
+/* ----------------------------------------------------------------------- */
+@media (max-width: 820px) {
+  .grille-presentation {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar__inner {
+    min-height: 0;
+    padding-block: var(--sp-3);
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .hero__titre {
+    font-size: var(--fs-xl);
+  }
+
+  .pied__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ----------------------------------------------------------------------- */
+/* 8. Impression — retour fond blanc / texte noir (économie d'encre)        */
+/*    L'export PDF de l'app est produit par jsPDF (Lot 9) et n'utilise pas  */
+/*    ce thème. Ce bloc garantit qu'un Ctrl+P navigateur reste lisible en   */
+/*    blanc. Un print.css dédié (mise en page du rapport) viendra au Lot 9. */
+/* ----------------------------------------------------------------------- */
+@media print {
+  :root {
+    --fond: #FFFFFF;
+    --surface: #FFFFFF;
+    --gris-fond: #FFFFFF;
+    --gris-carte: #FFFFFF;
+    --gris-bordure: #CCCCCC;
+    --encre: #000000;
+    --texte-doux: #1A1A1A;
+    --texte-faible: #333333;
+    --bleu: #0D3B66;
+    --bleu-lien: #0D3B66;
+    --bleu-voile: #FFFFFF;
+    --ombre: none;
+    --ombre-legere: none;
+  }
+
+  body {
+    background: #FFFFFF;
+    color: #000000;
+  }
+
+  /* Éléments d'interface non pertinents sur papier */
+  .topbar,
+  .nav,
+  .pied__compteur {
+    display: none;
+  }
+}

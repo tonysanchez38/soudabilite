@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "lang": "fr",
+    "note": "Source unique des chaînes visibles (décision CLAUDE.md #23). Zéro texte en dur dans le HTML/JS."
+  },
+  "app": {
+    "titre": "Calculateur de Soudabilité",
+    "titre_onglet_navigateur": "Calculateur de Soudabilité — Aide au DMOS"
+  },
+  "nav": {
+    "aria_label": "Navigation principale",
+    "presentation": "Présentation",
+    "parametres": "Paramètres DMOS",
+    "analyse": "Analyse",
+    "data": "Data"
+  },
+  "presentation": {
+    "sous_titre": "Aide à la préparation du DMOS",
+    "description": "Outil d'aide à la préparation du DMOS (Descriptif de Mode Opératoire de Soudage). Il calcule les équivalents chrome / nickel et positionne le joint sur le diagramme de Schaeffler, évalue la préchauffe, le temps de refroidissement t8/5 et la dureté prévisible, puis confronte les résultats aux limites normatives. L'aiguillage entre acier carbone, inox et assemblage hétérogène est automatique. L'outil ne remplace pas une QMOS et des essais en atelier.",
+    "normes_titre": "Cadre normatif",
+    "normes_col_code": "Référence",
+    "normes_col_objet": "Objet",
+    "normes": [
+      { "code": "NF EN ISO 15609-1", "objet": "DMOS — contenu du descriptif de mode opératoire" },
+      { "code": "NF EN ISO 15614-1", "objet": "QMOS — épreuve de qualification de mode opératoire" },
+      { "code": "NF EN 1011-1", "objet": "Soudage à l'arc — généralités, rendements thermiques" },
+      { "code": "NF EN 1011-2", "objet": "Aciers ferritiques — préchauffe et temps de refroidissement t8/5" },
+      { "code": "ISO/TR 15608", "objet": "Système de groupement des matériaux métalliques" },
+      { "code": "NF EN ISO 5817", "objet": "Critères d'acceptation des défauts de soudure" },
+      { "code": "NACE MR0175 / ISO 15156", "objet": "Aciers pour milieux acides (H2S) — plafond de dureté" },
+      { "code": "IIW Doc IX-535-67", "objet": "Carbone équivalent IIW" }
+    ],
+    "sommaire_titre": "Les onglets",
+    "onglets": [
+      {
+        "titre": "Paramètres DMOS",
+        "description": "Saisie des métaux de base, du métal d'apport, du procédé et de la géométrie du joint. Alimente le moteur de calcul.",
+        "lien": "parametres.html"
+      },
+      {
+        "titre": "Analyse",
+        "description": "Placement Schaeffler, préchauffe, t8/5, dureté et synthèse croisée des verdicts. Export PDF traçable.",
+        "lien": "analyse.html"
+      },
+      {
+        "titre": "Data",
+        "description": "Nuances d'aciers et métaux d'apport de référence, avec saisie libre pour une nuance hors-liste.",
+        "lien": "banque.html"
+      }
+    ],
+    "auteur_nom": "Tony SANCHEZ",
+    "auteur_sep": "—",
+    "linkedin": "Contact",
+    "linkedin_url": "https://www.linkedin.com/in/tonysanchez38/"
+  },
+  "footer": {
+    "disclaimer": "Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS.",
+    "compteur_visiteurs": "visiteurs",
+    "compteur_calculs": "calculs réalisés",
+    "compteur_total_url": "https://soudabilite.goatcounter.com/counter/TOTAL.json",
+    "compteur_calcul_url": "https://soudabilite.goatcounter.com/counter/calcul.json"
+  }
+}

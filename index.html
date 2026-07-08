@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Calculateur de Soudabilité — outil web gratuit d'aide à la préparation du DMOS : Schaeffler, préchauffe, t8/5, dureté et verdicts normatifs."
+    />
+    <!-- Le titre est piloté par i18n ; ce libellé sert de repli avant JS. -->
+    <title data-i18n="app.titre_onglet_navigateur">
+      Calculateur de Soudabilité
+    </title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Analytics GoatCounter (RGPD sans bandeau cookies — CLAUDE.md #22). -->
+    <script
+      data-goatcounter="https://soudabilite.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+    <script type="module" src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <!-- ===================== Barre de navigation ===================== -->
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
+          <a class="nav__lien is-active" href="index.html" data-i18n="nav.presentation"></a>
+          <a class="nav__lien" href="parametres.html" data-i18n="nav.parametres"></a>
+          <a class="nav__lien" href="analyse.html" data-i18n="nav.analyse"></a>
+          <a class="nav__lien" href="banque.html" data-i18n="nav.data"></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= Contenu ============================= -->
+    <main class="page">
+      <div class="conteneur presentation">
+        <!-- Hero : titre + sous-titre + description (3-4 lignes) -->
+        <section class="hero">
+          <h1 class="hero__titre" data-i18n="app.titre"></h1>
+          <p class="hero__sous-titre" data-i18n="presentation.sous_titre"></p>
+          <p class="hero__desc" data-i18n="presentation.description"></p>
+        </section>
+
+        <!-- Grille : cadre normatif + sommaire des onglets -->
+        <div class="grille-presentation">
+          <!-- Tableau des normes (rempli par app.js depuis fr.json) -->
+          <section aria-labelledby="titre-normes">
+            <h2
+              id="titre-normes"
+              class="bloc__titre"
+              data-i18n="presentation.normes_titre"
+            ></h2>
+            <table class="normes">
+              <thead>
+                <tr>
+                  <th data-i18n="presentation.normes_col_code"></th>
+                  <th data-i18n="presentation.normes_col_objet"></th>
+                </tr>
+              </thead>
+              <tbody data-liste="normes"></tbody>
+            </table>
+          </section>
+
+          <!-- Sommaire des onglets (rempli par app.js depuis fr.json) -->
+          <section aria-labelledby="titre-sommaire">
+            <h2
+              id="titre-sommaire"
+              class="bloc__titre"
+              data-i18n="presentation.sommaire_titre"
+            ></h2>
+            <div class="cartes" data-liste="onglets"></div>
+          </section>
+        </div>
+
+        <!-- Auteur + contact (uniquement sur l'onglet Présentation) -->
+        <section class="auteur">
+          <span class="auteur__nom" data-i18n="presentation.auteur_nom"></span>
+          <span data-i18n="presentation.auteur_sep"></span>
+          <a
+            class="auteur__lien"
+            data-i18n="presentation.linkedin"
+            data-i18n-attr="href:presentation.linkedin_url"
+            target="_blank"
+            rel="noopener"
+          ></a>
+        </section>
+      </div>
+    </main>
+
+    <!-- ==================== Pied de page permanent =================== -->
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer"></p>
+        <p class="pied__compteur" data-compteur hidden></p>
+      </div>
+    </footer>
+  </body>
+</html>
