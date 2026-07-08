@@ -1,0 +1,8257 @@
+{
+  "_meta": {
+    "source": "Extraction depuis Calculateur_de_soudabilité_Aide_au_DMOS.xlsx (Tony SANCHEZ)",
+    "date_extraction": "2026-07-08",
+    "version": "1.0.0",
+    "note": "Les groupes ISO 15608 et procédés d'apport sont à compléter/vérifier dans une passe ultérieure.",
+    "convention_equivalents": {
+      "Schaeffler_1949": "Cr_eq = %Cr + %Mo + 1.5*%Si + 0.5*%Nb ; Ni_eq = %Ni + 30*%C + 0.5*%Mn",
+      "DeLong_1974": "Ni_eq = %Ni + 30*%C + 30*%N + 0.5*%Mn (Cr_eq identique Schaeffler)",
+      "WRC_1992": "Cr_eq = %Cr + %Mo + 0.7*%Nb ; Ni_eq = %Ni + 35*%C + 20*%N + 0.25*%Cu"
+    }
+  },
+  "metaux_base": [
+    {
+      "designation": "S 235 JR (E 24-2)",
+      "composition": {
+        "C": 0.18,
+        "Mn": 0.5,
+        "Si": 0.35,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.525,
+          "Ni_eq": 5.65
+        },
+        "DeLong": {
+          "Cr_eq": 0.525,
+          "Ni_eq": 5.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 6.3
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.2633,
+        "CET_EN1011_2": 0.23
+      }
+    },
+    {
+      "designation": "S 235 JO (E 24-3)",
+      "composition": {
+        "C": 0.13,
+        "Mn": 0.71,
+        "Si": 0.22,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.33,
+          "Ni_eq": 4.255
+        },
+        "DeLong": {
+          "Cr_eq": 0.33,
+          "Ni_eq": 4.255
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.55
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.2483,
+        "CET_EN1011_2": 0.201
+      }
+    },
+    {
+      "designation": "S 355 JO (E 36-3)",
+      "composition": {
+        "C": 0.17,
+        "Mn": 1.4,
+        "Si": 0.45,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.675,
+          "Ni_eq": 5.8
+        },
+        "DeLong": {
+          "Cr_eq": 0.675,
+          "Ni_eq": 5.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 5.95
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.4033,
+        "CET_EN1011_2": 0.31
+      }
+    },
+    {
+      "designation": "S 355 K2 J3 (E 36-4)",
+      "composition": {
+        "C": 0.2,
+        "Mn": 1.6,
+        "Si": 0.55,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.825,
+          "Ni_eq": 6.8
+        },
+        "DeLong": {
+          "Cr_eq": 0.825,
+          "Ni_eq": 6.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 7.0
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.4667,
+        "CET_EN1011_2": 0.36
+      }
+    },
+    {
+      "designation": "36 Ni Cr Mo 16",
+      "composition": {
+        "C": 0.36,
+        "Mn": null,
+        "Si": null,
+        "Cr": null,
+        "Ni": 4.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 14.8
+        },
+        "DeLong": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 14.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 16.6
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.6267,
+        "CET_EN1011_2": 0.46
+      }
+    },
+    {
+      "designation": "34 Cr Mo S 4",
+      "composition": {
+        "C": 0.34,
+        "Mn": null,
+        "Si": null,
+        "Cr": 1.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.0,
+          "Ni_eq": 10.2
+        },
+        "DeLong": {
+          "Cr_eq": 1.0,
+          "Ni_eq": 10.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.0,
+          "Ni_eq": 11.9
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.54,
+        "CET_EN1011_2": 0.39
+      }
+    },
+    {
+      "designation": "25 CD 4 S  recuit à 850-870°C",
+      "composition": {
+        "C": 0.26,
+        "Mn": 0.53,
+        "Si": 0.18,
+        "Cr": 1.09,
+        "Ni": 0.14,
+        "Mo": 0.19,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.55,
+          "Ni_eq": 8.205
+        },
+        "DeLong": {
+          "Cr_eq": 1.55,
+          "Ni_eq": 8.205
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.28,
+          "Ni_eq": 9.24
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.6137,
+        "CET_EN1011_2": 0.39
+      }
+    },
+    {
+      "designation": "P265GH  (A42 CP)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.668,
+        "Si": 0.12,
+        "Cr": 0.107,
+        "Ni": 0.35,
+        "Mo": 0.013,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 4.284
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 4.284
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.12,
+          "Ni_eq": 4.55
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.2787,
+        "CET_EN1011_2": 0.2022
+      }
+    },
+    {
+      "designation": "P295GH  (A48 CP)",
+      "composition": {
+        "C": 0.14,
+        "Mn": 1.2,
+        "Si": 0.3,
+        "Cr": 0.2,
+        "Ni": 0.3,
+        "Mo": 0.06,
+        "Nb": 0.015,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.717,
+          "Ni_eq": 5.1
+        },
+        "DeLong": {
+          "Cr_eq": 0.717,
+          "Ni_eq": 5.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.271,
+          "Ni_eq": 5.2
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.412,
+        "CET_EN1011_2": 0.2835
+      }
+    },
+    {
+      "designation": "10CrMo9-10  (10CD9-10)",
+      "composition": {
+        "C": 0.15,
+        "Mn": 0.62,
+        "Si": 0.3,
+        "Cr": 2.06,
+        "Ni": 0.2,
+        "Mo": 1.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 3.51,
+          "Ni_eq": 5.01
+        },
+        "DeLong": {
+          "Cr_eq": 3.51,
+          "Ni_eq": 5.01
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.06,
+          "Ni_eq": 5.45
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.8787,
+        "CET_EN1011_2": 0.42
+      }
+    },
+    {
+      "designation": "P275NH",
+      "composition": {
+        "C": 0.16,
+        "Mn": 1.15,
+        "Si": 0.4,
+        "Cr": 0.3,
+        "Ni": 0.5,
+        "Mo": 0.08,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.005,
+          "Ni_eq": 5.875
+        },
+        "DeLong": {
+          "Cr_eq": 1.005,
+          "Ni_eq": 5.875
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.415,
+          "Ni_eq": 6.1
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.461,
+        "CET_EN1011_2": 0.3105
+      }
+    },
+    {
+      "designation": "P275NL1  (A42 FP)",
+      "composition": {
+        "C": 0.16,
+        "Mn": 1.15,
+        "Si": 0.4,
+        "Cr": 0.3,
+        "Ni": 0.5,
+        "Mo": 0.08,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.005,
+          "Ni_eq": 5.875
+        },
+        "DeLong": {
+          "Cr_eq": 1.005,
+          "Ni_eq": 5.875
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.415,
+          "Ni_eq": 6.1
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.461,
+        "CET_EN1011_2": 0.3105
+      }
+    },
+    {
+      "designation": "P275NL2  (A42 FP)",
+      "composition": {
+        "C": 0.16,
+        "Mn": 1.15,
+        "Si": 0.4,
+        "Cr": 0.3,
+        "Ni": 0.5,
+        "Mo": 0.08,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.005,
+          "Ni_eq": 5.875
+        },
+        "DeLong": {
+          "Cr_eq": 1.005,
+          "Ni_eq": 5.875
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.415,
+          "Ni_eq": 6.1
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.461,
+        "CET_EN1011_2": 0.3105
+      }
+    },
+    {
+      "designation": "P355N  (A510AP)",
+      "composition": {
+        "C": 0.18,
+        "Mn": 1.4,
+        "Si": 0.5,
+        "Cr": 0.3,
+        "Ni": 0.5,
+        "Mo": 0.08,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.155,
+          "Ni_eq": 6.6
+        },
+        "DeLong": {
+          "Cr_eq": 1.155,
+          "Ni_eq": 6.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.415,
+          "Ni_eq": 6.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.5227,
+        "CET_EN1011_2": 0.3555
+      }
+    },
+    {
+      "designation": "P355NH  (A510AP)",
+      "composition": {
+        "C": 0.18,
+        "Mn": 1.4,
+        "Si": 0.5,
+        "Cr": 0.3,
+        "Ni": 0.5,
+        "Mo": 0.08,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.155,
+          "Ni_eq": 6.6
+        },
+        "DeLong": {
+          "Cr_eq": 1.155,
+          "Ni_eq": 6.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.415,
+          "Ni_eq": 6.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.5227,
+        "CET_EN1011_2": 0.3555
+      }
+    },
+    {
+      "designation": "P355NL1  (A510FP1)",
+      "composition": {
+        "C": 0.18,
+        "Mn": 1.4,
+        "Si": 0.5,
+        "Cr": 0.3,
+        "Ni": 0.5,
+        "Mo": 0.08,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.155,
+          "Ni_eq": 6.6
+        },
+        "DeLong": {
+          "Cr_eq": 1.155,
+          "Ni_eq": 6.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.415,
+          "Ni_eq": 6.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.5227,
+        "CET_EN1011_2": 0.3555
+      }
+    },
+    {
+      "designation": "P355LN2",
+      "composition": {
+        "C": 0.18,
+        "Mn": 1.4,
+        "Si": 0.5,
+        "Cr": 0.3,
+        "Ni": 0.5,
+        "Mo": 0.08,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.155,
+          "Ni_eq": 6.6
+        },
+        "DeLong": {
+          "Cr_eq": 1.155,
+          "Ni_eq": 6.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.415,
+          "Ni_eq": 6.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.5227,
+        "CET_EN1011_2": 0.3555
+      }
+    },
+    {
+      "designation": "P460N  (A555AP)",
+      "composition": {
+        "C": 0.2,
+        "Mn": 1.4,
+        "Si": 0.6,
+        "Cr": 0.3,
+        "Ni": 0.8,
+        "Mo": 0.1,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.325,
+          "Ni_eq": 7.5
+        },
+        "DeLong": {
+          "Cr_eq": 1.325,
+          "Ni_eq": 7.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.435,
+          "Ni_eq": 7.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.5667,
+        "CET_EN1011_2": 0.385
+      }
+    },
+    {
+      "designation": "P460NH  (A550AP)",
+      "composition": {
+        "C": 0.2,
+        "Mn": 1.4,
+        "Si": 0.6,
+        "Cr": 0.3,
+        "Ni": 0.8,
+        "Mo": 0.1,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.325,
+          "Ni_eq": 7.5
+        },
+        "DeLong": {
+          "Cr_eq": 1.325,
+          "Ni_eq": 7.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.435,
+          "Ni_eq": 7.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.5667,
+        "CET_EN1011_2": 0.385
+      }
+    },
+    {
+      "designation": "P460NL1  (A550FP1)",
+      "composition": {
+        "C": 0.2,
+        "Mn": 1.4,
+        "Si": 0.6,
+        "Cr": 0.3,
+        "Ni": 0.8,
+        "Mo": 0.1,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.325,
+          "Ni_eq": 7.5
+        },
+        "DeLong": {
+          "Cr_eq": 1.325,
+          "Ni_eq": 7.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.435,
+          "Ni_eq": 7.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.5667,
+        "CET_EN1011_2": 0.385
+      }
+    },
+    {
+      "designation": "P460NL2",
+      "composition": {
+        "C": 0.2,
+        "Mn": 1.4,
+        "Si": 0.6,
+        "Cr": 0.3,
+        "Ni": 0.8,
+        "Mo": 0.1,
+        "Nb": 0.05,
+        "Ti": 0.03,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.325,
+          "Ni_eq": 7.5
+        },
+        "DeLong": {
+          "Cr_eq": 1.325,
+          "Ni_eq": 7.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.435,
+          "Ni_eq": 7.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.5667,
+        "CET_EN1011_2": 0.385
+      }
+    },
+    {
+      "designation": "301   ( X 12 Cr Ni 17 7 )",
+      "composition": {
+        "C": 0.12,
+        "Mn": 2.0,
+        "Si": 0.75,
+        "Cr": 17.0,
+        "Ni": 8.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.125,
+          "Ni_eq": 12.6
+        },
+        "DeLong": {
+          "Cr_eq": 18.125,
+          "Ni_eq": 12.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 12.2
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 4.3867,
+        "CET_EN1011_2": 1.37
+      }
+    },
+    {
+      "designation": "302   ( X 10 Cr Ni 18 9 )",
+      "composition": {
+        "C": 0.1,
+        "Mn": 2.0,
+        "Si": 0.75,
+        "Cr": 17.5,
+        "Ni": 8.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.625,
+          "Ni_eq": 12.5
+        },
+        "DeLong": {
+          "Cr_eq": 18.625,
+          "Ni_eq": 12.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.5,
+          "Ni_eq": 12.0
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 4.5,
+        "CET_EN1011_2": 1.3875
+      }
+    },
+    {
+      "designation": "302 B   ( X 15 CrNiSi 20.12 )",
+      "composition": {
+        "C": 0.15,
+        "Mn": 2.0,
+        "Si": 2.0,
+        "Cr": 20.0,
+        "Ni": 11.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 17.0
+        },
+        "DeLong": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 17.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 16.75
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 5.25,
+        "CET_EN1011_2": 1.6375
+      }
+    },
+    {
+      "designation": "303   ( Z 10 CN 18-09 )",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.5,
+        "Si": 0.75,
+        "Cr": 18.0,
+        "Ni": 9.0,
+        "Mo": 0.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.725,
+          "Ni_eq": 12.85
+        },
+        "DeLong": {
+          "Cr_eq": 19.725,
+          "Ni_eq": 12.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.6,
+          "Ni_eq": 13.2
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 4.5233,
+        "CET_EN1011_2": 1.355
+      }
+    },
+    {
+      "designation": "304      (X 6 Cr Ni 18 10 )",
+      "composition": {
+        "C": 0.07,
+        "Mn": 2.0,
+        "Si": 0.75,
+        "Cr": 18.0,
+        "Ni": 9.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.125,
+          "Ni_eq": 12.1
+        },
+        "DeLong": {
+          "Cr_eq": 19.125,
+          "Ni_eq": 12.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 11.45
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 4.6033,
+        "CET_EN1011_2": 1.395
+      }
+    },
+    {
+      "designation": "304 L    (X 2 Cr Ni 19-11)",
+      "composition": {
+        "C": 0.026,
+        "Mn": 1.2,
+        "Si": 0.54,
+        "Cr": 18.23,
+        "Ni": 10.18,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.04,
+          "Ni_eq": 11.56
+        },
+        "DeLong": {
+          "Cr_eq": 19.04,
+          "Ni_eq": 11.56
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.23,
+          "Ni_eq": 11.09
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 4.5507,
+        "CET_EN1011_2": 1.312
+      }
+    },
+    {
+      "designation": "305    ( X 8 CrNi 18 12 )",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.8,
+        "Si": 0.3,
+        "Cr": 18.0,
+        "Ni": 12.3,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.45,
+          "Ni_eq": 15.6
+        },
+        "DeLong": {
+          "Cr_eq": 18.45,
+          "Ni_eq": 15.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 15.1
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 4.8,
+        "CET_EN1011_2": 1.4675
+      }
+    },
+    {
+      "designation": "310   (Z 15 CNS 25.20)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 2.0,
+        "Si": 1.5,
+        "Cr": 25.0,
+        "Ni": 20.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.25,
+          "Ni_eq": 24.6
+        },
+        "DeLong": {
+          "Cr_eq": 27.25,
+          "Ni_eq": 24.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.0,
+          "Ni_eq": 24.2
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 6.7867,
+        "CET_EN1011_2": 2.07
+      }
+    },
+    {
+      "designation": "316       (Z 6 CN 17.11)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 2.0,
+        "Si": 0.75,
+        "Cr": 17.0,
+        "Ni": 12.5,
+        "Mo": 2.2,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.325,
+          "Ni_eq": 15.9
+        },
+        "DeLong": {
+          "Cr_eq": 20.325,
+          "Ni_eq": 15.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.2,
+          "Ni_eq": 15.3
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 5.0867,
+        "CET_EN1011_2": 1.6625
+      }
+    },
+    {
+      "designation": "316 L    (Z 2 CN 18.12)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 2.0,
+        "Si": 1.0,
+        "Cr": 17.25,
+        "Ni": 12.0,
+        "Mo": 2.25,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 13.9
+        },
+        "DeLong": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 13.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.5,
+          "Ni_eq": 13.05
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 5.0633,
+        "CET_EN1011_2": 1.6175
+      }
+    },
+    {
+      "designation": "316 Ti (X6CrNiMoTi 17-12-2 )",
+      "composition": {
+        "C": 0.08,
+        "Mn": 2.0,
+        "Si": 1.0,
+        "Cr": 17.5,
+        "Ni": 12.0,
+        "Mo": 2.25,
+        "Nb": null,
+        "Ti": 0.55,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.25,
+          "Ni_eq": 15.4
+        },
+        "DeLong": {
+          "Cr_eq": 21.25,
+          "Ni_eq": 15.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.75,
+          "Ni_eq": 14.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 5.1633,
+        "CET_EN1011_2": 1.68
+      }
+    },
+    {
+      "designation": "430   ( X 8 Cr 17 )",
+      "composition": {
+        "C": 0.08,
+        "Mn": null,
+        "Si": null,
+        "Cr": 17.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 2.4
+        },
+        "DeLong": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 2.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 2.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 3.48,
+        "CET_EN1011_2": 0.93
+      }
+    },
+    {
+      "designation": "X10 Cr Ni 18 10",
+      "composition": {
+        "C": 0.1,
+        "Mn": null,
+        "Si": null,
+        "Cr": 18.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 13.0
+        },
+        "DeLong": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 13.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 13.5
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 4.3667,
+        "CET_EN1011_2": 1.25
+      }
+    },
+    {
+      "designation": "X 39 Cr 13",
+      "composition": {
+        "C": 0.39,
+        "Mn": null,
+        "Si": null,
+        "Cr": 13.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.0,
+          "Ni_eq": 11.7
+        },
+        "DeLong": {
+          "Cr_eq": 13.0,
+          "Ni_eq": 11.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 13.0,
+          "Ni_eq": 13.65
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 2.99,
+        "CET_EN1011_2": 1.04
+      }
+    },
+    {
+      "designation": "X 70 Cr Mo 15",
+      "composition": {
+        "C": 0.7,
+        "Mn": null,
+        "Si": null,
+        "Cr": 15.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 15.0,
+          "Ni_eq": 21.0
+        },
+        "DeLong": {
+          "Cr_eq": 15.0,
+          "Ni_eq": 21.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 15.0,
+          "Ni_eq": 24.5
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 3.7,
+        "CET_EN1011_2": 1.45
+      }
+    },
+    {
+      "designation": "INVAR Alliage Fe-Ni36",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.35,
+        "Si": 0.2,
+        "Cr": null,
+        "Ni": 36.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 36.775
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 36.775
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 36.7
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 2.4783,
+        "CET_EN1011_2": 0.955
+      }
+    },
+    {
+      "designation": "Z 5 CNDU 21 08",
+      "composition": {
+        "C": 0.05,
+        "Mn": null,
+        "Si": null,
+        "Cr": 21.0,
+        "Ni": 8.0,
+        "Mo": 2.5,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 9.5
+        },
+        "DeLong": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 9.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 9.75
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 5.2833,
+        "CET_EN1011_2": 1.55
+      }
+    },
+    {
+      "designation": "Nicrofer 3220 X5 NiCrAlTi 31-20",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 21.0,
+        "Ni": 31.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": 0.5,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.75,
+          "Ni_eq": 33.6
+        },
+        "DeLong": {
+          "Cr_eq": 21.75,
+          "Ni_eq": 33.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 33.45
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 6.5033,
+        "CET_EN1011_2": 1.995
+      }
+    },
+    {
+      "designation": "42CrMo4",
+      "composition": {
+        "C": 0.42,
+        "Mn": null,
+        "Si": 0.1,
+        "Cr": 1.2,
+        "Ni": 0.01,
+        "Mo": 0.3,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.65,
+          "Ni_eq": 12.61
+        },
+        "DeLong": {
+          "Cr_eq": 1.65,
+          "Ni_eq": 12.61
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 14.71
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.7207,
+        "CET_EN1011_2": 0.5102
+      }
+    },
+    {
+      "designation": "11SMnPb37",
+      "composition": {
+        "C": 0.14,
+        "Mn": 1.5,
+        "Si": 0.05,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.075,
+          "Ni_eq": 4.95
+        },
+        "DeLong": {
+          "Cr_eq": 0.075,
+          "Ni_eq": 4.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.9
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.39,
+        "CET_EN1011_2": 0.29
+      }
+    },
+    {
+      "designation": "X2CrNiMoN25-7-4",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.0,
+        "Si": 0.4,
+        "Cr": 25.0,
+        "Ni": 7.0,
+        "Mo": 4.0,
+        "Nb": null,
+        "Ti": null,
+        "N": 0.27
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.6,
+          "Ni_eq": 8.1
+        },
+        "DeLong": {
+          "Cr_eq": 29.6,
+          "Ni_eq": 16.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 13.1
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 6.4533,
+        "CET_EN1011_2": 1.945
+      }
+    },
+    {
+      "designation": "X 12 Cr Ni 25-21",
+      "composition": {
+        "C": 0.12,
+        "Mn": 2.0,
+        "Si": 1.0,
+        "Cr": 25.0,
+        "Ni": 21.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.5,
+          "Ni_eq": 25.6
+        },
+        "DeLong": {
+          "Cr_eq": 26.5,
+          "Ni_eq": 25.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.0,
+          "Ni_eq": 25.2
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 6.8533,
+        "CET_EN1011_2": 2.095
+      }
+    },
+    {
+      "designation": "S420",
+      "composition": {
+        "C": 0.22,
+        "Mn": 1.45,
+        "Si": 0.22,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": 0.03,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.345,
+          "Ni_eq": 7.325
+        },
+        "DeLong": {
+          "Cr_eq": 0.345,
+          "Ni_eq": 7.325
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.021,
+          "Ni_eq": 7.7
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.4617,
+        "CET_EN1011_2": 0.365
+      }
+    },
+    {
+      "designation": "X6 Cr Ni Ti 18-10",
+      "composition": {
+        "C": 0.08,
+        "Mn": 2.0,
+        "Si": 1.0,
+        "Cr": 18.5,
+        "Ni": 10.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": 0.6,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 13.9
+        },
+        "DeLong": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 13.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.5,
+          "Ni_eq": 13.3
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 4.8133,
+        "CET_EN1011_2": 1.4675
+      }
+    },
+    {
+      "designation": "310S",
+      "composition": {
+        "C": 0.1,
+        "Mn": 2.0,
+        "Si": 1.5,
+        "Cr": 25.0,
+        "Ni": 20.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.25,
+          "Ni_eq": 24.5
+        },
+        "DeLong": {
+          "Cr_eq": 27.25,
+          "Ni_eq": 24.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.0,
+          "Ni_eq": 24.0
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 6.8,
+        "CET_EN1011_2": 2.0625
+      }
+    },
+    {
+      "designation": "C40",
+      "composition": {
+        "C": 0.44,
+        "Mn": 0.8,
+        "Si": 0.4,
+        "Cr": 0.4,
+        "Ni": 0.4,
+        "Mo": 0.1,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 14.0
+        },
+        "DeLong": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 14.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 15.8
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.7,
+        "CET_EN1011_2": 0.56
+      }
+    },
+    {
+      "designation": "S275JR (1.0044)",
+      "composition": {
+        "C": 0.18,
+        "Mn": 1.4,
+        "Si": 0.2,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 6.1
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 6.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 6.3
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.4133,
+        "CET_EN1011_2": 0.32
+      }
+    },
+    {
+      "designation": "P235GH (1.0345)",
+      "composition": {
+        "C": 0.16,
+        "Mn": 0.9,
+        "Si": 0.2,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 5.25
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 5.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 5.6
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.31,
+        "CET_EN1011_2": 0.25
+      }
+    },
+    {
+      "designation": "16Mo3 (1.5415)",
+      "composition": {
+        "C": 0.16,
+        "Mn": 0.7,
+        "Si": 0.25,
+        "Cr": 0.3,
+        "Ni": 0.0,
+        "Mo": 0.3,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.975,
+          "Ni_eq": 5.15
+        },
+        "DeLong": {
+          "Cr_eq": 0.975,
+          "Ni_eq": 5.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 5.6
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.3967,
+        "CET_EN1011_2": 0.275
+      }
+    },
+    {
+      "designation": "13CrMo4-5 (1.7335)",
+      "composition": {
+        "C": 0.13,
+        "Mn": 0.6,
+        "Si": 0.25,
+        "Cr": 0.9,
+        "Ni": 0.0,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.775,
+          "Ni_eq": 4.2
+        },
+        "DeLong": {
+          "Cr_eq": 1.775,
+          "Ni_eq": 4.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 4.55
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 0.51,
+        "CET_EN1011_2": 0.285
+      }
+    },
+    {
+      "designation": "2205 Duplex (1.4462)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": 22.5,
+        "Ni": 5.5,
+        "Mo": 3.1,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.17
+      },
+      "groupe_iso_15608": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.35,
+          "Ni_eq": 6.85
+        },
+        "DeLong": {
+          "Cr_eq": 26.35,
+          "Ni_eq": 11.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.6,
+          "Ni_eq": 9.6
+        }
+      },
+      "carbone_equivalent": {
+        "CE_IIW": 5.7567,
+        "CET_EN1011_2": 1.7425
+      }
+    }
+  ],
+  "metaux_apport": [
+    {
+      "designation": "SAFINOX R 308L",
+      "composition": {
+        "C": 0.018,
+        "Mn": 0.8,
+        "Si": 0.85,
+        "Cr": 19.0,
+        "Ni": 10.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.275,
+          "Ni_eq": 11.44
+        },
+        "DeLong": {
+          "Cr_eq": 20.275,
+          "Ni_eq": 11.44
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 11.13
+        }
+      }
+    },
+    {
+      "designation": "STARINOX E 308L HP DRY",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.8,
+        "Si": 0.9,
+        "Cr": 19.0,
+        "Ni": 10.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.35,
+          "Ni_eq": 11.8
+        },
+        "DeLong": {
+          "Cr_eq": 20.35,
+          "Ni_eq": 11.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 11.55
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX R 316L",
+      "composition": {
+        "C": 0.018,
+        "Mn": 0.8,
+        "Si": 0.85,
+        "Cr": 18.5,
+        "Ni": 11.5,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.575,
+          "Ni_eq": 12.44
+        },
+        "DeLong": {
+          "Cr_eq": 22.575,
+          "Ni_eq": 12.44
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.3,
+          "Ni_eq": 12.13
+        }
+      }
+    },
+    {
+      "designation": "STARINOX E 316L HP DRY",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.8,
+        "Si": 0.9,
+        "Cr": 19.1,
+        "Ni": 10.8,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.25,
+          "Ni_eq": 12.1
+        },
+        "DeLong": {
+          "Cr_eq": 23.25,
+          "Ni_eq": 12.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.9,
+          "Ni_eq": 11.85
+        }
+      }
+    },
+    {
+      "designation": "FROINOX 347 - 16",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.85,
+        "Si": 0.9,
+        "Cr": 19.0,
+        "Ni": 10.5,
+        "Mo": null,
+        "Nb": 0.5,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.6,
+          "Ni_eq": 11.525
+        },
+        "DeLong": {
+          "Cr_eq": 20.6,
+          "Ni_eq": 11.525
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.35,
+          "Ni_eq": 11.2
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX R 309L",
+      "composition": {
+        "C": 0.015,
+        "Mn": 0.8,
+        "Si": 0.85,
+        "Cr": 23.0,
+        "Ni": 12.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.275,
+          "Ni_eq": 13.35
+        },
+        "DeLong": {
+          "Cr_eq": 24.275,
+          "Ni_eq": 13.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 13.025
+        }
+      }
+    },
+    {
+      "designation": "STARINOX E 309L HP DRY",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.8,
+        "Si": 0.9,
+        "Cr": 23.0,
+        "Ni": 12.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.35,
+          "Ni_eq": 13.8
+        },
+        "DeLong": {
+          "Cr_eq": 24.35,
+          "Ni_eq": 13.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 13.55
+        }
+      }
+    },
+    {
+      "designation": "FROINOX 309 Mo- L16",
+      "composition": {
+        "C": 0.016,
+        "Mn": 0.8,
+        "Si": 0.9,
+        "Cr": 22.5,
+        "Ni": 12.5,
+        "Mo": 2.5,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.35,
+          "Ni_eq": 13.38
+        },
+        "DeLong": {
+          "Cr_eq": 26.35,
+          "Ni_eq": 13.38
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.0,
+          "Ni_eq": 13.06
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX R 312",
+      "composition": {
+        "C": 0.008,
+        "Mn": 1.3,
+        "Si": 1.3,
+        "Cr": 27.2,
+        "Ni": 12.2,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.15,
+          "Ni_eq": 13.09
+        },
+        "DeLong": {
+          "Cr_eq": 29.15,
+          "Ni_eq": 13.09
+        },
+        "WRC_1992": {
+          "Cr_eq": 27.2,
+          "Ni_eq": 12.48
+        }
+      }
+    },
+    {
+      "designation": "STARINOX 307-16",
+      "composition": {
+        "C": 0.07,
+        "Mn": 6.0,
+        "Si": 0.85,
+        "Cr": 18.0,
+        "Ni": 8.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.275,
+          "Ni_eq": 13.1
+        },
+        "DeLong": {
+          "Cr_eq": 19.275,
+          "Ni_eq": 13.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 10.45
+        }
+      }
+    },
+    {
+      "designation": "STARINOX R 18.8 S",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.3,
+        "Si": 0.6,
+        "Cr": 19.2,
+        "Ni": 10.2,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.1,
+          "Ni_eq": 11.6
+        },
+        "DeLong": {
+          "Cr_eq": 20.1,
+          "Ni_eq": 11.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.2,
+          "Ni_eq": 11.075
+        }
+      }
+    },
+    {
+      "designation": "STARINOX R 18.8.3 S",
+      "composition": {
+        "C": 0.022,
+        "Mn": 1.3,
+        "Si": 0.6,
+        "Cr": 19.2,
+        "Ni": 12.0,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.9,
+          "Ni_eq": 13.31
+        },
+        "DeLong": {
+          "Cr_eq": 22.9,
+          "Ni_eq": 13.31
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.0,
+          "Ni_eq": 12.77
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX R 24 12 S/SAFDRY R 24 12 S",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.4,
+        "Si": 0.5,
+        "Cr": 23.5,
+        "Ni": 13.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.25,
+          "Ni_eq": 14.45
+        },
+        "DeLong": {
+          "Cr_eq": 24.25,
+          "Ni_eq": 14.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 13.875
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX R 25 20",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.2,
+        "Si": 0.75,
+        "Cr": 27.0,
+        "Ni": 21.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 28.125,
+          "Ni_eq": 24.6
+        },
+        "DeLong": {
+          "Cr_eq": 28.125,
+          "Ni_eq": 24.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 27.0,
+          "Ni_eq": 24.5
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX RCND 25 20",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.7,
+        "Si": 0.7,
+        "Cr": 27.0,
+        "Ni": 21.0,
+        "Mo": 2.7,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.75,
+          "Ni_eq": 24.85
+        },
+        "DeLong": {
+          "Cr_eq": 30.75,
+          "Ni_eq": 24.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.7,
+          "Ni_eq": 24.5
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX RCN 29 10",
+      "composition": {
+        "C": 0.11,
+        "Mn": 1.8,
+        "Si": 0.7,
+        "Cr": 29.7,
+        "Ni": 12.1,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.75,
+          "Ni_eq": 16.3
+        },
+        "DeLong": {
+          "Cr_eq": 30.75,
+          "Ni_eq": 16.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.7,
+          "Ni_eq": 15.95
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX R CNDU 20 25 5 S VPM",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.3,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 25.0,
+        "Mo": 4.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.6,
+          "Ni_eq": 26.25
+        },
+        "DeLong": {
+          "Cr_eq": 24.6,
+          "Ni_eq": 26.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.0,
+          "Ni_eq": 25.7
+        }
+      }
+    },
+    {
+      "designation": "LEXAL E 22 9 3 N",
+      "composition": {
+        "C": 0.016,
+        "Mn": 1.6,
+        "Si": 1.0,
+        "Cr": 22.0,
+        "Ni": 9.0,
+        "Mo": 3.3,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.8,
+          "Ni_eq": 10.28
+        },
+        "DeLong": {
+          "Cr_eq": 26.8,
+          "Ni_eq": 10.28
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.3,
+          "Ni_eq": 9.56
+        }
+      }
+    },
+    {
+      "designation": "SAFINOX BNC 75 15 M",
+      "composition": {
+        "C": 0.04,
+        "Mn": 2.0,
+        "Si": 0.2,
+        "Cr": 16.0,
+        "Ni": 69.0,
+        "Mo": 1.4,
+        "Nb": 1.8,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.6,
+          "Ni_eq": 71.2
+        },
+        "DeLong": {
+          "Cr_eq": 18.6,
+          "Ni_eq": 71.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.66,
+          "Ni_eq": 70.4
+        }
+      }
+    },
+    {
+      "designation": "SAFINEL 625 DRY",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.8,
+        "Si": 0.3,
+        "Cr": 22.0,
+        "Ni": 63.0,
+        "Mo": 9.0,
+        "Nb": 3.5,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 33.2,
+          "Ni_eq": 64.3
+        },
+        "DeLong": {
+          "Cr_eq": 33.2,
+          "Ni_eq": 64.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 33.45,
+          "Ni_eq": 64.05
+        }
+      }
+    },
+    {
+      "designation": "OK 61.20  (E308L-16 )",
+      "composition": {
+        "C": 0.026,
+        "Mn": 0.7,
+        "Si": 0.7,
+        "Cr": 19.2,
+        "Ni": 9.6,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.25,
+          "Ni_eq": 10.73
+        },
+        "DeLong": {
+          "Cr_eq": 20.25,
+          "Ni_eq": 10.73
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.2,
+          "Ni_eq": 10.51
+        }
+      }
+    },
+    {
+      "designation": "OK 61.25  (E308H-15 )",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.7,
+        "Si": 0.03,
+        "Cr": 18.8,
+        "Ni": 9.8,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.845,
+          "Ni_eq": 12.45
+        },
+        "DeLong": {
+          "Cr_eq": 18.845,
+          "Ni_eq": 12.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.8,
+          "Ni_eq": 11.9
+        }
+      }
+    },
+    {
+      "designation": "OK 61.30  (E308L-17 )",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.9,
+        "Cr": 19.3,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.65,
+          "Ni_eq": 11.25
+        },
+        "DeLong": {
+          "Cr_eq": 20.65,
+          "Ni_eq": 11.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.3,
+          "Ni_eq": 11.05
+        }
+      }
+    },
+    {
+      "designation": "OK 61.35  (E308L-15 )",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.6,
+        "Si": 0.3,
+        "Cr": 19.5,
+        "Ni": 9.8,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.95,
+          "Ni_eq": 11.8
+        },
+        "DeLong": {
+          "Cr_eq": 19.95,
+          "Ni_eq": 11.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.5,
+          "Ni_eq": 11.2
+        }
+      }
+    },
+    {
+      "designation": "OK 61.35 Cryo  (E308L-15 )",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.6,
+        "Si": 0.3,
+        "Cr": 18.7,
+        "Ni": 10.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.15,
+          "Ni_eq": 12.5
+        },
+        "DeLong": {
+          "Cr_eq": 19.15,
+          "Ni_eq": 12.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.7,
+          "Ni_eq": 11.9
+        }
+      }
+    },
+    {
+      "designation": "OK 61.50  (E308H-17)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.7,
+        "Si": 0.7,
+        "Cr": 19.8,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.85,
+          "Ni_eq": 11.85
+        },
+        "DeLong": {
+          "Cr_eq": 20.85,
+          "Ni_eq": 11.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.8,
+          "Ni_eq": 11.75
+        }
+      }
+    },
+    {
+      "designation": "OK 61.80  (E347-17)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.6,
+        "Si": 0.7,
+        "Cr": 19.5,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": 0.29,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.695,
+          "Ni_eq": 11.2
+        },
+        "DeLong": {
+          "Cr_eq": 20.695,
+          "Ni_eq": 11.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.703,
+          "Ni_eq": 11.05
+        }
+      }
+    },
+    {
+      "designation": "OK 61.81  (E347-16)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.7,
+        "Si": 0.7,
+        "Cr": 20.2,
+        "Ni": 9.7,
+        "Mo": null,
+        "Nb": 0.72,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.61,
+          "Ni_eq": 12.35
+        },
+        "DeLong": {
+          "Cr_eq": 21.61,
+          "Ni_eq": 12.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.704,
+          "Ni_eq": 11.8
+        }
+      }
+    },
+    {
+      "designation": "OK 61.85  (E347-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.7,
+        "Si": 0.4,
+        "Cr": 19.5,
+        "Ni": 10.2,
+        "Mo": null,
+        "Nb": 0.61,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.405,
+          "Ni_eq": 12.25
+        },
+        "DeLong": {
+          "Cr_eq": 20.405,
+          "Ni_eq": 12.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.927,
+          "Ni_eq": 11.6
+        }
+      }
+    },
+    {
+      "designation": "OK 61.86  (E347-17)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 19.0,
+        "Ni": 10.4,
+        "Mo": null,
+        "Nb": 0.5,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 11.65
+        },
+        "DeLong": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 11.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.35,
+          "Ni_eq": 11.45
+        }
+      }
+    },
+    {
+      "designation": "OK 62.53  ()",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.6,
+        "Si": 1.6,
+        "Cr": 23.1,
+        "Ni": 10.4,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 12.8
+        },
+        "DeLong": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 12.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.1,
+          "Ni_eq": 12.85
+        }
+      }
+    },
+    {
+      "designation": "OK 63.20  (E316L-16)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.7,
+        "Si": 0.7,
+        "Cr": 18.4,
+        "Ni": 11.5,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.25,
+          "Ni_eq": 12.45
+        },
+        "DeLong": {
+          "Cr_eq": 22.25,
+          "Ni_eq": 12.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 12.2
+        }
+      }
+    },
+    {
+      "designation": "OK 63.30  (E316L-17)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.6,
+        "Si": 0.8,
+        "Cr": 18.1,
+        "Ni": 11.0,
+        "Mo": 2.7,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.0,
+          "Ni_eq": 11.9
+        },
+        "DeLong": {
+          "Cr_eq": 22.0,
+          "Ni_eq": 11.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.8,
+          "Ni_eq": 11.7
+        }
+      }
+    },
+    {
+      "designation": "OK 63.34  (E316L-16)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.8,
+        "Si": 0.8,
+        "Cr": 18.7,
+        "Ni": 11.8,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.7,
+          "Ni_eq": 12.8
+        },
+        "DeLong": {
+          "Cr_eq": 22.7,
+          "Ni_eq": 12.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.5,
+          "Ni_eq": 12.5
+        }
+      }
+    },
+    {
+      "designation": "OK 63.35  (E316L-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.6,
+        "Si": 0.4,
+        "Cr": 18.3,
+        "Ni": 12.6,
+        "Mo": 2.7,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.6,
+          "Ni_eq": 14.6
+        },
+        "DeLong": {
+          "Cr_eq": 21.6,
+          "Ni_eq": 14.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 14.0
+        }
+      }
+    },
+    {
+      "designation": "OK 63.41 (E316L-26)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 18.2,
+        "Ni": 12.5,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.2,
+          "Ni_eq": 13.75
+        },
+        "DeLong": {
+          "Cr_eq": 22.2,
+          "Ni_eq": 13.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 13.55
+        }
+      }
+    },
+    {
+      "designation": "OK 63.80 (E318-17)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.6,
+        "Si": 0.8,
+        "Cr": 18.2,
+        "Ni": 11.5,
+        "Mo": 2.9,
+        "Nb": 0.31,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.455,
+          "Ni_eq": 12.4
+        },
+        "DeLong": {
+          "Cr_eq": 22.455,
+          "Ni_eq": 12.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.317,
+          "Ni_eq": 12.2
+        }
+      }
+    },
+    {
+      "designation": "OK 63.85 (E318-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.6,
+        "Si": 0.5,
+        "Cr": 17.9,
+        "Ni": 13.0,
+        "Mo": 2.7,
+        "Nb": 0.55,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.625,
+          "Ni_eq": 15.0
+        },
+        "DeLong": {
+          "Cr_eq": 21.625,
+          "Ni_eq": 15.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.985,
+          "Ni_eq": 14.4
+        }
+      }
+    },
+    {
+      "designation": "OK 64.30 (E317L-17)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.7,
+        "Si": 0.7,
+        "Cr": 18.4,
+        "Ni": 13.1,
+        "Mo": 3.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.05,
+          "Ni_eq": 14.05
+        },
+        "DeLong": {
+          "Cr_eq": 23.05,
+          "Ni_eq": 14.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.0,
+          "Ni_eq": 13.8
+        }
+      }
+    },
+    {
+      "designation": "OK 64.63 ()",
+      "composition": {
+        "C": 0.04,
+        "Mn": 2.5,
+        "Si": 0.4,
+        "Cr": 17.8,
+        "Ni": 16.4,
+        "Mo": 4.7,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.1,
+          "Ni_eq": 18.85
+        },
+        "DeLong": {
+          "Cr_eq": 23.1,
+          "Ni_eq": 18.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.5,
+          "Ni_eq": 17.8
+        }
+      }
+    },
+    {
+      "designation": "OK 67.13 (E310-16)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 1.9,
+        "Si": 0.5,
+        "Cr": 25.6,
+        "Ni": 20.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.35,
+          "Ni_eq": 25.05
+        },
+        "DeLong": {
+          "Cr_eq": 26.35,
+          "Ni_eq": 25.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.6,
+          "Ni_eq": 24.7
+        }
+      }
+    },
+    {
+      "designation": "OK 67.15 (E310-15)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 2.0,
+        "Si": 0.4,
+        "Cr": 25.7,
+        "Ni": 20.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.3,
+          "Ni_eq": 24.0
+        },
+        "DeLong": {
+          "Cr_eq": 26.3,
+          "Ni_eq": 24.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.7,
+          "Ni_eq": 23.5
+        }
+      }
+    },
+    {
+      "designation": "OK 67.20 ((E309LMo-16))",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.8,
+        "Si": 1.1,
+        "Cr": 22.9,
+        "Ni": 13.1,
+        "Mo": 2.9,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.45,
+          "Ni_eq": 14.1
+        },
+        "DeLong": {
+          "Cr_eq": 27.45,
+          "Ni_eq": 14.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.8,
+          "Ni_eq": 13.8
+        }
+      }
+    },
+    {
+      "designation": "OK 67.43 ((E307-16))",
+      "composition": {
+        "C": 0.08,
+        "Mn": 5.4,
+        "Si": 0.8,
+        "Cr": 18.4,
+        "Ni": 9.1,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.6,
+          "Ni_eq": 14.2
+        },
+        "DeLong": {
+          "Cr_eq": 19.6,
+          "Ni_eq": 14.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.4,
+          "Ni_eq": 11.9
+        }
+      }
+    },
+    {
+      "designation": "OK 67.45 (0.09)",
+      "composition": {
+        "C": 0.3,
+        "Mn": 18.8,
+        "Si": 6.3,
+        "Cr": 9.1,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.55,
+          "Ni_eq": 18.4
+        },
+        "DeLong": {
+          "Cr_eq": 18.55,
+          "Ni_eq": 18.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 9.1,
+          "Ni_eq": 10.5
+        }
+      }
+    },
+    {
+      "designation": "OK 67.50 (E2209-17)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.9,
+        "Cr": 22.6,
+        "Ni": 9.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.95,
+          "Ni_eq": 10.4
+        },
+        "DeLong": {
+          "Cr_eq": 26.95,
+          "Ni_eq": 10.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.6,
+          "Ni_eq": 10.05
+        }
+      }
+    },
+    {
+      "designation": "OK 67.51 (E2209-26)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 22.7,
+        "Ni": 8.9,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.9,
+          "Ni_eq": 10.15
+        },
+        "DeLong": {
+          "Cr_eq": 26.9,
+          "Ni_eq": 10.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.7,
+          "Ni_eq": 9.95
+        }
+      }
+    },
+    {
+      "designation": "OK 67.52 ((E307-25))",
+      "composition": {
+        "C": 0.09,
+        "Mn": 7.0,
+        "Si": 0.9,
+        "Cr": 17.7,
+        "Ni": 8.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.05,
+          "Ni_eq": 14.7
+        },
+        "DeLong": {
+          "Cr_eq": 19.05,
+          "Ni_eq": 14.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.7,
+          "Ni_eq": 11.65
+        }
+      }
+    },
+    {
+      "designation": "OK 67.53 ((E2209-16))",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 1.0,
+        "Cr": 23.7,
+        "Ni": 9.3,
+        "Mo": 3.4,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 28.6,
+          "Ni_eq": 10.55
+        },
+        "DeLong": {
+          "Cr_eq": 28.6,
+          "Ni_eq": 10.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 27.1,
+          "Ni_eq": 10.35
+        }
+      }
+    },
+    {
+      "designation": "OK 67.55 (E2209-15)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.7,
+        "Cr": 23.2,
+        "Ni": 9.4,
+        "Mo": 3.2,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.45,
+          "Ni_eq": 10.8
+        },
+        "DeLong": {
+          "Cr_eq": 27.45,
+          "Ni_eq": 10.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.4,
+          "Ni_eq": 10.45
+        }
+      }
+    },
+    {
+      "designation": "OK 67.60 (E309L-17)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.9,
+        "Si": 0.8,
+        "Cr": 23.7,
+        "Ni": 12.4,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.9,
+          "Ni_eq": 13.75
+        },
+        "DeLong": {
+          "Cr_eq": 24.9,
+          "Ni_eq": 13.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.7,
+          "Ni_eq": 13.45
+        }
+      }
+    },
+    {
+      "designation": "OK 67.62 (E309-26)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.6,
+        "Si": 0.8,
+        "Cr": 23.7,
+        "Ni": 12.7,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.9,
+          "Ni_eq": 14.2
+        },
+        "DeLong": {
+          "Cr_eq": 24.9,
+          "Ni_eq": 14.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.7,
+          "Ni_eq": 14.1
+        }
+      }
+    },
+    {
+      "designation": "OK 67.70 (E309L-17)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.6,
+        "Si": 0.8,
+        "Cr": 22.5,
+        "Ni": 13.4,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.5,
+          "Ni_eq": 14.3
+        },
+        "DeLong": {
+          "Cr_eq": 26.5,
+          "Ni_eq": 14.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.3,
+          "Ni_eq": 14.1
+        }
+      }
+    },
+    {
+      "designation": "OK 67.71 (E309LMo-26)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.9,
+        "Si": 0.9,
+        "Cr": 22.9,
+        "Ni": 13.3,
+        "Mo": 2.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.85,
+          "Ni_eq": 14.95
+        },
+        "DeLong": {
+          "Cr_eq": 26.85,
+          "Ni_eq": 14.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 14.7
+        }
+      }
+    },
+    {
+      "designation": "OK 67.75 (E309L-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.2,
+        "Si": 0.3,
+        "Cr": 23.5,
+        "Ni": 12.9,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.95,
+          "Ni_eq": 14.2
+        },
+        "DeLong": {
+          "Cr_eq": 23.95,
+          "Ni_eq": 14.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 14.3
+        }
+      }
+    },
+    {
+      "designation": "OK 68.15 (E410-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.3,
+        "Si": 0.4,
+        "Cr": 12.9,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.5,
+          "Ni_eq": 1.35
+        },
+        "DeLong": {
+          "Cr_eq": 13.5,
+          "Ni_eq": 1.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 12.9,
+          "Ni_eq": 1.4
+        }
+      }
+    },
+    {
+      "designation": "OK 68.17  (E410NiMo-16)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.6,
+        "Si": 0.4,
+        "Cr": 12.0,
+        "Ni": 4.6,
+        "Mo": 0.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.2,
+          "Ni_eq": 5.5
+        },
+        "DeLong": {
+          "Cr_eq": 13.2,
+          "Ni_eq": 5.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 12.6,
+          "Ni_eq": 5.3
+        }
+      }
+    },
+    {
+      "designation": "OK 68.25 (E410NiMo-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.6,
+        "Si": 0.4,
+        "Cr": 12.2,
+        "Ni": 4.5,
+        "Mo": 0.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.4,
+          "Ni_eq": 6.0
+        },
+        "DeLong": {
+          "Cr_eq": 13.4,
+          "Ni_eq": 6.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 12.8,
+          "Ni_eq": 5.9
+        }
+      }
+    },
+    {
+      "designation": "OK 68.37 ()",
+      "composition": {
+        "C": 0.05,
+        "Mn": 1.1,
+        "Si": 0.16,
+        "Cr": 16.0,
+        "Ni": 5.0,
+        "Mo": 0.43,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 16.67,
+          "Ni_eq": 7.05
+        },
+        "DeLong": {
+          "Cr_eq": 16.67,
+          "Ni_eq": 7.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 16.43,
+          "Ni_eq": 6.75
+        }
+      }
+    },
+    {
+      "designation": "OK 68.53 (E2594-16)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.6,
+        "Cr": 25.2,
+        "Ni": 10.3,
+        "Mo": 4.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.1,
+          "Ni_eq": 11.55
+        },
+        "DeLong": {
+          "Cr_eq": 30.1,
+          "Ni_eq": 11.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.2,
+          "Ni_eq": 11.35
+        }
+      }
+    },
+    {
+      "designation": "OK 68.55 (E2594-15)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.9,
+        "Si": 0.6,
+        "Cr": 25.2,
+        "Ni": 10.4,
+        "Mo": 4.3,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.4,
+          "Ni_eq": 11.75
+        },
+        "DeLong": {
+          "Cr_eq": 30.4,
+          "Ni_eq": 11.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.5,
+          "Ni_eq": 11.45
+        }
+      }
+    },
+    {
+      "designation": "OK 68.81 (E312-17 )",
+      "composition": {
+        "C": 0.13,
+        "Mn": 0.9,
+        "Si": 0.7,
+        "Cr": 28.9,
+        "Ni": 10.2,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.95,
+          "Ni_eq": 14.55
+        },
+        "DeLong": {
+          "Cr_eq": 29.95,
+          "Ni_eq": 14.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 28.9,
+          "Ni_eq": 14.75
+        }
+      }
+    },
+    {
+      "designation": "OK 68.82  ((E312-17) )",
+      "composition": {
+        "C": 0.13,
+        "Mn": 0.6,
+        "Si": 1.1,
+        "Cr": 29.1,
+        "Ni": 9.9,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.75,
+          "Ni_eq": 14.1
+        },
+        "DeLong": {
+          "Cr_eq": 30.75,
+          "Ni_eq": 14.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.1,
+          "Ni_eq": 14.45
+        }
+      }
+    },
+    {
+      "designation": "OK 69.25  (E316LMn-15 )",
+      "composition": {
+        "C": 0.04,
+        "Mn": 6.5,
+        "Si": 0.5,
+        "Cr": 19.0,
+        "Ni": 16.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.75,
+          "Ni_eq": 20.45
+        },
+        "DeLong": {
+          "Cr_eq": 22.75,
+          "Ni_eq": 20.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.0,
+          "Ni_eq": 17.4
+        }
+      }
+    },
+    {
+      "designation": "OK 69.33  (E385-16 )",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 20.5,
+        "Ni": 25.5,
+        "Mo": 4.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.05,
+          "Ni_eq": 26.9
+        },
+        "DeLong": {
+          "Cr_eq": 26.05,
+          "Ni_eq": 26.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.3,
+          "Ni_eq": 26.55
+        }
+      }
+    },
+    {
+      "designation": "OK 310Mo-L  ((E310Mo-16) )",
+      "composition": {
+        "C": 0.038,
+        "Mn": 4.4,
+        "Si": 0.4,
+        "Cr": 24.2,
+        "Ni": 21.7,
+        "Mo": 2.4,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.2,
+          "Ni_eq": 25.04
+        },
+        "DeLong": {
+          "Cr_eq": 27.2,
+          "Ni_eq": 25.04
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.6,
+          "Ni_eq": 23.03
+        }
+      }
+    },
+    {
+      "designation": "ALTIG 308L - EN ISO 14343 : W 19 9 L",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.7,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.6,
+          "Ni_eq": 10.8
+        },
+        "DeLong": {
+          "Cr_eq": 20.6,
+          "Ni_eq": 10.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 10.025
+        }
+      }
+    },
+    {
+      "designation": "ALTIG 316L - EN ISO 14343 : W 19 12 3 L",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.7,
+        "Si": 0.4,
+        "Cr": 18.5,
+        "Ni": 11.5,
+        "Mo": 2.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.7,
+          "Ni_eq": 12.8
+        },
+        "DeLong": {
+          "Cr_eq": 21.7,
+          "Ni_eq": 12.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.1,
+          "Ni_eq": 12.025
+        }
+      }
+    },
+    {
+      "designation": "ALTIG 347 - EN ISO 14343 : W 19 9 Nb Si",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.4,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": 0.7,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.95,
+          "Ni_eq": 11.4
+        },
+        "DeLong": {
+          "Cr_eq": 20.95,
+          "Ni_eq": 11.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.49,
+          "Ni_eq": 10.9
+        }
+      }
+    },
+    {
+      "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.4,
+        "Si": 0.4,
+        "Cr": 19.0,
+        "Ni": 11.0,
+        "Mo": 2.7,
+        "Nb": 0.7,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.65,
+          "Ni_eq": 12.9
+        },
+        "DeLong": {
+          "Cr_eq": 22.65,
+          "Ni_eq": 12.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.19,
+          "Ni_eq": 12.4
+        }
+      }
+    },
+    {
+      "designation": "ALTIG 309L - EN ISO 14343 : W 23 12 L",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.4,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.6,
+          "Ni_eq": 11.4
+        },
+        "DeLong": {
+          "Cr_eq": 20.6,
+          "Ni_eq": 11.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 10.9
+        }
+      }
+    },
+    {
+      "designation": "ALTIG 310 - EN ISO 14343 : W 25 20",
+      "composition": {
+        "C": 0.09,
+        "Mn": 2.0,
+        "Si": 0.45,
+        "Cr": 27.0,
+        "Ni": 21.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.675,
+          "Ni_eq": 24.7
+        },
+        "DeLong": {
+          "Cr_eq": 27.675,
+          "Ni_eq": 24.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 27.0,
+          "Ni_eq": 24.15
+        }
+      }
+    },
+    {
+      "designation": "LEXAL W 22 9 3 N  - EN ISO 14343 : G 22 9 3 NL",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.6,
+        "Si": 0.5,
+        "Cr": 22.8,
+        "Ni": 8.5,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.55,
+          "Ni_eq": 9.75
+        },
+        "DeLong": {
+          "Cr_eq": 26.55,
+          "Ni_eq": 9.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.8,
+          "Ni_eq": 9.025
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 308 L - EN 12072 : W 19 9L",
+      "composition": {
+        "C": 0.025,
+        "Mn": null,
+        "Si": 0.45,
+        "Cr": 19.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.675,
+          "Ni_eq": 10.75
+        },
+        "DeLong": {
+          "Cr_eq": 19.675,
+          "Ni_eq": 10.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 10.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 308 Si",
+      "composition": {
+        "C": 0.025,
+        "Mn": null,
+        "Si": 0.85,
+        "Cr": 19.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.275,
+          "Ni_eq": 10.75
+        },
+        "DeLong": {
+          "Cr_eq": 20.275,
+          "Ni_eq": 10.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 10.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 316L - EN 12072 : W 19 12 3 L",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.4,
+        "Si": 0.45,
+        "Cr": 19.0,
+        "Ni": 12.0,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.475,
+          "Ni_eq": 13.45
+        },
+        "DeLong": {
+          "Cr_eq": 22.475,
+          "Ni_eq": 13.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.8,
+          "Ni_eq": 12.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 316L Si",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.4,
+        "Si": 0.85,
+        "Cr": 19.0,
+        "Ni": 10.0,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.075,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 23.075,
+          "Ni_eq": 11.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.8,
+          "Ni_eq": 10.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 308H",
+      "composition": {
+        "C": 0.055,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 19.0,
+        "Ni": null,
+        "Mo": 10.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.6,
+          "Ni_eq": 2.55
+        },
+        "DeLong": {
+          "Cr_eq": 29.6,
+          "Ni_eq": 2.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 1.925
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 347",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.6,
+        "Si": 0.45,
+        "Cr": 19.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": 0.8,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.075,
+          "Ni_eq": 12.9
+        },
+        "DeLong": {
+          "Cr_eq": 20.075,
+          "Ni_eq": 12.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.56,
+          "Ni_eq": 12.45
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 347 Si",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.6,
+        "Si": 0.85,
+        "Cr": 19.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": 0.8,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.675,
+          "Ni_eq": 12.9
+        },
+        "DeLong": {
+          "Cr_eq": 20.675,
+          "Ni_eq": 12.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.56,
+          "Ni_eq": 12.45
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 318",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.4,
+        "Si": 0.45,
+        "Cr": 19.0,
+        "Ni": 12.0,
+        "Mo": 2.8,
+        "Nb": 0.7,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.825,
+          "Ni_eq": 13.45
+        },
+        "DeLong": {
+          "Cr_eq": 22.825,
+          "Ni_eq": 13.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.29,
+          "Ni_eq": 12.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 318 Si",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.4,
+        "Si": 0.85,
+        "Cr": 19.0,
+        "Ni": 10.0,
+        "Mo": 2.8,
+        "Nb": 0.7,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.425,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 23.425,
+          "Ni_eq": 11.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.29,
+          "Ni_eq": 10.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 309L Si",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.8,
+        "Si": 0.85,
+        "Cr": 24.0,
+        "Ni": 12.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 25.275,
+          "Ni_eq": 13.65
+        },
+        "DeLong": {
+          "Cr_eq": 25.275,
+          "Ni_eq": 13.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.0,
+          "Ni_eq": 12.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 309L Mo",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.6,
+        "Si": 0.45,
+        "Cr": 24.0,
+        "Ni": 12.0,
+        "Mo": 2.5,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.175,
+          "Ni_eq": 13.55
+        },
+        "DeLong": {
+          "Cr_eq": 27.175,
+          "Ni_eq": 13.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.5,
+          "Ni_eq": 12.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 307",
+      "composition": {
+        "C": 0.12,
+        "Mn": 6.5,
+        "Si": 0.8,
+        "Cr": 19.0,
+        "Ni": 9.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.2,
+          "Ni_eq": 15.85
+        },
+        "DeLong": {
+          "Cr_eq": 20.2,
+          "Ni_eq": 15.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 13.2
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 310",
+      "composition": {
+        "C": 0.15,
+        "Mn": 1.8,
+        "Si": 0.6,
+        "Cr": 25.0,
+        "Ni": 20.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 25.9,
+          "Ni_eq": 25.4
+        },
+        "DeLong": {
+          "Cr_eq": 25.9,
+          "Ni_eq": 25.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.0,
+          "Ni_eq": 25.25
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 22 9 3 - 309MoL",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.1,
+        "Si": 0.5,
+        "Cr": 23.0,
+        "Ni": 9.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.75,
+          "Ni_eq": 10.3
+        },
+        "DeLong": {
+          "Cr_eq": 26.75,
+          "Ni_eq": 10.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.0,
+          "Ni_eq": 9.875
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 904L",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.9,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 25.0,
+        "Mo": 4.5,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 25.1,
+          "Ni_eq": 26.55
+        },
+        "DeLong": {
+          "Cr_eq": 25.1,
+          "Ni_eq": 26.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.5,
+          "Ni_eq": 25.7
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 312",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 30.5,
+        "Ni": 9.2,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 31.1,
+          "Ni_eq": 13.1
+        },
+        "DeLong": {
+          "Cr_eq": 31.1,
+          "Ni_eq": 13.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.5,
+          "Ni_eq": 12.7
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 410",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.45,
+        "Si": 0.35,
+        "Cr": 12.5,
+        "Ni": 0.3,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.025,
+          "Ni_eq": 3.525
+        },
+        "DeLong": {
+          "Cr_eq": 13.025,
+          "Ni_eq": 3.525
+        },
+        "WRC_1992": {
+          "Cr_eq": 12.5,
+          "Ni_eq": 3.8
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 430",
+      "composition": {
+        "C": 0.06,
+        "Mn": 0.6,
+        "Si": 0.5,
+        "Cr": 17.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.75,
+          "Ni_eq": 2.1
+        },
+        "DeLong": {
+          "Cr_eq": 17.75,
+          "Ni_eq": 2.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 2.1
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 410 Ni Mo",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.7,
+        "Si": 0.6,
+        "Cr": 12.5,
+        "Ni": 4.5,
+        "Mo": 0.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 14.0,
+          "Ni_eq": 6.35
+        },
+        "DeLong": {
+          "Cr_eq": 14.0,
+          "Ni_eq": 6.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 13.1,
+          "Ni_eq": 6.25
+        }
+      }
+    },
+    {
+      "designation": "INERTROD 20-16L",
+      "composition": {
+        "C": 0.025,
+        "Mn": 7.0,
+        "Si": 0.9,
+        "Cr": 20.0,
+        "Ni": 16.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.35,
+          "Ni_eq": 20.25
+        },
+        "DeLong": {
+          "Cr_eq": 24.35,
+          "Ni_eq": 20.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 16.875
+        }
+      }
+    },
+    {
+      "designation": "FILINOX 308L Si  (NERTALIC 50)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.7,
+        "Si": 0.8,
+        "Cr": 19.0,
+        "Ni": 10.8,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.2,
+          "Ni_eq": 12.1
+        },
+        "DeLong": {
+          "Cr_eq": 20.2,
+          "Ni_eq": 12.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 11.325
+        }
+      }
+    },
+    {
+      "designation": "FILINOX 307  (NERTALIC 51)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 7.0,
+        "Si": 0.8,
+        "Cr": 18.5,
+        "Ni": 8.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.7,
+          "Ni_eq": 14.4
+        },
+        "DeLong": {
+          "Cr_eq": 19.7,
+          "Ni_eq": 14.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.5,
+          "Ni_eq": 11.3
+        }
+      }
+    },
+    {
+      "designation": "FILINOX 316L Si (NERTALIC 52 - rec. pour 316L)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.7,
+        "Si": 0.8,
+        "Cr": 18.5,
+        "Ni": 11.5,
+        "Mo": 2.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 12.8
+        },
+        "DeLong": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 12.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.1,
+          "Ni_eq": 12.025
+        }
+      }
+    },
+    {
+      "designation": "FILINOX 347  (NERTALIC 53 - recomm. pour 347)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.4,
+        "Si": 0.85,
+        "Cr": 20.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": 0.7,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.625,
+          "Ni_eq": 11.4
+        },
+        "DeLong": {
+          "Cr_eq": 21.625,
+          "Ni_eq": 11.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.49,
+          "Ni_eq": 10.9
+        }
+      }
+    },
+    {
+      "designation": "FILINOX 309L Si  (NERTALIC 54 - rec. pour 24.12)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.8,
+        "Si": 0.8,
+        "Cr": 23.5,
+        "Ni": 13.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.7,
+          "Ni_eq": 14.5
+        },
+        "DeLong": {
+          "Cr_eq": 24.7,
+          "Ni_eq": 14.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 13.7
+        }
+      }
+    },
+    {
+      "designation": "FILINOX 310   (NERTALIC 55  - rec. pour 25.20)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.6,
+        "Si": 0.4,
+        "Cr": 24.0,
+        "Ni": 20.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.6,
+          "Ni_eq": 23.8
+        },
+        "DeLong": {
+          "Cr_eq": 24.6,
+          "Ni_eq": 23.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.0,
+          "Ni_eq": 23.5
+        }
+      }
+    },
+    {
+      "designation": "LEXAL G 22 9 3 N",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.6,
+        "Si": 0.5,
+        "Cr": 22.8,
+        "Ni": 8.5,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.55,
+          "Ni_eq": 10.2
+        },
+        "DeLong": {
+          "Cr_eq": 26.55,
+          "Ni_eq": 10.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.8,
+          "Ni_eq": 9.55
+        }
+      }
+    },
+    {
+      "designation": "NERTALIC 210",
+      "composition": {
+        "C": 0.08,
+        "Mn": 3.0,
+        "Si": 0.15,
+        "Cr": 20.0,
+        "Ni": 72.5,
+        "Mo": null,
+        "Nb": 2.5,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.475,
+          "Ni_eq": 76.4
+        },
+        "DeLong": {
+          "Cr_eq": 21.475,
+          "Ni_eq": 76.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.75,
+          "Ni_eq": 75.3
+        }
+      }
+    },
+    {
+      "designation": "NERTALIC 625",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.3,
+        "Si": null,
+        "Cr": 22.0,
+        "Ni": 60.67,
+        "Mo": 9.0,
+        "Nb": 3.5,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.75,
+          "Ni_eq": 61.72
+        },
+        "DeLong": {
+          "Cr_eq": 32.75,
+          "Ni_eq": 61.72
+        },
+        "WRC_1992": {
+          "Cr_eq": 33.45,
+          "Ni_eq": 61.72
+        }
+      }
+    },
+    {
+      "designation": "INOX R 18.8",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.85,
+        "Si": 0.7,
+        "Cr": 19.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.05,
+          "Ni_eq": 11.325
+        },
+        "DeLong": {
+          "Cr_eq": 20.05,
+          "Ni_eq": 11.325
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 11.05
+        }
+      }
+    },
+    {
+      "designation": "INOX 308 LP",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.85,
+        "Si": 0.7,
+        "Cr": 19.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.05,
+          "Ni_eq": 11.325
+        },
+        "DeLong": {
+          "Cr_eq": 20.05,
+          "Ni_eq": 11.325
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 11.05
+        }
+      }
+    },
+    {
+      "designation": "MOLINOX R 18.8 - MOLINOX R 18.8 CYROCO",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.85,
+        "Si": 0.7,
+        "Cr": 18.5,
+        "Ni": 12.0,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.35,
+          "Ni_eq": 13.325
+        },
+        "DeLong": {
+          "Cr_eq": 22.35,
+          "Ni_eq": 13.325
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.3,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "INOX 316 LP",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.75,
+        "Si": 0.7,
+        "Cr": 18.0,
+        "Ni": 12.0,
+        "Mo": 2.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.85,
+          "Ni_eq": 13.275
+        },
+        "DeLong": {
+          "Cr_eq": 21.85,
+          "Ni_eq": 13.275
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.8,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "INOXAMFER",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.0,
+        "Si": 0.9,
+        "Cr": 19.0,
+        "Ni": 11.5,
+        "Mo": 2.5,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.85,
+          "Ni_eq": 13.2
+        },
+        "DeLong": {
+          "Cr_eq": 22.85,
+          "Ni_eq": 13.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.5,
+          "Ni_eq": 12.9
+        }
+      }
+    },
+    {
+      "designation": "FLAMINOX 25.12",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.9,
+        "Si": 0.7,
+        "Cr": 23.0,
+        "Ni": 12.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.05,
+          "Ni_eq": 13.85
+        },
+        "DeLong": {
+          "Cr_eq": 24.05,
+          "Ni_eq": 13.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 13.55
+        }
+      }
+    },
+    {
+      "designation": "FIXINOX R",
+      "composition": {
+        "C": 0.06,
+        "Mn": 5.0,
+        "Si": 0.8,
+        "Cr": 28.5,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.7,
+          "Ni_eq": 14.3
+        },
+        "DeLong": {
+          "Cr_eq": 29.7,
+          "Ni_eq": 14.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 28.5,
+          "Ni_eq": 12.1
+        }
+      }
+    },
+    {
+      "designation": "FLAMINOX 25.20",
+      "composition": {
+        "C": 0.12,
+        "Mn": 2.5,
+        "Si": 0.85,
+        "Cr": 26.5,
+        "Ni": 21.0,
+        "Mo": 2.5,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.275,
+          "Ni_eq": 25.85
+        },
+        "DeLong": {
+          "Cr_eq": 30.275,
+          "Ni_eq": 25.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 25.2
+        }
+      }
+    },
+    {
+      "designation": "INOX 29.9",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.5,
+        "Si": 1.5,
+        "Cr": 28.5,
+        "Ni": 12.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.75,
+          "Ni_eq": 15.75
+        },
+        "DeLong": {
+          "Cr_eq": 30.75,
+          "Ni_eq": 15.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 28.5,
+          "Ni_eq": 15.5
+        }
+      }
+    },
+    {
+      "designation": "MOLINOX B 20 10 S",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.8,
+        "Si": 0.5,
+        "Cr": 20.5,
+        "Ni": 10.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.25,
+          "Ni_eq": 12.7
+        },
+        "DeLong": {
+          "Cr_eq": 24.25,
+          "Ni_eq": 12.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 12.1
+        }
+      }
+    },
+    {
+      "designation": "MOLINOX R 20.10 A",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.6,
+        "Si": 0.7,
+        "Cr": 20.5,
+        "Ni": 10.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.55,
+          "Ni_eq": 12.0
+        },
+        "DeLong": {
+          "Cr_eq": 24.55,
+          "Ni_eq": 12.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 11.4
+        }
+      }
+    },
+    {
+      "designation": "INOX B 75.15",
+      "composition": {
+        "C": 0.07,
+        "Mn": 2.25,
+        "Si": 0.5,
+        "Cr": 15.5,
+        "Ni": 65.0,
+        "Mo": 1.3,
+        "Nb": 2.0,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.55,
+          "Ni_eq": 68.225
+        },
+        "DeLong": {
+          "Cr_eq": 18.55,
+          "Ni_eq": 68.225
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.2,
+          "Ni_eq": 67.45
+        }
+      }
+    },
+    {
+      "designation": "INOX B 625 CYROCO",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.0,
+        "Si": 0.3,
+        "Cr": 21.5,
+        "Ni": 58.0,
+        "Mo": 9.0,
+        "Nb": 3.6,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.75,
+          "Ni_eq": 59.7
+        },
+        "DeLong": {
+          "Cr_eq": 32.75,
+          "Ni_eq": 59.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 33.02,
+          "Ni_eq": 59.4
+        }
+      }
+    },
+    {
+      "designation": "CYDUR 1",
+      "composition": {
+        "C": 0.6,
+        "Mn": 14.0,
+        "Si": 0.1,
+        "Cr": 4.5,
+        "Ni": 4.25,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 4.65,
+          "Ni_eq": 29.25
+        },
+        "DeLong": {
+          "Cr_eq": 4.65,
+          "Ni_eq": 29.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 4.5,
+          "Ni_eq": 25.25
+        }
+      }
+    },
+    {
+      "designation": "CYDUR 7",
+      "composition": {
+        "C": 0.5,
+        "Mn": 0.5,
+        "Si": 0.8,
+        "Cr": 7.0,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 8.7,
+          "Ni_eq": 15.25
+        },
+        "DeLong": {
+          "Cr_eq": 8.7,
+          "Ni_eq": 15.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 7.5,
+          "Ni_eq": 17.5
+        }
+      }
+    },
+    {
+      "designation": "CYDUR 12",
+      "composition": {
+        "C": 4.0,
+        "Mn": 1.0,
+        "Si": 1.2,
+        "Cr": 34.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 35.8,
+          "Ni_eq": 120.5
+        },
+        "DeLong": {
+          "Cr_eq": 35.8,
+          "Ni_eq": 120.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 34.0,
+          "Ni_eq": 140.0
+        }
+      }
+    },
+    {
+      "designation": "CYFONTE 105",
+      "composition": {
+        "C": 1.5,
+        "Mn": 1.0,
+        "Si": 1.0,
+        "Cr": null,
+        "Ni": 93.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 138.5
+        },
+        "DeLong": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 138.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 145.5
+        }
+      }
+    },
+    {
+      "designation": "CYFONTE 107",
+      "composition": {
+        "C": 1.6,
+        "Mn": 1.0,
+        "Si": 1.0,
+        "Cr": null,
+        "Ni": 52.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 100.5
+        },
+        "DeLong": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 100.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 108.0
+        }
+      }
+    },
+    {
+      "designation": "CYFONTE 109 B",
+      "composition": {
+        "C": 2.0,
+        "Mn": 1.0,
+        "Si": 1.0,
+        "Cr": null,
+        "Ni": 55.0,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 115.5
+        },
+        "DeLong": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 115.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 125.0
+        }
+      }
+    },
+    {
+      "designation": "Divers 1",
+      "composition": {
+        "C": 0.008,
+        "Mn": 1.35,
+        "Si": 0.75,
+        "Cr": 0.05,
+        "Ni": 0.05,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.175,
+          "Ni_eq": 0.965
+        },
+        "DeLong": {
+          "Cr_eq": 1.175,
+          "Ni_eq": 0.965
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.05,
+          "Ni_eq": 0.33
+        }
+      }
+    },
+    {
+      "designation": "Divers 2",
+      "composition": {
+        "C": 0.06,
+        "Mn": 0.5,
+        "Si": 0.4,
+        "Cr": 6.0,
+        "Ni": null,
+        "Mo": 0.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 7.2,
+          "Ni_eq": 2.05
+        },
+        "DeLong": {
+          "Cr_eq": 7.2,
+          "Ni_eq": 2.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 6.6,
+          "Ni_eq": 2.1
+        }
+      }
+    },
+    {
+      "designation": "Divers 3",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.7,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.6,
+          "Ni_eq": 10.8
+        },
+        "DeLong": {
+          "Cr_eq": 20.6,
+          "Ni_eq": 10.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 10.025
+        }
+      }
+    },
+    {
+      "designation": "ER 309L MO",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.5,
+        "Si": 0.55,
+        "Cr": 21.5,
+        "Ni": 14.5,
+        "Mo": 2.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.925,
+          "Ni_eq": 15.7
+        },
+        "DeLong": {
+          "Cr_eq": 24.925,
+          "Ni_eq": 15.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.1,
+          "Ni_eq": 15.025
+        }
+      }
+    },
+    {
+      "designation": "Métal 1",
+      "composition": {
+        "C": 0.025,
+        "Mn": 1.7,
+        "Si": 0.6,
+        "Cr": 22.1,
+        "Ni": 8.0,
+        "Mo": 4.0,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.0,
+          "Ni_eq": 9.6
+        },
+        "DeLong": {
+          "Cr_eq": 27.0,
+          "Ni_eq": 9.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.1,
+          "Ni_eq": 8.875
+        }
+      }
+    },
+    {
+      "designation": "Métal 2",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.6,
+        "Si": 0.8,
+        "Cr": 20.0,
+        "Ni": 11.0,
+        "Mo": 2.9,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.1,
+          "Ni_eq": 13.0
+        },
+        "DeLong": {
+          "Cr_eq": 24.1,
+          "Ni_eq": 13.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.9,
+          "Ni_eq": 12.4
+        }
+      }
+    },
+    {
+      "designation": "301",
+      "composition": {
+        "C": 0.01,
+        "Mn": 2.0,
+        "Si": 2.0,
+        "Cr": 18.0,
+        "Ni": 8.0,
+        "Mo": 0.8,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.8,
+          "Ni_eq": 9.3
+        },
+        "DeLong": {
+          "Cr_eq": 21.8,
+          "Ni_eq": 9.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.8,
+          "Ni_eq": 8.35
+        }
+      }
+    },
+    {
+      "designation": "TIG 308L (ER308L / W19.9L)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.8,
+        "Si": 0.45,
+        "Cr": 20.0,
+        "Ni": 10.0,
+        "Mo": 0.1,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.775,
+          "Ni_eq": 11.5
+        },
+        "DeLong": {
+          "Cr_eq": 20.775,
+          "Ni_eq": 11.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.1,
+          "Ni_eq": 10.7
+        }
+      }
+    },
+    {
+      "designation": "TIG 316L (ER316L / W19.12.3L)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.8,
+        "Si": 0.45,
+        "Cr": 18.5,
+        "Ni": 12.0,
+        "Mo": 2.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.675,
+          "Ni_eq": 13.5
+        },
+        "DeLong": {
+          "Cr_eq": 21.675,
+          "Ni_eq": 13.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 12.7
+        }
+      }
+    },
+    {
+      "designation": "TIG acier SG2 (ER70S-6)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.9,
+        "Cr": 0.05,
+        "Ni": 0.1,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 3.25
+        },
+        "DeLong": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 3.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.05,
+          "Ni_eq": 2.9
+        }
+      }
+    },
+    {
+      "designation": "TIG AlMg5 (ER5356) [alu - hors Schaeffler]",
+      "composition": {
+        "C": 0.0,
+        "Mn": 0.1,
+        "Si": 0.1,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 0.05
+        },
+        "DeLong": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 0.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        }
+      }
+    },
+    {
+      "designation": "TIG 309L (ER309L) - soudage hétérogène",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.8,
+        "Si": 0.45,
+        "Cr": 24.0,
+        "Ni": 13.0,
+        "Mo": 0.1,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.775,
+          "Ni_eq": 14.5
+        },
+        "DeLong": {
+          "Cr_eq": 24.775,
+          "Ni_eq": 14.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.1,
+          "Ni_eq": 13.7
+        }
+      }
+    },
+    {
+      "designation": "TIG AlSi5 (ER4043) [alu - hors Schaeffler]",
+      "composition": {
+        "C": 0.0,
+        "Mn": 0.0,
+        "Si": 0.0,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        },
+        "DeLong": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        }
+      }
+    },
+    {
+      "designation": "TIG Titane (Ti) [hors Schaeffler]",
+      "composition": {
+        "C": 0.0,
+        "Mn": 0.0,
+        "Si": 0.0,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        },
+        "DeLong": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        }
+      }
+    },
+    {
+      "designation": "ER70S-3 (W3Si)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.15,
+        "Si": 0.65,
+        "Cr": 0.05,
+        "Ni": 0.05,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.025,
+          "Ni_eq": 3.025
+        },
+        "DeLong": {
+          "Cr_eq": 1.025,
+          "Ni_eq": 3.025
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.05,
+          "Ni_eq": 2.85
+        }
+      }
+    },
+    {
+      "designation": "ER80S-D2 (W Mo)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 1.7,
+        "Si": 0.6,
+        "Cr": 0.05,
+        "Ni": 0.1,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.45,
+          "Ni_eq": 3.65
+        },
+        "DeLong": {
+          "Cr_eq": 1.45,
+          "Ni_eq": 3.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.55,
+          "Ni_eq": 3.25
+        }
+      }
+    },
+    {
+      "designation": "ER80S-B2 (W CrMo1)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 0.7,
+        "Si": 0.55,
+        "Cr": 1.3,
+        "Ni": 0.1,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.625,
+          "Ni_eq": 3.15
+        },
+        "DeLong": {
+          "Cr_eq": 2.625,
+          "Ni_eq": 3.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.8,
+          "Ni_eq": 3.25
+        }
+      }
+    },
+    {
+      "designation": "ER90S-B3 (W CrMo2)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 0.7,
+        "Si": 0.55,
+        "Cr": 2.5,
+        "Ni": 0.1,
+        "Mo": 1.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 4.325,
+          "Ni_eq": 3.15
+        },
+        "DeLong": {
+          "Cr_eq": 4.325,
+          "Ni_eq": 3.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.5,
+          "Ni_eq": 3.25
+        }
+      }
+    },
+    {
+      "designation": "ER312 (W 29 9)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.8,
+        "Si": 0.45,
+        "Cr": 29.0,
+        "Ni": 9.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.675,
+          "Ni_eq": 12.9
+        },
+        "DeLong": {
+          "Cr_eq": 29.675,
+          "Ni_eq": 12.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 12.5
+        }
+      }
+    },
+    {
+      "designation": "ER347 (W 19 9 Nb)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.5,
+        "Si": 0.45,
+        "Cr": 19.5,
+        "Ni": 9.5,
+        "Mo": 0.0,
+        "Nb": 0.7,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.525,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 20.525,
+          "Ni_eq": 11.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.99,
+          "Ni_eq": 10.9
+        }
+      }
+    },
+    {
+      "designation": "ER307 (W 18 8 Mn)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 6.5,
+        "Si": 0.5,
+        "Cr": 18.5,
+        "Ni": 8.5,
+        "Mo": 0.3,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.55,
+          "Ni_eq": 14.15
+        },
+        "DeLong": {
+          "Cr_eq": 19.55,
+          "Ni_eq": 14.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.8,
+          "Ni_eq": 11.3
+        }
+      }
+    },
+    {
+      "designation": "ER2594 SuperDuplex (W259435NL)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.2,
+        "Si": 0.4,
+        "Cr": 25.0,
+        "Ni": 9.0,
+        "Mo": 3.8,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.24
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.4,
+          "Ni_eq": 10.2
+        },
+        "DeLong": {
+          "Cr_eq": 29.4,
+          "Ni_eq": 17.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 28.8,
+          "Ni_eq": 14.5
+        }
+      }
+    },
+    {
+      "designation": "ERNiCrMo-3 Inconel625 [base Ni-hors Schaeffler]",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.3,
+        "Si": 0.2,
+        "Cr": 21.5,
+        "Ni": 62.0,
+        "Mo": 9.0,
+        "Nb": 3.6,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.6,
+          "Ni_eq": 62.75
+        },
+        "DeLong": {
+          "Cr_eq": 32.6,
+          "Ni_eq": 62.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 33.02,
+          "Ni_eq": 62.7
+        }
+      }
+    },
+    {
+      "designation": "ERCuSi-A CuSi3 [bronze-hors Schaeffler]",
+      "composition": {
+        "C": 0.0,
+        "Mn": 1.0,
+        "Si": 3.0,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 4.5,
+          "Ni_eq": 0.5
+        },
+        "DeLong": {
+          "Cr_eq": 4.5,
+          "Ni_eq": 0.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        }
+      }
+    },
+    {
+      "designation": "ERCuAl-A2 CuAl8 [bronze-hors Schaeffler]",
+      "composition": {
+        "C": 0.0,
+        "Mn": 0.5,
+        "Si": 0.1,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 0.25
+        },
+        "DeLong": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 0.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 0.0
+        }
+      }
+    },
+    {
+      "designation": "ERNiCu-7 Monel400 [base Ni-hors Schaeffler]",
+      "composition": {
+        "C": 0.1,
+        "Mn": 3.5,
+        "Si": 1.0,
+        "Cr": 0.0,
+        "Ni": 65.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 69.75
+        },
+        "DeLong": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 69.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 68.5
+        }
+      }
+    },
+    {
+      "designation": "E6013 rutile Ø2.5",
+      "composition": {
+        "C": 0.08,
+        "Mn": 0.45,
+        "Si": 0.3,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 2.625
+        },
+        "DeLong": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 2.625
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "E6013 rutile Ø3.2",
+      "composition": {
+        "C": 0.08,
+        "Mn": 0.45,
+        "Si": 0.3,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 2.625
+        },
+        "DeLong": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 2.625
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "E7024 rutile fer Ø4.0",
+      "composition": {
+        "C": 0.08,
+        "Mn": 0.9,
+        "Si": 0.5,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.85
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "E6012 rutile Ø3.2",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.45,
+        "Si": 0.2,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 3.225
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 3.225
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "E7018 basique bas-H Ø2.5",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "E7018 basique bas-H Ø3.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "E7018 basique bas-H Ø4.0",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "E7016 basique Ø3.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.0,
+        "Si": 0.4,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 2.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 2.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "E6010 cellulosique Ø3.2",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.45,
+        "Si": 0.2,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 3.825
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 3.825
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.2
+        }
+      }
+    },
+    {
+      "designation": "E6011 cellulosique AC Ø3.2",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 3.85
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 3.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.2
+        }
+      }
+    },
+    {
+      "designation": "E8010-P1 cellulosique pipe Ø4.0",
+      "composition": {
+        "C": 0.15,
+        "Mn": 0.8,
+        "Si": 0.15,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.225,
+          "Ni_eq": 4.9
+        },
+        "DeLong": {
+          "Cr_eq": 0.225,
+          "Ni_eq": 4.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 5.25
+        }
+      }
+    },
+    {
+      "designation": "E7018-A1 (0,5Mo) Ø3.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.9,
+        "Si": 0.4,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 2.55
+        },
+        "DeLong": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 2.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "E8018-B2 (1,25Cr-0,5Mo) Ø3.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.7,
+        "Si": 0.4,
+        "Cr": 1.25,
+        "Ni": 0.0,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.35,
+          "Ni_eq": 2.45
+        },
+        "DeLong": {
+          "Cr_eq": 2.35,
+          "Ni_eq": 2.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.75,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "E9018-B3 (2,25Cr-1Mo) Ø3.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.7,
+        "Si": 0.4,
+        "Cr": 2.25,
+        "Ni": 0.0,
+        "Mo": 1.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 3.85,
+          "Ni_eq": 2.45
+        },
+        "DeLong": {
+          "Cr_eq": 3.85,
+          "Ni_eq": 2.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.25,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "E8018-C1 (2,5Ni) Ø3.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.9,
+        "Si": 0.4,
+        "Cr": 0.0,
+        "Ni": 2.5,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 5.05
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 5.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.95
+        }
+      }
+    },
+    {
+      "designation": "E8018-C3 (1Ni) Ø3.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.0,
+        "Si": 0.4,
+        "Cr": 0.0,
+        "Ni": 1.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.45
+        }
+      }
+    },
+    {
+      "designation": "E11018-M haute résist. Ø3.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.5,
+        "Si": 0.4,
+        "Cr": 0.3,
+        "Ni": 1.8,
+        "Mo": 0.4,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.3,
+          "Ni_eq": 4.65
+        },
+        "DeLong": {
+          "Cr_eq": 1.3,
+          "Ni_eq": 4.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.7,
+          "Ni_eq": 4.25
+        }
+      }
+    },
+    {
+      "designation": "E308L-16 inox Ø2.5",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 19.5,
+        "Ni": 10.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.25,
+          "Ni_eq": 11.4
+        },
+        "DeLong": {
+          "Cr_eq": 20.25,
+          "Ni_eq": 11.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.5,
+          "Ni_eq": 11.05
+        }
+      }
+    },
+    {
+      "designation": "E308L-17 inox Ø3.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 19.5,
+        "Ni": 10.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.25,
+          "Ni_eq": 11.4
+        },
+        "DeLong": {
+          "Cr_eq": 20.25,
+          "Ni_eq": 11.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.5,
+          "Ni_eq": 11.05
+        }
+      }
+    },
+    {
+      "designation": "E309L-16 inox Ø3.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.2,
+        "Si": 0.5,
+        "Cr": 23.0,
+        "Ni": 13.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.75,
+          "Ni_eq": 14.5
+        },
+        "DeLong": {
+          "Cr_eq": 23.75,
+          "Ni_eq": 14.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 14.05
+        }
+      }
+    },
+    {
+      "designation": "E309L-17 inox Ø3.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.2,
+        "Si": 0.5,
+        "Cr": 23.0,
+        "Ni": 13.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.75,
+          "Ni_eq": 14.5
+        },
+        "DeLong": {
+          "Cr_eq": 23.75,
+          "Ni_eq": 14.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 14.05
+        }
+      }
+    },
+    {
+      "designation": "E316L-16 inox Ø3.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 18.5,
+        "Ni": 12.0,
+        "Mo": 2.3,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.55,
+          "Ni_eq": 13.4
+        },
+        "DeLong": {
+          "Cr_eq": 21.55,
+          "Ni_eq": 13.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.8,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "E316L-17 inox Ø2.5",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 18.5,
+        "Ni": 12.0,
+        "Mo": 2.3,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.55,
+          "Ni_eq": 13.4
+        },
+        "DeLong": {
+          "Cr_eq": 21.55,
+          "Ni_eq": 13.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.8,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "E312-16 (29-9) Ø3.2",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": 29.0,
+        "Ni": 9.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.75,
+          "Ni_eq": 12.75
+        },
+        "DeLong": {
+          "Cr_eq": 29.75,
+          "Ni_eq": 12.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 12.5
+        }
+      }
+    },
+    {
+      "designation": "E2209-16 duplex Ø3.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 22.5,
+        "Ni": 9.0,
+        "Mo": 3.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.15
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.25,
+          "Ni_eq": 10.4
+        },
+        "DeLong": {
+          "Cr_eq": 26.25,
+          "Ni_eq": 14.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "MAG ER70S-3 (G3Si1) Ø1.0",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.1,
+        "Si": 0.6,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 2.65
+        },
+        "DeLong": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 2.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "MAG ER70S-6 (G4Si1) Ø1.0",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.85,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.275,
+          "Ni_eq": 3.15
+        },
+        "DeLong": {
+          "Cr_eq": 1.275,
+          "Ni_eq": 3.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "MAG ER70S-6 (G4Si1) Ø1.2",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.85,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.275,
+          "Ni_eq": 3.15
+        },
+        "DeLong": {
+          "Cr_eq": 1.275,
+          "Ni_eq": 3.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "MAG ER70S-2 Ø1.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.05,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "MAG ER80S-D2 (Mo) Ø1.2",
+      "composition": {
+        "C": 0.09,
+        "Mn": 1.7,
+        "Si": 0.6,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 3.55
+        },
+        "DeLong": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 3.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 3.15
+        }
+      }
+    },
+    {
+      "designation": "MAG ER80S-B2 (CrMo) Ø1.2",
+      "composition": {
+        "C": 0.09,
+        "Mn": 0.7,
+        "Si": 0.5,
+        "Cr": 1.3,
+        "Ni": 0.0,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.55,
+          "Ni_eq": 3.05
+        },
+        "DeLong": {
+          "Cr_eq": 2.55,
+          "Ni_eq": 3.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.8,
+          "Ni_eq": 3.15
+        }
+      }
+    },
+    {
+      "designation": "MAG ER90S-B3 Ø1.2",
+      "composition": {
+        "C": 0.09,
+        "Mn": 0.7,
+        "Si": 0.5,
+        "Cr": 2.5,
+        "Ni": 0.0,
+        "Mo": 1.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 4.25,
+          "Ni_eq": 3.05
+        },
+        "DeLong": {
+          "Cr_eq": 4.25,
+          "Ni_eq": 3.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.5,
+          "Ni_eq": 3.15
+        }
+      }
+    },
+    {
+      "designation": "MAG ER80S-Ni1 Ø1.2",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.1,
+        "Si": 0.6,
+        "Cr": 0.0,
+        "Ni": 1.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 3.95
+        },
+        "DeLong": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 3.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.8
+        }
+      }
+    },
+    {
+      "designation": "MIG ER308LSi inox Ø1.0",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.7,
+        "Si": 0.8,
+        "Cr": 20.0,
+        "Ni": 10.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 11.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 10.7
+        }
+      }
+    },
+    {
+      "designation": "MIG ER308LSi inox Ø1.2",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.7,
+        "Si": 0.8,
+        "Cr": 20.0,
+        "Ni": 10.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 11.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 10.7
+        }
+      }
+    },
+    {
+      "designation": "MIG ER309LSi inox Ø1.0",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.7,
+        "Si": 0.8,
+        "Cr": 23.5,
+        "Ni": 13.5,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.7,
+          "Ni_eq": 14.95
+        },
+        "DeLong": {
+          "Cr_eq": 24.7,
+          "Ni_eq": 14.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 14.2
+        }
+      }
+    },
+    {
+      "designation": "MIG ER309LSi inox Ø1.2",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.7,
+        "Si": 0.8,
+        "Cr": 23.5,
+        "Ni": 13.5,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.7,
+          "Ni_eq": 14.95
+        },
+        "DeLong": {
+          "Cr_eq": 24.7,
+          "Ni_eq": 14.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 14.2
+        }
+      }
+    },
+    {
+      "designation": "MIG ER316LSi inox Ø1.0",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.7,
+        "Si": 0.8,
+        "Cr": 18.5,
+        "Ni": 12.5,
+        "Mo": 2.6,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 13.95
+        },
+        "DeLong": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 13.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.1,
+          "Ni_eq": 13.2
+        }
+      }
+    },
+    {
+      "designation": "MIG ER316LSi inox Ø1.2",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.7,
+        "Si": 0.8,
+        "Cr": 18.5,
+        "Ni": 12.5,
+        "Mo": 2.6,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 13.95
+        },
+        "DeLong": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 13.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.1,
+          "Ni_eq": 13.2
+        }
+      }
+    },
+    {
+      "designation": "MIG ER307Si (Mn) Ø1.2",
+      "composition": {
+        "C": 0.08,
+        "Mn": 6.0,
+        "Si": 0.8,
+        "Cr": 18.5,
+        "Ni": 8.5,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.7,
+          "Ni_eq": 13.9
+        },
+        "DeLong": {
+          "Cr_eq": 19.7,
+          "Ni_eq": 13.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.5,
+          "Ni_eq": 11.3
+        }
+      }
+    },
+    {
+      "designation": "MIG ER312 Ø1.2",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.8,
+        "Si": 0.6,
+        "Cr": 29.0,
+        "Ni": 9.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.9,
+          "Ni_eq": 12.9
+        },
+        "DeLong": {
+          "Cr_eq": 29.9,
+          "Ni_eq": 12.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 12.5
+        }
+      }
+    },
+    {
+      "designation": "MIG ER2209 duplex Ø1.2",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.6,
+        "Si": 0.6,
+        "Cr": 22.5,
+        "Ni": 8.5,
+        "Mo": 3.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.15
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.4,
+          "Ni_eq": 9.9
+        },
+        "DeLong": {
+          "Cr_eq": 26.4,
+          "Ni_eq": 14.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 12.2
+        }
+      }
+    },
+    {
+      "designation": "MIG ER347Si (Nb) Ø1.2",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.5,
+        "Si": 0.8,
+        "Cr": 19.5,
+        "Ni": 9.5,
+        "Mo": 0.0,
+        "Nb": 0.5,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "135_MAG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.95,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 20.95,
+          "Ni_eq": 11.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.85,
+          "Ni_eq": 10.9
+        }
+      }
+    },
+    {
+      "designation": "FCAW E71T-1 rutile Ø1.2",
+      "composition": {
+        "C": 0.05,
+        "Mn": 1.3,
+        "Si": 0.5,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.15
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 1.75
+        }
+      }
+    },
+    {
+      "designation": "FCAW E70T-4 Ø2.0",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.8,
+        "Si": 0.3,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 3.4
+        },
+        "DeLong": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 3.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "FCAW métal-poudre E70C-6M Ø1.2",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.5,
+        "Si": 0.7,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.05,
+          "Ni_eq": 2.85
+        },
+        "DeLong": {
+          "Cr_eq": 1.05,
+          "Ni_eq": 2.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "FCAW E308LT1-1 inox Ø1.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.3,
+        "Si": 0.6,
+        "Cr": 19.5,
+        "Ni": 10.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.4,
+          "Ni_eq": 11.55
+        },
+        "DeLong": {
+          "Cr_eq": 20.4,
+          "Ni_eq": 11.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.5,
+          "Ni_eq": 11.05
+        }
+      }
+    },
+    {
+      "designation": "FCAW E309LT1-1 inox Ø1.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.3,
+        "Si": 0.6,
+        "Cr": 23.0,
+        "Ni": 13.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.9,
+          "Ni_eq": 14.55
+        },
+        "DeLong": {
+          "Cr_eq": 23.9,
+          "Ni_eq": 14.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 14.05
+        }
+      }
+    },
+    {
+      "designation": "FCAW E316LT1-1 inox Ø1.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.3,
+        "Si": 0.6,
+        "Cr": 18.5,
+        "Ni": 12.0,
+        "Mo": 2.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.9,
+          "Ni_eq": 13.55
+        },
+        "DeLong": {
+          "Cr_eq": 21.9,
+          "Ni_eq": 13.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "FCAW gasless E71T-11 Ø0.9",
+      "composition": {
+        "C": 0.15,
+        "Mn": 0.5,
+        "Si": 0.3,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 4.75
+        },
+        "DeLong": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 4.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 5.25
+        }
+      }
+    },
+    {
+      "designation": "OK Tigrod 2209 (ER2209 / W 22 9 3 N L) duplex 2205",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.6,
+        "Si": 0.5,
+        "Cr": 22.5,
+        "Ni": 8.5,
+        "Mo": 3.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.16
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.25,
+          "Ni_eq": 9.9
+        },
+        "DeLong": {
+          "Cr_eq": 26.25,
+          "Ni_eq": 14.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 12.4
+        }
+      }
+    },
+    {
+      "designation": "OK Tigrod 2509 (ER2594 / W 25 9 4 N L) super duplex",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.4,
+        "Si": 0.4,
+        "Cr": 25.0,
+        "Ni": 9.5,
+        "Mo": 4.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.25
+      },
+      "procede": "141_TIG",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.6,
+          "Ni_eq": 10.3
+        },
+        "DeLong": {
+          "Cr_eq": 29.6,
+          "Ni_eq": 17.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 15.2
+        }
+      }
+    },
+    {
+      "designation": "ERNiCr-3 (Inconel 82 / W Ni Cr-3) base Ni - hétéro",
+      "composition": {
+        "C": 0.03,
+        "Mn": 3.0,
+        "Si": 0.1,
+        "Cr": 20.0,
+        "Ni": 72.0,
+        "Mo": 0.0,
+        "Nb": 2.5,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.4,
+          "Ni_eq": 74.4
+        },
+        "DeLong": {
+          "Cr_eq": 21.4,
+          "Ni_eq": 74.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.75,
+          "Ni_eq": 73.05
+        }
+      }
+    },
+    {
+      "designation": "ERNiCrMo-4 (Hastelloy C276) base Ni - hyper-corrosif",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.5,
+        "Si": 0.05,
+        "Cr": 16.0,
+        "Ni": 57.0,
+        "Mo": 16.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.075,
+          "Ni_eq": 57.55
+        },
+        "DeLong": {
+          "Cr_eq": 32.075,
+          "Ni_eq": 57.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 32.0,
+          "Ni_eq": 57.35
+        }
+      }
+    },
+    {
+      "designation": "ER385 (904L / W 20 25 5 Cu) super-austénitique",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.7,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 25.0,
+        "Mo": 4.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 25.1,
+          "Ni_eq": 26.45
+        },
+        "DeLong": {
+          "Cr_eq": 25.1,
+          "Ni_eq": 26.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.5,
+          "Ni_eq": 25.7
+        }
+      }
+    },
+    {
+      "designation": "ER16-8-2 (W 16 8 2) haute température/fluage",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.6,
+        "Si": 0.4,
+        "Cr": 15.5,
+        "Ni": 8.5,
+        "Mo": 1.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.6,
+          "Ni_eq": 11.1
+        },
+        "DeLong": {
+          "Cr_eq": 17.6,
+          "Ni_eq": 11.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 10.6
+        }
+      }
+    },
+    {
+      "designation": "E NiCrMo-3 (Inconel 625 enrobée) base Ni - hétéro",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.3,
+        "Si": 0.3,
+        "Cr": 21.5,
+        "Ni": 62.0,
+        "Mo": 9.0,
+        "Nb": 3.5,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "111_EE",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.7,
+          "Ni_eq": 62.75
+        },
+        "DeLong": {
+          "Cr_eq": 32.7,
+          "Ni_eq": 62.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 32.95,
+          "Ni_eq": 62.7
+        }
+      }
+    },
+    {
+      "designation": "E NiCr-3 (Inconel 182 enrobée) base Ni - hétéro",
+      "composition": {
+        "C": 0.04,
+        "Mn": 7.0,
+        "Si": 0.5,
+        "Cr": 15.0,
+        "Ni": 70.0,
+        "Mo": 0.0,
+        "Nb": 2.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "111_EE",
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 16.75,
+          "Ni_eq": 74.7
+        },
+        "DeLong": {
+          "Cr_eq": 16.75,
+          "Ni_eq": 74.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 16.4,
+          "Ni_eq": 71.4
+        }
+      }
+    },
+    {
+      "designation": "E16-8-2-16 haute température Ø3.2",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.6,
+        "Si": 0.5,
+        "Cr": 15.5,
+        "Ni": 8.5,
+        "Mo": 1.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.75,
+          "Ni_eq": 11.1
+        },
+        "DeLong": {
+          "Cr_eq": 17.75,
+          "Ni_eq": 11.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 10.6
+        }
+      }
+    },
+    {
+      "designation": "E2553-15 super duplex Ø3.2",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 25.0,
+        "Ni": 9.5,
+        "Mo": 3.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.2
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.25,
+          "Ni_eq": 10.9
+        },
+        "DeLong": {
+          "Cr_eq": 29.25,
+          "Ni_eq": 16.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 28.5,
+          "Ni_eq": 14.55
+        }
+      }
+    },
+    {
+      "designation": "E8018-B2L (1,25Cr-0,5Mo bas C) Ø3.2",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.8,
+        "Si": 0.4,
+        "Cr": 1.25,
+        "Ni": 0.0,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.35,
+          "Ni_eq": 1.9
+        },
+        "DeLong": {
+          "Cr_eq": 2.35,
+          "Ni_eq": 1.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.75,
+          "Ni_eq": 1.75
+        }
+      }
+    },
+    {
+      "designation": "E9018-B3L (2,25Cr-1Mo bas C) Ø3.2",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.8,
+        "Si": 0.4,
+        "Cr": 2.25,
+        "Ni": 0.0,
+        "Mo": 1.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": null,
+      "source": "Excel v1 Tony Sanchez",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 3.85,
+          "Ni_eq": 1.9
+        },
+        "DeLong": {
+          "Cr_eq": 3.85,
+          "Ni_eq": 1.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.25,
+          "Ni_eq": 1.75
+        }
+      }
+    }
+  ],
+  "electrodes_tungstene": [
+    {
+      "designation": "WP Ø1.6 (vert)",
+      "couleur": "Vert",
+      "composition_oxyde": "W pur 99,5 %",
+      "diametre_mm": 1.6,
+      "plage_courant_A": "70-150",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WP Ø2.4 (vert)",
+      "couleur": "Vert",
+      "composition_oxyde": "W pur 99,5 %",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WP Ø3.2 (vert)",
+      "couleur": "Vert",
+      "composition_oxyde": "W pur 99,5 %",
+      "diametre_mm": 3.2,
+      "plage_courant_A": "220-350",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WT20 Ø1.6 (rouge)",
+      "couleur": "Rouge",
+      "composition_oxyde": "2 % ThO2",
+      "diametre_mm": 1.6,
+      "plage_courant_A": "70-150",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WT20 Ø2.0 (rouge)",
+      "couleur": "Rouge",
+      "composition_oxyde": "2 % ThO2",
+      "diametre_mm": 2.0,
+      "plage_courant_A": "100-200",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WT20 Ø2.4 (rouge)",
+      "couleur": "Rouge",
+      "composition_oxyde": "2 % ThO2",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WT20 Ø3.2 (rouge)",
+      "couleur": "Rouge",
+      "composition_oxyde": "2 % ThO2",
+      "diametre_mm": 3.2,
+      "plage_courant_A": "220-350",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WC20 Ø1.0 (gris)",
+      "couleur": "Gris",
+      "composition_oxyde": "2 % CeO2",
+      "diametre_mm": 1.0,
+      "plage_courant_A": "15-80",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WC20 Ø1.6 (gris)",
+      "couleur": "Gris",
+      "composition_oxyde": "2 % CeO2",
+      "diametre_mm": 1.6,
+      "plage_courant_A": "70-150",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WC20 Ø2.4 (gris)",
+      "couleur": "Gris",
+      "composition_oxyde": "2 % CeO2",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WL15 Ø1.6 (or)",
+      "couleur": "Or",
+      "composition_oxyde": "1,5 % La2O3",
+      "diametre_mm": 1.6,
+      "plage_courant_A": "70-150",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WL15 Ø2.0 (or)",
+      "couleur": "Or",
+      "composition_oxyde": "1,5 % La2O3",
+      "diametre_mm": 2.0,
+      "plage_courant_A": "100-200",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WL15 Ø2.4 (or)",
+      "couleur": "Or",
+      "composition_oxyde": "1,5 % La2O3",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WL15 Ø3.2 (or)",
+      "couleur": "Or",
+      "composition_oxyde": "1,5 % La2O3",
+      "diametre_mm": 3.2,
+      "plage_courant_A": "220-350",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WL20 Ø1.6 (bleu)",
+      "couleur": "Bleu",
+      "composition_oxyde": "2 % La2O3",
+      "diametre_mm": 1.6,
+      "plage_courant_A": "70-150",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WL20 Ø2.4 (bleu)",
+      "couleur": "Bleu",
+      "composition_oxyde": "2 % La2O3",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WL20 Ø3.2 (bleu)",
+      "couleur": "Bleu",
+      "composition_oxyde": "2 % La2O3",
+      "diametre_mm": 3.2,
+      "plage_courant_A": "220-350",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WZ8 Ø1.6 (blanc)",
+      "couleur": "Blanc",
+      "composition_oxyde": "0,8 % ZrO2",
+      "diametre_mm": 1.6,
+      "plage_courant_A": "70-150",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WZ8 Ø2.4 (blanc)",
+      "couleur": "Blanc",
+      "composition_oxyde": "0,8 % ZrO2",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WZ8 Ø3.2 (blanc)",
+      "couleur": "Blanc",
+      "composition_oxyde": "0,8 % ZrO2",
+      "diametre_mm": 3.2,
+      "plage_courant_A": "220-350",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WT30 Ø2.4 (violet)",
+      "couleur": "Violet",
+      "composition_oxyde": "3 % ThO2",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WT30 Ø3.2 (violet)",
+      "couleur": "Violet",
+      "composition_oxyde": "3 % ThO2",
+      "diametre_mm": 3.2,
+      "plage_courant_A": "220-350",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WR Ø1.6 (pourpre)",
+      "couleur": "Pourpre",
+      "composition_oxyde": "terres rares",
+      "diametre_mm": 1.6,
+      "plage_courant_A": "70-150",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WR Ø2.4 (pourpre)",
+      "couleur": "Pourpre",
+      "composition_oxyde": "terres rares",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    },
+    {
+      "designation": "WT10 Ø2.4 (jaune)",
+      "couleur": "Jaune",
+      "composition_oxyde": "1 % ThO2",
+      "diametre_mm": 2.4,
+      "plage_courant_A": "150-250",
+      "norme": "ISO 6848"
+    }
+  ]
+}
