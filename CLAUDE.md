@@ -116,6 +116,12 @@ catalogue, cet outil intègre en une interface unique :
 4. Banque de données matière + moteur de calcul + formules + méthodes + normes
    + onglet Paramètres DMOS (alimentation du moteur)
 5. Schaeffler (placement + sélection des 7 apports + verdict)
+   → **La sélection du métal d'apport C se fait dans l'onglet Analyse, après
+   le calcul Schaeffler, pas dans Paramètres DMOS.** L'apport n'est pas une
+   donnée d'entrée mais un résultat de l'analyse (proposition des 7 meilleurs
+   apports, puis choix de l'utilisateur). Paramètres DMOS ne saisit que les
+   métaux de base A/B, le procédé/électrode, la géométrie et la dilution.
+   Le module `core/selection_apport.js` porte le filtrage apport ↔ procédé.
 6. Préchauffe (IRSID, CET principaux ; Séférian, BWRA, Baus-Chapeau secondaires)
 7. Temps de refroidissement t8/5 + point de dureté (EN 1011-2, transition
    2D/3D, Yurioka, Düren, vs limites HV10 par groupe ISO 15608)

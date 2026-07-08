@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Paramètres DMOS — saisie des métaux, du procédé et de la géométrie du joint. Calcul automatique de l'intensité, de la tension et de l'énergie de soudage."
+    />
+    <title data-i18n="parametres.titre">Paramètres DMOS — Calculateur de Soudabilité</title>
+
+    <!-- Choices.js (combobox à recherche — CLAUDE.md #11), chargé via CDN. -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Analytics GoatCounter (RGPD sans bandeau cookies — CLAUDE.md #22). -->
+    <script
+      data-goatcounter="https://soudabilite.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+    <script type="module" src="assets/js/parametres.js"></script>
+  </head>
+  <body>
+    <!-- ===================== Barre de navigation ===================== -->
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
+          <a class="nav__lien" href="index.html" data-i18n="nav.presentation"></a>
+          <a class="nav__lien is-active" href="parametres.html" data-i18n="nav.parametres"></a>
+          <a class="nav__lien" href="analyse.html" data-i18n="nav.analyse"></a>
+          <a class="nav__lien" href="banque.html" data-i18n="nav.data"></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= Contenu ============================= -->
+    <main class="page">
+      <div class="conteneur parametres">
+        <section class="param-intro">
+          <h1 class="hero__titre" data-i18n="parametres.titre"></h1>
+          <p class="param-intro__texte" data-i18n="parametres.intro"></p>
+        </section>
+
+        <div class="param-layout">
+          <form class="param-form" id="form-dmos" autocomplete="off">
+            <!-- Métaux de base -->
+            <section class="carte carte--form">
+              <h2 class="bloc__titre" data-i18n="parametres.section_metaux"></h2>
+              <div class="form-grid">
+                <div class="champ">
+                  <label class="champ__label" for="metal-a" data-i18n="parametres.label_metal_a"></label>
+                  <select id="metal-a" class="champ__select" data-combobox="metal"></select>
+                  <button type="button" class="btn-lien" data-toggle-comp="a" data-i18n="parametres.comp_manuelle_ajouter"></button>
+                  <div class="comp-manuelle" data-comp="a" hidden></div>
+                  <p class="comp-eq" data-eq="a"></p>
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="metal-b" data-i18n="parametres.label_metal_b"></label>
+                  <select id="metal-b" class="champ__select" data-combobox="metal"></select>
+                  <button type="button" class="btn-lien" data-toggle-comp="b" data-i18n="parametres.comp_manuelle_ajouter"></button>
+                  <div class="comp-manuelle" data-comp="b" hidden></div>
+                  <p class="comp-eq" data-eq="b"></p>
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="ep-a" data-i18n="parametres.label_epaisseur_a"></label>
+                  <input id="ep-a" class="champ__input" type="number" min="0" step="0.1" inputmode="decimal" />
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="ep-b" data-i18n="parametres.label_epaisseur_b"></label>
+                  <input id="ep-b" class="champ__input" type="number" min="0" step="0.1" inputmode="decimal" />
+                </div>
+              </div>
+            </section>
+
+            <!-- Procédé, électrode / consommable et métal d'apport -->
+            <!-- Chronologie EE (111) : enrobage → diamètre → puis apport. -->
+            <section class="carte carte--form">
+              <h2 class="bloc__titre" data-i18n="parametres.section_procede"></h2>
+              <div class="form-grid">
+                <div class="champ">
+                  <label class="champ__label" for="procede" data-i18n="parametres.label_procede"></label>
+                  <select id="procede" class="champ__select"></select>
+                </div>
+                <div class="champ" data-champ="enrobage" hidden>
+                  <label class="champ__label" for="enrobage" data-i18n="parametres.label_enrobage"></label>
+                  <select id="enrobage" class="champ__select"></select>
+                </div>
+                <div class="champ" data-champ="diametre" hidden>
+                  <label class="champ__label" for="diametre" data-i18n="parametres.label_diametre"></label>
+                  <select id="diametre" class="champ__select"></select>
+                </div>
+                <div class="champ champ--large" data-champ="tungstene" hidden>
+                  <label class="champ__label" for="tungstene" data-i18n="parametres.label_tungstene"></label>
+                  <select id="tungstene" class="champ__select" data-combobox="tungstene"></select>
+                </div>
+                <div class="champ" data-champ="diametre-fil" hidden>
+                  <label class="champ__label" for="diametre-fil" data-i18n="parametres.label_diametre_fil"></label>
+                  <select id="diametre-fil" class="champ__select"></select>
+                </div>
+                <p class="note champ--large" data-i18n="parametres.apport_analyse_note"></p>
+              </div>
+            </section>
+
+            <!-- Assemblage -->
+            <section class="carte carte--form">
+              <h2 class="bloc__titre" data-i18n="parametres.section_joint"></h2>
+              <div class="form-grid form-grid--trois">
+                <div class="champ">
+                  <label class="champ__label" for="position" data-i18n="parametres.label_position"></label>
+                  <select id="position" class="champ__select"></select>
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="assemblage" data-i18n="parametres.label_assemblage"></label>
+                  <select id="assemblage" class="champ__select"></select>
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="chanfrein" data-i18n="parametres.label_chanfrein"></label>
+                  <select id="chanfrein" class="champ__select"></select>
+                </div>
+              </div>
+            </section>
+
+            <!-- Intensité et vitesse -->
+            <section class="carte carte--form">
+              <h2 class="bloc__titre" data-i18n="parametres.section_intensite"></h2>
+              <div class="form-grid" data-grid="intensite">
+                <div class="champ" data-champ="i-manuel" hidden>
+                  <label class="champ__label" for="i-manuel" data-i18n="parametres.label_intensite_manuelle"></label>
+                  <input id="i-manuel" class="champ__input" type="number" min="0" step="1" inputmode="numeric" />
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="vitesse" data-i18n="parametres.label_vitesse"></label>
+                  <input id="vitesse" class="champ__input" type="number" min="0" step="0.5" inputmode="decimal" />
+                  <p class="note" data-i18n="parametres.vitesse_note"></p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Dilution -->
+            <section class="carte carte--form">
+              <h2 class="bloc__titre" data-i18n="parametres.section_dilution"></h2>
+              <p class="note" data-i18n="parametres.dilution_note"></p>
+              <div class="form-grid form-grid--trois">
+                <div class="champ">
+                  <label class="champ__label" for="da" data-i18n="parametres.label_da"></label>
+                  <input id="da" class="champ__input" type="number" min="0" max="100" step="1" inputmode="numeric" />
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="db" data-i18n="parametres.label_db"></label>
+                  <input id="db" class="champ__input" type="number" min="0" max="100" step="1" inputmode="numeric" />
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="dc" data-i18n="parametres.label_dc"></label>
+                  <input id="dc" class="champ__input" type="number" min="0" max="100" step="1" inputmode="numeric" />
+                </div>
+              </div>
+              <p class="erreur" data-erreur-dilution hidden data-i18n="parametres.dilution_erreur"></p>
+            </section>
+          </form>
+
+          <!-- Résultats (énergie) -->
+          <aside class="param-resultats">
+            <section class="carte carte--resultats">
+              <h2 class="bloc__titre" data-i18n="parametres.section_resultats"></h2>
+              <dl class="res">
+                <div class="res__ligne">
+                  <dt class="res__label" data-i18n="parametres.res_intensite"></dt>
+                  <dd class="res__valeur">
+                    <span data-res="I">—</span>
+                    <span class="res__unite" data-i18n="parametres.unite_a"></span>
+                  </dd>
+                </div>
+                <div class="res__ligne">
+                  <dt class="res__label" data-i18n="parametres.res_tension"></dt>
+                  <dd class="res__valeur">
+                    <span data-res="U">—</span>
+                    <span class="res__unite" data-i18n="parametres.unite_v"></span>
+                  </dd>
+                </div>
+                <div class="res__ligne">
+                  <dt class="res__label" data-i18n="parametres.res_vitesse"></dt>
+                  <dd class="res__valeur">
+                    <span data-res="Vs">—</span>
+                    <span class="res__unite" data-i18n="parametres.unite_cmmin"></span>
+                  </dd>
+                </div>
+                <div class="res__ligne">
+                  <dt class="res__label" data-i18n="parametres.res_en"></dt>
+                  <dd class="res__valeur">
+                    <span data-res="En">—</span>
+                    <span class="res__unite" data-i18n="parametres.unite_kjmm"></span>
+                  </dd>
+                </div>
+                <div class="res__ligne res__ligne--fort">
+                  <dt class="res__label" data-i18n="parametres.res_eq"></dt>
+                  <dd class="res__valeur">
+                    <span data-res="Q">—</span>
+                    <span class="res__unite" data-i18n="parametres.unite_kjmm"></span>
+                  </dd>
+                </div>
+                <div class="res__ligne">
+                  <dt class="res__label" data-i18n="parametres.res_rendement"></dt>
+                  <dd class="res__valeur"><span data-res="k">—</span></dd>
+                </div>
+              </dl>
+              <p class="note" data-i18n="parametres.resultats_note"></p>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== Pied de page permanent =================== -->
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer"></p>
+        <p class="pied__compteur" data-compteur hidden></p>
+      </div>
+    </footer>
+  </body>
+</html>
