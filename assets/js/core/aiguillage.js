@@ -38,11 +38,13 @@ export function aiguille(A, B) {
   return { type: "heterogene", branches: ["schaeffler", "thermique"] };
 }
 
-// Pour l'intensité TIG (spec.md §3.2), matière = "inox" ou "ferritique".
-// On retient "inox" seulement si les deux bases sont inox (cas hétérogène
-// traité en ferritique, choix conservatif d'intensité plus élevée).
+// Pour l'intensité TIG (spec.md §3.2), matière = "inox", "ferritique" ou
+// "heterogene" (une base inox + une base carbone). L'intensité de chaque cas
+// est définie dans energie.intensiteTIG.
 export function matiereTIG(A, B) {
-  return classeMetal(A) === "inox" && classeMetal(B) === "inox"
-    ? "inox"
-    : "ferritique";
+  const a = classeMetal(A);
+  const b = classeMetal(B);
+  if (a === "inox" && b === "inox") return "inox";
+  if (a === "carbone" && b === "carbone") return "ferritique";
+  return "heterogene";
 }

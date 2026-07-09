@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "note": "Frontières Schaeffler approximatives (littérature Schaeffler 1949 / Bystram), à ajuster visuellement. Coordonnées en (Cr_eq, Ni_eq).",
+    "axes": { "cr_eq": [0, 32], "ni_eq": [0, 24] }
+  },
+  "zones": [
+    { "id": "A",     "nom": "Austénite",        "couleur": "#7f1d1d", "polygone": [[0,8],[0,24],[26,24],[17,10]] },
+    { "id": "AM",    "nom": "Austénite + Martensite", "couleur": "#991b1b", "polygone": [[0,8],[17,10],[14,6],[0,3]] },
+    { "id": "M",     "nom": "Martensite",        "couleur": "#b91c1c", "polygone": [[0,0],[0,3],[14,6],[9,0]] },
+    { "id": "AF",    "nom": "Austénite + Ferrite","couleur": "#ea580c", "polygone": [[26,24],[32,24],[32,12],[17,10]] },
+    { "id": "AMF",   "nom": "Austénite + Martensite + Ferrite", "couleur": "#a16207", "hachure": true, "polygone": [[17,10],[32,12],[24,4],[14,6]] },
+    { "id": "MF",    "nom": "Martensite + Ferrite","couleur": "#f59e0b", "polygone": [[9,0],[14,6],[24,4],[18,0]] },
+    { "id": "F",     "nom": "Ferrite",           "couleur": "#eab308", "polygone": [[18,0],[24,4],[32,12],[32,0]] }
+  ],
+  "isoferrite": [
+    { "pct": 0,   "g": 4 },
+    { "pct": 5,   "g": 7 },
+    { "pct": 10,  "g": 9.5 },
+    { "pct": 20,  "g": 13 },
+    { "pct": 40,  "g": 17 },
+    { "pct": 80,  "g": 22 },
+    { "pct": 100, "g": 25 }
+  ],
+  "overlays": {
+    "ideale":     { "couleur": "#38bdf8", "polygone": [[15,8],[17.5,8],[25,15.5],[25,18]] },
+    "acceptable": { "couleur": "#4ade80", "polygone": [[13.8,8],[19.25,8],[27,15.75],[27,21.2]] }
+  },
+  "centre_ideal": [21, 12],
+  "zoom": { "cr_eq": [16, 26], "ni_eq": [6, 16] }
+}

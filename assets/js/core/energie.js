@@ -53,10 +53,12 @@ export function intensiteEE(diametre, { position = "PA", assemblage = "BW" } = {
 }
 
 // --- Intensité TIG (141) — spec.md §3.2 ---------------------------------
-// Acier ferritique : I ≈ 30·e ; acier inox : I ≈ 25·e (e en mm).
+// Acier ferritique : I ≈ 30·e (e en mm).
+// Dès qu'au moins une base est inox (cas "inox" ou "heterogene") : I ≈ 25·e
+// — on retient la valeur la plus basse pour protéger le côté inox.
 export function intensiteTIG(epaisseur, matiere = "ferritique") {
   const e = Number(epaisseur) || 0;
-  const coef = matiere === "inox" ? 25 : 30;
+  const coef = matiere === "ferritique" ? 30 : 25;
   return coef * e;
 }
 

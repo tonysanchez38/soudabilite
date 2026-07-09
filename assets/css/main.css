@@ -335,6 +335,13 @@ table {
   border-top: 1px solid var(--gris-bordure);
 }
 
+.auteur__logo {
+  height: 22px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
 .auteur__nom {
   color: var(--encre);
   font-weight: 600;
@@ -730,6 +737,154 @@ table {
   background: var(--fond);
   color: var(--encre);
   border-bottom: 1px solid var(--gris-bordure);
+}
+
+/* ----------------------------------------------------------------------- */
+/* 6c. Onglet Analyse — diagramme Schaeffler, tableaux, synthèse            */
+/* ----------------------------------------------------------------------- */
+.analyse {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+[data-analyse="contenu"] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.schaeffler-zone {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.schaeffler-svg {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  background: var(--fond);
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--radius-sm);
+}
+
+.schaeffler-svg--mini {
+  max-width: 300px;
+}
+
+.legende {
+  list-style: none;
+  margin: var(--sp-4) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--texte-doux);
+}
+
+.legende li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.legende__pastille {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: none;
+  display: inline-block;
+}
+
+.legende__pastille--carre {
+  border-radius: 2px;
+}
+
+.legende__pastille--triangle {
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  background: none;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 11px solid currentColor;
+}
+
+.lg-a { background: #22c55e; }
+.lg-b { background: #f97316; }
+.lg-d { background: #94a3b8; }
+.lg-c { background: #a855f7; }
+.lg-id { background: #38bdf8; }
+.lg-ac { background: #4ade80; }
+.lg-j { border-bottom-color: #ef4444; }
+
+/* Tableaux (apports, valeurs de synthèse) */
+.tableau-defilant {
+  overflow-x: auto;
+  margin-top: var(--sp-4);
+}
+
+.tableau {
+  width: 100%;
+  font-size: var(--fs-sm);
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tableau thead th {
+  text-align: left;
+  background: var(--gris-fond);
+  color: var(--texte-doux);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: var(--sp-2) var(--sp-3);
+  white-space: nowrap;
+}
+
+.tableau tbody td {
+  padding: var(--sp-2) var(--sp-3);
+  border-top: 1px solid var(--gris-bordure);
+  color: var(--texte-doux);
+  white-space: nowrap;
+}
+
+.apport-ligne {
+  cursor: pointer;
+}
+
+.apport-ligne:hover td,
+.apport-ligne.is-active td {
+  background: var(--bleu-voile);
+  color: var(--encre);
+}
+
+/* Infobulle survol des points du diagramme */
+.infobulle {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  max-width: 240px;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--ombre);
+  font-size: var(--fs-xs);
+  color: var(--encre);
+  white-space: pre-line;
+}
+
+.synth-verdict {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-3);
 }
 
 /* ----------------------------------------------------------------------- */

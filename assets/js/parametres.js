@@ -17,11 +17,12 @@ import {
   rendement,
   VITESSE_INDICATIVE,
 } from "./core/energie.js";
-import { matiereTIG } from "./core/aiguillage.js";
+import { matiereTIG, estInox } from "./core/aiguillage.js";
 import { dilutionValide } from "./core/dilution.js";
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ceIIW } from "./core/carbone_eq.js";
 import { classementApports } from "./core/selection_apport.js";
+import { sauverEtat } from "./ui/etat_dmos.js";
 
 let BANQUE = { metaux_base: [], metaux_apport: [], electrodes_tungstene: [] };
 let comboA = null;
@@ -274,7 +275,42 @@ function recalculer() {
   poser("k", k.toFixed(2));
 
   ["a", "b"].forEach(majEquivalents);
+  majNoteTigHetero(procede);
   validerDilution();
+  sauverEtat(collecterEtat());
+}
+
+// Note « intensité réduite » : TIG avec au moins une base inox (hétérogène).
+function majNoteTigHetero(procede) {
+  const note = document.querySelector('[data-note="tig-hetero"]');
+  if (!note) return;
+  const hetero =
+    procede === "141" &&
+    matiereTIG(compositionEffective("a").comp, compositionEffective("b").comp) === "heterogene";
+  note.hidden = !hetero;
+}
+
+// Snapshot des paramètres transmis à l'onglet Analyse (via sessionStorage).
+function collecterEtat() {
+  const donneesRole = (role) => {
+    const cfg = ROLES[role];
+    const idx = document.getElementById(cfg.selectId)?.value;
+    const designation =
+      idx !== "" && idx != null ? BANQUE.metaux_base[Number(idx)]?.designation ?? null : null;
+    const { comp, saisieLibre } = compositionEffective(role);
+    return { designation, composition: comp, saisieLibre };
+  };
+  return {
+    procede: $("#procede").value,
+    enrobage: document.getElementById("enrobage")?.value ?? null,
+    A: donneesRole("a"),
+    B: donneesRole("b"),
+    dA: num("#da"),
+    dB: num("#db"),
+    dC: num("#dc"),
+    epA: num("#ep-a"),
+    epB: num("#ep-b"),
+  };
 }
 
 function poser(cle, valeur) {
@@ -295,8 +331,12 @@ function majEquivalents(role) {
   const parts = [
     `${t("parametres.eq_creq")} ${crEqSchaeffler(comp).toFixed(2)}`,
     `${t("parametres.eq_nieq")} ${niEqSchaeffler(comp).toFixed(2)}`,
-    `${t("parametres.eq_ce")} ${ceIIW(comp).toFixed(3)}`,
   ];
+  // CE_IIW = indice de soudabilité des aciers au carbone : non pertinent
+  // pour un inox → masqué (spec.md §5.1).
+  if (!estInox(comp)) {
+    parts.push(`${t("parametres.eq_ce")} ${ceIIW(comp).toFixed(3)}`);
+  }
   let texte = parts.join(" · ");
   if (saisieLibre) texte += `  ${t("parametres.saisie_libre")}`;
   cible.textContent = texte;

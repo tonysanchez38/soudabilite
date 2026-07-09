@@ -108,3 +108,27 @@ export function classementApports(apports) {
     detecte: bucketsDetectes(a),
   }));
 }
+
+// --- Sélection des 7 meilleurs apports — spec.md §10 --------------------
+// Pour chaque apport compatible : JOINT = D_A·A + D_B·B + D_C·C (spec.md §2.1),
+// puis (Cr_eq, Ni_eq) Schaeffler du JOINT, % ferrite et distance euclidienne
+// au centre de la zone idéale. Tri par distance croissante, n premiers.
+export function meilleursApports(
+  apports,
+  procedeUI,
+  { A, B, dA, dB, dC, centre, joint, crEq, niEq, ferrite, n = 7 }
+) {
+  return (apports || [])
+    .map((a, i) => ({ a, i }))
+    .filter(({ a }) => compatible(procedeUI, a))
+    .map(({ a, i }) => {
+      const comp = joint(A, B, a.composition, dA, dB, dC);
+      const cr = crEq(comp);
+      const ni = niEq(comp);
+      const fer = ferrite(cr, ni);
+      const dist = Math.hypot(cr - centre[0], ni - centre[1]);
+      return { index: i, designation: a.designation, composition: a.composition, joint: comp, crEq: cr, niEq: ni, ferrite: fer, distance: dist };
+    })
+    .sort((x, y) => x.distance - y.distance)
+    .slice(0, n);
+}

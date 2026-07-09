@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Analyse de soudabilité — diagramme de Schaeffler interactif, placement du joint par dilution et sélection des 7 meilleurs métaux d'apport." />
+    <title data-i18n="analyse.titre">Analyse — Calculateur de Soudabilité</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script data-goatcounter="https://soudabilite.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script type="module" src="assets/js/analyse.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
+          <a class="nav__lien" href="index.html" data-i18n="nav.presentation"></a>
+          <a class="nav__lien" href="parametres.html" data-i18n="nav.parametres"></a>
+          <a class="nav__lien is-active" href="analyse.html" data-i18n="nav.analyse"></a>
+          <a class="nav__lien" href="banque.html" data-i18n="nav.data"></a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="conteneur analyse">
+        <section class="param-intro">
+          <h1 class="hero__titre" data-i18n="analyse.titre"></h1>
+          <p class="param-intro__texte" data-i18n="analyse.intro"></p>
+        </section>
+
+        <!-- Aucun paramètre en session -->
+        <section class="carte carte--form" data-analyse="vide" hidden>
+          <p data-i18n="analyse.message_vide"></p>
+          <p><a href="parametres.html" data-i18n="analyse.message_vide_lien"></a></p>
+        </section>
+
+        <div data-analyse="contenu">
+          <!-- CARTE 1 — Diagramme de Schaeffler -->
+          <section class="carte carte--form">
+            <h2 class="bloc__titre" data-i18n="analyse.carte_diagramme"></h2>
+            <div class="schaeffler-zone">
+              <svg id="schaeffler" class="schaeffler-svg" role="img" aria-label="Diagramme de Schaeffler"></svg>
+              <svg id="schaeffler-mini" class="schaeffler-svg schaeffler-svg--mini" role="img" aria-label="Diagramme de Schaeffler (zoom joint)"></svg>
+            </div>
+            <ul class="legende">
+              <li><span class="legende__pastille lg-a"></span><span data-i18n="analyse.leg_a"></span></li>
+              <li><span class="legende__pastille lg-b"></span><span data-i18n="analyse.leg_b"></span></li>
+              <li><span class="legende__pastille legende__pastille--carre lg-d"></span><span data-i18n="analyse.leg_dmelange"></span></li>
+              <li><span class="legende__pastille lg-c"></span><span data-i18n="analyse.leg_c"></span></li>
+              <li><span class="legende__pastille legende__pastille--triangle lg-j"></span><span data-i18n="analyse.leg_joint"></span></li>
+              <li><span class="legende__pastille lg-id"></span><span data-i18n="analyse.leg_ideale"></span></li>
+              <li><span class="legende__pastille lg-ac"></span><span data-i18n="analyse.leg_acceptable"></span></li>
+            </ul>
+          </section>
+
+          <!-- CARTE 2 — Sélection des 7 meilleurs apports -->
+          <section class="carte carte--form">
+            <h2 class="bloc__titre" data-i18n="analyse.carte_apports"></h2>
+            <p class="note" data-i18n="analyse.apports_note"></p>
+            <div class="tableau-defilant">
+              <table class="tableau">
+                <thead>
+                  <tr>
+                    <th data-i18n="analyse.col_rang"></th>
+                    <th data-i18n="analyse.col_designation"></th>
+                    <th data-i18n="analyse.col_creq"></th>
+                    <th data-i18n="analyse.col_nieq"></th>
+                    <th data-i18n="analyse.col_ferrite"></th>
+                    <th data-i18n="analyse.col_distance"></th>
+                    <th data-i18n="analyse.col_verdict"></th>
+                  </tr>
+                </thead>
+                <tbody data-liste="apports"></tbody>
+              </table>
+            </div>
+            <button type="button" class="btn-lien" data-toggle-comp-c aria-expanded="false" data-i18n="analyse.comp_manuelle_c"></button>
+            <div class="comp-manuelle" data-comp="c" hidden></div>
+          </section>
+
+          <!-- CARTE 3 — Synthèse Schaeffler -->
+          <section class="carte carte--form">
+            <h2 class="bloc__titre" data-i18n="analyse.carte_synthese"></h2>
+            <div data-synth="verdict"></div>
+            <div class="tableau-defilant">
+              <table class="tableau">
+                <thead>
+                  <tr>
+                    <th data-i18n="analyse.col_metal"></th>
+                    <th data-i18n="analyse.col_creq_s"></th>
+                    <th data-i18n="analyse.col_nieq_s"></th>
+                    <th data-i18n="analyse.col_creq_d"></th>
+                    <th data-i18n="analyse.col_nieq_d"></th>
+                    <th data-i18n="analyse.col_creq_w"></th>
+                    <th data-i18n="analyse.col_nieq_w"></th>
+                  </tr>
+                </thead>
+                <tbody data-synth="valeurs"></tbody>
+              </table>
+            </div>
+            <p class="note" data-i18n="analyse.ferrite_note"></p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer"></p>
+        <p class="pied__compteur" data-compteur hidden></p>
+      </div>
+    </footer>
+
+    <div class="infobulle" data-infobulle hidden></div>
+  </body>
+</html>
