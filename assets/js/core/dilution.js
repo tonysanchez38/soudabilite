@@ -39,3 +39,33 @@ export function joint(A, B, C, dA, dB, dC) {
 export function dilutionValide(dA, dB, dC, tolerance = 1e-6) {
   return Math.abs(dA + dB + dC - 1) <= tolerance;
 }
+
+// Suggestion de dilution par défaut selon procédé/assemblage/chanfrein.
+// Valeur indicative de préparation DMOS — pas une mesure : la précision
+// réelle nécessite une macrographie de l'assemblage réel.
+const PLAGES_DILUTION = {
+  "111": [0.10, 0.35],
+  "141": [0.15, 0.30],
+  "131": [0.20, 0.40],
+  "135": [0.20, 0.40],
+};
+
+export function dilutionParDefaut(procede, assemblage, chanfrein) {
+  const [min, max] = PLAGES_DILUTION[procede] || [0.15, 0.30];
+  // Bords droits = peu de vide à combler = dilution totale haute.
+  // Chanfreinés (V/Y/X/demi-V) = dilution totale basse.
+  const totale = chanfrein === "droit" ? max : min;
+  let dA, dB;
+  if (assemblage === "FW") {
+    // Angle intérieur : répartition asymétrique (gravité). Convention :
+    // A = pièce posée à plat (2/3), B = pièce dressée (1/3). À signaler
+    // en tooltip UI pour que l'utilisateur sache inverser si besoin.
+    dA = totale * (2 / 3);
+    dB = totale * (1 / 3);
+  } else {
+    // Bout à bout : répartition symétrique.
+    dA = totale / 2;
+    dB = totale / 2;
+  }
+  return { dA: dA * 100, dB: dB * 100, dC: (1 - totale) * 100 };
+}

@@ -409,8 +409,9 @@ Algorithme :
    choisi :
    - Calculer (Cr_eq_JOINT, Ni_eq_JOINT) = D_A·A + D_B·B + D_C·C_k
    - Calculer la distance euclidienne D_k au **centre de la zone idéale**
-     (à définir : point cible = Cr_eq ≈ 22, Ni_eq ≈ 12, 7-8 % ferrite)
-     ou distance à la zone (distance nulle si dans la zone).
+     (point cible = Cr_eq ≈ 21.5, Ni_eq ≈ 14.5, cf. `centre_ideal` dans
+     zones_schaeffler.json) ou distance à la zone (distance nulle si dans
+     la zone).
 3. Trier par D_k croissante, garder les 7 premiers.
 4. Filtrer : exclure les apports qui projettent le JOINT dans les zones
    martensite pure, austénite pure, ferrite pure, ou A+F avec sigma.

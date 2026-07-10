@@ -56,9 +56,12 @@ export function intensiteEE(diametre, { position = "PA", assemblage = "BW" } = {
 // Acier ferritique : I ≈ 30·e (e en mm).
 // Dès qu'au moins une base est inox (cas "inox" ou "heterogene") : I ≈ 25·e
 // — on retient la valeur la plus basse pour protéger le côté inox.
-export function intensiteTIG(epaisseur, matiere = "ferritique") {
+// Bonus +5 A/mm en angle (assemblage FW) : acier 30→35, inox/hétérogène
+// 25→30 (plus de métal à fondre en configuration d'angle).
+export function intensiteTIG(epaisseur, matiere = "ferritique", assemblage = "BW") {
   const e = Number(epaisseur) || 0;
-  const coef = matiere === "ferritique" ? 30 : 25;
+  let coef = matiere === "ferritique" ? 30 : 25;
+  if (assemblage === "FW") coef += 5;
   return coef * e;
 }
 

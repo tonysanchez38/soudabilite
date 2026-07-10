@@ -63,17 +63,20 @@ export function distanceCentre(crEq, niEq, centre) {
 
 // Verdict Schaeffler : niveau (idéal / acceptable / hors) + risques.
 // niveau par appartenance aux overlays (cohérent avec l'affichage) ;
-// risques par règles métallurgiques (CLAUDE.md, spec.md §11/§12 pour rappel).
-export function verdictSchaeffler(crEq, niEq, ferrite, overlays) {
+// risques par appartenance à la zone métallurgique réelle (classifieZone),
+// sauf sigma qui reste un seuil Cr_eq (CLAUDE.md, spec.md §11/§12).
+export function verdictSchaeffler(crEq, niEq, zones, overlays) {
   const p = [crEq, niEq];
   let niveau = "hors";
   if (pointDansPolygone(p, overlays.ideale.polygone)) niveau = "ideal";
   else if (pointDansPolygone(p, overlays.acceptable.polygone)) niveau = "acceptable";
 
+  const zone = classifieZone(crEq, niEq, zones);
   const risques = [];
-  if (ferrite < 3) risques.push("austenite_pure"); // fissuration à chaud
-  if (niEq < 0.45 * crEq) risques.push("martensite"); // fissuration à froid
+  if (zone === "A") risques.push("austenite_pure"); // fissuration à chaud
+  if (zone && zone.includes("M")) risques.push("martensite"); // fissuration à froid
   if (crEq > 25) risques.push("sigma"); // fragilisation phase sigma
+  if (zone === "F") risques.push("grossissement_grain"); // grain grossier en ferrite pure
 
   return { niveau, risques };
 }

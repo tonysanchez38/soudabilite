@@ -18,10 +18,9 @@ import {
   VITESSE_INDICATIVE,
 } from "./core/energie.js";
 import { matiereTIG, estInox } from "./core/aiguillage.js";
-import { dilutionValide } from "./core/dilution.js";
+import { dilutionValide, dilutionParDefaut } from "./core/dilution.js";
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ceIIW } from "./core/carbone_eq.js";
-import { classementApports } from "./core/selection_apport.js";
 import { sauverEtat } from "./ui/etat_dmos.js";
 
 let BANQUE = { metaux_base: [], metaux_apport: [], electrodes_tungstene: [] };
@@ -32,6 +31,11 @@ let comboTungstene = null;
 // Composition manuelle active par rôle. L'apport C est traité dans l'onglet
 // Analyse (résultat Schaeffler), pas ici — cf. CLAUDE.md (architecture Lot 4).
 const manuel = { a: false, b: false };
+
+// Devient vrai dès que l'utilisateur touche D_A/D_B/D_C à la main : la
+// suggestion de dilution par défaut ne les écrase plus tant que le lien
+// « Suggestion procédé » n'est pas actionné.
+let dilutionModifieeManuel = false;
 
 // Correspondance rôle → source dans la banque + id du <select>.
 const ROLES = {
@@ -193,7 +197,8 @@ function majVisibiliteProcede(procede) {
   const migMag = est("131") || est("135");
   // EE (111) : diamètre électrode enrobée (l'apport EST l'électrode).
   basculeChamp("diametre", est("111"));
-  // TIG (141) : électrode tungstène (épaisseur = moyenne e_A / e_B).
+  // TIG (141) : électrode tungstène (épaisseur = moyenne e_A/e_B, ou côté
+  // inox seul si hétérogène).
   basculeChamp("tungstene", est("141"));
   // MIG/MAG (131/135) : diamètre de fil + intensité saisie (apport = fil).
   basculeChamp("diametre-fil", migMag);
@@ -223,6 +228,7 @@ function onProcedeChange() {
   // Vitesse indicative pré-remplie (ajustable).
   const vi = VITESSE_INDICATIVE[procede];
   if (vi) $("#vitesse").value = String(vi.defaut);
+  if (!dilutionModifieeManuel) appliquerSuggestionDilution();
   recalculer();
 }
 
@@ -237,17 +243,24 @@ function calculerIntensite(procede) {
   }
   if (procede === "141") {
     // spec.md §3.2 — TIG selon épaisseur et nature (ferritique/inox).
-    // Épaisseur retenue = moyenne des épaisseurs saisies A / B.
-    const epaisseurs = [num("#ep-a"), num("#ep-b")].filter(Number.isFinite);
-    const eCalcul =
-      epaisseurs.length > 0
-        ? epaisseurs.reduce((s, x) => s + x, 0) / epaisseurs.length
-        : NaN;
     const matiere = matiereTIG(
       compositionEffective("a").comp,
       compositionEffective("b").comp
     );
-    return intensiteTIG(eCalcul, matiere);
+    let eCalcul;
+    if (matiere === "heterogene") {
+      // Épaisseur retenue = celle du côté inox uniquement (pas de moyenne).
+      const aEstInox = estInox(compositionEffective("a").comp);
+      eCalcul = num(aEstInox ? "#ep-a" : "#ep-b");
+    } else {
+      // Cas homogènes (ferritique/inox) : moyenne des épaisseurs A / B.
+      const epaisseurs = [num("#ep-a"), num("#ep-b")].filter(Number.isFinite);
+      eCalcul =
+        epaisseurs.length > 0
+          ? epaisseurs.reduce((s, x) => s + x, 0) / epaisseurs.length
+          : NaN;
+    }
+    return intensiteTIG(eCalcul, matiere, $("#assemblage").value);
   }
   // MIG/MAG (131/135) — pas de formule d'intensité (spec.md §3.3) : saisie.
   return num("#i-manuel");
@@ -378,27 +391,26 @@ function validerDilution() {
   alerte.hidden = !tousRenseignes || ok;
 }
 
+// Applique la suggestion de dilution (procédé/assemblage/chanfrein) aux
+// champs D_A/D_B/D_C. Arrondi indépendant par champ : D_C recalculé par
+// complément pour garantir une somme exacte de 100 %.
+function appliquerSuggestionDilution() {
+  const suggestion = dilutionParDefaut(
+    $("#procede").value,
+    $("#assemblage").value,
+    $("#chanfrein").value
+  );
+  const dA = Math.round(suggestion.dA);
+  const dB = Math.round(suggestion.dB);
+  $("#da").value = String(dA);
+  $("#db").value = String(dB);
+  $("#dc").value = String(100 - dA - dB);
+}
+
 // --- Valeurs par défaut -------------------------------------------------
 function valeursParDefaut() {
   $("#vitesse").value = String(VITESSE_INDICATIVE["111"].defaut);
-  // Dilution en pourcentage entier (15 / 15 / 70 → 100 %).
-  $("#da").value = "15";
-  $("#db").value = "15";
-  $("#dc").value = "70";
-}
-
-// Journalise le classement des apports par procédé détecté (aide à la
-// vérification manuelle — la sélection réelle se fera dans l'onglet Analyse).
-function journaliserClassement() {
-  const table = classementApports(BANQUE.metaux_apport).map((c) => ({
-    designation: c.designation,
-    procede_banque: c.procede,
-    detecte: c.detecte.join(", ") || "—",
-  }));
-  console.groupCollapsed(`Classement des apports par procédé (${table.length})`);
-  if (console.table) console.table(table);
-  else table.forEach((r) => console.log(r.detecte, "|", r.designation, "|", r.procede_banque));
-  console.groupEnd();
+  appliquerSuggestionDilution();
 }
 
 // --- Initialisation -----------------------------------------------------
@@ -425,6 +437,28 @@ async function init() {
       if (ouvrir) return ouvrirComp(ouvrir.dataset.toggleComp);
       const reset = e.target.closest("[data-reset-comp]");
       if (reset) return reinitComp(reset.dataset.resetComp);
+      const suggestion = e.target.closest("[data-suggestion-dilution]");
+      if (suggestion) {
+        dilutionModifieeManuel = false;
+        appliquerSuggestionDilution();
+        return recalculer();
+      }
+    });
+
+    // Saisie manuelle directe sur D_A/D_B/D_C : la suggestion ne les
+    // écrase plus tant qu'on ne redemande pas explicitement.
+    ["#da", "#db", "#dc"].forEach((sel) => {
+      $(sel).addEventListener("input", () => {
+        dilutionModifieeManuel = true;
+      });
+    });
+
+    // Assemblage / chanfrein : recalcule la suggestion de dilution tant
+    // qu'elle n'a pas été modifiée à la main.
+    ["#assemblage", "#chanfrein"].forEach((sel) => {
+      $(sel).addEventListener("change", () => {
+        if (!dilutionModifieeManuel) appliquerSuggestionDilution();
+      });
     });
 
     // Changer de nuance re-pré-remplit le bloc manuel s'il est ouvert.
@@ -433,9 +467,6 @@ async function init() {
         if (manuel[role]) prefillComp(role);
       });
     });
-
-    // Vérification (temporaire) : classement des apports par procédé détecté.
-    journaliserClassement();
 
     recalculer();
     rendreCompteur();

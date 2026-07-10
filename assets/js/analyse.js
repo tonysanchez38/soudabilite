@@ -119,7 +119,7 @@ function majMeilleursApports() {
   }
 
   rows.forEach((r, i) => {
-    const v = verdictSchaeffler(r.crEq, r.niEq, r.ferrite, ZONES.overlays);
+    const v = verdictSchaeffler(r.crEq, r.niEq, ZONES.zones, ZONES.overlays);
     const tr = document.createElement("tr");
     tr.className = "apport-ligne";
     tr.tabIndex = 0;
@@ -207,9 +207,14 @@ function majSynthese() {
     return;
   }
   const J = selectionC.jointMetal;
-  const v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, J.ferrite, ZONES.overlays);
+  const v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, ZONES.zones, ZONES.overlays);
   const justif = [`${J.ferrite.toFixed(1)} ${t("analyse.lbl_ferrite")}`];
-  const risquesCle = { austenite_pure: "analyse.risque_austenite", martensite: "analyse.risque_martensite", sigma: "analyse.risque_sigma" };
+  const risquesCle = {
+    austenite_pure: "analyse.risque_austenite",
+    martensite: "analyse.risque_martensite",
+    sigma: "analyse.risque_sigma",
+    grossissement_grain: "analyse.risque_grossissement_grain",
+  };
   for (const rq of v.risques) justif.push(t(risquesCle[rq]));
 
   const bloc = document.createElement("div");
