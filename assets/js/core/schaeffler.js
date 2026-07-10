@@ -61,11 +61,20 @@ export function distanceCentre(crEq, niEq, centre) {
   return Math.hypot(crEq - centre[0], niEq - centre[1]);
 }
 
+// Indice martensitique Walker & Gooch (1986), cité EN 10088-1:2005 Annexe C
+// Tableau C.1. Plage 100-300 = structure martensitique.
+export function msWalkerGooch(comp) {
+  const v = (e) => Number(comp?.[e]) || 0;
+  return 540 - 497 * v("C") - 6.3 * v("Mn") - 10.8 * v("Cr")
+             - 36.3 * v("Ni") - 46.6 * v("Mo");
+}
+
 // Verdict Schaeffler : niveau (idéal / acceptable / hors) + risques.
 // niveau par appartenance aux overlays (cohérent avec l'affichage) ;
 // risques par appartenance à la zone métallurgique réelle (classifieZone),
-// sauf sigma qui reste un seuil Cr_eq (CLAUDE.md, spec.md §11/§12).
-export function verdictSchaeffler(crEq, niEq, zones, overlays) {
+// sauf sigma (seuil Cr_eq) et martensite (indice Walker-Gooch sur la
+// composition, cf. spec.md §11/§12, CLAUDE.md).
+export function verdictSchaeffler(crEq, niEq, comp, zones, overlays) {
   const p = [crEq, niEq];
   let niveau = "hors";
   if (pointDansPolygone(p, overlays.ideale.polygone)) niveau = "ideal";
@@ -74,7 +83,8 @@ export function verdictSchaeffler(crEq, niEq, zones, overlays) {
   const zone = classifieZone(crEq, niEq, zones);
   const risques = [];
   if (zone === "A") risques.push("austenite_pure"); // fissuration à chaud
-  if (zone && zone.includes("M")) risques.push("martensite"); // fissuration à froid
+  const ms = msWalkerGooch(comp);
+  if (ms >= 100 && ms <= 300) risques.push("martensite"); // fissuration à froid
   if (crEq > 25) risques.push("sigma"); // fragilisation phase sigma
   if (zone === "F") risques.push("grossissement_grain"); // grain grossier en ferrite pure
 

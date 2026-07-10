@@ -17,6 +17,7 @@ import {
 import { joint, melangeBases } from "./core/dilution.js";
 import { ferriteSchaeffler, verdictSchaeffler } from "./core/schaeffler.js";
 import { meilleursApports } from "./core/selection_apport.js";
+import { estDuplex, verdictDuplex, ferriteApproxWRC, SOURCE_DUPLEX_IDEAL } from "./core/famille_alliage.js";
 
 const $ = (s) => document.querySelector(s);
 
@@ -100,6 +101,9 @@ function majDiagrammes() {
 function majMeilleursApports() {
   const corps = $("[data-liste=apports]");
   corps.replaceChildren();
+  // Classement/ranking : distance à centre_ideal en Schaeffler, inchangé
+  // (la cible duplex 35-65 % ferrite n'est pas un point à distance
+  // euclidienne — cf. classification par ligne ci-dessous).
   const rows = meilleursApports(BANQUE.metaux_apport, ETAT.procede, {
     A: A.comp, B: B.comp, dA, dB, dC,
     centre: ZONES.centre_ideal,
@@ -119,7 +123,21 @@ function majMeilleursApports() {
   }
 
   rows.forEach((r, i) => {
-    const v = verdictSchaeffler(r.crEq, r.niEq, ZONES.zones, ZONES.overlays);
+    // Duplex/superduplex (A, B ou l'apport candidat) : classification WRC-1992
+    // jugée sur la bande ferrite ISO 17781, pas sur les polygones Schaeffler.
+    const duplex = estDuplex(A.designation) || estDuplex(B.designation) || estDuplex(r.designation);
+    let crAff, niAff, ferAff, v;
+    if (duplex) {
+      crAff = crEqWRC(r.joint);
+      niAff = niEqWRC(r.joint);
+      ferAff = ferriteApproxWRC(crAff, niAff);
+      v = verdictDuplex(ferAff);
+    } else {
+      crAff = r.crEq;
+      niAff = r.niEq;
+      ferAff = r.ferrite;
+      v = verdictSchaeffler(r.crEq, r.niEq, r.joint, ZONES.zones, ZONES.overlays);
+    }
     const tr = document.createElement("tr");
     tr.className = "apport-ligne";
     tr.tabIndex = 0;
@@ -127,13 +145,13 @@ function majMeilleursApports() {
     ajouterCellules(tr, [
       String(i + 1),
       r.designation,
-      r.crEq.toFixed(2),
-      r.niEq.toFixed(2),
-      `${r.ferrite.toFixed(1)} %`,
+      crAff.toFixed(2),
+      niAff.toFixed(2),
+      `${ferAff.toFixed(1)} %`,
       r.distance.toFixed(2),
     ]);
     const tdV = document.createElement("td");
-    tdV.appendChild(badgeVerdict(v.niveau));
+    tdV.appendChild(badgeVerdict(v.niveau, duplex ? SOURCE_DUPLEX_IDEAL : null));
     tr.appendChild(tdV);
     tr.addEventListener("click", () => choisirApport(r, tr));
     tr.addEventListener("keydown", (e) => {
@@ -151,7 +169,7 @@ function ajouterCellules(tr, valeurs) {
   }
 }
 
-function badgeVerdict(niveau) {
+function badgeVerdict(niveau, titre = null) {
   const map = {
     ideal: { cls: "verdict--ok", icone: "✓", cle: "analyse.verdict_ideal" },
     acceptable: { cls: "verdict--attention", icone: "⚠", cle: "analyse.verdict_acceptable" },
@@ -160,6 +178,7 @@ function badgeVerdict(niveau) {
   const d = map[niveau] || map.hors;
   const span = document.createElement("span");
   span.className = `verdict ${d.cls}`;
+  if (titre) span.title = titre;
   const ic = document.createElement("span");
   ic.className = "verdict__icone";
   ic.textContent = d.icone;
@@ -207,8 +226,18 @@ function majSynthese() {
     return;
   }
   const J = selectionC.jointMetal;
-  const v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, ZONES.zones, ZONES.overlays);
-  const justif = [`${J.ferrite.toFixed(1)} ${t("analyse.lbl_ferrite")}`];
+  const duplex = estDuplex(A.designation) || estDuplex(B.designation) || estDuplex(selectionC.metal.designation);
+  let ferJ, v;
+  if (duplex) {
+    const crJ = crEqWRC(J.comp);
+    const niJ = niEqWRC(J.comp);
+    ferJ = ferriteApproxWRC(crJ, niJ);
+    v = verdictDuplex(ferJ);
+  } else {
+    ferJ = J.ferrite;
+    v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, J.comp, ZONES.zones, ZONES.overlays);
+  }
+  const justif = [`${ferJ.toFixed(1)} ${t("analyse.lbl_ferrite")}`];
   const risquesCle = {
     austenite_pure: "analyse.risque_austenite",
     martensite: "analyse.risque_martensite",
@@ -219,7 +248,7 @@ function majSynthese() {
 
   const bloc = document.createElement("div");
   bloc.className = "synth-verdict";
-  bloc.appendChild(badgeVerdict(v.niveau));
+  bloc.appendChild(badgeVerdict(v.niveau, duplex ? SOURCE_DUPLEX_IDEAL : null));
   bloc.appendChild(noteTexte(justif.join(" · ")));
   zoneVerdict.replaceChildren(bloc);
 }
