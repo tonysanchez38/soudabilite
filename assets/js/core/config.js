@@ -8,3 +8,6 @@
 // duplex actuel utilise une approximation via la table Schaeffler — cf.
 // ferriteApproxWRC, core/famille_alliage.js). CLAUDE.md #29.
 export const DUPLEX_VISIBLE = false;
+
+// Numéro de build (affichable en pied de page / logs de diagnostic).
+export const BUILD_SIGNATURE = "TS-SDB-2026";
