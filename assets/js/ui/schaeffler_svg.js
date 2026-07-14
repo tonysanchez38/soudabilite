@@ -237,7 +237,14 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   if (Array.isArray(zones.zone_s) && zones.zone_s.length >= 3) {
     const gZoneS = el("g", { "clip-path": `url(#clip-s-bas-${idSvg})` });
     const ptsEcranS = zones.zone_s.map(([cr, ni]) => [X(cr), Y(ni)]);
-    const zoneS = el("path", { d: courbeFermee(ptsEcranS), fill: "#FFFFFF", "fill-opacity": 0.80 });
+    const zoneS = el("path", {
+      d: courbeFermee(ptsEcranS),
+      fill: "#FFFFFF",
+      "fill-opacity": 0.92, // plus opaque : se détache mieux du crème AMF
+      stroke: "#0f172a", // même contour sombre que les autres zones
+      "stroke-width": 0.9,
+      "stroke-dasharray": "2 1.5", // pointillé fin : signale "repère", pas une zone dure
+    });
     const titre = el("title");
     titre.textContent =
       "Zone S — interstice de transition du Schaeffler historique. Dernier recours si aucun apport ne place le joint en zone idéale ou acceptable.";
