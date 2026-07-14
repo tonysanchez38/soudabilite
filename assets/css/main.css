@@ -905,6 +905,19 @@ table {
   margin-top: var(--sp-4);
 }
 
+/* Sous-titre de groupe au-dessus d'un tableau-defilant (ex. banque.html :
+   un sous-tableau par procédé compatible). Plus discret que .bloc__titre
+   (pas bleu, taille de base) pour rester secondaire au titre de carte. */
+.tableau-groupe__titre {
+  font-size: var(--fs-base);
+  margin: var(--sp-5) 0 var(--sp-2);
+  color: var(--texte-doux);
+}
+
+.tableau-groupe__titre:first-child {
+  margin-top: 0;
+}
+
 .tableau {
   width: 100%;
   font-size: var(--fs-sm);

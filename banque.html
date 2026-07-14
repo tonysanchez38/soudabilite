@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Calculateur de Soudabilité - soudabilite.com
+     Conception et développement : Tony SANCHEZ -->
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
+    <meta name="author" content="Tony SANCHEZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Data - nuances d'aciers et métaux d'apport de référence : composition, Cr_eq/Ni_eq Schaeffler, groupés par procédé de soudage."
+    />
+    <title data-i18n="banque.titre">Data - métaux de référence</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Analytics GoatCounter (RGPD sans bandeau cookies - CLAUDE.md #22). -->
+    <script
+      data-goatcounter="https://soudabilite.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+    <script type="module" src="assets/js/banque.js"></script>
+  </head>
+  <body>
+    <!-- ===================== Barre de navigation ===================== -->
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <a class="nav__marque" href="index.html">www.soudabilite.com</a>
+        <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
+          <a class="nav__lien" href="index.html" data-i18n="nav.presentation"></a>
+          <a class="nav__lien" href="parametres.html" data-i18n="nav.parametres"></a>
+          <a class="nav__lien is-active" href="banque.html" data-i18n="nav.data"></a>
+          <a class="nav__lien" href="annonces.html" data-i18n="nav.annonces"></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= Contenu ============================= -->
+    <main class="page">
+      <div class="conteneur parametres">
+        <div class="param-intro">
+          <h1 class="hero__titre" data-i18n="banque.titre"></h1>
+          <p class="param-intro__texte" data-i18n="banque.note_indicative"></p>
+        </div>
+
+        <section class="carte carte--form">
+          <h2 class="bloc__titre" data-i18n="banque.titre_base"></h2>
+          <div data-banque="base"></div>
+        </section>
+
+        <section class="carte carte--form">
+          <h2 class="bloc__titre" data-i18n="banque.titre_apport"></h2>
+          <div data-banque="apport"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ==================== Pied de page permanent =================== -->
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer"></p>
+        <p class="pied__compteur" data-compteur hidden></p>
+      </div>
+    </footer>
+  </body>
+</html>
