@@ -19,7 +19,7 @@ function el(nom, attrs = {}) {
 // Pose un fond plein arrondi derrière un texte SVG déjà inséré dans le DOM,
 // pour garantir la lisibilité même si une ligne ou un autre texte passe dessous.
 function fondEtiquette(groupe, texteNode, options = {}) {
-  const { padding = 5, couleur = "#0f172a", opacite = 0.82 } = options;
+  const { padding = 6, couleur = "#0f172a", opacite = 0.82 } = options;
   const bbox = texteNode.getBBox();
   const fond = el("rect", {
     x: bbox.x - padding,
@@ -149,17 +149,24 @@ function halo(txt) {
 //   fenetre   : { cr:[min,max], ni:[min,max] }
 //   options   : { axes:bool, isoLabels:bool, infobulle:HTMLEl }
 export function creerDiagramme(svg, zones, fenetre, options = {}) {
-  const H = 350;
-  const padL = 38;
-  const padR = 14;
-  const padT = 14;
-  const padB = 34;
-  svg.setAttribute("viewBox", `0 0 440 ${H}`);
+  // Taille globale +18% (dans la fourchette demandée 15-20%) : viewBox et
+  // .schaeffler-svg { max-height } (main.css) scalés ensemble pour garder
+  // le même ratio pixel/unité - les polices/traits (valeurs absolues en
+  // unités SVG) restent donc à la même taille physique à l'écran, mais la
+  // géométrie (zones, bandes, points) occupe plus d'espace physique :
+  // moins de promiscuité entre étiquettes, sans retoucher chaque
+  // constante de mise en page une par une.
+  const H = 413;
+  const padL = 45;
+  const padR = 17;
+  const padT = 17;
+  const padB = 40;
+  svg.setAttribute("viewBox", `0 0 519 ${H}`);
   svg.replaceChildren();
 
   const [crMin, crMax] = fenetre.cr;
   const [niMin, niMax] = fenetre.ni;
-  const plotW = 440 - padL - padR;
+  const plotW = 519 - padL - padR;
   const plotH = H - padT - padB;
   const X = (cr) => padL + ((cr - crMin) / (crMax - crMin)) * plotW;
   const Y = (ni) => padT + (1 - (ni - niMin) / (niMax - niMin)) * plotH;
@@ -264,7 +271,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     const zoneS = el("path", {
       d: courbeFermee(ptsEcranS),
       fill: "#FFFFFF",
-      "fill-opacity": 0.92, // plus opaque : se détache mieux du crème AMF
+      "fill-opacity": 0.58, // dernier recours discret, ne domine plus le diagramme
       stroke: "#0f172a", // même contour sombre que les autres zones
       "stroke-width": 0.9,
       "stroke-dasharray": "2 1.5", // pointillé fin : signale "repère", pas une zone dure
@@ -292,7 +299,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
         x1: X(crBas), y1: Y(niBas), x2: X(crHaut), y2: Y(niHaut),
         stroke: "#e2e8f0",
         "stroke-width": etiquetee ? 0.7 : 0.5,
-        "stroke-opacity": etiquetee ? 0.55 : 0.3,
+        "stroke-opacity": 0.32,
         ...(etiquetee ? {} : { "stroke-dasharray": "3 3" }),
       })
     );
@@ -306,7 +313,11 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       const t = el("text", { x: tx, y: ty, fill: "#94a3b8", "font-size": 8, "text-anchor": ancre });
       t.textContent = `${pct}%`;
       gEtiquettes.appendChild(t);
-      fondEtiquette(gEtiquettes, t);
+      // Padding réduit (3 au lieu du défaut 6) : ces étiquettes sont
+      // serrées le long du bord du plot (ex. 10/15/20 % sur le bord
+      // droit) - le padding par défaut ferait chevaucher les fonds entre
+      // graduations consécutives.
+      fondEtiquette(gEtiquettes, t, { padding: 3 });
     }
   }
 
