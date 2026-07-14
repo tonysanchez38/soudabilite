@@ -165,3 +165,18 @@
     border: 1px solid #999999;
   }
 }
+
+/* Filet de sécurité final : certains éléments de la fiche (badges de
+   verdict, bordures de tableau) héritent encore une couleur du thème
+   sombre via une règle plus spécifique que les blocs ci-dessus — ce
+   bloc les neutralise explicitement, en dernier dans la cascade. */
+@media print {
+  #fiche-impression,
+  #fiche-impression * {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border-color: #000000 !important;
+  }
+}
