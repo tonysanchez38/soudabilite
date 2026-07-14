@@ -391,10 +391,15 @@ table {
   font-weight: 700;
 }
 
-/* Écart à la zone idéale quand le joint en est proche (CLAUDE.md #26). */
+/* Écart à la zone idéale quand le joint en est proche (CLAUDE.md #26).
+   En bloc sous le libellé principal : évite d'élargir la colonne/le badge
+   quand la note est présente ("limite idéale à 5 %"). */
 .verdict__note {
+  display: block;
   font-weight: 500;
+  font-size: 0.82em;
   opacity: 0.85;
+  margin-top: 2px;
 }
 
 .verdict--ok {
@@ -926,6 +931,14 @@ table {
   white-space: nowrap;
 }
 
+/* Colonne Verdict : la note d'écart (.verdict__note) doit pouvoir passer
+   à la ligne au lieu d'élargir la colonne — à toutes les tailles d'écran,
+   pas seulement sous 820px. Spécificité alignée sur .tableau tbody td
+   (0,1,2) pour la battre malgré l'ordre des règles. */
+.tableau--apports tbody td {
+  white-space: normal;
+}
+
 .apport-ligne {
   cursor: pointer;
 }
@@ -1031,7 +1044,6 @@ table {
     align-items: center;
     gap: var(--sp-3);
     padding: var(--sp-2) var(--sp-3);
-    white-space: normal;
   }
 
   .tableau--apports td::before {
