@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // selection_apport.js — compatibilité procédé ↔ métal d'apport.
 // La sélection de l'apport C se fait dans l'onglet Analyse (résultat du

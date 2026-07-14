@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // carbone_eq.js — carbone équivalent.
 // Réf. spec.md §5 (CE_IIW §5.1, CET EN 1011-2 §5.2, Séférian compensé §5.3).

@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // equivalents.js — équivalents en chrome et en nickel.
 // Réf. spec.md §1 (Schaeffler 1949, DeLong 1974, WRC-1992).

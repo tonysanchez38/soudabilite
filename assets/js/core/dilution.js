@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // dilution.js — chimie du bain fondu par dilution.
 // Réf. spec.md §2 (composition du JOINT, point intermédiaire D_mélange).

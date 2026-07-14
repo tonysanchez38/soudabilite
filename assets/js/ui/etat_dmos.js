@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // etat_dmos.js — pont de session entre Paramètres DMOS et Analyse.
 // sessionStorage uniquement : vidé à la fermeture de l'onglet (aucune

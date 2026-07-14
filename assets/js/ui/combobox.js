@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // combobox.js — liste déroulante à recherche (CLAUDE.md #11).
 // Enrobe Choices.js (chargé via CDN). Repli gracieux : si Choices n'est pas

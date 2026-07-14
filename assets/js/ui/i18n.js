@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // i18n.js — chargement des chaînes visibles et injection dans le DOM.
 // Décision CLAUDE.md #23 : toute chaîne visible provient de

@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // schaeffler_svg.js — rendu SVG natif du diagramme de Schaeffler.
 // Coordonnées réelles (Cr_eq en abscisse, Ni_eq en ordonnée). Aucune image

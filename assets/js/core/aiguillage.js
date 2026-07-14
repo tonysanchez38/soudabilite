@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // aiguillage.js — choix de la branche d'analyse selon les métaux de base.
 // Réf. CLAUDE.md décision #2 (seuils indicatifs d'aiguillage).

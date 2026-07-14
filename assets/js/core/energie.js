@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // energie.js — paramètres électriques et énergie de soudage.
 // Réf. spec.md §3 (intensité, tension par procédé) et §4 (énergie).

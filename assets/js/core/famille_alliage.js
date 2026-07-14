@@ -1,3 +1,4 @@
+// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
 // =========================================================================
 // famille_alliage.js — détection provisoire de famille d'alliage par
 // désignation (duplex/superduplex), en l'absence de groupe_iso_15608
