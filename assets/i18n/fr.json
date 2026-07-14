@@ -11,7 +11,8 @@
     "aria_label": "Navigation principale",
     "presentation": "Présentation",
     "parametres": "Paramètres DMOS",
-    "data": "Data"
+    "data": "Data",
+    "annonces": "Annonces"
   },
   "presentation": {
     "sous_titre": "Aide à la préparation du DMOS",
@@ -46,6 +47,13 @@
     "auteur_sep": "-",
     "linkedin": "Contact",
     "linkedin_url": "https://www.linkedin.com/in/tonysanchez38/"
+  },
+  "annonces": {
+    "titre": "Annonces et suivi du projet",
+    "intro": "Le site est en construction et évolutif : de nouvelles fonctionnalités sont ajoutées progressivement.",
+    "a_venir": "Prochains ajouts prévus : l'analyse thermique (préchauffe, temps de refroidissement t8/5) et l'incrémentation des bases de métaux de base et de métaux d'apport.",
+    "beta": "Version beta - le diagramme d'analyse est actuellement en cours de test par plusieurs personnes ; des essais avec divers matériaux et procédés sont prévus prochainement pour valider l'outil.",
+    "linkedin": "Je reste disponible pour échanger sur les améliorations à envisager et les corrections à apporter."
   },
   "parametres": {
     "titre": "Paramètres DMOS",

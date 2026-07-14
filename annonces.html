@@ -9,12 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Calculateur de Soudabilité - outil web gratuit d'aide à la préparation du DMOS : Schaeffler, préchauffe, t8/5, dureté et verdicts normatifs."
+      content="Annonces et suivi du projet Calculateur de Soudabilité : évolutions prévues, statut beta, contact."
     />
-    <!-- Le titre est piloté par i18n ; ce libellé sert de repli avant JS. -->
-    <title data-i18n="app.titre_onglet_navigateur">
-      Calculateur de Soudabilité
-    </title>
+    <title data-i18n="annonces.titre">Annonces et suivi du projet</title>
     <link rel="stylesheet" href="assets/css/main.css" />
     <!-- Analytics GoatCounter (RGPD sans bandeau cookies - CLAUDE.md #22). -->
     <script
@@ -30,10 +27,10 @@
       <div class="conteneur topbar__inner">
         <a class="nav__marque" href="index.html">www.soudabilite.com</a>
         <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
-          <a class="nav__lien is-active" href="index.html" data-i18n="nav.presentation"></a>
+          <a class="nav__lien" href="index.html" data-i18n="nav.presentation"></a>
           <a class="nav__lien" href="parametres.html" data-i18n="nav.parametres"></a>
           <a class="nav__lien" href="banque.html" data-i18n="nav.data"></a>
-          <a class="nav__lien" href="annonces.html" data-i18n="nav.annonces"></a>
+          <a class="nav__lien is-active" href="annonces.html" data-i18n="nav.annonces"></a>
         </nav>
       </div>
     </header>
@@ -41,52 +38,27 @@
     <!-- ========================= Contenu ============================= -->
     <main class="page">
       <div class="conteneur presentation">
-        <!-- Hero : titre + sous-titre + description (3-4 lignes) -->
         <section class="hero">
-          <h1 class="hero__titre" data-i18n="app.titre"></h1>
-          <p class="hero__sous-titre" data-i18n="presentation.sous_titre"></p>
-          <p class="hero__desc" data-i18n="presentation.description"></p>
+          <h1 class="hero__titre" data-i18n="annonces.titre"></h1>
         </section>
 
-        <!-- Grille : cadre normatif + sommaire des onglets -->
-        <div class="grille-presentation">
-          <!-- Tableau des normes (rempli par app.js depuis fr.json) -->
-          <section aria-labelledby="titre-normes">
-            <h2
-              id="titre-normes"
-              class="bloc__titre"
-              data-i18n="presentation.normes_titre"
-            ></h2>
-            <table class="normes">
-              <thead>
-                <tr>
-                  <th data-i18n="presentation.normes_col_code"></th>
-                  <th data-i18n="presentation.normes_col_objet"></th>
-                </tr>
-              </thead>
-              <tbody data-liste="normes"></tbody>
-            </table>
-          </section>
-
-          <!-- Sommaire des onglets (rempli par app.js depuis fr.json) -->
-          <section aria-labelledby="titre-sommaire">
-            <h2
-              id="titre-sommaire"
-              class="bloc__titre"
-              data-i18n="presentation.sommaire_titre"
-            ></h2>
-            <div class="cartes" data-liste="onglets"></div>
-          </section>
+        <div class="carte">
+          <p class="carte__texte" data-i18n="annonces.intro"></p>
+          <p class="carte__texte" data-i18n="annonces.a_venir"></p>
         </div>
 
-        <!-- Auteur + contact (uniquement sur l'onglet Présentation) -->
+        <div class="carte">
+          <p class="carte__texte" data-i18n="annonces.beta"></p>
+        </div>
+
+        <!-- Contact (même lien LinkedIn que l'onglet Présentation) -->
         <section class="auteur">
           <img class="auteur__logo" src="assets/img/logo.png" alt="" />
           <span class="auteur__nom" data-i18n="presentation.auteur_nom"></span>
           <span data-i18n="presentation.auteur_sep"></span>
           <a
             class="auteur__lien"
-            data-i18n="presentation.linkedin"
+            data-i18n="annonces.linkedin"
             data-i18n-attr="href:presentation.linkedin_url"
             target="_blank"
             rel="noopener"
