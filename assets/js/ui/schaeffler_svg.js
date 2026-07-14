@@ -149,24 +149,24 @@ function halo(txt) {
 //   fenetre   : { cr:[min,max], ni:[min,max] }
 //   options   : { axes:bool, isoLabels:bool, infobulle:HTMLEl }
 export function creerDiagramme(svg, zones, fenetre, options = {}) {
-  // Taille globale +18% (dans la fourchette demandée 15-20%) : viewBox et
-  // .schaeffler-svg { max-height } (main.css) scalés ensemble pour garder
-  // le même ratio pixel/unité - les polices/traits (valeurs absolues en
-  // unités SVG) restent donc à la même taille physique à l'écran, mais la
-  // géométrie (zones, bandes, points) occupe plus d'espace physique :
-  // moins de promiscuité entre étiquettes, sans retoucher chaque
-  // constante de mise en page une par une.
-  const H = 413;
-  const padL = 45;
-  const padR = 17;
-  const padT = 17;
-  const padB = 40;
-  svg.setAttribute("viewBox", `0 0 519 ${H}`);
+  // Taille globale +18% puis +12% supplémentaires (deux passes de
+  // grossissement cumulées) : viewBox et .schaeffler-svg { max-height }
+  // (main.css) scalés ensemble pour garder le même ratio pixel/unité -
+  // les polices/traits (valeurs absolues en unités SVG) restent donc à
+  // la même taille physique à l'écran, mais la géométrie (zones, bandes,
+  // points) occupe plus d'espace physique : moins de promiscuité entre
+  // étiquettes, sans retoucher chaque constante de mise en page une par une.
+  const H = 463;
+  const padL = 50;
+  const padR = 19;
+  const padT = 19;
+  const padB = 45;
+  svg.setAttribute("viewBox", `0 0 581 ${H}`);
   svg.replaceChildren();
 
   const [crMin, crMax] = fenetre.cr;
   const [niMin, niMax] = fenetre.ni;
-  const plotW = 519 - padL - padR;
+  const plotW = 581 - padL - padR;
   const plotH = H - padT - padB;
   const X = (cr) => padL + ((cr - crMin) / (crMax - crMin)) * plotW;
   const Y = (ni) => padT + (1 - (ni - niMin) / (niMax - niMin)) * plotH;
@@ -500,8 +500,11 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // Étiquette persistante à côté d'un point (ex. "ZF - dilution 30%").
   function etiquettePoint(p) {
     if (!p.etiquette) return null;
+    // font-size 9 -> 11 (+22%, dans la fourchette demandée 20-25%) pour
+    // la lisibilité du label ZF - seul point à utiliser .etiquette (A/B/C/D
+    // n'ont qu'une infobulle au survol, pas de label persistant).
     const t = el("text", {
-      x: X(p.cr) + 14, y: Y(p.ni) + 6, fill: "#f8fafc", "font-size": 9, "font-weight": 600,
+      x: X(p.cr) + 20, y: Y(p.ni) + 66, fill: "#f8fafc", "font-size": 11, "font-weight": 600,
       "pointer-events": "none",
     });
     t.textContent = p.etiquette;
@@ -525,7 +528,9 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       const lbl = etiquettePoint(p);
       if (lbl) {
         gDyn.appendChild(lbl);
-        fondEtiquette(gDyn, lbl);
+        // Padding 7 (au lieu du défaut 6) : fond ajusté au texte agrandi
+        // (font-size 11 dans etiquettePoint, +22%).
+        fondEtiquette(gDyn, lbl, { padding: 7 });
       }
     }
   }
