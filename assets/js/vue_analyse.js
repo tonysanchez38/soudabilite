@@ -16,6 +16,7 @@ import { joint, melangeBases } from "./core/dilution.js";
 import { ferriteSchaeffler, verdictSchaeffler, niveauIdeal } from "./core/schaeffler.js";
 import { meilleursApports } from "./core/selection_apport.js";
 import { estDuplex, verdictDuplex, ferriteApproxWRC, SOURCE_DUPLEX_IDEAL } from "./core/famille_alliage.js";
+import { DUPLEX_VISIBLE } from "./core/config.js";
 
 const $ = (s) => document.querySelector(s);
 
@@ -119,7 +120,16 @@ function majMeilleursApports() {
   // hors) puis distance à centre_ideal à l'intérieur de chaque groupe (la
   // cible duplex 35-65 % ferrite n'est pas concernée par ce tri — cf.
   // classification par ligne, calculée séparément ci-dessous).
-  const rows = meilleursApports(BANQUE.metaux_apport, ETAT.procede, {
+  // DUPLEX_VISIBLE (CLAUDE.md #29) : les apports duplex/superduplex sont
+  // masqués de la sélection tant que les iso-FN WRC-1992 ne sont pas
+  // digitalisées — ne retire aucun code duplex, seulement la liste passée
+  // à meilleursApports() (le tri/verdict duplex reste actif si A ou B
+  // lui-même est duplex, cf. duplexBase dans selection_apport.js).
+  const apportsVisibles = DUPLEX_VISIBLE
+    ? BANQUE.metaux_apport
+    : (BANQUE.metaux_apport || []).filter((a) => !estDuplex(a.designation));
+
+  const rows = meilleursApports(apportsVisibles, ETAT.procede, {
     A: A.comp, B: B.comp, dA, dB, dC,
     centre: ZONES.centre_ideal,
     joint, crEq: crEqSchaeffler, niEq: niEqSchaeffler, ferrite: ferriteSchaeffler,

@@ -1,0 +1,9 @@
+// =========================================================================
+// config.js — indicateurs de fonctionnalité (feature flags).
+// =========================================================================
+
+// Apports duplex/superduplex masqués de la sélection des 7 meilleurs
+// apports tant que les iso-FN WRC-1992 ne sont pas digitalisées (le tri
+// duplex actuel utilise une approximation via la table Schaeffler — cf.
+// ferriteApproxWRC, core/famille_alliage.js). CLAUDE.md #29.
+export const DUPLEX_VISIBLE = false;

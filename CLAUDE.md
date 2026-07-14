@@ -135,6 +135,22 @@ catalogue, cet outil intègre en une interface unique :
     externe ajoutée — cohérent avec l'architecture 100 % statique. La
     fiche n'est pas un DMOS normatif : c'est une synthèse imprimable des
     choix faits sur le site.
+29. **Apports duplex/superduplex masqués (feature flag DUPLEX_VISIBLE)** :
+    `assets/js/core/config.js` exporte `DUPLEX_VISIBLE = false`. Tant que
+    ce flag est à `false`, `vue_analyse.js` retire les apports détectés
+    `estDuplex()` de la liste passée à `meilleursApports()` — aucun apport
+    duplex/superduplex n'apparaît dans la sélection des 7 meilleurs.
+    Cause : le tri/verdict duplex (`ferriteApproxWRC`, dans
+    `core/famille_alliage.js`) réutilise la table d'interpolation
+    Schaeffler (FERRITE_G) appliquée à des coordonnées WRC-1992 — une
+    approximation reconnue non rigoureuse (les deux diagrammes ont des
+    échelles distinctes), en attendant la digitalisation des iso-FN
+    WRC-1992 réelles (Fig. 6-7, Kotecki & Siewert 1992). Aucun code duplex
+    n'est supprimé : le classement/verdict duplex reste actif si le métal
+    de base A ou B est lui-même duplex (`duplexBase`,
+    `core/selection_apport.js`) — seule la liste de *candidats* apport est
+    filtrée. À réactiver en repassant le flag à `true` une fois les iso-FN
+    digitalisées.
 
 ## Séquence de construction — 11 étapes
 
