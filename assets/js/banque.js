@@ -31,44 +31,89 @@ function fmt(valeur, decimales = 2) {
   return valeur == null || !Number.isFinite(n) ? t("banque.non_applicable") : n.toFixed(decimales);
 }
 
+// Colonnes visibles par défaut : Désignation, Cr_eq, Ni_eq, + une colonne
+// bouton (sans intitulé). Groupe ISO et les 10 éléments de composition
+// sont repoussés dans la ligne dépliante (ligneDetail) pour éviter le
+// scroll horizontal d'un tableau à 14 colonnes.
+const NB_COLONNES_VISIBLES = 4;
+
 function enteteColonnes() {
-  const cles = [
-    "banque.col_designation", "banque.col_groupe_iso", "banque.col_creq", "banque.col_nieq",
-    ...ELEMENTS.map((e) => COL_ELEMENT[e]),
-  ];
-  return cles.map((cle) => {
+  const cles = ["banque.col_designation", "banque.col_creq", "banque.col_nieq"];
+  const ths = cles.map((cle) => {
     const th = document.createElement("th");
     th.textContent = t(cle);
     return th;
   });
+  ths.push(document.createElement("th")); // colonne bouton, sans intitulé
+  return ths;
+}
+
+// Ligne dépliante (masquée par défaut) : Groupe ISO + les 10 éléments de
+// composition, en pleine largeur (comp-grille s'adapte à l'espace dispo).
+function ligneDetail(metal) {
+  const tr = document.createElement("tr");
+  tr.className = "banque-detail";
+  tr.hidden = true;
+  const td = document.createElement("td");
+  td.colSpan = NB_COLONNES_VISIBLES;
+  const grille = document.createElement("div");
+  grille.className = "comp-grille";
+  const champs = [
+    [t("banque.col_groupe_iso"), metal.groupe_iso_15608 ?? t("banque.non_applicable")],
+    ...ELEMENTS.map((e) => [t(COL_ELEMENT[e]), fmt(metal.composition?.[e], 3)]),
+  ];
+  for (const [libelle, valeur] of champs) {
+    const champ = document.createElement("div");
+    champ.className = "comp-champ";
+    const label = document.createElement("span");
+    label.className = "comp-champ__label";
+    label.textContent = libelle;
+    const val = document.createElement("span");
+    val.className = "comp-champ__valeur";
+    val.textContent = valeur;
+    champ.append(label, val);
+    grille.appendChild(champ);
+  }
+  td.appendChild(grille);
+  tr.appendChild(td);
+  return tr;
 }
 
 function ligneMetal(metal) {
   const cr = crEqSchaeffler(metal.composition);
   const ni = niEqSchaeffler(metal.composition);
   const tr = document.createElement("tr");
-  const valeurs = [
-    metal.designation,
-    metal.groupe_iso_15608 ?? t("banque.non_applicable"),
-    fmt(cr), fmt(ni),
-    ...ELEMENTS.map((e) => fmt(metal.composition?.[e], 3)),
-  ];
-  const labels = [
-    t("banque.col_designation"), t("banque.col_groupe_iso"), t("banque.col_creq"), t("banque.col_nieq"),
-    ...ELEMENTS.map((e) => t(COL_ELEMENT[e])),
-  ];
+  const valeurs = [metal.designation, fmt(cr), fmt(ni)];
+  const labels = [t("banque.col_designation"), t("banque.col_creq"), t("banque.col_nieq")];
   valeurs.forEach((val, i) => {
     const td = document.createElement("td");
     td.textContent = val;
     td.dataset.label = labels[i];
     tr.appendChild(td);
   });
-  return tr;
+
+  const trDetail = ligneDetail(metal);
+  const tdBouton = document.createElement("td");
+  const bouton = document.createElement("button");
+  bouton.type = "button";
+  bouton.className = "btn-lien";
+  bouton.textContent = t("banque.detail_ajouter");
+  bouton.addEventListener("click", () => {
+    const ouverture = trDetail.hidden;
+    trDetail.hidden = !ouverture;
+    bouton.textContent = t(ouverture ? "banque.detail_retirer" : "banque.detail_ajouter");
+  });
+  tdBouton.appendChild(bouton);
+  tr.appendChild(tdBouton);
+
+  const frag = document.createDocumentFragment();
+  frag.append(tr, trDetail);
+  return frag;
 }
 
 function construireTable(corpsId, metaux) {
   const table = document.createElement("table");
-  table.className = "tableau";
+  table.className = "tableau tableau--banque";
   const thead = document.createElement("thead");
   const trEntete = document.createElement("tr");
   enteteColonnes().forEach((th) => trEntete.appendChild(th));
@@ -77,7 +122,7 @@ function construireTable(corpsId, metaux) {
   if (metaux.length === 0) {
     const tr = document.createElement("tr");
     const td = document.createElement("td");
-    td.colSpan = 4 + ELEMENTS.length;
+    td.colSpan = NB_COLONNES_VISIBLES;
     td.className = "note";
     td.textContent = t("banque.apport_vide");
     tr.appendChild(td);

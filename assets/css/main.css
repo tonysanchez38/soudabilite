@@ -676,6 +676,15 @@ table {
   border-color: var(--bleu);
 }
 
+/* Valeur en lecture seule (banque.html : composition détaillée dépliée
+   sous une ligne) - même typographie que .comp-champ__input, sans les
+   attributs de champ de saisie (pas de champ éditable ici). */
+.comp-champ__valeur {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--encre);
+}
+
 /* Ligne équivalents calculés sous chaque métal */
 .comp-eq {
   margin: var(--sp-2) 0 0;
@@ -952,6 +961,22 @@ table {
    (0,1,2) pour la battre malgré l'ordre des règles. */
 .tableau--apports tbody td {
   white-space: normal;
+}
+
+/* banque.html : désignations longues (ex. "OK Tigrod 2509 (ER2594 / W 25
+   9 4 N L) super duplex") - passent à la ligne au lieu d'imposer un
+   scroll horizontal, alors que les colonnes numériques (Cr_eq, Ni_eq)
+   et le bouton restent compacts (nowrap hérité de .tableau tbody td). */
+.tableau--banque tbody td:first-child {
+  white-space: normal;
+}
+
+/* Padding horizontal resserré : seulement 4 colonnes (Désignation, Cr_eq,
+   Ni_eq, bouton) mais chacune doit rester compacte pour tenir sur les
+   viewports mobiles étroits (~360-390px) sans scroll horizontal. */
+.tableau--banque thead th,
+.tableau--banque tbody td {
+  padding-inline: var(--sp-2);
 }
 
 .apport-ligne {

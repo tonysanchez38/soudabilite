@@ -79,7 +79,9 @@
     "col_n": "%N",
     "col_cu": "%Cu",
     "col_ti": "%Ti",
-    "non_applicable": "-"
+    "non_applicable": "-",
+    "detail_ajouter": "+ composition détaillée",
+    "detail_retirer": "- composition détaillée"
   },
   "parametres": {
     "titre": "Paramètres DMOS",
