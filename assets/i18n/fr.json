@@ -5,7 +5,7 @@
   },
   "app": {
     "titre": "Calculateur de Soudabilité",
-    "titre_onglet_navigateur": "Calculateur de Soudabilité - Aide au DMOS"
+    "titre_onglet_navigateur": "Calculateur de Soudabilité - DMOS, Schaeffler, soudage IWE/IWT"
   },
   "nav": {
     "aria_label": "Navigation principale",
