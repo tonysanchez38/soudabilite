@@ -16,6 +16,7 @@
   },
   "presentation": {
     "sous_titre": "Aide à la préparation du DMOS",
+    "beta_note": "Version beta - l'analyse et les essais métallurgiques sont en cours de validation.",
     "description": "Outil d'aide à la préparation du DMOS (Descriptif de Mode Opératoire de Soudage). Il calcule les équivalents chrome / nickel et positionne le joint sur le diagramme de Schaeffler, évalue la préchauffe, le temps de refroidissement t8/5 et la dureté prévisible, puis confronte les résultats aux limites normatives. L'aiguillage entre acier carbone, inox et assemblage hétérogène est automatique. L'outil ne remplace pas une QMOS et des essais en atelier.",
     "normes_titre": "Cadre normatif",
     "normes_col_code": "Référence",
