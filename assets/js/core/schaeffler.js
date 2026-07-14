@@ -108,7 +108,12 @@ export function verdictSchaeffler(crEq, niEq, comp, zones, zoneS) {
 
   const zone = classifieZone(crEq, niEq, zones);
   const risques = [];
-  if (zone === "A") risques.push("austenite_pure"); // fissuration à chaud
+  const fer = ferriteSchaeffler(crEq, niEq);
+  // Fissuration à chaud : zone A pure, OU ferrite < 5 % (borne basse de la
+  // bande idéale, déjà sourcée — cf. niveauIdeal ci-dessus) même en zone
+  // A+F. Un joint à 0,5 % de ferrite reste exposé au risque austénitique
+  // pur, quelle que soit la classification de zone (CLAUDE.md #30).
+  if (zone === "A" || fer < 5) risques.push("austenite_pure");
   const ms = msWalkerGooch(comp);
   if (ms >= 100 && ms <= 300) risques.push("martensite"); // fissuration à froid
   if (crEq > 25) risques.push("sigma"); // fragilisation phase sigma

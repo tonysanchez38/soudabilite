@@ -151,6 +151,18 @@ catalogue, cet outil intègre en une interface unique :
     `core/selection_apport.js`) — seule la liste de *candidats* apport est
     filtrée. À réactiver en repassant le flag à `true` une fois les iso-FN
     digitalisées.
+30. **Risque fissuration à chaud sous 5 % de ferrite, même hors zone A** :
+    `verdictSchaeffler()` (`core/schaeffler.js`) ajoute le risque
+    `austenite_pure` dès que le % ferrite estimé passe sous 5 % (borne
+    basse de la bande idéale, déjà sourcée — cf. `niveauIdeal`), même si
+    le point n'est pas classé dans la zone pure « A » mais dans une zone
+    de transition comme A+F. Un joint à 0,5 % de ferrite reste exposé au
+    risque de fissuration à chaud austénitique quel que soit le polygone
+    de zone — l'ancienne condition (`zone === "A"` uniquement) laissait
+    passer ces cas en n'affichant que le verdict « Acceptable » sans
+    alerte. Vérifié : un point classé AF à 4,17 % ferrite déclenche
+    désormais `austenite_pure` ; un point AF à 7 % ferrite n'en déclenche
+    toujours aucun (pas de régression sur le cas normal).
 
 ## Séquence de construction — 11 étapes
 
