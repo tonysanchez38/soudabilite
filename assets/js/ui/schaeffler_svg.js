@@ -19,7 +19,7 @@ function el(nom, attrs = {}) {
 // Pose un fond plein arrondi derrière un texte SVG déjà inséré dans le DOM,
 // pour garantir la lisibilité même si une ligne ou un autre texte passe dessous.
 function fondEtiquette(groupe, texteNode, options = {}) {
-  const { padding = 3, couleur = "#0f172a", opacite = 0.82 } = options;
+  const { padding = 5, couleur = "#0f172a", opacite = 0.82 } = options;
   const bbox = texteNode.getBBox();
   const fond = el("rect", {
     x: bbox.x - padding,
@@ -402,7 +402,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // S), avec trait de rappel - ne partage jamais l'espace des points de
   // dilution qui gravitent près du centre de la bande elle-même.
   etiquetteBande(meilleureAncreBande(gIdeale, gIdealeHaut), "IDÉALE", "#DBEAFE", {
-    deportForce: true, deportDX: 6, deportDY: -32,
+    deportForce: true, deportDX: 6, deportDY: -36,
   });
   // ACCEPTABLE : toujours déportée (repère franc dans le A+F coloré, à
   // droite/en dessous de la bande bleue) - l'ancrage inline flirtait avec
