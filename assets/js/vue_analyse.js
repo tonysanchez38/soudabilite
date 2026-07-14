@@ -124,6 +124,8 @@ function majMeilleursApports() {
     centre: ZONES.centre_ideal,
     joint, crEq: crEqSchaeffler, niEq: niEqSchaeffler, ferrite: ferriteSchaeffler,
     niveauIdeal, zones: ZONES.zones, zoneS: ZONES.zone_s,
+    estDuplex, verdictDuplex, ferriteApproxWRC, crEqWRC, niEqWRC,
+    designationA: A.designation, designationB: B.designation,
     n: 7,
   });
 
@@ -142,9 +144,7 @@ function majMeilleursApports() {
 
   let uneIdeale = false;
   rows.forEach((r, i) => {
-    // Duplex/superduplex (A, B ou l'apport candidat) : classification WRC-1992
-    // jugée sur la bande ferrite ISO 17781, pas sur les polygones Schaeffler.
-    const duplex = estDuplex(A.designation) || estDuplex(B.designation) || estDuplex(r.designation);
+    const duplex = r.duplex; // même source que le tri — zéro divergence possible
     let crAff, niAff, ferAff, v;
     if (duplex) {
       crAff = crEqWRC(r.joint);
