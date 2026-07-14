@@ -15,6 +15,23 @@ function el(nom, attrs = {}) {
   return n;
 }
 
+// Pose un fond plein arrondi derrière un texte SVG déjà inséré dans le DOM,
+// pour garantir la lisibilité même si une ligne ou un autre texte passe dessous.
+function fondEtiquette(groupe, texteNode, options = {}) {
+  const { padding = 3, couleur = "#0f172a", opacite = 0.82 } = options;
+  const bbox = texteNode.getBBox();
+  const fond = el("rect", {
+    x: bbox.x - padding,
+    y: bbox.y - padding,
+    width: bbox.width + padding * 2,
+    height: bbox.height + padding * 2,
+    rx: 3,
+    fill: couleur,
+    "fill-opacity": opacite,
+  });
+  groupe.insertBefore(fond, texteNode);
+}
+
 // g calibré pour un % ferrite exact de FERRITE_G (source unique, importée
 // de core/schaeffler.js — jamais dupliquée ici ni dans zones_schaeffler.json).
 function gPourPct(pct) {
@@ -185,6 +202,12 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   const gPlan = el("g", { "clip-path": `url(#clip-${idSvg})` });
   svg.appendChild(gPlan);
   const gEtiquettes = el("g"); // non clippé : les % iso-ferrite sortent du plot
+  // Attaché tout de suite (et re-attaché plus bas pour repasser au-dessus de
+  // gDyn) : fondEtiquette() appelle getBBox() sur les textes au fil de leur
+  // création ci-dessous, et un <g> encore détaché du <svg> renvoie une bbox
+  // nulle (0,0,0,0) — le fond serait alors un carré de 6x6 posé à l'origine
+  // au lieu d'un fond correctement dimensionné derrière le texte.
+  svg.appendChild(gEtiquettes);
 
   // 1. Zones métallurgiques (fond coloré) + <title>, hors S (A+M+F).
   for (const z of zones.zones) {
@@ -282,6 +305,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       const t = el("text", { x: tx, y: ty, fill: "#94a3b8", "font-size": 8, "text-anchor": ancre });
       t.textContent = `${pct}%`;
       gEtiquettes.appendChild(t);
+      fondEtiquette(gEtiquettes, t);
     }
   }
 
@@ -357,6 +381,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       });
       t.textContent = texte;
       gEtiquettes.appendChild(t);
+      fondEtiquette(gEtiquettes, t);
     } else {
       const cxOut = cx + deportDX, cyOut = cy + deportDY;
       gEtiquettes.appendChild(el("line", {
@@ -369,6 +394,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       });
       t.textContent = texte;
       gEtiquettes.appendChild(t);
+      fondEtiquette(gEtiquettes, t);
     }
   }
   // IDÉALE : toujours déportée au-dessus de la bande (dans la zone A, hors
@@ -463,11 +489,11 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   function etiquettePoint(p) {
     if (!p.etiquette) return null;
     const t = el("text", {
-      x: X(p.cr) + 9, y: Y(p.ni) - 8, fill: "#f8fafc", "font-size": 9, "font-weight": 600,
+      x: X(p.cr) + 14, y: Y(p.ni) + 6, fill: "#f8fafc", "font-size": 9, "font-weight": 600,
       "pointer-events": "none",
     });
     t.textContent = p.etiquette;
-    return halo(t);
+    return halo(t); // garder le halo en plus, ceinture et bretelles
   }
 
   function majDynamique(points = [], lignes = []) {
@@ -485,7 +511,10 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     for (const p of points) {
       gDyn.appendChild(forme(p));
       const lbl = etiquettePoint(p);
-      if (lbl) gDyn.appendChild(lbl);
+      if (lbl) {
+        gDyn.appendChild(lbl);
+        fondEtiquette(gDyn, lbl);
+      }
     }
   }
 
