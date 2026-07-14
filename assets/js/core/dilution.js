@@ -1,6 +1,6 @@
-// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
+// soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
-// dilution.js — chimie du bain fondu par dilution.
+// dilution.js - chimie du bain fondu par dilution.
 // Réf. spec.md §2 (composition du JOINT, point intermédiaire D_mélange).
 // Vocabulaire (CLAUDE.md) : D_A, D_B = contributions des métaux de base
 // fondus au bain ; D_C = fraction d'apport dans le bain. D_A+D_B+D_C = 1.
@@ -15,7 +15,7 @@ function v(comp, element) {
   return Number.isFinite(Number(x)) ? Number(x) : 0;
 }
 
-// Point intermédiaire D_mélange — métaux de base seuls, avant apport.
+// Point intermédiaire D_mélange - métaux de base seuls, avant apport.
 // spec.md §2.2 : %x = (D_A·%x_A + D_B·%x_B) / (D_A + D_B)
 export function melangeBases(A, B, dA, dB) {
   const somme = dA + dB;
@@ -26,7 +26,7 @@ export function melangeBases(A, B, dA, dB) {
   return out;
 }
 
-// Composition du JOINT — barycentre pondéré des deux bases et de l'apport.
+// Composition du JOINT - barycentre pondéré des deux bases et de l'apport.
 // spec.md §2.1 : %x_JOINT = D_A·%x_A + D_B·%x_B + D_C·%x_C
 export function joint(A, B, C, dA, dB, dC) {
   const out = {};
@@ -42,7 +42,7 @@ export function dilutionValide(dA, dB, dC, tolerance = 1e-6) {
 }
 
 // Suggestion de dilution par défaut selon procédé/assemblage/chanfrein.
-// Valeur indicative de préparation DMOS — pas une mesure : la précision
+// Valeur indicative de préparation DMOS - pas une mesure : la précision
 // réelle nécessite une macrographie de l'assemblage réel.
 const PLAGES_DILUTION = {
   "111": [0.10, 0.35],

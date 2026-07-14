@@ -1,5 +1,5 @@
 // =========================================================================
-// parametres.js — contrôleur de l'onglet Paramètres DMOS.
+// parametres.js - contrôleur de l'onglet Paramètres DMOS.
 // Orchestration uniquement : chargement des données, construction des
 // listes, calcul live des paramètres électriques. La logique métier vit
 // dans assets/js/core/ (spec.md).
@@ -30,7 +30,7 @@ let comboB = null;
 let comboTungstene = null;
 
 // Composition manuelle active par rôle. L'apport C est traité dans l'onglet
-// Analyse (résultat Schaeffler), pas ici — cf. CLAUDE.md (architecture Lot 4).
+// Analyse (résultat Schaeffler), pas ici - cf. CLAUDE.md (architecture Lot 4).
 const manuel = { a: false, b: false };
 
 // Devient vrai dès que l'utilisateur touche D_A/D_B/D_C à la main : la
@@ -140,7 +140,7 @@ function construireListes() {
   comboA = creerCombobox($("#metal-a"), basesItems, { placeholder: t("parametres.ph_metal") });
   comboB = creerCombobox($("#metal-b"), basesItems, { placeholder: t("parametres.ph_metal") });
 
-  // Électrodes tungstène (TIG) — depuis la banque electrodes_tungstene.
+  // Électrodes tungstène (TIG) - depuis la banque electrodes_tungstene.
   const tungItems = (BANQUE.electrodes_tungstene || []).map((e, i) => ({
     value: String(i),
     label: e.designation,
@@ -236,14 +236,14 @@ function onProcedeChange() {
 // --- Calcul live des paramètres électriques -----------------------------
 function calculerIntensite(procede) {
   if (procede === "111") {
-    // spec.md §3.1 — EE selon diamètre, position, assemblage.
+    // spec.md §3.1 - EE selon diamètre, position, assemblage.
     return intensiteEE(num("#diametre"), {
       position: $("#position").value,
       assemblage: $("#assemblage").value,
     });
   }
   if (procede === "141") {
-    // spec.md §3.2 — TIG selon épaisseur et nature (ferritique/inox).
+    // spec.md §3.2 - TIG selon épaisseur et nature (ferritique/inox).
     const matiere = matiereTIG(
       compositionEffective("a").comp,
       compositionEffective("b").comp
@@ -263,7 +263,7 @@ function calculerIntensite(procede) {
     }
     return intensiteTIG(eCalcul, matiere, $("#assemblage").value);
   }
-  // MIG/MAG (131/135) — pas de formule d'intensité (spec.md §3.3) : saisie.
+  // MIG/MAG (131/135) - pas de formule d'intensité (spec.md §3.3) : saisie.
   return num("#i-manuel");
 }
 
@@ -378,7 +378,7 @@ function reinitComp(role) {
   recalculer();
 }
 
-// Contrôle D_A + D_B + D_C = 100 % (spec.md §2.1) — alerte visuelle, non
+// Contrôle D_A + D_B + D_C = 100 % (spec.md §2.1) - alerte visuelle, non
 // bloquante. Saisie en pourcentage entier ; conversion en fractions pour
 // la vérification (le moteur travaille en fractions sommant à 1).
 function validerDilution() {
@@ -414,14 +414,14 @@ function valeursParDefaut() {
   appliquerSuggestionDilution();
 }
 
-// --- Fiche imprimable (window.print + @media print — CLAUDE.md #25) ----
+// --- Fiche imprimable (window.print + @media print - CLAUDE.md #25) ----
 // Peuple #fiche-impression à partir de l'état courant du formulaire et de
 // l'apport retenu (Analyse), juste avant window.print(). Pas de dépendance
 // externe (remplace le plan initial jsPDF, cf. CLAUDE.md).
 function libelleSelect(id) {
   const opt = document.getElementById(id)?.selectedOptions?.[0];
   // Option placeholder (valeur vide, ex. "Rechercher une électrode…") : pas
-  // une vraie sélection — cf. combobox.js.
+  // une vraie sélection - cf. combobox.js.
   return opt && opt.value !== "" ? opt.textContent : "";
 }
 
@@ -477,19 +477,19 @@ function remplirFicheImpression() {
   poserFiche(
     "apport",
     apport
-      ? `${apport.designation}${apport.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""} — ` +
-          `${t("parametres.eq_creq")} ${apport.crEq.toFixed(2)} / ${t("parametres.eq_nieq")} ${apport.niEq.toFixed(2)} — ` +
-          `${apport.ferrite.toFixed(1)} ${t("analyse.lbl_ferrite")} — ${apport.verdictLabel}`
+      ? `${apport.designation}${apport.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""} - ` +
+          `${t("parametres.eq_creq")} ${apport.crEq.toFixed(2)} / ${t("parametres.eq_nieq")} ${apport.niEq.toFixed(2)} - ` +
+          `${apport.ferrite.toFixed(1)} ${t("analyse.lbl_ferrite")} - ${apport.verdictLabel}`
       : t("fiche.apport_vide")
   );
 
 }
 
 // Capture le diagramme #schaeffler tel qu'affiché à l'écran (couleurs
-// inline fill/stroke, dark mode inclus — voulu, fidélité au site) en PNG
+// inline fill/stroke, dark mode inclus - voulu, fidélité au site) en PNG
 // via un <canvas>, à résolution x2 pour la netteté d'impression. Injecte
 // le résultat dans #schaeffler-print (visible seulement en @media print).
-// callback() n'est appelé qu'une fois l'image PNG chargée — appeler
+// callback() n'est appelé qu'une fois l'image PNG chargée - appeler
 // window.print() avant produirait une page blanche (image pas encore prête).
 function capturerDiagrammeEnImage(callback) {
   const svg = document.getElementById("schaeffler");

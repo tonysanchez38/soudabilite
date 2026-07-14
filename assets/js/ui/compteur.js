@@ -1,7 +1,7 @@
-// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
+// soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
-// compteur.js — compteur de pied de page (GoatCounter, RGPD — CLAUDE.md #22).
-// Affiche « X visiteurs — Y calculs réalisés » de façon discrète.
+// compteur.js - compteur de pied de page (GoatCounter, RGPD - CLAUDE.md #22).
+// Affiche « X visiteurs - Y calculs réalisés » de façon discrète.
 // Partagé par toutes les pages. Aucune logique métier.
 // L'événement « calcul » sera émis à l'étape 8 (synthèse) ; ici, lecture seule.
 // =========================================================================
@@ -10,7 +10,7 @@ import { t } from "./i18n.js";
 
 // Lit un endpoint /counter/*.json de GoatCounter. Renvoie l'objet
 // { count, count_unique } ou null si indisponible (compte absent, accès
-// non public, réseau) — dans ce cas on n'affiche simplement rien.
+// non public, réseau) - dans ce cas on n'affiche simplement rien.
 async function litCompteur(url) {
   if (!url) return null;
   try {
@@ -44,7 +44,7 @@ export async function rendreCompteur() {
   }
 
   if (morceaux.length > 0) {
-    cible.textContent = morceaux.join(" — ");
+    cible.textContent = morceaux.join(" - ");
     cible.hidden = false;
   }
 }

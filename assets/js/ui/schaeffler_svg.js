@@ -1,6 +1,6 @@
-// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
+// soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
-// schaeffler_svg.js — rendu SVG natif du diagramme de Schaeffler.
+// schaeffler_svg.js - rendu SVG natif du diagramme de Schaeffler.
 // Coordonnées réelles (Cr_eq en abscisse, Ni_eq en ordonnée). Aucune image
 // de fond (CLAUDE.md : projection en coordonnées réelles). Aucune logique
 // métier : purement graphique.
@@ -34,7 +34,7 @@ function fondEtiquette(groupe, texteNode, options = {}) {
 }
 
 // g calibré pour un % ferrite exact de FERRITE_G (source unique, importée
-// de core/schaeffler.js — jamais dupliquée ici ni dans zones_schaeffler.json).
+// de core/schaeffler.js - jamais dupliquée ici ni dans zones_schaeffler.json).
 function gPourPct(pct) {
   const entree = FERRITE_G.find(([, p]) => p === pct);
   return entree ? entree[0] : null;
@@ -49,7 +49,7 @@ function segmentIso(g, crMin, crMax, niMin, niMax) {
   return [[ni0 + g, ni0], [ni1 + g, ni1]];
 }
 
-// Centroïde (aire pondérée) d'un polygone simple — placement des étiquettes
+// Centroïde (aire pondérée) d'un polygone simple - placement des étiquettes
 // de zone. Repli sur la moyenne des sommets si l'aire est dégénérée.
 function centroide(poly) {
   let x = 0, y = 0, aire = 0;
@@ -94,7 +94,7 @@ function etendueVerticale(poly, cr) {
 }
 
 // Courbe de Catmull-Rom fermée (convertie en Bézier cubiques) passant par
-// tous les points, dans l'ordre — pour retrouver les contours organiques
+// tous les points, dans l'ordre - pour retrouver les contours organiques
 // du diagramme papier (ex. zone_s) plutôt qu'un polygone anguleux.
 // pts : [[x,y], ...] déjà projetés en coordonnées écran.
 function courbeFermee(pts) {
@@ -116,7 +116,7 @@ function courbeFermee(pts) {
   return `${d}Z`;
 }
 
-// Risque métallurgique des zones pures — cf. cahier des charges Tony.
+// Risque métallurgique des zones pures - cf. cahier des charges Tony.
 const RISQUE_ZONE = {
   A: "risque de fissuration à chaud",
   M: "risque de fissuration à froid",
@@ -124,11 +124,11 @@ const RISQUE_ZONE = {
 };
 
 const TITRE_MUR_SIGMA =
-  "Cr_eq = 25 : limite phase sigma — au-delà, précipitation intermétallique fragilisante";
+  "Cr_eq = 25 : limite phase sigma - au-delà, précipitation intermétallique fragilisante";
 
 // Étiquette de zone déportée hors centroïde géométrique quand celui-ci
 // tombe sous la zone S blanche ou les bandes cibles (repère métier, pas de
-// détection géométrique automatique — cf. digitalisation zone_s). Seule
+// détection géométrique automatique - cf. digitalisation zone_s). Seule
 // A+M+F est concernée : son centroïde standard tombe en plein sur le S.
 const POSITION_LABEL_ZONE = {
   AMF: [15.5, 7.5],
@@ -186,7 +186,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
 
   // Troncature basse de la zone S (Ni_eq ≥ 4.5) : clipper au polygone A+F
   // faisait presque disparaître le S (A+F très étroit sur sa plage Cr_eq,
-  // cf. diagnostic). Simple coupe horizontale à la place — retire la queue
+  // cf. diagnostic). Simple coupe horizontale à la place - retire la queue
   // qui mordait sur M+F (sous Ni_eq≈4.5) sans écraser le reste du croissant.
   const yNi45 = Math.min(Math.max(Y(4.5), padT), padT + plotH);
   const clipSBas = el("clipPath", { id: `clip-s-bas-${idSvg}` });
@@ -206,7 +206,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // Attaché tout de suite (et re-attaché plus bas pour repasser au-dessus de
   // gDyn) : fondEtiquette() appelle getBBox() sur les textes au fil de leur
   // création ci-dessous, et un <g> encore détaché du <svg> renvoie une bbox
-  // nulle (0,0,0,0) — le fond serait alors un carré de 6x6 posé à l'origine
+  // nulle (0,0,0,0) - le fond serait alors un carré de 6x6 posé à l'origine
   // au lieu d'un fond correctement dimensionné derrière le texte.
   svg.appendChild(gEtiquettes);
 
@@ -219,7 +219,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     });
     const titre = el("title");
     const risque = RISQUE_ZONE[z.id];
-    titre.textContent = risque ? `${z.nom} — ${risque}` : z.nom;
+    titre.textContent = risque ? `${z.nom} - ${risque}` : z.nom;
     poly.appendChild(titre);
     gPlan.appendChild(poly);
   }
@@ -239,7 +239,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   }
 
   // Bornes communes des bandes (iso-ferrite en Cr_eq/Ni_eq pleine échelle,
-  // pas la fenêtre d'affichage — cf. bandes idéale/acceptable historiques).
+  // pas la fenêtre d'affichage - cf. bandes idéale/acceptable historiques).
   const axesData = zones._meta.axes;
   const bandePolygon = (gLow, gHigh) => {
     const lo = segmentIso(gLow, axesData.cr_eq[0], axesData.cr_eq[1], axesData.ni_eq[0], axesData.ni_eq[1]);
@@ -250,13 +250,13 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
 
   // 2b. Zone S blanche : calque overlay digitalisé depuis le diagramme papier
   // de référence (validé Tony), dessiné par-dessus les zones métallurgiques
-  // (silhouette en sablier — lobe haut, pincement, lobe bas). Rendu lissé
+  // (silhouette en sablier - lobe haut, pincement, lobe bas). Rendu lissé
   // (Catmull-Rom → Bézier) pour retrouver les courbes organiques d'origine ;
   // les bandes verte/acceptable et bleue/idéale se dessinent PAR-DESSUS
-  // (plus loin) là où elles chevauchent le S — la cible domine le repère.
+  // (plus loin) là où elles chevauchent le S - la cible domine le repère.
   // Troncature basse seulement (Ni_eq ≥ 4.5, clip-s-bas) : clipper au
   // polygone A+F entier écrasait presque tout le S (A+F très étroit sur
-  // cette plage de Cr_eq) — cf. diagnostic. Seule la queue basse (côté
+  // cette plage de Cr_eq) - cf. diagnostic. Seule la queue basse (côté
   // M+F) est coupée, le reste du croissant reste visible tel que digitalisé.
   if (Array.isArray(zones.zone_s) && zones.zone_s.length >= 3) {
     const gZoneS = el("g", { "clip-path": `url(#clip-s-bas-${idSvg})` });
@@ -271,7 +271,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     });
     const titre = el("title");
     titre.textContent =
-      "Zone S — interstice de transition du Schaeffler historique. Dernier recours si aucun apport ne place le joint en zone idéale ou acceptable.";
+      "Zone S - interstice de transition du Schaeffler historique. Dernier recours si aucun apport ne place le joint en zone idéale ou acceptable.";
     zoneS.appendChild(titre);
     gZoneS.appendChild(zoneS);
     gPlan.appendChild(gZoneS);
@@ -279,7 +279,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
 
   // 3. Iso-ferrite : droites g = Cr_eq − Ni_eq = cste (FERRITE_G, source
   // unique). Étiquetées (0/5/10/15/20 %) au point de sortie du cadre, dans
-  // gEtiquettes (non clippé — un texte dans gPlan y serait invisible, rogné
+  // gEtiquettes (non clippé - un texte dans gPlan y serait invisible, rogné
   // par le clip-path du plot) ; non étiquetées (40/80/100 %) en pointillé
   // gris discret.
   for (const [g, pct] of FERRITE_G) {
@@ -311,7 +311,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   }
 
   // Frontières historiques soulignées : A en bleu clair, M (beta+gamma) en
-  // violet — regroupées avec l'iso-ferrite (lignes de repère structurel).
+  // violet - regroupées avec l'iso-ferrite (lignes de repère structurel).
   const front = zones.frontieres;
   if (front) {
     gPlan.appendChild(el("polyline", { points: pts(front.alpha), fill: "none", stroke: "#38bdf8", "stroke-width": 1.6 }));
@@ -399,13 +399,13 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     }
   }
   // IDÉALE : toujours déportée au-dessus de la bande (dans la zone A, hors
-  // S), avec trait de rappel — ne partage jamais l'espace des points de
+  // S), avec trait de rappel - ne partage jamais l'espace des points de
   // dilution qui gravitent près du centre de la bande elle-même.
   etiquetteBande(meilleureAncreBande(gIdeale, gIdealeHaut), "IDÉALE", "#DBEAFE", {
     deportForce: true, deportDX: 6, deportDY: -32,
   });
   // ACCEPTABLE : toujours déportée (repère franc dans le A+F coloré, à
-  // droite/en dessous de la bande bleue) — l'ancrage inline flirtait avec
+  // droite/en dessous de la bande bleue) - l'ancrage inline flirtait avec
   // la frontière S/vert selon la géométrie du joint sélectionné.
   etiquetteBande(meilleureAncreBande(gAcceptable, gAcceptableHaut), "ACCEPTABLE", "#D1FAE5", {
     deportForce: true, deportDX: 26, deportDY: 14,
@@ -486,7 +486,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     return noeud;
   }
 
-  // Étiquette persistante à côté d'un point (ex. "ZF — dilution 30%").
+  // Étiquette persistante à côté d'un point (ex. "ZF - dilution 30%").
   function etiquettePoint(p) {
     if (!p.etiquette) return null;
     const t = el("text", {

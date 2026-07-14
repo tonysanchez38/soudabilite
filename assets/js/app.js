@@ -1,5 +1,5 @@
 // =========================================================================
-// app.js — orchestrateur. Aucune logique métier (règle CLAUDE.md).
+// app.js - orchestrateur. Aucune logique métier (règle CLAUDE.md).
 // Rôle : charger l'i18n, injecter les chaînes, puis rendre les contenus
 // pilotés par les données de la page Présentation (normes, onglets).
 // =========================================================================

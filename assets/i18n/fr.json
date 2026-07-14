@@ -5,7 +5,7 @@
   },
   "app": {
     "titre": "Calculateur de Soudabilité",
-    "titre_onglet_navigateur": "Calculateur de Soudabilité — Aide au DMOS"
+    "titre_onglet_navigateur": "Calculateur de Soudabilité - Aide au DMOS"
   },
   "nav": {
     "aria_label": "Navigation principale",
@@ -20,20 +20,20 @@
     "normes_col_code": "Référence",
     "normes_col_objet": "Objet",
     "normes": [
-      { "code": "NF EN ISO 15609-1", "objet": "DMOS — contenu du descriptif de mode opératoire" },
-      { "code": "NF EN ISO 15614-1", "objet": "QMOS — épreuve de qualification de mode opératoire" },
-      { "code": "NF EN 1011-1", "objet": "Soudage à l'arc — généralités, rendements thermiques" },
-      { "code": "NF EN 1011-2", "objet": "Aciers ferritiques — préchauffe et temps de refroidissement t8/5" },
+      { "code": "NF EN ISO 15609-1", "objet": "DMOS - contenu du descriptif de mode opératoire" },
+      { "code": "NF EN ISO 15614-1", "objet": "QMOS - épreuve de qualification de mode opératoire" },
+      { "code": "NF EN 1011-1", "objet": "Soudage à l'arc - généralités, rendements thermiques" },
+      { "code": "NF EN 1011-2", "objet": "Aciers ferritiques - préchauffe et temps de refroidissement t8/5" },
       { "code": "ISO/TR 15608", "objet": "Système de groupement des matériaux métalliques" },
       { "code": "NF EN ISO 5817", "objet": "Critères d'acceptation des défauts de soudure" },
-      { "code": "NACE MR0175 / ISO 15156", "objet": "Aciers pour milieux acides (H2S) — plafond de dureté" },
+      { "code": "NACE MR0175 / ISO 15156", "objet": "Aciers pour milieux acides (H2S) - plafond de dureté" },
       { "code": "IIW Doc IX-535-67", "objet": "Carbone équivalent IIW" }
     ],
     "sommaire_titre": "Les onglets",
     "onglets": [
       {
         "titre": "Paramètres DMOS",
-        "description": "Saisie des métaux de base, du procédé et de la géométrie du joint, puis diagramme de Schaeffler, sélection des 7 meilleurs apports et synthèse — sur la même page.",
+        "description": "Saisie des métaux de base, du procédé et de la géométrie du joint, puis diagramme de Schaeffler, sélection des 7 meilleurs apports et synthèse - sur la même page.",
         "lien": "parametres.html"
       },
       {
@@ -43,7 +43,7 @@
       }
     ],
     "auteur_nom": "Tony SANCHEZ",
-    "auteur_sep": "—",
+    "auteur_sep": "-",
     "linkedin": "Contact",
     "linkedin_url": "https://www.linkedin.com/in/tonysanchez38/"
   },
@@ -61,7 +61,7 @@
     "label_apport": "Métal d'apport",
     "ph_apport": "Rechercher un apport…",
     "apport_note": "Liste filtrée par procédé. Pour une nuance hors-liste, ajoutez une composition manuelle.",
-    "apport_vide": "Aucun apport référencé pour ce procédé — utilisez la saisie libre",
+    "apport_vide": "Aucun apport référencé pour ce procédé - utilisez la saisie libre",
     "apport_analyse_note": "La sélection du métal d'apport se fait dans l'onglet Analyse, après le calcul Schaeffler (proposition des 7 meilleurs apports).",
     "apport_enrobage_note": "Filtrage par enrobage à compléter dans la base.",
     "section_joint": "Assemblage",
@@ -85,14 +85,14 @@
     "label_intensite_manuelle": "Intensité I (A)",
     "label_vitesse": "Vitesse de soudage Vs (cm/min)",
     "vitesse_note": "Valeur indicative pré-remplie selon le procédé, ajustable.",
-    "note_tig_hetero": "Intensité réduite — protection du côté inox.",
+    "note_tig_hetero": "Intensité réduite - protection du côté inox.",
     "section_dilution": "Dilution",
     "dilution_note": "D_A et D_B : contributions des métaux de base fondus au bain. D_C : fraction d'apport dans le bain (= 100 % − dilution au sens usuel). D_A + D_B + D_C = 100 %.",
-    "label_da": "D_A — base A fondue (%)",
-    "label_db": "D_B — base B fondue (%)",
-    "label_dc": "D_C — fraction d'apport (%)",
+    "label_da": "D_A - base A fondue (%)",
+    "label_db": "D_B - base B fondue (%)",
+    "label_dc": "D_C - fraction d'apport (%)",
     "dilution_erreur": "La somme D_A + D_B + D_C doit valoir 100 %.",
-    "dilution_indicative_note": "Valeur indicative par procédé/préparation — la précision réelle nécessite une macrographie de l'assemblage réel.",
+    "dilution_indicative_note": "Valeur indicative par procédé/préparation - la précision réelle nécessite une macrographie de l'assemblage réel.",
     "dilution_suggestion_btn": "Suggestion procédé",
     "section_resultats": "Énergie de soudage",
     "res_intensite": "Intensité I",
@@ -102,30 +102,30 @@
     "res_eq": "Énergie corrigée Q",
     "res_rendement": "Rendement k",
     "resultats_note": "En et Q en kJ/mm (spec §4.1–4.2). Q = k · En, k = rendement du procédé (EN 1011-1).",
-    "res_vide": "—",
+    "res_vide": "-",
     "unite_a": "A",
     "unite_v": "V",
     "unite_cmmin": "cm/min",
     "unite_kjmm": "kJ/mm",
     "procedes": [
-      { "value": "111", "label": "111 — Électrode enrobée (EE)" },
-      { "value": "141", "label": "141 — TIG" },
-      { "value": "131", "label": "131 — MIG" },
-      { "value": "135", "label": "135 — MAG" }
+      { "value": "111", "label": "111 - Électrode enrobée (EE)" },
+      { "value": "141", "label": "141 - TIG" },
+      { "value": "131", "label": "131 - MIG" },
+      { "value": "135", "label": "135 - MAG" }
     ],
     "positions": [
-      { "value": "PA", "label": "PA — à plat" },
-      { "value": "PB", "label": "PB — en angle à plat (corniche)" },
-      { "value": "PC", "label": "PC — horizontale (bout à bout)" },
-      { "value": "PD", "label": "PD — en angle au plafond" },
-      { "value": "PE", "label": "PE — au plafond" },
-      { "value": "PF", "label": "PF — verticale montante" },
-      { "value": "PG", "label": "PG — verticale descendante" },
-      { "value": "H-L045", "label": "H-L045 — inclinée (tube en pente à 45°)" }
+      { "value": "PA", "label": "PA - à plat" },
+      { "value": "PB", "label": "PB - en angle à plat (corniche)" },
+      { "value": "PC", "label": "PC - horizontale (bout à bout)" },
+      { "value": "PD", "label": "PD - en angle au plafond" },
+      { "value": "PE", "label": "PE - au plafond" },
+      { "value": "PF", "label": "PF - verticale montante" },
+      { "value": "PG", "label": "PG - verticale descendante" },
+      { "value": "H-L045", "label": "H-L045 - inclinée (tube en pente à 45°)" }
     ],
     "assemblages": [
-      { "value": "BW", "label": "BW — bout à bout" },
-      { "value": "FW", "label": "FW — soudure d'angle" }
+      { "value": "BW", "label": "BW - bout à bout" },
+      { "value": "FW", "label": "FW - soudure d'angle" }
     ],
     "chanfreins": [
       { "value": "droit", "label": "Bord droit / I" },
@@ -160,7 +160,7 @@
     "leg_zone_s": "Zone S (dernier recours)",
     "carte_apports": "Sélection des 7 meilleurs apports",
     "apports_note": "Classés par zone atteinte (idéale > acceptable > zone S), puis par proximité du cœur de cible (Cr_eq ≈ 22.5, Ni_eq ≈ 13). Cliquez une ligne pour placer l'apport et le JOINT sur le diagramme.",
-    "apports_vide": "Aucun apport référencé pour ce procédé — utilisez la saisie manuelle.",
+    "apports_vide": "Aucun apport référencé pour ce procédé - utilisez la saisie manuelle.",
     "col_rang": "Rang",
     "col_designation": "Désignation",
     "col_creq": "Cr_eq JOINT",
@@ -189,7 +189,7 @@
     "val_joint": "JOINT",
     "verdict_ideal": "Zone idéale",
     "verdict_acceptable": "Zone acceptable",
-    "verdict_zone_s": "Zone S — dernier recours",
+    "verdict_zone_s": "Zone S - dernier recours",
     "verdict_hors": "Hors zone",
     "risque_austenite": "risque de fissuration à chaud (austénite quasi pure)",
     "risque_martensite": "risque de fissuration à froid (martensite)",
@@ -210,11 +210,11 @@
   },
   "fiche": {
     "bouton": "Générer la fiche PDF",
-    "titre": "Fiche paramètres de soudage — soudabilite.com",
+    "titre": "Fiche paramètres de soudage - soudabilite.com",
     "date": "Date",
     "repere": "Repère / affaire",
     "col_epaisseur": "Épaisseur",
-    "non_applicable": "—",
+    "non_applicable": "-",
     "section_apport": "Métal d'apport retenu",
     "apport_vide": "Aucun apport sélectionné."
   }

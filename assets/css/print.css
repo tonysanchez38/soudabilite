@@ -1,9 +1,9 @@
 /* =========================================================================
-   print.css — mise en page de la fiche imprimable (parametres.html).
+   print.css - mise en page de la fiche imprimable (parametres.html).
    Chargé uniquement en média print (voir <link media="print"> dans le
    HTML) : n'affecte jamais l'écran, le mode sombre reste inchangé à l'écran.
    Approche retenue : window.print() + @media print, pas de dépendance
-   externe (CLAUDE.md décision #25 — remplace le plan initial jsPDF).
+   externe (CLAUDE.md décision #25 - remplace le plan initial jsPDF).
    ========================================================================= */
 
 @page {
@@ -12,7 +12,7 @@
 }
 
 @media print {
-  /* Neutralise toutes les variables de couleur du thème sombre — sans ça
+  /* Neutralise toutes les variables de couleur du thème sombre - sans ça
      un fond crème/jaune (--gris-carte, --surface du dark mode) survit sur
      certains éléments non explicitement ciblés plus bas. */
   :root {
@@ -32,14 +32,14 @@
     --ombre-legere: none;
   }
 
-  /* Couleurs exactes conservées à l'impression — sans ça les navigateurs
+  /* Couleurs exactes conservées à l'impression - sans ça les navigateurs
      suppriment les fonds colorés (zones et bandes du diagramme). */
   html {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* Filet de sécurité : fond blanc forcé, quel que soit l'élément — le
+  /* Filet de sécurité : fond blanc forcé, quel que soit l'élément - le
      diagramme capturé (image PNG, cf. #schaeffler-print) garde ses propres
      couleurs sombres en dur dans ses pixels, non affectées par ceci.
      :root (html) inclus : sans lui, l'espace de page sous un contenu plus
@@ -149,7 +149,7 @@
 
   /* Le diagramme ne doit jamais être coupé entre deux pages. Capturé en
      PNG (canvas, cf. capturerDiagrammeEnImage() dans parametres.js) plutôt
-     qu'un clone SVG : pixel-identique à l'écran, dark mode inclus (voulu —
+     qu'un clone SVG : pixel-identique à l'écran, dark mode inclus (voulu -
      fidélité au site, l'encadré reste sombre sur la page blanche). */
   .fiche-diagramme {
     page-break-inside: avoid;
@@ -168,7 +168,7 @@
 
 /* Filet de sécurité final : certains éléments de la fiche (badges de
    verdict, bordures de tableau) héritent encore une couleur du thème
-   sombre via une règle plus spécifique que les blocs ci-dessus — ce
+   sombre via une règle plus spécifique que les blocs ci-dessus - ce
    bloc les neutralise explicitement, en dernier dans la cascade. */
 @media print {
   #fiche-impression,

@@ -1,6 +1,6 @@
-// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
+// soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
-// aiguillage.js — choix de la branche d'analyse selon les métaux de base.
+// aiguillage.js - choix de la branche d'analyse selon les métaux de base.
 // Réf. CLAUDE.md décision #2 (seuils indicatifs d'aiguillage).
 // Fonctions pures.
 //   - Cr ≥ 10.5 % OU Ni ≥ 8 %                → métal inox (branche Schaeffler)

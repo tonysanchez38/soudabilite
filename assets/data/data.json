@@ -8059,7 +8059,7 @@
       "composition_oxyde": "W pur 99,5 %",
       "diametre_mm": 1.0,
       "plage_courant_A": "15-80",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WP Ø1.6 (vert)",
@@ -8075,7 +8075,7 @@
       "composition_oxyde": "W pur 99,5 %",
       "diametre_mm": 2.0,
       "plage_courant_A": "100-200",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WP Ø2.4 (vert)",
@@ -8099,7 +8099,7 @@
       "composition_oxyde": "2 % ThO2",
       "diametre_mm": 1.0,
       "plage_courant_A": "15-80",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WT20 Ø1.6 (rouge)",
@@ -8155,7 +8155,7 @@
       "composition_oxyde": "2 % CeO2",
       "diametre_mm": 2.0,
       "plage_courant_A": "100-200",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WC20 Ø2.4 (gris)",
@@ -8171,7 +8171,7 @@
       "composition_oxyde": "2 % CeO2",
       "diametre_mm": 3.2,
       "plage_courant_A": "220-350",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WL15 Ø1.0 (or)",
@@ -8179,7 +8179,7 @@
       "composition_oxyde": "1,5 % La2O3",
       "diametre_mm": 1.0,
       "plage_courant_A": "15-80",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WL15 Ø1.6 (or)",
@@ -8219,7 +8219,7 @@
       "composition_oxyde": "2 % La2O3",
       "diametre_mm": 1.0,
       "plage_courant_A": "15-80",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WL20 Ø1.6 (bleu)",
@@ -8235,7 +8235,7 @@
       "composition_oxyde": "2 % La2O3",
       "diametre_mm": 2.0,
       "plage_courant_A": "100-200",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WL20 Ø2.4 (bleu)",
@@ -8267,7 +8267,7 @@
       "composition_oxyde": "0,8 % ZrO2",
       "diametre_mm": 2.0,
       "plage_courant_A": "100-200",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WZ8 Ø2.4 (blanc)",
@@ -8291,7 +8291,7 @@
       "composition_oxyde": "3 % ThO2",
       "diametre_mm": 1.6,
       "plage_courant_A": "70-150",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WT30 Ø2.0 (violet)",
@@ -8299,7 +8299,7 @@
       "composition_oxyde": "3 % ThO2",
       "diametre_mm": 2.0,
       "plage_courant_A": "100-200",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WT30 Ø2.4 (violet)",
@@ -8331,7 +8331,7 @@
       "composition_oxyde": "terres rares",
       "diametre_mm": 2.0,
       "plage_courant_A": "100-200",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WR Ø2.4 (pourpre)",
@@ -8347,7 +8347,7 @@
       "composition_oxyde": "terres rares",
       "diametre_mm": 3.2,
       "plage_courant_A": "220-350",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WT10 Ø1.6 (jaune)",
@@ -8355,7 +8355,7 @@
       "composition_oxyde": "1 % ThO2",
       "diametre_mm": 1.6,
       "plage_courant_A": "70-150",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WT10 Ø2.0 (jaune)",
@@ -8363,7 +8363,7 @@
       "composition_oxyde": "1 % ThO2",
       "diametre_mm": 2.0,
       "plage_courant_A": "100-200",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     },
     {
       "designation": "WT10 Ø2.4 (jaune)",
@@ -8379,7 +8379,7 @@
       "composition_oxyde": "1 % ThO2",
       "diametre_mm": 3.2,
       "plage_courant_A": "220-350",
-      "norme": "EN ISO 6848 — grille de diamètres standard"
+      "norme": "EN ISO 6848 - grille de diamètres standard"
     }
   ]
 }

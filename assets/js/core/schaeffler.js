@@ -1,6 +1,6 @@
-// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
+// soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
-// schaeffler.js — géométrie du diagramme de Schaeffler.
+// schaeffler.js - géométrie du diagramme de Schaeffler.
 // Réf. spec.md §1 (Cr_eq / Ni_eq) et CLAUDE.md #17 (ferrite) / zone idéale.
 // Fonctions pures. Placement/lecture sur axes Schaeffler (Cr_eq, Ni_eq).
 //
@@ -9,9 +9,9 @@
 // rigoureux WRC-1992 (diagramme plein) est prévu au Lot 4.
 // =========================================================================
 
-// Points d'ancrage (g = Cr_eq − Ni_eq ; % ferrite) — cf. zones_schaeffler.json.
+// Points d'ancrage (g = Cr_eq − Ni_eq ; % ferrite) - cf. zones_schaeffler.json.
 // Source unique de ces valeurs : ni le JSON (zones_schaeffler.json), ni
-// schaeffler_svg.js ne les dupliquent — ils importent FERRITE_G d'ici.
+// schaeffler_svg.js ne les dupliquent - ils importent FERRITE_G d'ici.
 export const FERRITE_G = [
   [4, 0],
   [7, 5],
@@ -82,7 +82,7 @@ export function msWalkerGooch(comp) {
 // Niveau idéal/acceptable/zone_s/hors : depuis la refonte du diagramme, la
 // zone idéale n'est plus un polygone indépendant mais un entonnoir entre
 // deux iso-ferrite (5-15 % idéal, 0-20 % acceptable), restreint à la zone AF
-// et à Cr_eq ≤ 25 (mur sigma) — même définition géométrique que le rendu
+// et à Cr_eq ≤ 25 (mur sigma) - même définition géométrique que le rendu
 // (schaeffler_svg.js), pour zéro divergence écran/verdict (CLAUDE.md #9).
 // Cascade de priorité (validée Tony) : ideal > acceptable > zone_s (dernier
 // recours, overlay digitalisé du diagramme papier de référence) > hors. Le
@@ -111,7 +111,7 @@ export function verdictSchaeffler(crEq, niEq, comp, zones, zoneS) {
   const risques = [];
   const fer = ferriteSchaeffler(crEq, niEq);
   // Fissuration à chaud : zone A pure, OU ferrite < 5 % (borne basse de la
-  // bande idéale, déjà sourcée — cf. niveauIdeal ci-dessus) même en zone
+  // bande idéale, déjà sourcée - cf. niveauIdeal ci-dessus) même en zone
   // A+F. Un joint à 0,5 % de ferrite reste exposé au risque austénitique
   // pur, quelle que soit la classification de zone (CLAUDE.md #30).
   if (zone === "A" || fer < 5) risques.push("austenite_pure");

@@ -1,6 +1,6 @@
-// soudabilite.com — Tony SANCHEZ — TS-SDB-2026
+// soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
-// selection_apport.js — compatibilité procédé ↔ métal d'apport.
+// selection_apport.js - compatibilité procédé ↔ métal d'apport.
 // La sélection de l'apport C se fait dans l'onglet Analyse (résultat du
 // calcul Schaeffler), pas dans Paramètres. Ce module fournit le filtrage
 // des apports par procédé, réutilisé par l'Analyse (étape 5).
@@ -110,20 +110,20 @@ export function classementApports(apports) {
   }));
 }
 
-// Rang de tri par verdict — idéale d'abord, hors-zone en dernier.
+// Rang de tri par verdict - idéale d'abord, hors-zone en dernier.
 const RANG_VERDICT = { ideal: 0, acceptable: 1, zone_s: 2, hors: 3 };
 
-// --- Sélection des 7 meilleurs apports — spec.md §10 --------------------
+// --- Sélection des 7 meilleurs apports - spec.md §10 --------------------
 // Pour chaque apport compatible : JOINT = D_A·A + D_B·B + D_C·C (spec.md §2.1),
 // puis (Cr_eq, Ni_eq) Schaeffler du JOINT, % ferrite et distance euclidienne
 // au centre de la zone idéale. Tri à deux clés : 1) rang du verdict (idéale
-// > acceptable > zone S > hors, via la cascade niveauIdeal() injectée —
+// > acceptable > zone S > hors, via la cascade niveauIdeal() injectée -
 // même logique que le badge affiché, zéro divergence tableau/verdict) ;
 // 2) distance croissante au centre à l'intérieur de chaque groupe. n premiers.
 //
 // Duplex/superduplex (A, B ou l'apport candidat) : le rang et la distance
 // de tri sont recalculés sur le critère WRC-1992/ferrite 30-70 % (ISO 17781
-// / NORSOK M-601), pas sur les polygones Schaeffler — sans ce branchement,
+// / NORSOK M-601), pas sur les polygones Schaeffler - sans ce branchement,
 // le tri pouvait classer « hors » un joint que le badge affiché (calculé
 // séparément dans vue_analyse.js avec la même logique duplex) juge idéal,
 // et l'apport idéal réel pouvait manquer les 7 premiers. crEq/niEq/ferrite
@@ -160,7 +160,7 @@ export function meilleursApports(
         const ferW = ferriteApproxWRC(crW, niW);
         niveau = verdictDuplex(ferW).niveau;
         // Cible = milieu de bande idéale 30-70% ferrite (ISO 17781/NORSOK
-        // M-601) — hypothèse de tri, à confirmer.
+        // M-601) - hypothèse de tri, à confirmer.
         dist = Math.abs(ferW - 50);
       } else {
         niveau = niveauIdeal ? niveauIdeal(cr, ni, zones, zoneS) : null;

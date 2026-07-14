@@ -1,5 +1,5 @@
 // =========================================================================
-// vue_analyse.js — rendu de la section Analyse (Schaeffler + apports).
+// vue_analyse.js - rendu de la section Analyse (Schaeffler + apports).
 // Partagé par parametres.js : la section #analyse vit désormais sur la même
 // page que la saisie DMOS (CLAUDE.md #24), état transmis en mémoire (plus
 // de sessionStorage pour ce flux). Logique métier déléguée à assets/js/core/.
@@ -21,9 +21,9 @@ import { DUPLEX_VISIBLE } from "./core/config.js";
 const $ = (s) => document.querySelector(s);
 
 // Zone S (dernier recours) : overlay digitalisé du diagramme papier de
-// référence — cf. schaeffler_svg.js / core/schaeffler.js (niveauIdeal).
+// référence - cf. schaeffler_svg.js / core/schaeffler.js (niveauIdeal).
 const TITRE_ZONE_S =
-  "Zone S — dernier recours : vigilance fissuration à chaud côté haut du S (proche 100 % austénite).";
+  "Zone S - dernier recours : vigilance fissuration à chaud côté haut du S (proche 100 % austénite).";
 
 // Titre (tooltip) du badge verdict : source duplex si applicable, sinon
 // rappel zone S si le niveau retourné est ce dernier recours.
@@ -99,13 +99,13 @@ function majDiagramme() {
   if (selectionC) {
     const C = selectionC.metal;
     const J = selectionC.jointMetal;
-    // Convention dilution.js/joint() (inchangée) : ZF = C + d·(Mb − C) —
+    // Convention dilution.js/joint() (inchangée) : ZF = C + d·(Mb − C) -
     // ZF est donc géométriquement sur le segment Mb–C, pas de 3e segment.
     const dilutionPct = ((dA + dB) * 100).toFixed(0);
     points.push({ cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc", tooltip: tooltip(C) });
     points.push({
       cr: J.pos[0], ni: J.pos[1], forme: "triangle", couleur: "#f87171", tooltip: tooltip(J),
-      etiquette: `ZF — dilution ${dilutionPct}%`,
+      etiquette: `ZF - dilution ${dilutionPct}%`,
     });
     lignes.push({ de: D.pos, a: C.pos, couleur: "#facc15", epaisseur: 1.2 });
   }
@@ -118,11 +118,11 @@ function majMeilleursApports() {
   corps.replaceChildren();
   // Classement/ranking : rang du verdict (idéale > acceptable > zone S >
   // hors) puis distance à centre_ideal à l'intérieur de chaque groupe (la
-  // cible duplex 35-65 % ferrite n'est pas concernée par ce tri — cf.
+  // cible duplex 35-65 % ferrite n'est pas concernée par ce tri - cf.
   // classification par ligne, calculée séparément ci-dessous).
   // DUPLEX_VISIBLE (CLAUDE.md #29) : les apports duplex/superduplex sont
   // masqués de la sélection tant que les iso-FN WRC-1992 ne sont pas
-  // digitalisées — ne retire aucun code duplex, seulement la liste passée
+  // digitalisées - ne retire aucun code duplex, seulement la liste passée
   // à meilleursApports() (le tri/verdict duplex reste actif si A ou B
   // lui-même est duplex, cf. duplexBase dans selection_apport.js).
   const apportsVisibles = DUPLEX_VISIBLE
@@ -154,7 +154,7 @@ function majMeilleursApports() {
 
   let uneIdeale = false;
   rows.forEach((r, i) => {
-    const duplex = r.duplex; // même source que le tri — zéro divergence possible
+    const duplex = r.duplex; // même source que le tri - zéro divergence possible
     let crAff, niAff, ferAff, v;
     if (duplex) {
       crAff = crEqWRC(r.joint);
@@ -194,7 +194,7 @@ function majMeilleursApports() {
   if (aide) aide.hidden = uneIdeale;
 }
 
-// labels : en-têtes traduits, alignés positionnellement avec valeurs —
+// labels : en-têtes traduits, alignés positionnellement avec valeurs -
 // posés en data-label pour l'empilement mobile (::before, main.css).
 function ajouterCellules(tr, valeurs, labels = null) {
   valeurs.forEach((val, i) => {
@@ -208,13 +208,13 @@ function ajouterCellules(tr, valeurs, labels = null) {
 // Écart à la zone idéale (5-15 % ferrite) quand le joint en est proche sans
 // l'atteindre : rassure l'utilisateur ("à 0,2 point de la cible") au lieu
 // de le laisser croire que l'apport est simplement écarté. Bornes strictes
-// [4,5[ et ]15,16] — le seuil normatif 5-15 % lui-même n'est pas modifié.
+// [4,5[ et ]15,16] - le seuil normatif 5-15 % lui-même n'est pas modifié.
 function noteLimiteFerrite(ferrite) {
   let cle = null;
   if (ferrite >= 4.0 && ferrite < 5.0) cle = "analyse.limite_ideale_basse";
   else if (ferrite > 15.0 && ferrite <= 16.0) cle = "analyse.limite_ideale_haute";
   // Le % ferrite lui-même est déjà affiché dans sa colonne dédiée (tableau
-  // des apports) ou dans la ligne justificative (synthèse) — pas la peine
+  // des apports) ou dans la ligne justificative (synthèse) - pas la peine
   // de le répéter ici.
   return cle ? t(cle) : null;
 }
@@ -414,7 +414,7 @@ export function majAnalyse(etat) {
 }
 
 // Résumé de l'apport C actuellement retenu, pour la fiche imprimable
-// (parametres.js) — même calcul de verdict que majSynthese(), sans DOM.
+// (parametres.js) - même calcul de verdict que majSynthese(), sans DOM.
 // Renvoie null si aucun apport n'est sélectionné.
 export function resumeApportPourImpression() {
   if (!selectionC) return null;
