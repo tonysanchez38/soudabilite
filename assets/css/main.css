@@ -155,10 +155,26 @@ table {
 .topbar__inner {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: var(--sp-5);
   min-height: 64px;
   flex-wrap: wrap;
+}
+
+/* Lien-logo texte : repère de marque + retour accueil, à gauche des
+   onglets (CLAUDE.md #26). */
+.nav__marque {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--bleu);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav__marque:hover {
+  color: var(--bleu-fonce);
+  text-decoration: none;
 }
 
 .nav {
@@ -299,6 +315,12 @@ table {
     transform 0.15s ease;
 }
 
+/* Masquage réel : display:block ci-dessus a la même spécificité que la
+   règle UA [hidden]{display:none} — même correctif que .champ[hidden]. */
+.carte[hidden] {
+  display: none;
+}
+
 .carte--onglet:hover {
   text-decoration: none;
   border-color: var(--bleu-bordure);
@@ -369,6 +391,12 @@ table {
   font-weight: 700;
 }
 
+/* Écart à la zone idéale quand le joint en est proche (CLAUDE.md #26). */
+.verdict__note {
+  font-weight: 500;
+  opacity: 0.85;
+}
+
 .verdict--ok {
   color: var(--vert);
   background: var(--vert-voile);
@@ -385,6 +413,13 @@ table {
   color: var(--rouge);
   background: var(--rouge-voile);
   border-color: var(--rouge);
+}
+
+/* Zone S — dernier recours : neutre, ni positif ni négatif. */
+.verdict--neutre {
+  color: var(--texte-doux);
+  background: var(--gris-fond);
+  border-color: var(--gris-bordure);
 }
 
 /* ----------------------------------------------------------------------- */
@@ -555,6 +590,36 @@ table {
 .btn-lien--reset {
   margin-top: var(--sp-3);
   color: var(--texte-doux);
+}
+
+/* --- Bouton plein (action principale — génération de la fiche PDF) --- */
+.btn-primaire {
+  display: inline-block;
+  padding: var(--sp-3) var(--sp-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--bleu-fonce);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primaire:hover {
+  background: var(--bleu);
+}
+
+.pdf-action {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--sp-2);
+}
+
+/* Fiche imprimable : jamais visible à l'écran, seulement en @media print
+   (assets/css/print.css, chargé uniquement sur parametres.html). */
+#fiche-impression {
+  display: none;
 }
 
 /* --- Bloc composition manuelle (dépliant) --- */
@@ -754,39 +819,46 @@ table {
   gap: var(--sp-5);
 }
 
+/* Masquage réel : la règle display:flex ci-dessus a la même spécificité
+   que la règle UA [hidden]{display:none} — sans ce correctif l'attribut
+   hidden posé en JS (afficherVide/afficherContenu) est ignoré (même bug
+   que .champ[hidden], cf. plus haut). */
+[data-analyse="contenu"][hidden] {
+  display: none;
+}
+
 .schaeffler-zone {
+  width: 100%;
   display: flex;
-  gap: var(--sp-4);
-  flex-wrap: wrap;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .schaeffler-svg {
+  display: block;
   width: 100%;
-  max-width: 520px;
   height: auto;
+  max-height: 68vh;
+  margin-inline: auto;
   background: var(--fond);
   border: 1px solid var(--gris-bordure);
   border-radius: var(--radius-sm);
-}
-
-.schaeffler-svg--mini {
-  max-width: 300px;
 }
 
 .legende {
   list-style: none;
   margin: var(--sp-4) 0 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2) var(--sp-4);
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 0.4rem;
   font-size: var(--fs-xs);
   color: var(--texte-doux);
 }
 
 .legende li {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: var(--sp-2);
 }
@@ -813,13 +885,14 @@ table {
   border-bottom: 11px solid currentColor;
 }
 
-.lg-a { background: #22c55e; }
-.lg-b { background: #f97316; }
-.lg-d { background: #94a3b8; }
-.lg-c { background: #a855f7; }
-.lg-id { background: #38bdf8; }
-.lg-ac { background: #4ade80; }
-.lg-j { border-bottom-color: #ef4444; }
+.lg-a { background: #4ade80; }
+.lg-b { background: #fb923c; }
+.lg-d { background: #cbd5e1; }
+.lg-c { background: #c084fc; }
+.lg-id { background: #3B82F6; }
+.lg-ac { background: #10B981; }
+.lg-s { background: #FFFFFF; }
+.lg-j { border-bottom-color: #f87171; }
 
 /* Tableaux (apports, valeurs de synthèse) */
 .tableau-defilant {
@@ -904,6 +977,10 @@ table {
     flex-wrap: wrap;
   }
 
+  .legende {
+    grid-template-columns: repeat(2, auto);
+  }
+
   .hero__titre {
     font-size: var(--fs-xl);
   }
@@ -925,13 +1002,52 @@ table {
   .form-grid--trois {
     grid-template-columns: 1fr;
   }
+
+  /* Tableau des 7 apports : empilé en cartes (une ligne = un bloc), plus
+     lisible qu'un défilement horizontal sur mobile. En-têtes reportés en
+     data-label (posé en JS, vue_analyse.js) et affichés via ::before. */
+  .tableau--apports thead {
+    display: none;
+  }
+
+  .tableau--apports,
+  .tableau--apports tbody,
+  .tableau--apports tr,
+  .tableau--apports td {
+    display: block;
+    width: 100%;
+  }
+
+  .tableau--apports tr {
+    margin-bottom: var(--sp-3);
+    border: 1px solid var(--gris-bordure);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .tableau--apports td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-2) var(--sp-3);
+    white-space: normal;
+  }
+
+  .tableau--apports td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--texte-doux);
+    margin-right: var(--sp-4);
+  }
 }
 
 /* ----------------------------------------------------------------------- */
 /* 8. Impression — retour fond blanc / texte noir (économie d'encre)        */
-/*    L'export PDF de l'app est produit par jsPDF (Lot 9) et n'utilise pas  */
-/*    ce thème. Ce bloc garantit qu'un Ctrl+P navigateur reste lisible en   */
-/*    blanc. Un print.css dédié (mise en page du rapport) viendra au Lot 9. */
+/*    Filet de sécurité pour un Ctrl+P sur une page sans fiche dédiée       */
+/*    (index.html, banque.html). La mise en page de la fiche PDF elle-même */
+/*    (parametres.html #fiche-impression) vit dans assets/css/print.css    */
+/*    (CLAUDE.md #25 — window.print + @media print, pas jsPDF).            */
 /* ----------------------------------------------------------------------- */
 @media print {
   :root {

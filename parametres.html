@@ -17,6 +17,8 @@
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
     <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Fiche imprimable (window.print + @media print — CLAUDE.md #25). -->
+    <link rel="stylesheet" href="assets/css/print.css" media="print" />
 
     <!-- Analytics GoatCounter (RGPD sans bandeau cookies — CLAUDE.md #22). -->
     <script
@@ -30,10 +32,10 @@
     <!-- ===================== Barre de navigation ===================== -->
     <header class="topbar">
       <div class="conteneur topbar__inner">
+        <a class="nav__marque" href="index.html">www.soudabilite.com</a>
         <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
           <a class="nav__lien" href="index.html" data-i18n="nav.presentation"></a>
           <a class="nav__lien is-active" href="parametres.html" data-i18n="nav.parametres"></a>
-          <a class="nav__lien" href="analyse.html" data-i18n="nav.analyse"></a>
           <a class="nav__lien" href="banque.html" data-i18n="nav.data"></a>
         </nav>
       </div>
@@ -216,6 +218,99 @@
             </section>
           </aside>
         </div>
+
+        <!-- ==================== Section Analyse (fusionnée) =============== -->
+        <!-- CLAUDE.md #24 : Paramètres et Analyse forment une seule page
+             continue. La sélection du métal d'apport C reste un résultat de
+             l'analyse Schaeffler (CLAUDE.md étape 5), pas une donnée saisie
+             ci-dessus. -->
+        <section id="analyse" class="analyse">
+          <section class="param-intro">
+            <h2 class="hero__titre" data-i18n="analyse.titre"></h2>
+            <p class="param-intro__texte" data-i18n="analyse.intro"></p>
+          </section>
+
+          <!-- Aucun métal A/B renseigné ci-dessus -->
+          <section class="carte carte--form" data-analyse="vide" hidden>
+            <p data-i18n="analyse.message_vide"></p>
+          </section>
+
+          <div data-analyse="contenu">
+            <!-- CARTE 1 — Diagramme de Schaeffler -->
+            <section class="carte carte--form">
+              <h2 class="bloc__titre" data-i18n="analyse.carte_diagramme"></h2>
+              <div class="schaeffler-zone">
+                <svg id="schaeffler" class="schaeffler-svg" role="img" aria-label="Diagramme de Schaeffler"></svg>
+              </div>
+              <ul class="legende">
+                <li><span class="legende__pastille lg-a"></span><span data-i18n="analyse.leg_a"></span></li>
+                <li><span class="legende__pastille lg-b"></span><span data-i18n="analyse.leg_b"></span></li>
+                <li><span class="legende__pastille legende__pastille--carre lg-d"></span><span data-i18n="analyse.leg_dmelange"></span></li>
+                <li><span class="legende__pastille lg-c"></span><span data-i18n="analyse.leg_c"></span></li>
+                <li><span class="legende__pastille legende__pastille--triangle lg-j"></span><span data-i18n="analyse.leg_joint"></span></li>
+                <li><span class="legende__pastille lg-id"></span><span data-i18n="analyse.leg_ideale"></span></li>
+                <li><span class="legende__pastille lg-ac"></span><span data-i18n="analyse.leg_acceptable"></span></li>
+                <li><span class="legende__pastille lg-s"></span><span data-i18n="analyse.leg_zone_s"></span></li>
+              </ul>
+            </section>
+
+            <!-- CARTE 2 — Sélection des 7 meilleurs apports -->
+            <section class="carte carte--form">
+              <h2 class="bloc__titre" data-i18n="analyse.carte_apports"></h2>
+              <p class="note" data-i18n="analyse.apports_note"></p>
+              <div class="tableau-defilant">
+                <table class="tableau tableau--apports">
+                  <thead>
+                    <tr>
+                      <th data-i18n="analyse.col_rang"></th>
+                      <th data-i18n="analyse.col_designation"></th>
+                      <th data-i18n="analyse.col_creq"></th>
+                      <th data-i18n="analyse.col_nieq"></th>
+                      <th data-i18n="analyse.col_ferrite"></th>
+                      <th data-i18n="analyse.col_distance"></th>
+                      <th data-i18n="analyse.col_verdict"></th>
+                    </tr>
+                  </thead>
+                  <tbody data-liste="apports"></tbody>
+                </table>
+              </div>
+              <p class="note" data-aide-dilution hidden data-i18n="analyse.aide_dilution"></p>
+              <button type="button" class="btn-lien" data-toggle-comp-c aria-expanded="false" data-i18n="analyse.comp_manuelle_c"></button>
+              <div class="comp-manuelle" data-comp="c" hidden></div>
+            </section>
+
+            <!-- CARTE 3 — Synthèse Schaeffler -->
+            <section class="carte carte--form">
+              <h2 class="bloc__titre" data-i18n="analyse.carte_synthese"></h2>
+              <div data-synth="verdict"></div>
+              <div class="tableau-defilant">
+                <table class="tableau">
+                  <thead>
+                    <tr>
+                      <th data-i18n="analyse.col_metal"></th>
+                      <th data-i18n="analyse.col_creq_s"></th>
+                      <th data-i18n="analyse.col_nieq_s"></th>
+                      <th data-i18n="analyse.col_creq_d"></th>
+                      <th data-i18n="analyse.col_nieq_d"></th>
+                      <th data-i18n="analyse.col_creq_w"></th>
+                      <th data-i18n="analyse.col_nieq_w"></th>
+                    </tr>
+                  </thead>
+                  <tbody data-synth="valeurs"></tbody>
+                </table>
+              </div>
+              <p class="note" data-i18n="analyse.ferrite_note"></p>
+            </section>
+          </div>
+        </section>
+
+        <!-- ================ Génération de la fiche imprimable ============= -->
+        <!-- CLAUDE.md #25 : impression navigateur (window.print + @media
+             print), pas de dépendance externe. Le bouton peuple #fiche-
+             impression (assets/js/parametres.js) puis déclenche window.print(). -->
+        <div class="pdf-action">
+          <button type="button" id="btn-pdf" class="btn-primaire" data-i18n="fiche.bouton"></button>
+        </div>
       </div>
     </main>
 
@@ -226,5 +321,96 @@
         <p class="pied__compteur" data-compteur hidden></p>
       </div>
     </footer>
+
+    <div class="infobulle" data-infobulle hidden></div>
+
+    <!-- ============ Fiche imprimable (masquée à l'écran) =============== -->
+    <!-- Peuplée par remplirFicheImpression() juste avant window.print() ;
+         visible uniquement via assets/css/print.css (media print). -->
+    <section id="fiche-impression" aria-hidden="true">
+      <header class="fiche-entete">
+        <h1 data-i18n="fiche.titre"></h1>
+        <p class="fiche-meta">
+          <span data-i18n="fiche.date"></span> :
+          <strong data-fiche="date"></strong>
+          &nbsp;&nbsp;—&nbsp;&nbsp;
+          <span data-i18n="fiche.repere"></span> : ________________________
+        </p>
+        <p class="fiche-disclaimer" data-i18n="footer.disclaimer"></p>
+      </header>
+
+      <section class="fiche-section">
+        <h2 data-i18n="parametres.section_metaux"></h2>
+        <table class="fiche-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th data-i18n="analyse.col_designation"></th>
+              <th data-i18n="parametres.eq_creq"></th>
+              <th data-i18n="parametres.eq_nieq"></th>
+              <th data-i18n="fiche.col_epaisseur"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th data-i18n="analyse.val_metalA"></th>
+              <td data-fiche="a-designation"></td>
+              <td data-fiche="a-creq"></td>
+              <td data-fiche="a-nieq"></td>
+              <td data-fiche="a-epaisseur"></td>
+            </tr>
+            <tr>
+              <th data-i18n="analyse.val_metalB"></th>
+              <td data-fiche="b-designation"></td>
+              <td data-fiche="b-creq"></td>
+              <td data-fiche="b-nieq"></td>
+              <td data-fiche="b-epaisseur"></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="fiche-section">
+        <h2 data-i18n="parametres.section_procede"></h2>
+        <dl class="fiche-dl">
+          <div><dt data-i18n="parametres.label_procede"></dt><dd data-fiche="procede"></dd></div>
+          <div><dt data-i18n="parametres.label_tungstene"></dt><dd data-fiche="tungstene"></dd></div>
+          <div><dt data-i18n="parametres.label_position"></dt><dd data-fiche="position"></dd></div>
+          <div><dt data-i18n="parametres.label_assemblage"></dt><dd data-fiche="assemblage"></dd></div>
+          <div><dt data-i18n="parametres.label_chanfrein"></dt><dd data-fiche="chanfrein"></dd></div>
+        </dl>
+      </section>
+
+      <section class="fiche-section">
+        <h2 data-i18n="parametres.section_resultats"></h2>
+        <dl class="fiche-dl">
+          <div><dt data-i18n="parametres.res_intensite"></dt><dd data-fiche="I"></dd></div>
+          <div><dt data-i18n="parametres.res_tension"></dt><dd data-fiche="U"></dd></div>
+          <div><dt data-i18n="parametres.res_vitesse"></dt><dd data-fiche="Vs"></dd></div>
+          <div><dt data-i18n="parametres.res_en"></dt><dd data-fiche="En"></dd></div>
+          <div><dt data-i18n="parametres.res_eq"></dt><dd data-fiche="Q"></dd></div>
+          <div><dt data-i18n="parametres.res_rendement"></dt><dd data-fiche="k"></dd></div>
+        </dl>
+      </section>
+
+      <section class="fiche-section">
+        <h2 data-i18n="parametres.section_dilution"></h2>
+        <dl class="fiche-dl">
+          <div><dt data-i18n="parametres.label_da"></dt><dd data-fiche="dA"></dd></div>
+          <div><dt data-i18n="parametres.label_db"></dt><dd data-fiche="dB"></dd></div>
+          <div><dt data-i18n="parametres.label_dc"></dt><dd data-fiche="dC"></dd></div>
+        </dl>
+      </section>
+
+      <section class="fiche-section">
+        <h2 data-i18n="fiche.section_apport"></h2>
+        <p data-fiche="apport"></p>
+      </section>
+
+      <section class="fiche-section fiche-diagramme">
+        <h2 data-i18n="analyse.carte_diagramme"></h2>
+        <img id="schaeffler-print" alt="Diagramme de Schaeffler" />
+      </section>
+    </section>
   </body>
 </html>

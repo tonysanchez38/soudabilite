@@ -109,14 +109,20 @@ export function classementApports(apports) {
   }));
 }
 
+// Rang de tri par verdict — idéale d'abord, hors-zone en dernier.
+const RANG_VERDICT = { ideal: 0, acceptable: 1, zone_s: 2, hors: 3 };
+
 // --- Sélection des 7 meilleurs apports — spec.md §10 --------------------
 // Pour chaque apport compatible : JOINT = D_A·A + D_B·B + D_C·C (spec.md §2.1),
 // puis (Cr_eq, Ni_eq) Schaeffler du JOINT, % ferrite et distance euclidienne
-// au centre de la zone idéale. Tri par distance croissante, n premiers.
+// au centre de la zone idéale. Tri à deux clés : 1) rang du verdict (idéale
+// > acceptable > zone S > hors, via la cascade niveauIdeal() injectée —
+// même logique que le badge affiché, zéro divergence tableau/verdict) ;
+// 2) distance croissante au centre à l'intérieur de chaque groupe. n premiers.
 export function meilleursApports(
   apports,
   procedeUI,
-  { A, B, dA, dB, dC, centre, joint, crEq, niEq, ferrite, n = 7 }
+  { A, B, dA, dB, dC, centre, joint, crEq, niEq, ferrite, niveauIdeal, zones, zoneS, n = 7 }
 ) {
   return (apports || [])
     .map((a, i) => ({ a, i }))
@@ -127,8 +133,13 @@ export function meilleursApports(
       const ni = niEq(comp);
       const fer = ferrite(cr, ni);
       const dist = Math.hypot(cr - centre[0], ni - centre[1]);
-      return { index: i, designation: a.designation, composition: a.composition, joint: comp, crEq: cr, niEq: ni, ferrite: fer, distance: dist };
+      const niveau = niveauIdeal ? niveauIdeal(cr, ni, zones, zoneS) : null;
+      return {
+        index: i, designation: a.designation, composition: a.composition, joint: comp,
+        crEq: cr, niEq: ni, ferrite: fer, distance: dist, niveau,
+        rangVerdict: RANG_VERDICT[niveau] ?? RANG_VERDICT.hors,
+      };
     })
-    .sort((x, y) => x.distance - y.distance)
+    .sort((x, y) => x.rangVerdict - y.rangVerdict || x.distance - y.distance)
     .slice(0, n);
 }

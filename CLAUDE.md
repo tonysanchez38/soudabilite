@@ -53,6 +53,8 @@ catalogue, cet outil intègre en une interface unique :
    Formulation figée : *"Aide à la préparation du DMOS. Ne se substitue ni
    à un DMOS qualifié ni à la QMOS (EN ISO 15614-1)."*
 4. **Export** : PDF unique dès le MVP (jsPDF côté navigateur, aucun backend).
+   *Amendé par la décision #25 : window.print() + @media print, pas de
+   dépendance jsPDF.*
 5. **Signature PDF** : *"Généré par Tony SANCHEZ"* en pied de page, discret.
    Nom en capitales (convention formelle française).
 6. **Persistance** : aucune. Chaque ouverture de page repart de zéro.
@@ -107,6 +109,32 @@ catalogue, cet outil intègre en une interface unique :
 23. **Architecture** : modulaire dès le Lot 1. Moteur isolé dans modules JS
     séparés. Banque JSON externe. Chaînes i18n extraites dans `i18n/fr.json`
     (le fichier `en.json` sera créé au Lot 3).
+24. **Fusion Paramètres + Analyse** : les onglets Paramètres DMOS et Analyse
+    sont fusionnés en une seule page continue (`parametres.html`, section
+    `#analyse` ajoutée après la carte Dilution). Cause : bug persistant
+    « Aucun paramètre en session » — synchronisation sessionStorage peu
+    fiable entre deux pages distinctes du même navigateur. L'état est
+    désormais transmis en mémoire (`vue_analyse.js` importé par
+    `parametres.js`, appelé à la fin de `recalculer()`) ; `etat_dmos.js`
+    (sauverEtat/chargerEtat) reste dans le dépôt mais n'est plus utilisé
+    dans ce flux. `analyse.html` est conservé comme redirection
+    (`<meta http-equiv="refresh">` vers `parametres.html#analyse`) pour ne
+    pas casser les liens existants. La navigation ne présente plus qu'un
+    onglet « Paramètres DMOS » (décision #13, onglet Présentation, reste
+    inchangée).
+25. **Export fiche : window.print() + @media print (remplace jsPDF)** :
+    la décision #4 initiale (export PDF via jsPDF) est amendée. La fiche
+    imprimable est produite par impression navigateur : bouton « Générer
+    la fiche PDF » en bas de `parametres.html`, qui peuple une section
+    dédiée `#fiche-impression` (masquée à l'écran) à partir de l'état
+    courant du formulaire et de l'apport retenu, clone le SVG `#schaeffler`
+    en direct, puis appelle `window.print()`. Mise en page dans
+    `assets/css/print.css` (chargé en `media="print"` sur `parametres.html`
+    uniquement), format A4 portrait, fond blanc/texte noir, diagramme non
+    coupé entre deux pages (`page-break-inside: avoid`). Aucune dépendance
+    externe ajoutée — cohérent avec l'architecture 100 % statique. La
+    fiche n'est pas un DMOS normatif : c'est une synthèse imprimable des
+    choix faits sur le site.
 
 ## Séquence de construction — 11 étapes
 

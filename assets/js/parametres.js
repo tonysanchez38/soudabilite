@@ -21,9 +21,10 @@ import { matiereTIG, estInox } from "./core/aiguillage.js";
 import { dilutionValide, dilutionParDefaut } from "./core/dilution.js";
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ceIIW } from "./core/carbone_eq.js";
-import { sauverEtat } from "./ui/etat_dmos.js";
+import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js";
 
 let BANQUE = { metaux_base: [], metaux_apport: [], electrodes_tungstene: [] };
+let ZONES = {};
 let comboA = null;
 let comboB = null;
 let comboTungstene = null;
@@ -290,7 +291,7 @@ function recalculer() {
   ["a", "b"].forEach(majEquivalents);
   majNoteTigHetero(procede);
   validerDilution();
-  sauverEtat(collecterEtat());
+  majAnalyse(collecterEtat());
 }
 
 // Note « intensité réduite » : TIG avec au moins une base inox (hétérogène).
@@ -413,16 +414,129 @@ function valeursParDefaut() {
   appliquerSuggestionDilution();
 }
 
+// --- Fiche imprimable (window.print + @media print — CLAUDE.md #25) ----
+// Peuple #fiche-impression à partir de l'état courant du formulaire et de
+// l'apport retenu (Analyse), juste avant window.print(). Pas de dépendance
+// externe (remplace le plan initial jsPDF, cf. CLAUDE.md).
+function libelleSelect(id) {
+  const opt = document.getElementById(id)?.selectedOptions?.[0];
+  // Option placeholder (valeur vide, ex. "Rechercher une électrode…") : pas
+  // une vraie sélection — cf. combobox.js.
+  return opt && opt.value !== "" ? opt.textContent : "";
+}
+
+function remplirFicheImpression() {
+  const fiche = document.getElementById("fiche-impression");
+  if (!fiche) return;
+  const vide = t("fiche.non_applicable");
+  const poserFiche = (cle, valeur) => {
+    const el = fiche.querySelector(`[data-fiche="${cle}"]`);
+    if (el) el.textContent = valeur;
+  };
+
+  poserFiche("date", new Date().toLocaleDateString("fr-FR"));
+
+  const etat = collecterEtat();
+  ["a", "b"].forEach((role) => {
+    const donnees = role === "a" ? etat.A : etat.B;
+    const comp = donnees.composition;
+    const designation =
+      (donnees.designation || t("analyse.saisie_libre")) +
+      (donnees.saisieLibre ? ` ${t("analyse.saisie_libre")}` : "");
+    poserFiche(`${role}-designation`, comp ? designation : vide);
+    poserFiche(`${role}-creq`, comp ? crEqSchaeffler(comp).toFixed(2) : vide);
+    poserFiche(`${role}-nieq`, comp ? niEqSchaeffler(comp).toFixed(2) : vide);
+    const ep = role === "a" ? etat.epA : etat.epB;
+    poserFiche(`${role}-epaisseur`, Number.isFinite(ep) ? `${ep} mm` : vide);
+  });
+
+  poserFiche("procede", libelleSelect("procede") || vide);
+  poserFiche("tungstene", etat.procede === "141" ? libelleSelect("tungstene") || vide : vide);
+  poserFiche("position", libelleSelect("position") || vide);
+  poserFiche("assemblage", libelleSelect("assemblage") || vide);
+  poserFiche("chanfrein", libelleSelect("chanfrein") || vide);
+
+  const RES_VIDE = t("parametres.res_vide");
+  const lireRes = (cle) => document.querySelector(`[data-res="${cle}"]`)?.textContent ?? RES_VIDE;
+  const avecUnite = (cle, unite) => {
+    const v = lireRes(cle);
+    return v === RES_VIDE ? v : `${v} ${unite}`;
+  };
+  poserFiche("I", avecUnite("I", t("parametres.unite_a")));
+  poserFiche("U", avecUnite("U", t("parametres.unite_v")));
+  poserFiche("Vs", avecUnite("Vs", t("parametres.unite_cmmin")));
+  poserFiche("En", avecUnite("En", t("parametres.unite_kjmm")));
+  poserFiche("Q", avecUnite("Q", t("parametres.unite_kjmm")));
+  poserFiche("k", lireRes("k"));
+
+  poserFiche("dA", Number.isFinite(etat.dA) ? `${etat.dA} %` : vide);
+  poserFiche("dB", Number.isFinite(etat.dB) ? `${etat.dB} %` : vide);
+  poserFiche("dC", Number.isFinite(etat.dC) ? `${etat.dC} %` : vide);
+
+  const apport = resumeApportPourImpression();
+  poserFiche(
+    "apport",
+    apport
+      ? `${apport.designation}${apport.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""} — ` +
+          `${t("parametres.eq_creq")} ${apport.crEq.toFixed(2)} / ${t("parametres.eq_nieq")} ${apport.niEq.toFixed(2)} — ` +
+          `${apport.ferrite.toFixed(1)} ${t("analyse.lbl_ferrite")} — ${apport.verdictLabel}`
+      : t("fiche.apport_vide")
+  );
+
+}
+
+// Capture le diagramme #schaeffler tel qu'affiché à l'écran (couleurs
+// inline fill/stroke, dark mode inclus — voulu, fidélité au site) en PNG
+// via un <canvas>, à résolution x2 pour la netteté d'impression. Injecte
+// le résultat dans #schaeffler-print (visible seulement en @media print).
+// callback() n'est appelé qu'une fois l'image PNG chargée — appeler
+// window.print() avant produirait une page blanche (image pas encore prête).
+function capturerDiagrammeEnImage(callback) {
+  const svg = document.getElementById("schaeffler");
+  const cible = document.getElementById("schaeffler-print");
+  if (!svg || !cible) return callback();
+
+  const rect = svg.getBoundingClientRect();
+  const echelle = 2;
+  const largeur = Math.round(rect.width * echelle);
+  const hauteur = Math.round(rect.height * echelle);
+  if (!largeur || !hauteur) return callback();
+
+  const clone = svg.cloneNode(true);
+  clone.setAttribute("width", String(largeur));
+  clone.setAttribute("height", String(hauteur));
+  const source = new XMLSerializer().serializeToString(clone);
+  const donneesSvg = `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(source)))}`;
+
+  const image = new Image();
+  image.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = largeur;
+    canvas.height = hauteur;
+    canvas.getContext("2d").drawImage(image, 0, 0, largeur, hauteur);
+    cible.onload = () => callback();
+    cible.onerror = () => callback();
+    cible.src = canvas.toDataURL("image/png");
+  };
+  image.onerror = () => callback(); // repli silencieux : fiche imprimée sans le diagramme
+  image.src = donneesSvg;
+}
+
 // --- Initialisation -----------------------------------------------------
 async function init() {
   try {
     await chargerChaines("fr");
     appliquerChaines();
 
-    const reponse = await fetch("assets/data/data.json", { cache: "no-cache" });
-    BANQUE = await reponse.json();
+    const [banque, zones] = await Promise.all([
+      fetch("assets/data/data.json", { cache: "no-cache" }).then((r) => r.json()),
+      fetch("assets/data/zones_schaeffler.json", { cache: "no-cache" }).then((r) => r.json()),
+    ]);
+    BANQUE = banque;
+    ZONES = zones;
 
     construireListes();
+    initAnalyse(BANQUE, ZONES);
     valeursParDefaut();
     majVisibiliteProcede("111");
 
@@ -466,6 +580,12 @@ async function init() {
       $(sel).addEventListener("change", () => {
         if (manuel[role]) prefillComp(role);
       });
+    });
+
+    // Génération de la fiche imprimable (window.print + @media print).
+    $("#btn-pdf")?.addEventListener("click", () => {
+      remplirFicheImpression();
+      capturerDiagrammeEnImage(() => window.print());
     });
 
     recalculer();

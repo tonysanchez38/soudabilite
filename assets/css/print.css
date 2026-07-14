@@ -1,0 +1,167 @@
+/* =========================================================================
+   print.css — mise en page de la fiche imprimable (parametres.html).
+   Chargé uniquement en média print (voir <link media="print"> dans le
+   HTML) : n'affecte jamais l'écran, le mode sombre reste inchangé à l'écran.
+   Approche retenue : window.print() + @media print, pas de dépendance
+   externe (CLAUDE.md décision #25 — remplace le plan initial jsPDF).
+   ========================================================================= */
+
+@page {
+  size: A4 portrait;
+  margin: 14mm 12mm;
+}
+
+@media print {
+  /* Neutralise toutes les variables de couleur du thème sombre — sans ça
+     un fond crème/jaune (--gris-carte, --surface du dark mode) survit sur
+     certains éléments non explicitement ciblés plus bas. */
+  :root {
+    --fond: #ffffff;
+    --surface: #ffffff;
+    --gris-fond: #ffffff;
+    --gris-carte: #ffffff;
+    --gris-bordure: #999999;
+    --encre: #000000;
+    --texte-doux: #1a1a1a;
+    --texte-faible: #333333;
+    --bleu-voile: #ffffff;
+    --vert-voile: #ffffff;
+    --ambre-voile: #ffffff;
+    --rouge-voile: #ffffff;
+    --ombre: none;
+    --ombre-legere: none;
+  }
+
+  /* Couleurs exactes conservées à l'impression — sans ça les navigateurs
+     suppriment les fonds colorés (zones et bandes du diagramme). */
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Filet de sécurité : fond blanc forcé, quel que soit l'élément — le
+     diagramme capturé (image PNG, cf. #schaeffler-print) garde ses propres
+     couleurs sombres en dur dans ses pixels, non affectées par ceci.
+     :root (html) inclus : sans lui, l'espace de page sous un contenu plus
+     court que l'A4 peut rester non couvert par le fond de body. */
+  :root,
+  body,
+  .carte,
+  section,
+  table {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+  }
+
+  /* Toute la mise en page écran (nav, formulaire, cartes Analyse, pied de
+     page, bouton) est masquée : seule la fiche dédiée #fiche-impression
+     sort sur papier, peuplée par remplirFicheImpression() (parametres.js). */
+  .topbar,
+  .pied,
+  main.page > .conteneur.parametres > *:not(#fiche-impression),
+  .infobulle {
+    display: none !important;
+  }
+
+  #fiche-impression {
+    display: block !important;
+    color: #000000;
+    background: #ffffff;
+  }
+
+  #fiche-impression * {
+    color: #000000;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .fiche-entete {
+    margin-bottom: 8mm;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 3mm;
+  }
+
+  .fiche-entete h1 {
+    margin: 0 0 2mm;
+    font-size: 15pt;
+  }
+
+  .fiche-meta {
+    margin: 0 0 2mm;
+    font-size: 10pt;
+  }
+
+  .fiche-disclaimer {
+    margin: 0;
+    font-size: 8pt;
+    font-style: italic;
+  }
+
+  .fiche-section {
+    margin-bottom: 6mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .fiche-section h2 {
+    margin: 0 0 2mm;
+    font-size: 11pt;
+    border-bottom: 1px solid #999999;
+  }
+
+  .fiche-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+  }
+
+  .fiche-table th,
+  .fiche-table td {
+    border: 1px solid #999999;
+    padding: 1.5mm 2mm;
+    text-align: left;
+  }
+
+  .fiche-dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1mm 6mm;
+    margin: 0;
+  }
+
+  .fiche-dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 3mm;
+    border-bottom: 1px dotted #999999;
+    font-size: 9.5pt;
+  }
+
+  .fiche-dl dt {
+    color: #333333;
+  }
+
+  .fiche-dl dd {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  /* Le diagramme ne doit jamais être coupé entre deux pages. Capturé en
+     PNG (canvas, cf. capturerDiagrammeEnImage() dans parametres.js) plutôt
+     qu'un clone SVG : pixel-identique à l'écran, dark mode inclus (voulu —
+     fidélité au site, l'encadré reste sombre sur la page blanche). */
+  .fiche-diagramme {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .fiche-diagramme img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+    border: 1px solid #999999;
+  }
+}

@@ -11,7 +11,6 @@
     "aria_label": "Navigation principale",
     "presentation": "Présentation",
     "parametres": "Paramètres DMOS",
-    "analyse": "Analyse",
     "data": "Data"
   },
   "presentation": {
@@ -34,13 +33,8 @@
     "onglets": [
       {
         "titre": "Paramètres DMOS",
-        "description": "Saisie des métaux de base, du métal d'apport, du procédé et de la géométrie du joint. Alimente le moteur de calcul.",
+        "description": "Saisie des métaux de base, du procédé et de la géométrie du joint, puis diagramme de Schaeffler, sélection des 7 meilleurs apports et synthèse — sur la même page.",
         "lien": "parametres.html"
-      },
-      {
-        "titre": "Analyse",
-        "description": "Placement Schaeffler, préchauffe, t8/5, dureté et synthèse croisée des verdicts. Export PDF traçable.",
-        "lien": "analyse.html"
       },
       {
         "titre": "Data",
@@ -154,18 +148,18 @@
   "analyse": {
     "titre": "Analyse",
     "intro": "Placement du joint sur le diagramme de Schaeffler à partir des paramètres saisis, et proposition des 7 meilleurs métaux d'apport. L'outil calcule et propose ; il ne qualifie pas.",
-    "message_vide": "Aucun paramètre en session. Renseignez d'abord l'onglet Paramètres DMOS (métaux A/B, procédé, dilution).",
-    "message_vide_lien": "Aller à Paramètres DMOS",
+    "message_vide": "Renseignez les métaux A et B ci-dessus (composition) pour afficher le diagramme de Schaeffler et la sélection des apports.",
     "carte_diagramme": "Diagramme de Schaeffler",
     "leg_a": "Métal A",
     "leg_b": "Métal B",
     "leg_dmelange": "D_mélange (barycentre A+B)",
     "leg_c": "Apport C",
-    "leg_joint": "JOINT",
-    "leg_ideale": "Zone idéale (5-10 % ferrite)",
+    "leg_joint": "ZF (JOINT)",
+    "leg_ideale": "Zone idéale (5-15 % ferrite)",
     "leg_acceptable": "Zone acceptable",
+    "leg_zone_s": "Zone S (dernier recours)",
     "carte_apports": "Sélection des 7 meilleurs apports",
-    "apports_note": "Classés par distance au centre de la zone idéale (Cr_eq ≈ 21.5, Ni_eq ≈ 14.5). Cliquez une ligne pour placer l'apport et le JOINT sur le diagramme.",
+    "apports_note": "Classés par zone atteinte (idéale > acceptable > zone S), puis par proximité du cœur de cible (Cr_eq ≈ 22.5, Ni_eq ≈ 13). Cliquez une ligne pour placer l'apport et le JOINT sur le diagramme.",
     "apports_vide": "Aucun apport référencé pour ce procédé — utilisez la saisie manuelle.",
     "col_rang": "Rang",
     "col_designation": "Désignation",
@@ -195,12 +189,16 @@
     "val_joint": "JOINT",
     "verdict_ideal": "Zone idéale",
     "verdict_acceptable": "Zone acceptable",
+    "verdict_zone_s": "Zone S — dernier recours",
     "verdict_hors": "Hors zone",
     "risque_austenite": "risque de fissuration à chaud (austénite quasi pure)",
     "risque_martensite": "risque de fissuration à froid (martensite)",
     "risque_sigma": "risque de phase sigma (Cr_eq > 25)",
     "risque_grossissement_grain": "risque de grossissement du grain (ferrite quasi pure)",
     "synth_choisir": "Sélectionnez un apport dans le tableau pour afficher le verdict du JOINT.",
+    "aide_dilution": "Aucun apport n'atteint la zone idéale avec la dilution actuelle (dA/dB/dC). Ajuster la dilution ou envisager un apport plus allié peut déplacer le JOINT vers la cible.",
+    "limite_ideale_basse": "limite idéale à 5 %",
+    "limite_ideale_haute": "limite idéale à 15 %",
     "elements_comp": ["C", "Mn", "Si", "Cr", "Ni", "Mo", "Nb", "Ti", "N", "Cu"]
   },
   "footer": {
@@ -209,5 +207,15 @@
     "compteur_calculs": "calculs réalisés",
     "compteur_total_url": "https://soudabilite.goatcounter.com/counter/TOTAL.json",
     "compteur_calcul_url": "https://soudabilite.goatcounter.com/counter/calcul.json"
+  },
+  "fiche": {
+    "bouton": "Générer la fiche PDF",
+    "titre": "Fiche paramètres de soudage — soudabilite.com",
+    "date": "Date",
+    "repere": "Repère / affaire",
+    "col_epaisseur": "Épaisseur",
+    "non_applicable": "—",
+    "section_apport": "Métal d'apport retenu",
+    "apport_vide": "Aucun apport sélectionné."
   }
 }

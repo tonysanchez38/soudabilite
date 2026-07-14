@@ -9,15 +9,24 @@
 // =========================================================================
 
 // Points d'ancrage (g = Cr_eq − Ni_eq ; % ferrite) — cf. zones_schaeffler.json.
-const FERRITE_G = [
+// Source unique de ces valeurs : ni le JSON (zones_schaeffler.json), ni
+// schaeffler_svg.js ne les dupliquent — ils importent FERRITE_G d'ici.
+export const FERRITE_G = [
   [4, 0],
   [7, 5],
   [9.5, 10],
+  [11.25, 15],
   [13, 20],
   [17, 40],
   [22, 80],
   [25, 100],
 ];
+
+// g calibré pour un % ferrite exact de la table (ou null si absent).
+function gPourPct(pct) {
+  const entree = FERRITE_G.find(([, p]) => p === pct);
+  return entree ? entree[0] : null;
+}
 
 // % ferrite estimé pour un point (Cr_eq, Ni_eq) par interpolation linéaire.
 export function ferriteSchaeffler(crEq, niEq) {
@@ -69,16 +78,33 @@ export function msWalkerGooch(comp) {
              - 36.3 * v("Ni") - 46.6 * v("Mo");
 }
 
-// Verdict Schaeffler : niveau (idéal / acceptable / hors) + risques.
-// niveau par appartenance aux overlays (cohérent avec l'affichage) ;
+// Niveau idéal/acceptable/zone_s/hors : depuis la refonte du diagramme, la
+// zone idéale n'est plus un polygone indépendant mais un entonnoir entre
+// deux iso-ferrite (5-15 % idéal, 0-20 % acceptable), restreint à la zone AF
+// et à Cr_eq ≤ 25 (mur sigma) — même définition géométrique que le rendu
+// (schaeffler_svg.js), pour zéro divergence écran/verdict (CLAUDE.md #9).
+// Cascade de priorité (validée Tony) : ideal > acceptable > zone_s (dernier
+// recours, overlay digitalisé du diagramme papier de référence) > hors. Le
+// classement des 7 apports (distance au centre) n'utilise pas cette cascade.
+export function niveauIdeal(crEq, niEq, zones, zoneS) {
+  if (crEq <= 25) {
+    const af = (zones || []).find((z) => z.id === "AF");
+    if (af && pointDansPolygone([crEq, niEq], af.polygone)) {
+      const g = crEq - niEq;
+      if (g >= gPourPct(5) && g <= gPourPct(15)) return "ideal";
+      if (g >= gPourPct(0) && g <= gPourPct(20)) return "acceptable";
+    }
+  }
+  if (zoneS && pointDansPolygone([crEq, niEq], zoneS)) return "zone_s";
+  return "hors";
+}
+
+// Verdict Schaeffler : niveau (idéal / acceptable / zone_s / hors) + risques.
 // risques par appartenance à la zone métallurgique réelle (classifieZone),
 // sauf sigma (seuil Cr_eq) et martensite (indice Walker-Gooch sur la
 // composition, cf. spec.md §11/§12, CLAUDE.md).
-export function verdictSchaeffler(crEq, niEq, comp, zones, overlays) {
-  const p = [crEq, niEq];
-  let niveau = "hors";
-  if (pointDansPolygone(p, overlays.ideale.polygone)) niveau = "ideal";
-  else if (pointDansPolygone(p, overlays.acceptable.polygone)) niveau = "acceptable";
+export function verdictSchaeffler(crEq, niEq, comp, zones, zoneS) {
+  const niveau = niveauIdeal(crEq, niEq, zones, zoneS);
 
   const zone = classifieZone(crEq, niEq, zones);
   const risques = [];
