@@ -93,6 +93,67 @@ function etendueVerticale(poly, cr) {
   return [Math.min(...ys), Math.max(...ys)];
 }
 
+// Étendue horizontale [crMin,crMax] d'un polygone à un Ni_eq donné -
+// symétrique de etendueVerticale (axes échangés). Sert à trouver le bord
+// gauche de zone_s à une hauteur donnée (cf. clipAMFcontreZoneS).
+function etendueHorizontale(poly, ni) {
+  const xs = [];
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const [x0, y0] = poly[j];
+    const [x1, y1] = poly[i];
+    if ((y0 <= ni && ni < y1) || (y1 <= ni && ni < y0)) {
+      const t = (ni - y0) / (y1 - y0);
+      xs.push(x0 + t * (x1 - x0));
+    }
+  }
+  if (xs.length < 2) return null;
+  return [Math.min(...xs), Math.max(...xs)];
+}
+
+// Borne le polygone A+M+F par le bord gauche de zone_s (la zone neutre
+// digitalisée) : pour chaque hauteur Ni_eq où les deux zones se côtoient,
+// le côté droit de A+M+F s'arrête au bord gauche de zone_s au lieu de
+// continuer sur sa propre frontière d'origine (spec Tony - évite que le
+// gris A+M+F déborde derrière/à droite de la zone neutre). Implémenté par
+// clipping point-à-point (bissection sur les arêtes qui traversent la
+// frontière) plutôt qu'une intersection polygonale générale : zone_s n'est
+// pas convexe, mais le test « à l'intérieur » (cr ≤ bordGauche(ni)) est
+// bien défini en tout point, ce qui suffit ici.
+function insideBordGaucheZoneS(cr, ni, zoneS) {
+  const ext = etendueHorizontale(zoneS, ni);
+  if (!ext) return true; // hors de la plage Ni_eq de zone_s : pas de contrainte
+  return cr <= ext[0] + 1e-9;
+}
+
+function clipAMFcontreZoneS(poly, zoneS) {
+  if (!Array.isArray(zoneS) || zoneS.length < 3) return poly;
+  const n = poly.length;
+  const dedans = poly.map(([cr, ni]) => insideBordGaucheZoneS(cr, ni, zoneS));
+  if (dedans.every(Boolean)) return poly; // rien à découper
+  const PAS_BISSECTION = 16;
+  const resultat = [];
+  for (let i = 0; i < n; i++) {
+    const a = poly[i];
+    const b = poly[(i + 1) % n];
+    const aDedans = dedans[i];
+    const bDedans = dedans[(i + 1) % n];
+    if (aDedans) resultat.push(a);
+    if (aDedans !== bDedans) {
+      // bordGauche(ni) n'est pas une droite : pas d'intersection analytique
+      // simple, on bissecte le long du segment jusqu'à cerner le croisement.
+      let lo = 0, hi = 1;
+      for (let k = 0; k < PAS_BISSECTION; k++) {
+        const mid = (lo + hi) / 2;
+        const cr = a[0] + (b[0] - a[0]) * mid;
+        const ni = a[1] + (b[1] - a[1]) * mid;
+        if (insideBordGaucheZoneS(cr, ni, zoneS) === aDedans) lo = mid; else hi = mid;
+      }
+      resultat.push([a[0] + (b[0] - a[0]) * hi, a[1] + (b[1] - a[1]) * hi]);
+    }
+  }
+  return resultat.length >= 3 ? resultat : poly;
+}
+
 // Courbe de Catmull-Rom fermée (convertie en Bézier cubiques) passant par
 // tous les points, dans l'ordre - pour retrouver les contours organiques
 // du diagramme papier (ex. zone_s) plutôt qu'un polygone anguleux.
@@ -125,14 +186,6 @@ const RISQUE_ZONE = {
 
 const TITRE_MUR_SIGMA =
   "Cr_eq = 25 : limite phase sigma - au-delà, précipitation intermétallique fragilisante";
-
-// Étiquette de zone déportée hors centroïde géométrique quand celui-ci
-// tombe sous la zone S blanche ou les bandes cibles (repère métier, pas de
-// détection géométrique automatique - cf. digitalisation zone_s). Seule
-// A+M+F est concernée : son centroïde standard tombe en plein sur le S.
-const POSITION_LABEL_ZONE = {
-  AMF: [15.5, 7.5],
-};
 
 // Halo sombre derrière un texte clair, lisible sur tout fond de zone.
 function halo(txt) {
@@ -232,11 +285,15 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   }
 
   // 2. S crème (A+M+F) : repère du corridor triphasé, en retrait derrière
-  // les bandes cibles (opacité réduite, pas de trame).
+  // les bandes cibles (opacité réduite, pas de trame). Bornée par le bord
+  // gauche de zone_s (clipAMFcontreZoneS) pour ne pas déborder derrière/à
+  // droite de la zone neutre - cf. diagnostic chevauchement gris/S.
   const zoneAMF = zones.zones.find((z) => z.id === "AMF");
+  let polyAMFVisible = zoneAMF ? zoneAMF.polygone : null;
   if (zoneAMF) {
+    polyAMFVisible = clipAMFcontreZoneS(zoneAMF.polygone, zones.zone_s);
     const poly = el("polygon", {
-      points: pts(zoneAMF.polygone), fill: "#F5F0E0", "fill-opacity": 0.55,
+      points: pts(polyAMFVisible), fill: "#F5F0E0", "fill-opacity": 0.55,
       stroke: "#0f172a", "stroke-width": 0.5,
     });
     const titre = el("title");
@@ -396,9 +453,18 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       fondEtiquette(gEtiquettes, t);
     } else {
       const cxOut = cx + deportDX, cyOut = cy + deportDY;
+      const finX = cxOut - 3, finY = cyOut + (deportDY < 0 ? 2 : -2);
+      // Halo sombre sous le trait de rappel, même principe que halo() sur
+      // le texte : la couleur pâle de la bande (ex. #D1FAE5 vert clair)
+      // se fond sinon dans le fond de la bande elle-même qu'elle traverse
+      // (constaté sur ACCEPTABLE - invisible sans ce halo).
       gEtiquettes.appendChild(el("line", {
-        x1: cx, y1: cy, x2: cxOut - 3, y2: cyOut + (deportDY < 0 ? 2 : -2),
-        stroke: couleur, "stroke-width": 0.8, "stroke-opacity": 0.8,
+        x1: cx, y1: cy, x2: finX, y2: finY,
+        stroke: "#0f172a", "stroke-width": 2.2, "stroke-opacity": 0.55,
+      }));
+      gEtiquettes.appendChild(el("line", {
+        x1: cx, y1: cy, x2: finX, y2: finY,
+        stroke: couleur, "stroke-width": 0.8, "stroke-opacity": 0.9,
       }));
       const t = el("text", {
         x: cxOut, y: cyOut, fill: couleur, "font-size": 7.5, "font-weight": 700,
@@ -434,10 +500,13 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     gPlan.appendChild(mur);
   }
 
-  // Noms de zones en clair, au centroïde (étiquettes → posées en dernier),
-  // sauf override (POSITION_LABEL_ZONE) pour éviter le S blanc / les bandes.
+  // Noms de zones en clair, au centroïde (étiquettes → posées en dernier).
+  // A+M+F utilise le centroïde du polygone déjà borné par zone_s
+  // (polyAMFVisible, cf. clipAMFcontreZoneS) : le centroïde retombe donc
+  // naturellement dans la zone grise réellement visible, sans avoir besoin
+  // d'une position fixe pour éviter le S blanc.
   for (const z of zones.zones) {
-    const [cx, cy] = POSITION_LABEL_ZONE[z.id] || centroide(z.polygone);
+    const [cx, cy] = centroide(z.id === "AMF" ? polyAMFVisible : z.polygone);
     const t = el("text", {
       x: X(cx), y: Y(cy), fill: "#f8fafc", "font-size": 10, "font-weight": 600,
       "text-anchor": "middle", "pointer-events": "none",
@@ -497,20 +566,6 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     return noeud;
   }
 
-  // Étiquette persistante à côté d'un point (ex. "ZF - dilution 30%").
-  function etiquettePoint(p) {
-    if (!p.etiquette) return null;
-    // font-size 9 -> 11 (+22%, dans la fourchette demandée 20-25%) pour
-    // la lisibilité du label ZF - seul point à utiliser .etiquette (A/B/C/D
-    // n'ont qu'une infobulle au survol, pas de label persistant).
-    const t = el("text", {
-      x: X(p.cr) + 20, y: Y(p.ni) + 66, fill: "#f8fafc", "font-size": 11, "font-weight": 600,
-      "pointer-events": "none",
-    });
-    t.textContent = p.etiquette;
-    return halo(t); // garder le halo en plus, ceinture et bretelles
-  }
-
   function majDynamique(points = [], lignes = []) {
     gDyn.replaceChildren();
     for (const l of lignes) {
@@ -525,13 +580,6 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     }
     for (const p of points) {
       gDyn.appendChild(forme(p));
-      const lbl = etiquettePoint(p);
-      if (lbl) {
-        gDyn.appendChild(lbl);
-        // Padding 7 (au lieu du défaut 6) : fond ajusté au texte agrandi
-        // (font-size 11 dans etiquettePoint, +22%).
-        fondEtiquette(gDyn, lbl, { padding: 7 });
-      }
     }
   }
 
