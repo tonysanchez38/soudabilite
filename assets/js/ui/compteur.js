@@ -48,3 +48,19 @@ export async function rendreCompteur() {
     cible.hidden = false;
   }
 }
+
+// Compteur dédié à l'événement « pdf-genere » (émis par le bouton
+// #btn-pdf de parametres.js) - même principe que rendreCompteur(), sur
+// un élément distinct pour ne pas mélanger les deux mesures.
+export async function rendreCompteurPdf() {
+  const cible = document.querySelector("[data-compteur-pdf]");
+  if (!cible) return;
+
+  const pdfs = await litCompteur(t("footer.compteur_pdf_url"));
+
+  const nbPdf = pdfs && pdfs.count;
+  if (nbPdf != null) {
+    cible.textContent = `${String(nbPdf).trim()} ${t("footer.compteur_pdf")}`;
+    cible.hidden = false;
+  }
+}

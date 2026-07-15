@@ -246,8 +246,10 @@
     "disclaimer": "Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.",
     "compteur_visiteurs": "visiteurs",
     "compteur_calculs": "calculs réalisés",
+    "compteur_pdf": "fiches PDF générées",
     "compteur_total_url": "https://soudabilite.goatcounter.com/counter/TOTAL.json",
-    "compteur_calcul_url": "https://soudabilite.goatcounter.com/counter/calcul.json"
+    "compteur_calcul_url": "https://soudabilite.goatcounter.com/counter/calcul.json",
+    "compteur_pdf_url": "https://soudabilite.goatcounter.com/counter/pdf-genere.json"
   },
   "fiche": {
     "bouton": "Générer la fiche PDF",

@@ -451,6 +451,13 @@ table {
   max-width: 70ch;
 }
 
+.pied__compteurs {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
 .pied__compteur {
   margin: 0;
   font-size: var(--fs-xs);
