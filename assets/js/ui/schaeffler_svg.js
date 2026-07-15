@@ -335,7 +335,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     });
     const titre = el("title");
     titre.textContent =
-      "Zone S - interstice de transition du Schaeffler historique. Dernier recours si aucun apport ne place le joint en zone idéale ou acceptable.";
+      "Zone neutre - interstice de transition du Schaeffler historique. Dernier recours si aucun apport ne place le joint en zone idéale ou acceptable.";
     zoneS.appendChild(titre);
     gZoneS.appendChild(zoneS);
     gPlan.appendChild(gZoneS);

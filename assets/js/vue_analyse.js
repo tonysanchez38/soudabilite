@@ -23,7 +23,7 @@ const $ = (s) => document.querySelector(s);
 // Zone S (dernier recours) : overlay digitalisé du diagramme papier de
 // référence - cf. schaeffler_svg.js / core/schaeffler.js (niveauIdeal).
 const TITRE_ZONE_S =
-  "Zone S - dernier recours : vigilance fissuration à chaud côté haut du S (proche 100 % austénite).";
+  "Zone neutre - dernier recours : vigilance fissuration à chaud côté haut du S (proche 100 % austénite).";
 
 // Titre (tooltip) du badge verdict : source duplex si applicable, sinon
 // rappel zone S si le niveau retourné est ce dernier recours.
