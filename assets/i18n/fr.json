@@ -56,10 +56,10 @@
   },
   "annonces": {
     "titre": "Annonces et suivi du projet",
-    "intro": "Le site est en construction et évolutif : de nouvelles fonctionnalités sont ajoutées progressivement.",
-    "a_venir": "Prochains ajouts prévus : l'analyse thermique (préchauffe, temps de refroidissement t8/5) et l'incrémentation des bases de métaux de base et de métaux d'apport.",
-    "beta": "Version beta - le diagramme d'analyse est actuellement en cours de test par plusieurs personnes ; des essais avec divers matériaux et procédés sont prévus prochainement pour valider l'outil.",
-    "linkedin": "Je reste disponible pour échanger sur les améliorations à envisager et les corrections à apporter."
+    "intro": "Le Calculateur de Soudabilité est un projet en développement continu. De nouvelles fonctionnalités sont intégrées progressivement, au fil des itérations.",
+    "a_venir": "Les prochaines évolutions prévues portent sur l'analyse thermique complète (préchauffe, temps de refroidissement t8/5) ainsi que sur l'enrichissement des bases de métaux de base et de métaux d'apport.",
+    "beta": "L'outil est actuellement en version beta. Le module d'analyse fait l'objet de tests par plusieurs utilisateurs, et des essais portant sur différents matériaux et procédés sont programmés prochainement afin d'en valider la fiabilité.",
+    "linkedin": "Contactez-moi sur LinkedIn pour toute suggestion d'amélioration ou tout signalement d'anomalie."
   },
   "banque": {
     "titre": "Data - métaux de référence",
