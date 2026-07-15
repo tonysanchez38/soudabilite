@@ -16,30 +16,55 @@ function n(designation) {
 
 // --- Heuristiques de désignation (apport non tagué) ---------------------
 
-// TIG (141) : commence par « tig » / « altig », ou « ER » + 3 chiffres, ou
-// contient W 19 / W 23 / W 24 (groupes EN ISO 14343). Exclut MAG/MIG/fil/
-// enrobée/SG.
+// TIG (141) : commence par « tig » / « altig » / « ER » (générique, plus
+// exigence de 3 chiffres qui ratait ERNiCr-3, ERCuAl-A2...), ou marque
+// INERTROD, ou contient W + 2 chiffres 1x/2x/3x (groupes EN ISO 14343,
+// plus générique que l'ancien W 19/23/24). Exclut MAG/MIG/fil/enrobée/SG
+// une fois les cas forts (ER/INERTROD) écartés, pour ne pas rejeter par
+// erreur un « er » interne ailleurs dans la chaîne.
 function heuristTIG(l) {
+  if (l.startsWith("inertrod")) return true;
+  if (/^er/i.test(l)) return true;
   if (/(mag|mig|fil|enrob|sg)/.test(l)) return false;
   if (l.startsWith("altig") || l.startsWith("tig")) return true;
-  if (/^er\s*\d{3}/.test(l)) return true;
-  if (/w\s?(19|23|24)/.test(l)) return true;
+  if (/\bw\s?[123]\d\b/.test(l)) return true;
   return false;
 }
 
-// EE (111) : contient « enrobée » / « électrode », ou « E » + code nuance.
-// Exclut TIG / MIG / MAG / fil / ER.
+// EE (111) : commence par un code AWS direct « E » + chiffre (ex E6010,
+// E308L-16, E2209-16 - n'attrape pas « ER... » car le 2e caractère n'est
+// pas un chiffre), ou porte une marque connue de baguette enrobée
+// (SAFINOX/STARINOX/FROINOX/FIXINOX/FLAMINOX/INOXAMFER/MOLINOX), ou
+// contient « enrobée »/« électrode », ou « E » + code nuance espacé.
+// Cas forts vérifiés avant l'exclusion TIG/MIG/MAG/fil/ER pour ne pas
+// rejeter par erreur un « er » interne (ex. "E2553-15 super duplex").
 function heuristEE(l) {
+  if (/^e\d/i.test(l)) return true;
+  if (/^(safinox|starinox|froinox|fixinox|flaminox|inoxamfer|molinox)/.test(l))
+    return true;
+  // Rechargement/fonte : classement "généralement 111" non garanti à
+  // 100 % - à signaler si un cas pose problème.
+  if (/^(cydur|cyfonte)/.test(l)) return true;
+  // ESAB « OK » : seule la marque ne suffit pas à trancher le procédé -
+  // on exige un code AWS entre parenthèses commençant par E.
+  if (/^ok\b.*\(e\d/i.test(l)) return true;
   if (/(tig|mig|mag|fil|er)/.test(l)) return false;
   if (/enrob|electrode|électrode/.test(l)) return true;
   if (/(^|\s)e\s+[0-9a-z]/.test(l)) return true;
   return false;
 }
 
-// MIG/MAG (131/135) : contient SG / fil / MIG / MAG. Exclut TIG/enrobée/ALTIG.
+// MIG/MAG (131/135) : commence par « ER » générique (un fil nu ER est
+// utilisable en TIG ou MIG/MAG selon conditionnement) ou marque NERTALIC,
+// ou contient SG / fil / MIG / MAG, ou G + 2 chiffres 1x/2x/3x (EN ISO
+// 14343). Exclut TIG/enrobée/ALTIG une fois les cas forts écartés.
 function heuristMIGMAG(l) {
+  if (l.startsWith("nertalic")) return true;
+  if (/^er/i.test(l)) return true;
   if (/(tig|enrob|altig)/.test(l)) return false;
-  return /(sg|fil|mig|mag)/.test(l);
+  if (/(sg|fil|mig|mag)/.test(l)) return true;
+  if (/\bg\s?[123]\d\b/.test(l)) return true;
+  return false;
 }
 
 // --- Correspondance code banque → bucket procédé ------------------------
