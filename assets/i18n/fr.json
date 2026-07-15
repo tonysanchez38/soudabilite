@@ -10,7 +10,7 @@
   "nav": {
     "aria_label": "Navigation principale",
     "presentation": "Présentation",
-    "parametres": "Paramètres DMOS",
+    "parametres": "Paramètres & Analyses",
     "data": "Data",
     "annonces": "Annonces"
   },
@@ -34,7 +34,7 @@
     "sommaire_titre": "Les onglets",
     "onglets": [
       {
-        "titre": "Paramètres DMOS",
+        "titre": "Paramètres & Analyses",
         "description": "Saisie des métaux de base, du procédé et de la géométrie du joint, puis diagramme de Schaeffler, sélection des 7 meilleurs apports et synthèse - sur la même page.",
         "lien": "parametres.html"
       },
@@ -89,7 +89,7 @@
     "detail_retirer": "- composition détaillée"
   },
   "parametres": {
-    "titre": "Paramètres DMOS",
+    "titre": "Paramètres & Analyses",
     "intro": "Renseignez les métaux, le procédé et la géométrie du joint. Ces données alimentent le moteur de calcul de l'onglet Analyse. Les paramètres électriques (intensité, tension, énergie) sont calculés automatiquement.",
     "section_metaux": "Métaux de base",
     "label_metal_a": "Métal A",
