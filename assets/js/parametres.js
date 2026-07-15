@@ -508,12 +508,25 @@ function capturerDiagrammeEnImage(callback) {
   const source = new XMLSerializer().serializeToString(clone);
   const donneesSvg = `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(source)))}`;
 
+  // Fond figé avant clonage : le clone sérialisé (XMLSerializer) est rendu
+  // en document SVG isolé, sans accès à main.css - le fond posé en CSS sur
+  // .schaeffler-svg (background: var(--fond)) ne s'applique donc jamais à
+  // l'image capturée (transparent par défaut). Sans ce correctif, les
+  // remplissages semi-transparents des zones (fill-opacity zone neutre/
+  // A+M+F) se composent sur transparent -> blanc de la page imprimée au
+  // lieu du fond sombre affiché à l'écran, ce qui change leur contraste
+  // visible entre l'écran et la fiche PDF.
+  const fond = getComputedStyle(svg).backgroundColor || "#0F172A";
+
   const image = new Image();
   image.onload = () => {
     const canvas = document.createElement("canvas");
     canvas.width = largeur;
     canvas.height = hauteur;
-    canvas.getContext("2d").drawImage(image, 0, 0, largeur, hauteur);
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = fond;
+    ctx.fillRect(0, 0, largeur, hauteur);
+    ctx.drawImage(image, 0, 0, largeur, hauteur);
     cible.onload = () => callback();
     cible.onerror = () => callback();
     cible.src = canvas.toDataURL("image/png");
