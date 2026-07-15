@@ -8050,6 +8050,276 @@
           "Ni_eq": 1.75
         }
       }
+    },
+    {
+      "designation": "NERTALIC G2 / FILCORD E",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.8,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "131_MIG",
+      "source": "Catalogue SAF/SAF-FRO",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.2,
+          "Ni_eq": 3.15
+        },
+        "DeLong": {
+          "Cr_eq": 1.2,
+          "Ni_eq": 3.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "FILCORD 80",
+      "composition": {
+        "C": 0.10,
+        "Mn": 1.9,
+        "Si": 0.65,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.5,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "131_MIG",
+      "source": "Catalogue SAF/SAF-FRO",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.475,
+          "Ni_eq": 3.95
+        },
+        "DeLong": {
+          "Cr_eq": 1.475,
+          "Ni_eq": 3.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "ALTIG SG 2",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.8,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "141_TIG",
+      "source": "Catalogue SAF/SAF-FRO",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.2,
+          "Ni_eq": 3.15
+        },
+        "DeLong": {
+          "Cr_eq": 1.2,
+          "Ni_eq": 3.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "ALTIG 316L",
+      "composition": {
+        "C": 0.03,
+        "Mn": null,
+        "Si": null,
+        "Cr": 19.0,
+        "Ni": 12.0,
+        "Mo": 2.5,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Catalogue SAF/SAF-FRO",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.5,
+          "Ni_eq": 12.9
+        },
+        "DeLong": {
+          "Cr_eq": 21.5,
+          "Ni_eq": 12.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.5,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "FILALU Al Mg 5 [alu - hors Schaeffler]",
+      "composition": {
+        "C": 0.0,
+        "Mn": 0.15,
+        "Si": 0.2,
+        "Cr": 0.15,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.5,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Catalogue SAF/SAF-FRO - Mg 5.0% non représenté (hors schéma composition Cr_eq/Ni_eq, cf. TIG AlMg5 ER5356)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 0.075
+        },
+        "DeLong": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 0.075
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 0.0
+        }
+      }
+    },
+    {
+      "designation": "OK TIGROD 12.60",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.8,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "141_TIG",
+      "source": "Catalogue ESAB",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.2,
+          "Ni_eq": 3.15
+        },
+        "DeLong": {
+          "Cr_eq": 1.2,
+          "Ni_eq": 3.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "OK TIGROD 16.32",
+      "composition": {
+        "C": 0.02,
+        "Mn": null,
+        "Si": null,
+        "Cr": 18.5,
+        "Ni": 12.0,
+        "Mo": 2.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "141_TIG",
+      "source": "Catalogue ESAB (source externe à vérifier)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.1,
+          "Ni_eq": 12.6
+        },
+        "DeLong": {
+          "Cr_eq": 21.1,
+          "Ni_eq": 12.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.1,
+          "Ni_eq": 12.7
+        }
+      }
+    },
+    {
+      "designation": "OK AUTROD 12.51",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.8,
+        "Cr": 0.0,
+        "Ni": 0.0,
+        "Mo": 0.0,
+        "Nb": 0.0,
+        "Ti": 0.0,
+        "N": 0.0
+      },
+      "procede": "131_MIG",
+      "source": "Catalogue ESAB (source externe à vérifier)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.2,
+          "Ni_eq": 3.15
+        },
+        "DeLong": {
+          "Cr_eq": 1.2,
+          "Ni_eq": 3.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.8
+        }
+      }
+    },
+    {
+      "designation": "OK AUTROD 16.32",
+      "composition": {
+        "C": 0.02,
+        "Mn": null,
+        "Si": 0.8,
+        "Cr": 18.5,
+        "Ni": 12.0,
+        "Mo": 2.6,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "procede": "131_MIG",
+      "source": "Catalogue ESAB (source externe à vérifier)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 12.6
+        },
+        "DeLong": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 12.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.1,
+          "Ni_eq": 12.7
+        }
+      }
     }
   ],
   "electrodes_tungstene": [
