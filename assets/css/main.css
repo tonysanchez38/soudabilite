@@ -165,7 +165,7 @@ table {
    onglets (CLAUDE.md #26). */
 .nav__marque {
   font-family: var(--font-sans);
-  font-size: var(--fs-base);
+  font-size: var(--fs-xl); /* +50% vs --fs-base (1rem -> 1.5rem) */
   font-weight: 700;
   color: var(--bleu);
   letter-spacing: -0.01em;

@@ -42,6 +42,11 @@
         "titre": "Data",
         "description": "Nuances d'aciers et métaux d'apport de référence, avec saisie libre pour une nuance hors-liste.",
         "lien": "banque.html"
+      },
+      {
+        "titre": "Annonces",
+        "description": "Suivi du projet, mises à jour à venir et contact pour toute question ou suggestion.",
+        "lien": "annonces.html"
       }
     ],
     "auteur_nom": "Tony SANCHEZ",
@@ -238,7 +243,7 @@
     "elements_comp": ["C", "Mn", "Si", "Cr", "Ni", "Mo", "Nb", "Ti", "N", "Cu"]
   },
   "footer": {
-    "disclaimer": "Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS.",
+    "disclaimer": "Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.",
     "compteur_visiteurs": "visiteurs",
     "compteur_calculs": "calculs réalisés",
     "compteur_total_url": "https://soudabilite.goatcounter.com/counter/TOTAL.json",
