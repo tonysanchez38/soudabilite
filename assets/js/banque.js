@@ -8,7 +8,7 @@
 // =========================================================================
 
 import { chargerChaines, appliquerChaines, t } from "./ui/i18n.js";
-import { rendreCompteur, rendreCompteurPdf } from "./ui/compteur.js";
+import { rendreCompteur, rendreCompteurAnalyses } from "./ui/compteur.js";
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ELEMENTS } from "./core/dilution.js";
 import { bucketsDetectes } from "./core/selection_apport.js";
@@ -162,7 +162,7 @@ async function init() {
     await chargerChaines("fr");
     appliquerChaines();
     rendreCompteur();
-    rendreCompteurPdf();
+    rendreCompteurAnalyses();
     const banque = await fetch("assets/data/data.json").then((r) => r.json());
     rendreMetauxBase(banque.metaux_base || []);
     rendreMetauxApport(banque.metaux_apport || []);

@@ -49,18 +49,20 @@ export async function rendreCompteur() {
   }
 }
 
-// Compteur dédié à l'événement « pdf-genere » (émis par le bouton
-// #btn-pdf de parametres.js) - même principe que rendreCompteur(), sur
-// un élément distinct pour ne pas mélanger les deux mesures.
-export async function rendreCompteurPdf() {
-  const cible = document.querySelector("[data-compteur-pdf]");
+// Compteur dédié à l'événement « analyse-realisee » (émis par
+// choisirApport() dans vue_analyse.js, à la sélection d'une ligne du
+// tableau des 7 meilleurs apports) - même principe que rendreCompteur(),
+// sur un élément distinct pour ne pas mélanger les deux mesures.
+// Format figé : "<nombre> analyses générées".
+export async function rendreCompteurAnalyses() {
+  const cible = document.querySelector("[data-compteur-analyses]");
   if (!cible) return;
 
-  const pdfs = await litCompteur(t("footer.compteur_pdf_url"));
+  const analyses = await litCompteur(t("footer.compteur_analyses_url"));
 
-  const nbPdf = pdfs && pdfs.count;
-  if (nbPdf != null) {
-    cible.textContent = `${String(nbPdf).trim()} ${t("footer.compteur_pdf")}`;
+  const nb = analyses && analyses.count;
+  if (nb != null) {
+    cible.textContent = `${String(nb).trim()} ${t("footer.compteur_analyses")}`;
     cible.hidden = false;
   }
 }

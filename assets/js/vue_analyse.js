@@ -260,6 +260,9 @@ function choisirApport(r, tr) {
   document.querySelectorAll(".apport-ligne.is-active").forEach((e) => e.classList.remove("is-active"));
   if (tr) tr.classList.add("is-active");
   definirC(r.composition, r.designation, false);
+  if (window.goatcounter && typeof window.goatcounter.count === "function") {
+    window.goatcounter.count({ path: "analyse-realisee", title: "Sélection d'un apport", event: true });
+  }
 }
 
 // --- Synthèse Schaeffler ------------------------------------------------

@@ -6,7 +6,7 @@
 // =========================================================================
 
 import { chargerChaines, appliquerChaines, t } from "./ui/i18n.js";
-import { rendreCompteur, rendreCompteurPdf } from "./ui/compteur.js";
+import { rendreCompteur, rendreCompteurAnalyses } from "./ui/compteur.js";
 import { creerCombobox } from "./ui/combobox.js";
 import {
   intensiteEE,
@@ -597,16 +597,13 @@ async function init() {
 
     // Génération de la fiche imprimable (window.print + @media print).
     $("#btn-pdf")?.addEventListener("click", () => {
-      if (window.goatcounter && typeof window.goatcounter.count === "function") {
-        window.goatcounter.count({ path: "pdf-genere", title: "Fiche PDF générée", event: true });
-      }
       remplirFicheImpression();
       capturerDiagrammeEnImage(() => window.print());
     });
 
     recalculer();
     rendreCompteur();
-    rendreCompteurPdf();
+    rendreCompteurAnalyses();
   } catch (err) {
     console.error(err);
   }

@@ -5,7 +5,7 @@
 // =========================================================================
 
 import { chargerChaines, appliquerChaines, t } from "./ui/i18n.js";
-import { rendreCompteur, rendreCompteurPdf } from "./ui/compteur.js";
+import { rendreCompteur, rendreCompteurAnalyses } from "./ui/compteur.js";
 
 // Construit le corps du tableau du cadre normatif depuis fr.json.
 function rendreNormes() {
@@ -59,7 +59,7 @@ async function init() {
     rendreNormes();
     rendreOnglets();
     rendreCompteur();
-    rendreCompteurPdf();
+    rendreCompteurAnalyses();
   } catch (err) {
     // En cas d'échec de chargement, on laisse les libellés de repli du HTML.
     console.error(err);
