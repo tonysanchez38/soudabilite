@@ -5,7 +5,7 @@
   },
   "app": {
     "titre": "Calculateur de Soudabilité",
-    "titre_onglet_navigateur": "Calculateur de Soudabilité - DMOS, Schaeffler, soudage IWE/IWT"
+    "titre_onglet_navigateur": "Soudabilite.com"
   },
   "nav": {
     "aria_label": "Navigation principale",
@@ -56,6 +56,7 @@
   },
   "annonces": {
     "titre": "Annonces et suivi du projet",
+    "titre_onglet_navigateur": "Soudabilite.com",
     "intro": "Le Calculateur de Soudabilité est un projet en développement continu. De nouvelles fonctionnalités sont intégrées progressivement, au fil des itérations.",
     "a_venir": "Les prochaines évolutions prévues portent sur l'analyse thermique complète (préchauffe, temps de refroidissement t8/5) ainsi que sur l'enrichissement des bases de métaux de base et de métaux d'apport.",
     "beta": "L'outil est actuellement en version beta. Le module d'analyse fait l'objet de tests par plusieurs utilisateurs, et des essais portant sur différents matériaux et procédés sont programmés prochainement afin d'en valider la fiabilité.",
@@ -63,6 +64,7 @@
   },
   "banque": {
     "titre": "Data - métaux de référence",
+    "titre_onglet_navigateur": "Soudabilite.com",
     "note_indicative": "Compositions indicatives (milieu de fourchette normative ou valeur typique fournisseur) - ne garantissent pas la composition d'une coulée réelle. Se référer au certificat matière (3.1/3.2) pour un dossier qualifié.",
     "titre_base": "Métaux de base",
     "titre_apport": "Métaux d'apport",
@@ -90,6 +92,7 @@
   },
   "parametres": {
     "titre": "Paramètres & Analyses",
+    "titre_onglet_navigateur": "Soudabilite.com",
     "intro": "Renseignez les métaux, le procédé et la géométrie du joint. Ces données alimentent le moteur de calcul de l'onglet Analyse. Les paramètres électriques (intensité, tension, énergie) sont calculés automatiquement.",
     "section_metaux": "Métaux de base",
     "label_metal_a": "Métal A",
