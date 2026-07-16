@@ -1021,6 +1021,26 @@ table {
   margin-bottom: var(--sp-3);
 }
 
+/* --- Carte "Comprendre les zones métallurgiques" (analyse.zones_explication,
+   fr.json) - grille 2 colonnes sur desktop, empilée en mobile. --- */
+.zones-explication {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+}
+
+.zones-explication__titre {
+  font-size: var(--fs-base);
+  color: var(--bleu);
+  margin-bottom: var(--sp-1);
+}
+
+.zones-explication__texte {
+  font-size: var(--fs-sm);
+  color: var(--texte-doux);
+}
+
 /* ----------------------------------------------------------------------- */
 /* 7. Responsive de base (CLAUDE.md #14 - polissage mobile en Lot 2)        */
 /* ----------------------------------------------------------------------- */
@@ -1061,6 +1081,10 @@ table {
 
   .form-grid,
   .form-grid--trois {
+    grid-template-columns: 1fr;
+  }
+
+  .zones-explication {
     grid-template-columns: 1fr;
   }
 

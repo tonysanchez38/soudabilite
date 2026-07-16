@@ -243,7 +243,50 @@
     "aide_dilution": "Aucun apport n'atteint la zone idéale avec la dilution actuelle (dA/dB/dC). Ajuster la dilution ou envisager un apport plus allié peut déplacer le JOINT vers la cible.",
     "limite_ideale_basse": "limite idéale à 5 %",
     "limite_ideale_haute": "limite idéale à 15 %",
-    "elements_comp": ["C", "Mn", "Si", "Cr", "Ni", "Mo", "Nb", "Ti", "N", "Cu"]
+    "elements_comp": ["C", "Mn", "Si", "Cr", "Ni", "Mo", "Nb", "Ti", "N", "Cu"],
+    "carte_zones_titre": "Comprendre les zones métallurgiques",
+    "zones_explication": [
+      {
+        "titre": "Zone A - Austénite",
+        "texte": "Structure cristalline cubique à faces centrées, stabilisée par un fort taux de nickel et d'éléments gammagènes. Elle est ductile et non magnétique, mais une zone purement austénitique reste sensible à la fissuration à chaud lors de la solidification."
+      },
+      {
+        "titre": "Zone M - Martensite",
+        "texte": "Structure quadratique issue d'une transformation rapide de l'austénite au refroidissement, sursaturée en carbone. Dure et fragile, elle est le siège privilégié de la fissuration à froid, surtout combinée à un taux de carbone équivalent élevé et à de l'hydrogène diffusible. Le préchauffage et le choix d'un consommable à bas hydrogène visent précisément à limiter sa formation."
+      },
+      {
+        "titre": "Zone F - Ferrite",
+        "texte": "Structure cubique centrée, stable pour les alliages fortement chromés et pauvres en éléments gammagènes. Une zone essentiellement ferritique favorise le grossissement de grain à haute température, ce qui fragilise la structure et réduit la résilience à froid."
+      },
+      {
+        "titre": "Zone A+M",
+        "texte": "Coexistence d'austénite et de martensite, où le risque de fissuration à froid domine dès qu'une fraction significative de martensite apparaît. C'est une zone généralement à éviter pour les assemblages soumis à de fortes contraintes."
+      },
+      {
+        "titre": "Zone M+F",
+        "texte": "Mélange martensite et ferrite, cumulant la fragilité de la martensite et le grossissement de grain de la ferrite. Elle apparaît surtout aux forts taux de chrome combinés à un refroidissement rapide, et reste globalement défavorable."
+      },
+      {
+        "titre": "Zone A+M+F",
+        "texte": "Zone triphasée de transition entre les grands domaines, dont le comportement précis dépend fortement de la composition exacte. C'est dans cet espace que se situe la zone neutre du diagramme."
+      },
+      {
+        "titre": "Zone A+F",
+        "texte": "La zone recherchée en soudage inoxydable."
+      },
+      {
+        "titre": "La fissuration à chaud",
+        "texte": "Elle se produit pendant la solidification, en structure essentiellement austénitique. Une teneur en ferrite de l'ordre de 5 à 15% interrompt la continuité de ce film liquide fragile et redistribue les impuretés. C'est pourquoi cette plage précise définit la zone idéale du diagramme."
+      },
+      {
+        "titre": "La fissuration à froid",
+        "texte": "Elle apparaît après refroidissement complet, parfois plusieurs heures après le soudage, d'où son nom de fissuration différée. Elle résulte de la combinaison d'une structure martensitique fragile, d'un taux d'hydrogène diffusible trop élevé et des contraintes de retrait du joint. Le préchauffage ralentit le refroidissement et facilite la diffusion de l'hydrogène hors du métal, tandis qu'un consommable basique étuvé limite l'apport d'hydrogène à la source."
+      },
+      {
+        "titre": "Comment sont déterminées les trois bandes",
+        "texte": "La zone idéale correspond à la plage de 5 à 15% de ferrite du diagramme, où le risque de fissuration à chaud est écarté sans que la résilience soit compromise. La zone acceptable élargit cette plage de 0 à 20%, avec un risque croissant de fissuration à chaud sous 5% et une résilience légèrement réduite au-delà de 15%. La zone neutre, enfin, correspond à un repère digitalisé issu des diagrammes de référence historiques, une zone de transition moins caractérisée par la littérature, à considérer uniquement si aucun apport n'atteint les deux premières."
+      }
+    ]
   },
   "footer": {
     "disclaimer": "Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.",

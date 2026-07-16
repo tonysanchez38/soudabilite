@@ -82,6 +82,31 @@ function calculerBase() {
   D = metal(t("analyse.val_dmelange"), melangeBases(A.comp, B.comp, dA, dB));
 }
 
+// Construit la carte d'explication des zones métallurgiques depuis fr.json
+// (contenu statique, indépendant de ETAT - même pattern que rendreNormes()/
+// rendreOnglets() dans app.js).
+function rendreZonesExplication() {
+  const conteneur = $("[data-liste=zones-explication]");
+  if (!conteneur) return;
+  const zones = t("analyse.zones_explication") || [];
+  conteneur.replaceChildren();
+  zones.forEach((z) => {
+    const bloc = document.createElement("div");
+    bloc.className = "zones-explication__item";
+
+    const titre = document.createElement("h3");
+    titre.className = "zones-explication__titre";
+    titre.textContent = z.titre;
+
+    const texte = document.createElement("p");
+    texte.className = "zones-explication__texte";
+    texte.textContent = z.texte;
+
+    bloc.append(titre, texte);
+    conteneur.appendChild(bloc);
+  });
+}
+
 // --- Diagramme --------------------------------------------------------
 function initDiagramme() {
   const opts = { infobulle: $("[data-infobulle]"), isoLabels: true };
@@ -387,6 +412,7 @@ export function initAnalyse(banque, zones) {
   BANQUE = banque;
   ZONES = zones;
   initDiagramme();
+  rendreZonesExplication();
   construireBlocC();
   $("[data-toggle-comp-c]")?.addEventListener("click", (e) => {
     const bloc = $("[data-comp=c]");
