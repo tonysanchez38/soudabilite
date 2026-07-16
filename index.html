@@ -9,10 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Calculateur de Soudabilité : aide à la préparation du DMOS pour IWE/IWT et étudiants en soudage - diagramme de Schaeffler, préchauffe, t8/5, dureté, verdicts normatifs."
+      content="Calculateur de soudabilité gratuit pour la préparation du DMOS : diagramme de Schaeffler, équivalents chrome/nickel, carbone équivalent IIW, énergie de soudage selon NF EN 1011-1 et NF EN ISO 15609-1."
     />
     <!-- Le titre est piloté par i18n ; ce libellé sert de repli avant JS. -->
     <title data-i18n="app.titre_onglet_navigateur">Soudabilite.com</title>
+    <link rel="canonical" href="https://soudabilite.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calculateur de Soudabilité - Aide à la préparation du DMOS" />
+    <meta
+      property="og:description"
+      content="Outil gratuit pour coordonnateurs en soudage IWE/IWT et étudiants BTS CRCI : diagramme de Schaeffler, équivalents Cr/Ni, carbone équivalent, énergie de soudage."
+    />
+    <meta property="og:url" content="https://soudabilite.com/" />
+    <meta property="og:image" content="https://soudabilite.com/assets/img/logo.png" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -23,6 +33,26 @@
       src="//gc.zgo.at/count.js"
     ></script>
     <script type="module" src="assets/js/app.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculateur de Soudabilité",
+      "url": "https://soudabilite.com/",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Outil gratuit d'aide à la préparation du DMOS : diagramme de Schaeffler, carbone équivalent, énergie de soudage.",
+      "author": {
+        "@type": "Person",
+        "name": "Tony SANCHEZ"
+      }
+    }
+    </script>
   </head>
   <body>
     <!-- ===================== Barre de navigation ===================== -->
