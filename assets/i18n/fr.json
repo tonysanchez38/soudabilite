@@ -248,43 +248,58 @@
     "zones_explication": [
       {
         "titre": "Zone A - Austénite",
-        "texte": "Structure cristalline cubique à faces centrées, stabilisée par un fort taux de nickel et d'éléments gammagènes. Elle est ductile et non magnétique, mais une zone purement austénitique reste sensible à la fissuration à chaud lors de la solidification."
+        "texte": "Structure cristalline cubique à faces centrées (CFC), stabilisée par le Nickel et les éléments gammagènes. Bien qu'elle soit très ductile et amagnétique, une structure 100 % austénitique est extrêmement sensible à la fissuration à chaud (liquation) lors de la solidification."
       },
       {
         "titre": "Zone M - Martensite",
-        "texte": "Structure quadratique issue d'une transformation rapide de l'austénite au refroidissement, sursaturée en carbone. Dure et fragile, elle est le siège privilégié de la fissuration à froid, surtout combinée à un taux de carbone équivalent élevé et à de l'hydrogène diffusible. Le préchauffage et le choix d'un consommable à bas hydrogène visent précisément à limiter sa formation."
+        "texte": "Structure de trempe sursaturée en carbone, issue d'un refroidissement trop rapide. Très dure et fragile, elle est le siège de la fissuration à froid (différée) lorsqu'elle est soumise à des contraintes de retrait et à de l'hydrogène diffusible. La préchauffe (ralentissant le refroidissement) et les consommables basiques (à très bas hydrogène) sont indispensables pour bloquer sa formation."
       },
       {
         "titre": "Zone F - Ferrite",
-        "texte": "Structure cubique centrée, stable pour les alliages fortement chromés et pauvres en éléments gammagènes. Une zone essentiellement ferritique favorise le grossissement de grain à haute température, ce qui fragilise la structure et réduit la résilience à froid."
+        "texte": "Structure cristalline cubique centrée (CC), stabilisée par le Chrome et les éléments alphagènes. Un domaine purement ferritique est soumis à un grossissement de grains irréversible à haute température (> 1150 °C), provoquant un effondrement de la ténacité et de la ductilité du joint."
       },
       {
-        "titre": "Zone A+M",
-        "texte": "Coexistence d'austénite et de martensite, où le risque de fissuration à froid domine dès qu'une fraction significative de martensite apparaît. C'est une zone généralement à éviter pour les assemblages soumis à de fortes contraintes."
+        "titre": "Zone A+M (Austénite + Martensite)",
+        "texte": "Domaine biphasé où le risque de fissuration à froid reste le danger dominant dès l'apparition d'une fraction martensitique significative. C'est une zone à proscrire formellement pour les assemblages fortement bridés."
       },
       {
-        "titre": "Zone M+F",
-        "texte": "Mélange martensite et ferrite, cumulant la fragilité de la martensite et le grossissement de grain de la ferrite. Elle apparaît surtout aux forts taux de chrome combinés à un refroidissement rapide, et reste globalement défavorable."
+        "titre": "Zone M+F (Martensite + Ferrite)",
+        "texte": "Mélange critique cumulant la fragilité de la martensite (à froid) et la chute de ténacité par grossissement du grain ferritique (à chaud). Il apparaît avec un fort taux de Chrome associé à un refroidissement brutal. Zone globalement défavorable."
       },
       {
-        "titre": "Zone A+M+F",
-        "texte": "Zone triphasée de transition entre les grands domaines, dont le comportement précis dépend fortement de la composition exacte. C'est dans cet espace que se situe la zone neutre du diagramme."
+        "titre": "Zone A+M+F (Le S central)",
+        "texte": "Zone triphasée de transition. Elle matérialise le couloir de sécurité historique du diagramme de Schaeffler. Elle sert de zone neutre ou de dernier recours, dont le comportement dépend de l'équilibre strict de ces trois phases."
       },
       {
-        "titre": "Zone A+F",
-        "texte": "La zone recherchée en soudage inoxydable."
+        "titre": "Zone A+F (Austéno-Ferritique)",
+        "texte": "Le domaine ciblé par excellence pour le soudage des aciers inoxydables et des liaisons hétérogènes."
+      }
+    ],
+    "mecanismes_titre": "Les mécanismes de dégradation",
+    "mecanismes": [
+      {
+        "titre": "La fissuration à chaud (Liquation)",
+        "texte": "Défaut survenant lors de la solidification des structures 100 % austénitiques. Les impuretés (S, P) forment des films liquides eutectiques aux joints de grains, qui se déchirent sous l'effet du retrait. Une teneur de 5 à 15 % de ferrite delta est vitale : la ferrite solubilise ces impuretés, interrompt le film liquide et bloque la propagation des fissures."
       },
       {
-        "titre": "La fissuration à chaud",
-        "texte": "Elle se produit pendant la solidification, en structure essentiellement austénitique. Une teneur en ferrite de l'ordre de 5 à 15% interrompt la continuité de ce film liquide fragile et redistribue les impuretés. C'est pourquoi cette plage précise définit la zone idéale du diagramme."
+        "titre": "La fissuration à froid (Différée)",
+        "texte": "Rupture survenant après le refroidissement total du joint (parfois plusieurs heures ou jours après le soudage). Elle nécessite la combinaison stricte de trois facteurs : une structure martensitique fragile, de fortes contraintes résiduelles, et un taux critique d'hydrogène diffusible. La préchauffe favorise le dégazage naturel de l'hydrogène, tandis qu'un consommable basique étuvé l'élimine à la source."
+      }
+    ],
+    "etagement_titre": "L'étagement des trois bandes de sécurité",
+    "etagement_intro": "Comment l'outil détermine les recommandations :",
+    "etagement": [
+      {
+        "titre": "La Zone Idéale (Bande Bleue)",
+        "texte": "Cible stricte de 5 à 15 % de ferrite delta. Le cordon est parfait : le risque de fissuration à chaud est totalement annulé sans que la résilience du joint ne soit compromise."
       },
       {
-        "titre": "La fissuration à froid",
-        "texte": "Elle apparaît après refroidissement complet, parfois plusieurs heures après le soudage, d'où son nom de fissuration différée. Elle résulte de la combinaison d'une structure martensitique fragile, d'un taux d'hydrogène diffusible trop élevé et des contraintes de retrait du joint. Le préchauffage ralentit le refroidissement et facilite la diffusion de l'hydrogène hors du métal, tandis qu'un consommable basique étuvé limite l'apport d'hydrogène à la source."
+        "titre": "La Zone Acceptable (Bande Verte)",
+        "texte": "Tolérance élargie de 0 à 20 % de ferrite. Le risque de fissuration à chaud augmente dangereusement en dessous de 3 % de ferrite, et la résilience s'altère légèrement au-delà de 15 %."
       },
       {
-        "titre": "Comment sont déterminées les trois bandes",
-        "texte": "La zone idéale correspond à la plage de 5 à 15% de ferrite du diagramme, où le risque de fissuration à chaud est écarté sans que la résilience soit compromise. La zone acceptable élargit cette plage de 0 à 20%, avec un risque croissant de fissuration à chaud sous 5% et une résilience légèrement réduite au-delà de 15%. La zone neutre, enfin, correspond à un repère digitalisé issu des diagrammes de référence historiques, une zone de transition moins caractérisée par la littérature, à considérer uniquement si aucun apport n'atteint les deux premières."
+        "titre": "La Zone Neutre (Le S Crème)",
+        "texte": "Repère digitalisé du couloir de transition historique (A+M+F). À utiliser en ultime recours si aucun métal d'apport ne permet de placer le joint dans les zones idéale ou acceptable."
       }
     ]
   },

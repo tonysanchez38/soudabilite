@@ -1041,6 +1041,33 @@ table {
   color: var(--texte-doux);
 }
 
+/* Sous-titre au sein d'une carte (ex. "Les mécanismes de dégradation",
+   "L'étagement des trois bandes de sécurité"). Plus discret que
+   .bloc__titre : pas bleu, taille de base - reste secondaire au titre
+   de carte. */
+.bloc__soustitre {
+  font-size: var(--fs-base);
+  margin: var(--sp-5) 0 var(--sp-2);
+  color: var(--texte-doux);
+}
+
+/* Liste à puces de l'étagement des trois bandes de sécurité
+   (analyse.etagement, fr.json). */
+.etagement-liste {
+  margin: var(--sp-2) 0 0;
+  padding-left: var(--sp-5);
+  font-size: var(--fs-sm);
+  color: var(--texte-doux);
+}
+
+.etagement-liste li {
+  margin-bottom: var(--sp-2);
+}
+
+.etagement-liste strong {
+  color: var(--encre);
+}
+
 /* ----------------------------------------------------------------------- */
 /* 7. Responsive de base (CLAUDE.md #14 - polissage mobile en Lot 2)        */
 /* ----------------------------------------------------------------------- */

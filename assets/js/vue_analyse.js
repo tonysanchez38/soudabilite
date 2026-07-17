@@ -82,15 +82,16 @@ function calculerBase() {
   D = metal(t("analyse.val_dmelange"), melangeBases(A.comp, B.comp, dA, dB));
 }
 
-// Construit la carte d'explication des zones métallurgiques depuis fr.json
+// Construit une carte d'explication (titre + texte) depuis fr.json
 // (contenu statique, indépendant de ETAT - même pattern que rendreNormes()/
-// rendreOnglets() dans app.js).
-function rendreZonesExplication() {
-  const conteneur = $("[data-liste=zones-explication]");
+// rendreOnglets() dans app.js). Réutilisé pour "zones-explication" et
+// "mecanismes", qui partagent le même gabarit.
+function rendreExplications(selecteur, cle) {
+  const conteneur = $(`[data-liste=${selecteur}]`);
   if (!conteneur) return;
-  const zones = t("analyse.zones_explication") || [];
+  const items = t(`analyse.${cle}`) || [];
   conteneur.replaceChildren();
-  zones.forEach((z) => {
+  items.forEach((z) => {
     const bloc = document.createElement("div");
     bloc.className = "zones-explication__item";
 
@@ -104,6 +105,22 @@ function rendreZonesExplication() {
 
     bloc.append(titre, texte);
     conteneur.appendChild(bloc);
+  });
+}
+
+// Construit la liste à puces de l'étagement des trois bandes de sécurité
+// (rendu <li><strong>titre</strong> texte</li>, pas des cartes).
+function rendreEtagement() {
+  const liste = $("[data-liste=etagement]");
+  if (!liste) return;
+  const items = t("analyse.etagement") || [];
+  liste.replaceChildren();
+  items.forEach((z) => {
+    const li = document.createElement("li");
+    const fort = document.createElement("strong");
+    fort.textContent = z.titre;
+    li.append(fort, ` ${z.texte}`);
+    liste.appendChild(li);
   });
 }
 
@@ -412,7 +429,9 @@ export function initAnalyse(banque, zones) {
   BANQUE = banque;
   ZONES = zones;
   initDiagramme();
-  rendreZonesExplication();
+  rendreExplications("zones-explication", "zones_explication");
+  rendreExplications("mecanismes", "mecanismes");
+  rendreEtagement();
   construireBlocC();
   $("[data-toggle-comp-c]")?.addEventListener("click", (e) => {
     const bloc = $("[data-comp=c]");
