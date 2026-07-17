@@ -1,9 +1,8 @@
 // soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
 // compteur.js - compteur de pied de page (GoatCounter, RGPD - CLAUDE.md #22).
-// Affiche « X visiteurs - Y calculs réalisés » de façon discrète.
+// Affiche « X visiteurs » et, séparément, « Y analyses générées ».
 // Partagé par toutes les pages. Aucune logique métier.
-// L'événement « calcul » sera émis à l'étape 8 (synthèse) ; ici, lecture seule.
 // =========================================================================
 
 import { t } from "./i18n.js";
@@ -26,25 +25,11 @@ export async function rendreCompteur() {
   const cible = document.querySelector("[data-compteur]");
   if (!cible) return;
 
-  const [visites, calculs] = await Promise.all([
-    litCompteur(t("footer.compteur_total_url")),
-    litCompteur(t("footer.compteur_calcul_url")),
-  ]);
-
-  const morceaux = [];
+  const visites = await litCompteur(t("footer.compteur_total_url"));
 
   const nbVisiteurs = visites && (visites.count_unique ?? visites.count);
   if (nbVisiteurs != null) {
-    morceaux.push(`${String(nbVisiteurs).trim()} ${t("footer.compteur_visiteurs")}`);
-  }
-
-  const nbCalculs = calculs && calculs.count;
-  if (nbCalculs != null) {
-    morceaux.push(`${String(nbCalculs).trim()} ${t("footer.compteur_calculs")}`);
-  }
-
-  if (morceaux.length > 0) {
-    cible.textContent = morceaux.join(" - ");
+    cible.textContent = `${String(nbVisiteurs).trim()} ${t("footer.compteur_visiteurs")}`;
     cible.hidden = false;
   }
 }
