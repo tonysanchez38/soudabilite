@@ -298,10 +298,13 @@ table {
 }
 
 /* --- Cartes sommaire des onglets --- */
+/* min-height : réserve la place des 3 cartes (remplies après le fetch de
+   fr.json) pour éviter un décalage de mise en page (CLS) à leur arrivée. */
 .cartes {
   display: flex;
   flex-direction: column;
   gap: var(--sp-3);
+  min-height: 340px;
 }
 
 .carte {
@@ -451,11 +454,15 @@ table {
   max-width: 70ch;
 }
 
+/* min-height : réserve une ligne de texte le temps que les compteurs
+   GoatCounter arrivent (hidden -> visible), pour éviter un CLS en pied
+   de page. */
 .pied__compteurs {
   display: flex;
   align-items: center;
   gap: var(--sp-3);
   flex-wrap: wrap;
+  min-height: 20px;
 }
 
 .pied__compteur {
@@ -918,10 +925,13 @@ table {
 .lg-s { background: #FFFFFF; }
 .lg-j { border-bottom-color: #f87171; }
 
-/* Tableaux (apports, valeurs de synthèse) */
+/* Tableaux (apports, valeurs de synthèse, banque de métaux). min-height
+   approximative (un en-tête + quelques lignes) pour limiter le décalage
+   de mise en page pendant que le JS peuple le tableau. */
 .tableau-defilant {
   overflow-x: auto;
   margin-top: var(--sp-4);
+  min-height: 200px;
 }
 
 /* Sous-titre de groupe au-dessus d'un tableau-defilant (ex. banque.html :
