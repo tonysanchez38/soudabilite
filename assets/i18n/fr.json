@@ -17,7 +17,9 @@
   "presentation": {
     "sous_titre": "Aide à la préparation du DMOS",
     "beta_note": "Version beta - l'analyse et les essais métallurgiques sont en cours de validation.",
-    "description": "Outil d'aide à la préparation du DMOS (Descriptif de Mode Opératoire de Soudage). Il calcule les équivalents chrome / nickel et positionne le joint sur le diagramme de Schaeffler, évalue la préchauffe, le temps de refroidissement t8/5 et la dureté prévisible, puis confronte les résultats aux limites normatives. L'aiguillage entre acier carbone, inox et assemblage hétérogène est automatique. L'outil ne remplace pas une QMOS et des essais en atelier.",
+    "description_avant": "Outil d'aide à la préparation du DMOS (Descriptif de Mode Opératoire de Soudage). Il calcule les équivalents chrome / nickel et positionne le joint sur le ",
+    "description_lien": "diagramme de Schaeffler",
+    "description_apres": ", évalue la préchauffe, le temps de refroidissement t8/5 et la dureté prévisible, puis confronte les résultats aux limites normatives. L'aiguillage entre acier carbone, inox et assemblage hétérogène est automatique. L'outil ne remplace pas une QMOS et des essais en atelier.",
     "normes_titre": "Cadre normatif",
     "normes_col_code": "Référence",
     "normes_col_objet": "Objet",
@@ -59,7 +61,9 @@
     "titre_onglet_navigateur": "Soudabilite.com",
     "intro": "Le Calculateur de Soudabilité est un projet en développement continu. De nouvelles fonctionnalités sont intégrées progressivement, au fil des itérations.",
     "a_venir": "Les prochaines évolutions prévues portent sur l'analyse thermique complète (préchauffe, temps de refroidissement t8/5) ainsi que sur l'enrichissement des bases de métaux de base et de métaux d'apport.",
-    "beta": "L'outil est actuellement en version beta. Le module d'analyse fait l'objet de tests par plusieurs utilisateurs, et des essais portant sur différents matériaux et procédés sont programmés prochainement afin d'en valider la fiabilité.",
+    "beta_avant": "L'outil est actuellement en version beta. Le ",
+    "beta_lien": "module d'analyse",
+    "beta_apres": " fait l'objet de tests par plusieurs utilisateurs, et des essais portant sur différents matériaux et procédés sont programmés prochainement afin d'en valider la fiabilité.",
     "linkedin": "Contactez-moi sur LinkedIn pour toute suggestion d'amélioration ou tout signalement d'anomalie."
   },
   "banque": {
