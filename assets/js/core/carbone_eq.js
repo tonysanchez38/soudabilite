@@ -44,11 +44,19 @@ export function ceqSeferian(comp) {
   );
 }
 
-// Ceq Séférian compensé épaisseur - spec.md §5.3
-// Ceq_compensé = Ceq_Séférian · (1 + 0.005·e), e en mm.
-export function ceqSeferianCompense(comp, epaisseur) {
+// Correction d'épaisseur générique - spec.md §5.3 (mécanisme Séférian :
+// Ceq_compensé = Ceq_base · (1 + 0.005·e), e en mm). Réutilisable pour
+// toute méthode dont la compensation suit ce modèle multiplicatif -
+// PAS le mécanisme BWRA (core/bwra.js), qui compense l'épaisseur via
+// TSN comme axe séparé d'une table, pas par un facteur sur Ceq.
+export function corrigerParEpaisseur(ceqBase, epaisseur) {
   const e = Number.isFinite(Number(epaisseur)) ? Number(epaisseur) : 0;
-  return ceqSeferian(comp) * (1 + 0.005 * e);
+  return ceqBase * (1 + 0.005 * e);
+}
+
+// Ceq Séférian compensé épaisseur - spec.md §5.3
+export function ceqSeferianCompense(comp, epaisseur) {
+  return corrigerParEpaisseur(ceqSeferian(comp), epaisseur);
 }
 
 // Préchauffe Séférian - spec.md §6.2

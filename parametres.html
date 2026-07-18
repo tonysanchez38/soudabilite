@@ -258,7 +258,7 @@
         <section id="analyse" class="analyse">
           <section class="param-intro">
             <h2 class="hero__titre" data-i18n="analyse.titre"></h2>
-            <p class="param-intro__texte" data-i18n="analyse.intro"></p>
+            <p class="param-intro__texte" data-analyse-intro data-i18n="analyse.intro"></p>
           </section>
 
           <!-- Aucun métal A/B renseigné ci-dessus -->
@@ -275,24 +275,29 @@
               <dl class="ce-iiw-liste" data-liste="carbone-ce"></dl>
               <p class="note" data-i18n="analyse.carbone_seuil"></p>
 
-              <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_seferian_titre"></h3>
-              <div class="tableau-defilant">
-                <table class="tableau">
-                  <thead>
-                    <tr>
-                      <th data-i18n="analyse.col_metal"></th>
-                      <th data-i18n="analyse.col_ceq_seferian"></th>
-                      <th data-i18n="analyse.col_ceqc_seferian"></th>
-                      <th data-i18n="analyse.col_tp"></th>
-                    </tr>
-                  </thead>
-                  <tbody data-liste="seferian"></tbody>
-                </table>
+              <!-- Une seule méthode de préchauffe visible à la fois -
+                   choisirMethodePreachauffe() (core/prechauffe.js). -->
+              <p class="note" data-methode-message></p>
+
+              <div data-methode-bloc="seferian">
+                <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_seferian_titre"></h3>
+                <div class="tableau-defilant">
+                  <table class="tableau">
+                    <thead>
+                      <tr>
+                        <th data-i18n="analyse.col_metal"></th>
+                        <th data-i18n="analyse.col_ceq_seferian"></th>
+                        <th data-i18n="analyse.col_ceqc_seferian"></th>
+                        <th data-i18n="analyse.col_tp"></th>
+                      </tr>
+                    </thead>
+                    <tbody data-liste="seferian"></tbody>
+                  </table>
+                </div>
               </div>
 
-              <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_bwra_titre"></h3>
-              <p class="note" data-bwra-indispo hidden data-i18n="analyse.bwra_reservee_ee"></p>
-              <div data-bwra-zone>
+              <div data-methode-bloc="bwra">
+                <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_bwra_titre"></h3>
                 <div class="champ">
                   <label class="champ__label" for="bwra-diametre" data-i18n="analyse.bwra_diametre_label"></label>
                   <select id="bwra-diametre" class="champ__select">

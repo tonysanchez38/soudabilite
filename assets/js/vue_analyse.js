@@ -18,8 +18,9 @@ import { meilleursApports } from "./core/selection_apport.js";
 import { estDuplex, verdictDuplex, ferriteApproxWRC, SOURCE_DUPLEX_IDEAL } from "./core/famille_alliage.js";
 import { DUPLEX_VISIBLE } from "./core/config.js";
 import { aiguille } from "./core/aiguillage.js";
-import { ceIIW, ceqSeferian, ceqSeferianCompense, tpSeferian } from "./core/carbone_eq.js";
+import { ceIIW, ceqSeferian, tpSeferian } from "./core/carbone_eq.js";
 import { ceqBWRA, tpBWRA } from "./core/bwra.js";
+import { choisirMethodePreachauffe, MESSAGES_METHODE, calculerCeqCompense } from "./core/prechauffe.js";
 
 const $ = (s) => document.querySelector(s);
 
@@ -150,18 +151,24 @@ function majModeAffichage() {
   const carteSynthese = $("[data-carte=synthese]");
   const carteCarbone = $("[data-carte=carbone]");
   const noteHeterogene = $("[data-heterogene-note]");
+  const intro = $("[data-analyse-intro]");
 
   const carbone = MODE.type === "carbone";
   if (carteDiagramme) carteDiagramme.hidden = carbone;
   if (carteSynthese) carteSynthese.hidden = carbone;
   if (carteCarbone) carteCarbone.hidden = !carbone;
   if (noteHeterogene) noteHeterogene.hidden = MODE.type !== "heterogene";
+  // Sous-titre de la section : reflète la branche active (Schaeffler pour
+  // inox/hétérogène, préchauffe pour carbone) - jamais un texte générique
+  // qui mentionnerait les deux systématiquement.
+  if (intro) intro.textContent = t(carbone ? "analyse.intro_carbone" : "analyse.intro");
 
   if (carbone) majCarbone();
 }
 
 // Encart carbone/carbone : CE_IIW de chaque métal de base (rappel du seuil
-// indicatif 0.42), puis préchauffe Séférian et BWRA (CLAUDE.md #32).
+// indicatif 0.42), puis préchauffe - une seule méthode affichée à la fois
+// (core/prechauffe.js, CLAUDE.md #32).
 function majCarbone() {
   const liste = $("[data-liste=carbone-ce]");
   if (!liste) return;
@@ -173,8 +180,26 @@ function majCarbone() {
     dd.textContent = `${t("analyse.lbl_ce_iiw")} ${ceIIW(m.comp).toFixed(4)} %`;
     liste.append(dt, dd);
   }
-  majSeferian();
-  majBWRA();
+
+  // classeHydrogene : donnée non encore collectée dans l'app (aucun champ
+  // "classe d'hydrogène du consommable" dans le formulaire ni la banque
+  // d'apports) - toujours null pour l'instant, donc choisirMethodePreachauffe
+  // retombe systématiquement sur Séférian (comportement voulu : jamais de
+  // valeur par défaut arbitraire tant que la donnée n'existe pas). BWRA
+  // reste implémenté et testé (core/bwra.js) pour le jour où cette donnée
+  // sera collectée.
+  const classeHydrogene = null;
+  const methode = choisirMethodePreachauffe(ETAT.procede, classeHydrogene);
+
+  const messageMethode = $("[data-methode-message]");
+  if (messageMethode) messageMethode.textContent = t(MESSAGES_METHODE[methode]);
+  const blocSeferian = $("[data-methode-bloc=seferian]");
+  const blocBWRA = $("[data-methode-bloc=bwra]");
+  if (blocSeferian) blocSeferian.hidden = methode !== "seferian";
+  if (blocBWRA) blocBWRA.hidden = methode !== "bwra";
+
+  if (methode === "seferian") majSeferian(classeHydrogene);
+  else majBWRA();
 }
 
 function texteTp(tp) {
@@ -182,8 +207,10 @@ function texteTp(tp) {
 }
 
 // Préchauffe Séférian (spec.md §5.3/§6.2) - épaisseur propre à chaque
-// métal de base (pas l'épaisseur combinée du joint).
-function majSeferian() {
+// métal de base (pas l'épaisseur combinée du joint). calculerCeqCompense
+// (core/prechauffe.js) applique la correction épaisseur, et hydrogène
+// seulement si classeHydrogene est fournie (jamais aujourd'hui, cf. appelant).
+function majSeferian(classeHydrogene) {
   const corps = $("[data-liste=seferian]");
   if (!corps) return;
   corps.replaceChildren();
@@ -193,7 +220,7 @@ function majSeferian() {
   ];
   for (const [m, ep] of [[A, ETAT.epA], [B, ETAT.epB]]) {
     const ceq = ceqSeferian(m.comp);
-    const ceqC = ceqSeferianCompense(m.comp, ep);
+    const ceqC = calculerCeqCompense(ceq, ep, classeHydrogene);
     const tr = document.createElement("tr");
     ajouterCellules(tr, [
       m.designation + (m.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""),
@@ -213,17 +240,13 @@ function electrodeBWRA(enrobage) {
   return enrobage === "B" ? "basique" : "rutile";
 }
 
-// Préchauffe BWRA (core/bwra.js) - réservée à l'électrode enrobée (111).
-// TSN (épaisseur combinée du joint) partagée entre A et B ; Ceq_BWRA propre
-// à chaque métal de base.
+// Préchauffe BWRA (core/bwra.js) - appelée uniquement quand
+// choisirMethodePreachauffe() a retenu "bwra" (majCarbone()). Compense
+// l'épaisseur via TSN comme axe de table, PAS via calculerCeqCompense
+// (mécanisme Séférian, cf. carbone_eq.js) - les deux méthodes ne doivent
+// pas être mélangées. TSN (épaisseur combinée du joint) partagée entre A
+// et B ; Ceq_BWRA propre à chaque métal de base.
 function majBWRA() {
-  const applicable = ETAT.procede === "111";
-  const zoneIndispo = $("[data-bwra-indispo]");
-  const zoneBWRA = $("[data-bwra-zone]");
-  if (zoneIndispo) zoneIndispo.hidden = applicable;
-  if (zoneBWRA) zoneBWRA.hidden = !applicable;
-  if (!applicable) return;
-
   const corps = $("[data-liste=bwra]");
   if (!corps) return;
   corps.replaceChildren();
@@ -608,9 +631,11 @@ export function initAnalyse(banque, zones) {
     e.currentTarget.setAttribute("aria-expanded", String(!bloc.hidden));
   });
   // Diamètre BWRA : contrôle local à l'Analyse (pas dans ETAT/DMOS), relit
-  // sa valeur au changement sans redemander tout le formulaire.
+  // sa valeur au changement sans redemander tout le formulaire. Repasse par
+  // majCarbone() (pas majBWRA() directement) pour rester cohérent avec le
+  // choix de méthode courant.
   $("#bwra-diametre")?.addEventListener("change", () => {
-    if (MODE.type === "carbone") majBWRA();
+    if (MODE.type === "carbone") majCarbone();
   });
 }
 
