@@ -163,6 +163,23 @@ catalogue, cet outil intègre en une interface unique :
     alerte. Vérifié : un point classé AF à 4,17 % ferrite déclenche
     désormais `austenite_pure` ; un point AF à 7 % ferrite n'en déclenche
     toujours aucun (pas de régression sur le cas normal).
+31. **Branche duplex en base désactivée tant que DUPLEX_VISIBLE=false** :
+    quand le métal de base A ou B est lui-même détecté `estDuplex()`,
+    `vue_analyse.js` (`majMeilleursApports()`) n'appelle plus du tout
+    `meilleursApports()` sur cette branche : le tableau des 7 apports est
+    masqué et remplacé par le message i18n `analyse.duplex_indisponible`.
+    Cause : le tri/verdict duplex classe des apports comme idéal au seul
+    critère ferrite 30-70 % (`verdictDuplex`), sans vérifier la famille
+    chimique de l'apport — il pouvait classer en tête des apports
+    non-duplex (312, 430 ferritique), un verdict métallurgiquement faux.
+    Pas de verdict plutôt qu'un verdict faux. Le diagramme et la synthèse
+    Schaeffler restent affichés (non concernés par ce filtre). À réactiver
+    en même temps que la décision #29 une fois le tri duplex corrigé
+    (vérification de famille chimique en plus du critère ferrite).
+    Remarque annexe : l'élément V n'est pas suivi dans `ELEMENTS`
+    (`core/dilution.js`, liste des éléments de composition), donc le terme
+    `%V` de `CE_IIW` (`core/carbone_eq.js`) vaut systématiquement 0 — sans
+    effet sur la banque actuelle (aucune nuance alliée V).
 
 ## Séquence de construction — 11 étapes
 

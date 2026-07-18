@@ -157,7 +157,36 @@ function majDiagramme() {
 // --- Tableau des 7 meilleurs apports ------------------------------------
 function majMeilleursApports() {
   const corps = $("[data-liste=apports]");
+  const zoneTableau = $("[data-zone-apports]");
+  const noteApports = $("[data-apports-note]");
+  const messageIndispo = $("[data-duplex-indisponible]");
+  const aide = $("[data-aide-dilution]");
   corps.replaceChildren();
+
+  // CLAUDE.md #31 : tant que DUPLEX_VISIBLE=false, si le métal de base A ou
+  // B est lui-même duplex/superduplex, on ne fait plus tourner
+  // meilleursApports() du tout sur cette branche (carte visible, seul le
+  // tableau est masqué). Le tri duplex actuel (verdictDuplex +
+  // ferriteApproxWRC) classe "idéal" au seul critère ferrite 30-70 % sans
+  // vérifier la famille chimique de l'apport - il classait par exemple des
+  // apports non-duplex (INERTROD 312, INERTROD 430 ferritique) en tête, un
+  // verdict métallurgiquement faux. Principe : pas de verdict plutôt qu'un
+  // verdict faux - on masque le tableau et on affiche un message
+  // d'indisponibilité. Le diagramme et la synthèse restent affichés
+  // (calculés hors de cette fonction).
+  const baseDuplex = estDuplex(A.designation) || estDuplex(B.designation);
+  if (baseDuplex && !DUPLEX_VISIBLE) {
+    if (zoneTableau) zoneTableau.hidden = true;
+    if (noteApports) noteApports.hidden = true;
+    if (messageIndispo) messageIndispo.hidden = false;
+    if (aide) aide.hidden = true;
+    return;
+  }
+
+  if (zoneTableau) zoneTableau.hidden = false;
+  if (noteApports) noteApports.hidden = false;
+  if (messageIndispo) messageIndispo.hidden = true;
+
   // Classement/ranking : rang du verdict (idéale > acceptable > zone S >
   // hors) puis distance à centre_ideal à l'intérieur de chaque groupe (la
   // cible duplex 35-65 % ferrite n'est pas concernée par ce tri - cf.
@@ -181,7 +210,6 @@ function majMeilleursApports() {
     n: 7,
   });
 
-  const aide = $("[data-aide-dilution]");
   if (rows.length === 0) {
     const tr = document.createElement("tr");
     const td = document.createElement("td");

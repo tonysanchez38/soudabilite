@@ -23,7 +23,7 @@ export function ferriteApproxWRC(crEqW, niEqW) {
 // Détection duplex/superduplex par motif de désignation. Volontairement
 // PAS basée sur l'azote : les superausténitiques (254 SMO...) sont aussi
 // fortement alliés N sans être duplex - l'azote seul est un faux critère.
-const RE_DUPLEX = /duplex|super.?duplex|\b2205\b|\b2507\b|\b2209\b|\b2594\b|25.22.2/i;
+const RE_DUPLEX = /duplex|super.?duplex|\b2205\b|\b2507\b|\b2209\b|\b2594\b|25.22.2|22\s?9\s?3|25\s?9\s?4/i;
 
 export function estDuplex(designation) {
   return RE_DUPLEX.test(designation || "");

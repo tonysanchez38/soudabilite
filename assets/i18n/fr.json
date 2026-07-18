@@ -209,6 +209,7 @@
     "carte_apports": "Sélection des 7 meilleurs apports",
     "apports_note": "Classés par zone atteinte (idéale > acceptable > zone neutre), puis par proximité du cœur de cible (Cr_eq ≈ 22.5, Ni_eq ≈ 13). Cliquez une ligne pour placer l'apport et le JOINT sur le diagramme.",
     "apports_vide": "Aucun apport référencé pour ce procédé - utilisez la saisie manuelle.",
+    "duplex_indisponible": "Branche duplex/superduplex en cours de validation - la sélection d'apport n'est pas encore proposée pour ces métaux de base.",
     "col_rang": "Rang",
     "col_designation": "Désignation",
     "col_creq": "Cr_eq JOINT",
