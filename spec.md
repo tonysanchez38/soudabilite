@@ -181,9 +181,17 @@ Utilisé pour la formule de préchauffe CET (§6.3).
 
 Source : NF EN 1011-2 Annexe C.
 
-### 5.3 Carbone équivalent Séférian compensé épaisseur
+### 5.3 Carbone équivalent Séférian
 ```
-CE_compensé = CE_IIW · (1 + 0.005 · e)
+Ceq_Séférian = %C + (%Mn + %Cr)/9 + %Ni/18 + 7·%Mo/90
+```
+Formule propre à Séférian, distincte de CE_IIW (§5.1) - à ne pas confondre
+(erreur corrigée : une version antérieure de `carbone_eq.js` réutilisait
+CE_IIW à la place).
+
+Compensé épaisseur :
+```
+Ceq_compensé = Ceq_Séférian · (1 + 0.005 · e)
 ```
 avec e en mm.
 

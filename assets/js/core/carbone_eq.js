@@ -1,7 +1,7 @@
 // soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
 // carbone_eq.js - carbone équivalent.
-// Réf. spec.md §5 (CE_IIW §5.1, CET EN 1011-2 §5.2, Séférian compensé §5.3).
+// Réf. spec.md §5 (CE_IIW §5.1, CET EN 1011-2 §5.2, Séférian §5.3).
 // Fonctions pures. Composition en % massique ; éléments absents → 0.
 // =========================================================================
 
@@ -32,9 +32,29 @@ export function cet(comp) {
   );
 }
 
-// Carbone équivalent Séférian compensé épaisseur - spec.md §5.3
-// CE_compensé = CE_IIW · (1 + 0.005·e), e en mm.
-export function ceCompenseSeferian(comp, epaisseur) {
+// Carbone équivalent Séférian - spec.md §5.3
+// Ceq = %C + (%Mn + %Cr)/9 + %Ni/18 + 7·%Mo/90
+// Formule propre à Séférian, distincte de CE_IIW (§5.1) - à ne pas confondre.
+export function ceqSeferian(comp) {
+  return (
+    v(comp, "C") +
+    (v(comp, "Mn") + v(comp, "Cr")) / 9 +
+    v(comp, "Ni") / 18 +
+    (7 * v(comp, "Mo")) / 90
+  );
+}
+
+// Ceq Séférian compensé épaisseur - spec.md §5.3
+// Ceq_compensé = Ceq_Séférian · (1 + 0.005·e), e en mm.
+export function ceqSeferianCompense(comp, epaisseur) {
   const e = Number.isFinite(Number(epaisseur)) ? Number(epaisseur) : 0;
-  return ceIIW(comp) * (1 + 0.005 * e);
+  return ceqSeferian(comp) * (1 + 0.005 * e);
+}
+
+// Préchauffe Séférian - spec.md §6.2
+// T_p (°C) = 350 · √(Ceq_compensé − 0.25), valide si Ceq_compensé > 0.25.
+// null = pas de préchauffe requis par cette méthode.
+export function tpSeferian(ceqCompense) {
+  const x = ceqCompense - 0.25;
+  return x > 0 ? 350 * Math.sqrt(x) : null;
 }
