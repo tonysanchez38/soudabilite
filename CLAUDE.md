@@ -205,6 +205,37 @@ catalogue, cet outil intègre en une interface unique :
     Vérifié en Node : S235+S355 → carbone ; S235+316L → hétérogène ;
     316L+304L → inox ; 2205+2205 → duplex-en-base (type inox sous-jacent).
 
+33. **BWRA activé (n'est plus systématiquement remplacé par Séférian)** :
+    `choisirMethodePreachauffe()` (`core/prechauffe.js`) se pilotait par
+    `classeHydrogene`, une donnée jamais collectée dans l'app - le
+    résultat retombait donc toujours sur Séférian, y compris en procédé
+    111 avec enrobage renseigné. Le gate est repiloté par `typeElectrode`
+    (rutile/basique), dérivé de `ETAT.enrobage` (`#enrobage`,
+    `parametres.js`, déjà saisi côté formulaire) via la nouvelle fonction
+    `traduireEnrobage()` (`core/prechauffe.js`) : seul "B" bascule en
+    basique, les cinq autres lettres (R, C, A, RB, RC) sont classées
+    rutile - `core/bwra.js` `CEQ_INDICE_TABLE` n'a que ces deux familles
+    sourcées, pas de bucket "cellulosique" séparé. `traduireEnrobage()`
+    est la seule traduction lettre → typeElectrode du code : l'ancienne
+    fonction locale `electrodeBWRA()` de `vue_analyse.js` (même logique,
+    dupliquée) a été supprimée au profit de cet appel partagé, utilisé à
+    la fois par le gate (`majCarbone()`) et par le calcul BWRA
+    (`majBWRA()`). `classeHydrogene` reste une donnée séparée et non
+    collectée (n'alimente que la correction CEQ, jamais le choix de
+    méthode) - `ajusterParHydrogene()` (qui levait une exception sur
+    toute classe non nulle) a été remplacée par `ajusterParHydrogeneSecurise()`,
+    qui renvoie le CEQ inchangé avec un indicateur `approxime` plutôt que
+    de planter, en attendant que la formule de correction hydrogène soit
+    sourcée avec Tony. `calculerCeqCompense()` conserve son contrat de
+    retour (nombre brut) pour ne pas casser les appelants existants - TODO
+    Lot 6/7 pour le faire renvoyer `{ valeur, approxime, note }`.
+    Nouveau module parqué (inerte, comme le drapeau `DUPLEX_VISIBLE`) :
+    `core/selection_apport_carbone.js`, sélection de métal d'apport par
+    isorésistance (NF EN ISO 2560-A) pour la branche carbone/thermique -
+    sans effet tant que `data.json` ne porte aucune entrée `metaux_apport`
+    de type carbone (`type`/`re`/`typeElectrode`/`classeHydrogene`/
+    `diametre`, noms de champs à confirmer avec Tony).
+
 ## Séquence de construction — 11 étapes
 
 1. Fond et architecture (CLAUDE.md, arborescence, spec.md, data.json)

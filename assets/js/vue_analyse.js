@@ -20,7 +20,7 @@ import { DUPLEX_VISIBLE } from "./core/config.js";
 import { aiguille } from "./core/aiguillage.js";
 import { ceIIW, ceqSeferian, tpSeferian } from "./core/carbone_eq.js";
 import { ceqBWRA, tpBWRA } from "./core/bwra.js";
-import { choisirMethodePreachauffe, MESSAGES_METHODE, calculerCeqCompense } from "./core/prechauffe.js";
+import { choisirMethodePreachauffe, MESSAGES_METHODE, calculerCeqCompense, traduireEnrobage } from "./core/prechauffe.js";
 
 const $ = (s) => document.querySelector(s);
 
@@ -181,15 +181,17 @@ function majCarbone() {
     liste.append(dt, dd);
   }
 
-  // classeHydrogene : donnée non encore collectée dans l'app (aucun champ
-  // "classe d'hydrogène du consommable" dans le formulaire ni la banque
-  // d'apports) - toujours null pour l'instant, donc choisirMethodePreachauffe
-  // retombe systématiquement sur Séférian (comportement voulu : jamais de
-  // valeur par défaut arbitraire tant que la donnée n'existe pas). BWRA
-  // reste implémenté et testé (core/bwra.js) pour le jour où cette donnée
-  // sera collectée.
+  // choisirMethodePreachauffe() se pilote par typeElectrode (rutile/basique,
+  // traduit depuis ETAT.enrobage par traduireEnrobage() - core/prechauffe.js),
+  // pas par classeHydrogene. BWRA s'active donc désormais dès que le procédé
+  // est 111, quel que soit l'enrobage choisi (traduireEnrobage ne renvoie
+  // null que si ETAT.enrobage lui-même est null). classeHydrogene reste
+  // séparément non collectée (aucun champ dédié dans le formulaire ni la
+  // banque d'apports) - toujours null, n'affecte que la correction CEQ
+  // (ajusterParHydrogeneSecurise), jamais le choix de méthode.
+  const typeElectrode = traduireEnrobage(ETAT.enrobage);
   const classeHydrogene = null;
-  const methode = choisirMethodePreachauffe(ETAT.procede, classeHydrogene);
+  const methode = choisirMethodePreachauffe(ETAT.procede, typeElectrode);
 
   const messageMethode = $("[data-methode-message]");
   if (messageMethode) messageMethode.textContent = t(MESSAGES_METHODE[methode]);
@@ -232,27 +234,21 @@ function majSeferian(classeHydrogene) {
   }
 }
 
-// BWRA (core/bwra.js) ne couvre que deux familles d'enrobage dans la table
-// source (rutile/basique) - simplification : "B" (basique) -> basique,
-// tout le reste (R, C, A, RB, RC) -> rutile, la famille non-basique la
-// plus proche disponible dans la table.
-function electrodeBWRA(enrobage) {
-  return enrobage === "B" ? "basique" : "rutile";
-}
-
 // Préchauffe BWRA (core/bwra.js) - appelée uniquement quand
 // choisirMethodePreachauffe() a retenu "bwra" (majCarbone()). Compense
 // l'épaisseur via TSN comme axe de table, PAS via calculerCeqCompense
 // (mécanisme Séférian, cf. carbone_eq.js) - les deux méthodes ne doivent
 // pas être mélangées. TSN (épaisseur combinée du joint) partagée entre A
-// et B ; Ceq_BWRA propre à chaque métal de base.
+// et B ; Ceq_BWRA propre à chaque métal de base. typeElectrode recalculé
+// ici via traduireEnrobage() (core/prechauffe.js, même traduction que le
+// gate de majCarbone() - source unique, cf. commentaire sur cette fonction).
 function majBWRA() {
   const corps = $("[data-liste=bwra]");
   if (!corps) return;
   corps.replaceChildren();
 
   const diametre = Number($("#bwra-diametre")?.value) || 4;
-  const typeElectrode = electrodeBWRA(ETAT.enrobage);
+  const typeElectrode = traduireEnrobage(ETAT.enrobage);
   const epaisseurs = [ETAT.epA, ETAT.epB];
   const labels = [
     t("analyse.col_metal"), t("analyse.col_ceq_bwra"),
