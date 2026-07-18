@@ -30,8 +30,7 @@
       { "code": "NF EN 1011-2", "objet": "Aciers ferritiques - préchauffe et temps de refroidissement t8/5" },
       { "code": "ISO/TR 15608", "objet": "Système de groupement des matériaux métalliques" },
       { "code": "NF EN ISO 5817", "objet": "Critères d'acceptation des défauts de soudure" },
-      { "code": "NACE MR0175 / ISO 15156", "objet": "Aciers pour milieux acides (H2S) - plafond de dureté" },
-      { "code": "IIW Doc IX-535-67", "objet": "Carbone équivalent IIW" }
+      { "code": "NACE MR0175 / ISO 15156", "objet": "Aciers pour milieux acides (H2S) - plafond de dureté" }
     ],
     "sommaire_titre": "Les onglets",
     "onglets": [
