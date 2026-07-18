@@ -14,7 +14,7 @@
     {
       "designation": "S 235 JR (E 24-2)",
       "composition": {
-        "C": 0.18,
+        "C": 0.17,
         "Mn": 0.5,
         "Si": 0.35,
         "Cr": null,
@@ -29,20 +29,20 @@
       "equivalents": {
         "Schaeffler": {
           "Cr_eq": 0.525,
-          "Ni_eq": 5.65
+          "Ni_eq": 5.35
         },
         "DeLong": {
           "Cr_eq": 0.525,
-          "Ni_eq": 5.65
+          "Ni_eq": 5.35
         },
         "WRC_1992": {
           "Cr_eq": 0.0,
-          "Ni_eq": 6.3
+          "Ni_eq": 5.95
         }
       },
       "carbone_equivalent": {
-        "CE_IIW": 0.2633,
-        "CET_EN1011_2": 0.23
+        "CE_IIW": 0.2533,
+        "CET_EN1011_2": 0.22
       }
     },
     {
