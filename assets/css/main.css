@@ -583,6 +583,23 @@ table {
   color: var(--texte-faible);
 }
 
+/* Encart carbone/carbone (CLAUDE.md #32) : CE_IIW par métal de base. */
+.ce-iiw-liste {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--sp-2) var(--sp-3);
+  margin: var(--sp-3) 0;
+}
+
+.ce-iiw-liste dt {
+  font-weight: 600;
+}
+
+.ce-iiw-liste dd {
+  margin: 0;
+  color: var(--texte-faible);
+}
+
 .erreur {
   margin: var(--sp-3) 0 0;
   font-size: var(--fs-sm);

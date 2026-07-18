@@ -17,6 +17,8 @@ import { ferriteSchaeffler, verdictSchaeffler, niveauIdeal } from "./core/schaef
 import { meilleursApports } from "./core/selection_apport.js";
 import { estDuplex, verdictDuplex, ferriteApproxWRC, SOURCE_DUPLEX_IDEAL } from "./core/famille_alliage.js";
 import { DUPLEX_VISIBLE } from "./core/config.js";
+import { aiguille } from "./core/aiguillage.js";
+import { ceIIW } from "./core/carbone_eq.js";
 
 const $ = (s) => document.querySelector(s);
 
@@ -41,6 +43,20 @@ let A, B, D; // métaux calculés
 let dA = 0, dB = 0, dC = 0;
 let selectionC = null; // apport choisi (tableau ou saisie libre)
 let selectionIndex = null; // index (BANQUE.metaux_apport) de l'apport choisi au tableau
+let MODE = { duplexEnBase: false, type: "inox" }; // cf. determinerMode()
+
+// CLAUDE.md #31/#32 : cascade d'affichage de la section Analyse - duplex en
+// base d'abord (masque uniquement le tableau d'apports, cf.
+// majMeilleursApports), puis aiguillage carbone/hétérogène/inox
+// (aiguillage.js, CLAUDE.md décision #2) qui décide si le diagramme de
+// Schaeffler est pertinent du tout. Les deux checks sont indépendants en
+// pratique : un métal duplex/superduplex (Cr ≥ 22 %) est toujours classé
+// "inox" par aiguille(), jamais "carbone".
+function determinerMode() {
+  const duplexEnBase = (estDuplex(A.designation) || estDuplex(B.designation)) && !DUPLEX_VISIBLE;
+  const { type } = aiguille(A.comp, B.comp);
+  return { duplexEnBase, type };
+}
 
 // Équivalents complets d'une composition (Schaeffler / DeLong / WRC-1992).
 function equivalents(comp) {
@@ -124,6 +140,41 @@ function rendreEtagement() {
   });
 }
 
+// --- Aiguillage carbone/hétérogène/inox (CLAUDE.md #32) -----------------
+// Bascule les cartes Diagramme/Synthèse Schaeffler et l'encart carbone
+// selon MODE.type. Le tableau des 7 apports gère sa propre carte dans
+// majMeilleursApports() (cascade duplex-en-base -> carbone -> normal).
+function majModeAffichage() {
+  const carteDiagramme = $("[data-carte=diagramme]");
+  const carteSynthese = $("[data-carte=synthese]");
+  const carteCarbone = $("[data-carte=carbone]");
+  const noteHeterogene = $("[data-heterogene-note]");
+
+  const carbone = MODE.type === "carbone";
+  if (carteDiagramme) carteDiagramme.hidden = carbone;
+  if (carteSynthese) carteSynthese.hidden = carbone;
+  if (carteCarbone) carteCarbone.hidden = !carbone;
+  if (noteHeterogene) noteHeterogene.hidden = MODE.type !== "heterogene";
+
+  if (carbone) majCarbone();
+}
+
+// Encart carbone/carbone : seule donnée thermique déjà disponible tant que
+// le module préchauffe/t8-5 n'est pas branché sur cette section (CLAUDE.md
+// #32) - CE_IIW de chaque métal de base, rappel du seuil indicatif 0.42.
+function majCarbone() {
+  const liste = $("[data-liste=carbone-ce]");
+  if (!liste) return;
+  liste.replaceChildren();
+  for (const m of [A, B]) {
+    const dt = document.createElement("dt");
+    dt.textContent = m.designation + (m.saisieLibre ? ` ${t("analyse.saisie_libre")}` : "");
+    const dd = document.createElement("dd");
+    dd.textContent = `${t("analyse.lbl_ce_iiw")} ${ceIIW(m.comp).toFixed(4)} %`;
+    liste.append(dt, dd);
+  }
+}
+
 // --- Diagramme --------------------------------------------------------
 function initDiagramme() {
   const opts = { infobulle: $("[data-infobulle]"), isoLabels: true };
@@ -156,6 +207,7 @@ function majDiagramme() {
 
 // --- Tableau des 7 meilleurs apports ------------------------------------
 function majMeilleursApports() {
+  const carteApports = $("[data-carte=apports]");
   const corps = $("[data-liste=apports]");
   const zoneTableau = $("[data-zone-apports]");
   const noteApports = $("[data-apports-note]");
@@ -163,8 +215,11 @@ function majMeilleursApports() {
   const aide = $("[data-aide-dilution]");
   corps.replaceChildren();
 
-  // CLAUDE.md #31 : tant que DUPLEX_VISIBLE=false, si le métal de base A ou
-  // B est lui-même duplex/superduplex, on ne fait plus tourner
+  // Cascade CLAUDE.md #31/#32 : duplex en base d'abord, puis aiguillage
+  // carbone/hétérogène/inox.
+  //
+  // 1) CLAUDE.md #31 : tant que DUPLEX_VISIBLE=false, si le métal de base A
+  // ou B est lui-même duplex/superduplex, on ne fait plus tourner
   // meilleursApports() du tout sur cette branche (carte visible, seul le
   // tableau est masqué). Le tri duplex actuel (verdictDuplex +
   // ferriteApproxWRC) classe "idéal" au seul critère ferrite 30-70 % sans
@@ -176,6 +231,7 @@ function majMeilleursApports() {
   // (calculés hors de cette fonction).
   const baseDuplex = estDuplex(A.designation) || estDuplex(B.designation);
   if (baseDuplex && !DUPLEX_VISIBLE) {
+    if (carteApports) carteApports.hidden = false;
     if (zoneTableau) zoneTableau.hidden = true;
     if (noteApports) noteApports.hidden = true;
     if (messageIndispo) messageIndispo.hidden = false;
@@ -183,6 +239,15 @@ function majMeilleursApports() {
     return;
   }
 
+  // 2) CLAUDE.md #32 : aciers non/faiblement alliés des deux côtés - le
+  // diagramme de Schaeffler (et donc la sélection d'apport par proximité de
+  // zone) ne s'applique pas. Carte entière masquée, cf. majModeAffichage().
+  if (MODE.type === "carbone") {
+    if (carteApports) carteApports.hidden = true;
+    return;
+  }
+
+  if (carteApports) carteApports.hidden = false;
   if (zoneTableau) zoneTableau.hidden = false;
   if (noteApports) noteApports.hidden = false;
   if (messageIndispo) messageIndispo.hidden = true;
@@ -479,11 +544,13 @@ export function majAnalyse(etat) {
   }
   afficherContenu();
   calculerBase();
+  MODE = determinerMode();
   // Rafraîchit le JOINT de l'apport déjà choisi avec la dilution/bases courantes.
   if (selectionC) {
     const jc = joint(A.comp, B.comp, selectionC.metal.comp, dA, dB, dC);
     selectionC.jointMetal = metal(t("analyse.val_joint"), jc);
   }
+  majModeAffichage();
   majMeilleursApports();
   majDiagramme();
   majSynthese();

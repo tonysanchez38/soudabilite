@@ -180,6 +180,30 @@ catalogue, cet outil intègre en une interface unique :
     (`core/dilution.js`, liste des éléments de composition), donc le terme
     `%V` de `CE_IIW` (`core/carbone_eq.js`) vaut systématiquement 0 — sans
     effet sur la banque actuelle (aucune nuance alliée V).
+32. **Aiguillage carbone/carbone masque Schaeffler, renvoie vers le futur
+    module thermique** : `vue_analyse.js` appelle désormais
+    `aiguille(A.comp, B.comp)` (`core/aiguillage.js`, seuils de la décision
+    #2) pour décider de l'affichage de la section Analyse.
+    - `type === "carbone"` (A et B non/faiblement alliés) : le diagramme de
+      Schaeffler, le tableau des 7 apports et la synthèse Schaeffler
+      (Cr_eq/Ni_eq/DeLong/WRC) sont masqués (cartes `data-carte=diagramme`,
+      `data-carte=apports`, `data-carte=synthese`) — Schaeffler ne
+      s'applique pas à ces aciers. Un encart (`data-carte=carbone`,
+      i18n `analyse.carbone_message`) prend leur place, avec le CE_IIW
+      (`carbone_eq.js`, déjà calculé) de chaque métal de base et le seuil
+      indicatif 0,42 % rappelé — seule donnée thermique disponible tant que
+      le module préchauffe/t8-5 n'est pas branché sur cette section.
+    - `type === "heterogene"` (un inox + un carbone) : comportement
+      inchangé (diagramme + apports actifs, pertinents côté inox) + note
+      `analyse.heterogene_note` rappelant que le côté acier n'est pas
+      encore couvert.
+    - `type === "inox"` : comportement inchangé.
+    Cascade dans `majMeilleursApports()` : le check duplex-en-base
+    (décision #31) est évalué avant le check `type === "carbone"` — sans
+    conflit réel en pratique, un métal duplex/superduplex étant toujours
+    classé "inox" par `aiguille()` (Cr ≥ 22 %), jamais "carbone".
+    Vérifié en Node : S235+S355 → carbone ; S235+316L → hétérogène ;
+    316L+304L → inox ; 2205+2205 → duplex-en-base (type inox sous-jacent).
 
 ## Séquence de construction — 11 étapes
 

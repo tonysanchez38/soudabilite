@@ -267,9 +267,19 @@
           </section>
 
           <div data-analyse="contenu">
+            <!-- CARTE 0 - Aciers non/faiblement alliés des deux côtés :
+                 Schaeffler non pertinent (CLAUDE.md #32). -->
+            <section class="carte carte--form" data-carte="carbone" hidden>
+              <h2 class="bloc__titre" data-i18n="analyse.carte_carbone_titre"></h2>
+              <p class="note" data-i18n="analyse.carbone_message"></p>
+              <dl class="ce-iiw-liste" data-liste="carbone-ce"></dl>
+              <p class="note" data-i18n="analyse.carbone_seuil"></p>
+            </section>
+
             <!-- CARTE 1 - Diagramme de Schaeffler -->
-            <section class="carte carte--form">
+            <section class="carte carte--form" data-carte="diagramme">
               <h2 class="bloc__titre" data-i18n="analyse.carte_diagramme"></h2>
+              <p class="note" data-heterogene-note hidden data-i18n="analyse.heterogene_note"></p>
               <div class="schaeffler-zone">
                 <svg id="schaeffler" class="schaeffler-svg" role="img" aria-label="Diagramme de Schaeffler"></svg>
               </div>
@@ -286,7 +296,7 @@
             </section>
 
             <!-- CARTE 2 - Sélection des 7 meilleurs apports -->
-            <section class="carte carte--form">
+            <section class="carte carte--form" data-carte="apports">
               <h2 class="bloc__titre" data-i18n="analyse.carte_apports"></h2>
               <p class="note" data-apports-note data-i18n="analyse.apports_note"></p>
               <p class="note" data-duplex-indisponible hidden data-i18n="analyse.duplex_indisponible"></p>
@@ -325,7 +335,7 @@
             </section>
 
             <!-- CARTE 3 - Synthèse Schaeffler -->
-            <section class="carte carte--form">
+            <section class="carte carte--form" data-carte="synthese">
               <h2 class="bloc__titre" data-i18n="analyse.carte_synthese"></h2>
               <div data-synth="verdict"></div>
               <div class="tableau-defilant">
