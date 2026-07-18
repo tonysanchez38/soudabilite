@@ -18,7 +18,8 @@ import { meilleursApports } from "./core/selection_apport.js";
 import { estDuplex, verdictDuplex, ferriteApproxWRC, SOURCE_DUPLEX_IDEAL } from "./core/famille_alliage.js";
 import { DUPLEX_VISIBLE } from "./core/config.js";
 import { aiguille } from "./core/aiguillage.js";
-import { ceIIW } from "./core/carbone_eq.js";
+import { ceIIW, ceqSeferian, ceqSeferianCompense, tpSeferian } from "./core/carbone_eq.js";
+import { ceqBWRA, tpBWRA } from "./core/bwra.js";
 
 const $ = (s) => document.querySelector(s);
 
@@ -159,9 +160,8 @@ function majModeAffichage() {
   if (carbone) majCarbone();
 }
 
-// Encart carbone/carbone : seule donnée thermique déjà disponible tant que
-// le module préchauffe/t8-5 n'est pas branché sur cette section (CLAUDE.md
-// #32) - CE_IIW de chaque métal de base, rappel du seuil indicatif 0.42.
+// Encart carbone/carbone : CE_IIW de chaque métal de base (rappel du seuil
+// indicatif 0.42), puis préchauffe Séférian et BWRA (CLAUDE.md #32).
 function majCarbone() {
   const liste = $("[data-liste=carbone-ce]");
   if (!liste) return;
@@ -172,6 +172,82 @@ function majCarbone() {
     const dd = document.createElement("dd");
     dd.textContent = `${t("analyse.lbl_ce_iiw")} ${ceIIW(m.comp).toFixed(4)} %`;
     liste.append(dt, dd);
+  }
+  majSeferian();
+  majBWRA();
+}
+
+function texteTp(tp) {
+  return tp == null ? t("analyse.tp_aucun") : `${tp.toFixed(0)} °C`;
+}
+
+// Préchauffe Séférian (spec.md §5.3/§6.2) - épaisseur propre à chaque
+// métal de base (pas l'épaisseur combinée du joint).
+function majSeferian() {
+  const corps = $("[data-liste=seferian]");
+  if (!corps) return;
+  corps.replaceChildren();
+  const labels = [
+    t("analyse.col_metal"), t("analyse.col_ceq_seferian"),
+    t("analyse.col_ceqc_seferian"), t("analyse.col_tp"),
+  ];
+  for (const [m, ep] of [[A, ETAT.epA], [B, ETAT.epB]]) {
+    const ceq = ceqSeferian(m.comp);
+    const ceqC = ceqSeferianCompense(m.comp, ep);
+    const tr = document.createElement("tr");
+    ajouterCellules(tr, [
+      m.designation + (m.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""),
+      ceq.toFixed(3),
+      ceqC.toFixed(3),
+      texteTp(tpSeferian(ceqC)),
+    ], labels);
+    corps.appendChild(tr);
+  }
+}
+
+// BWRA (core/bwra.js) ne couvre que deux familles d'enrobage dans la table
+// source (rutile/basique) - simplification : "B" (basique) -> basique,
+// tout le reste (R, C, A, RB, RC) -> rutile, la famille non-basique la
+// plus proche disponible dans la table.
+function electrodeBWRA(enrobage) {
+  return enrobage === "B" ? "basique" : "rutile";
+}
+
+// Préchauffe BWRA (core/bwra.js) - réservée à l'électrode enrobée (111).
+// TSN (épaisseur combinée du joint) partagée entre A et B ; Ceq_BWRA propre
+// à chaque métal de base.
+function majBWRA() {
+  const applicable = ETAT.procede === "111";
+  const zoneIndispo = $("[data-bwra-indispo]");
+  const zoneBWRA = $("[data-bwra-zone]");
+  if (zoneIndispo) zoneIndispo.hidden = applicable;
+  if (zoneBWRA) zoneBWRA.hidden = !applicable;
+  if (!applicable) return;
+
+  const corps = $("[data-liste=bwra]");
+  if (!corps) return;
+  corps.replaceChildren();
+
+  const diametre = Number($("#bwra-diametre")?.value) || 4;
+  const typeElectrode = electrodeBWRA(ETAT.enrobage);
+  const epaisseurs = [ETAT.epA, ETAT.epB];
+  const labels = [
+    t("analyse.col_metal"), t("analyse.col_ceq_bwra"),
+    t("analyse.col_indice_bwra"), t("analyse.col_tp"), t("analyse.col_tracabilite"),
+  ];
+
+  for (const m of [A, B]) {
+    const ceq = ceqBWRA(m.comp);
+    const r = tpBWRA(ceq, typeElectrode, epaisseurs, diametre);
+    const tr = document.createElement("tr");
+    ajouterCellules(tr, [
+      m.designation + (m.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""),
+      ceq.toFixed(3),
+      r.indice,
+      texteTp(r.valeur),
+      r.note,
+    ], labels);
+    corps.appendChild(tr);
   }
 }
 
@@ -530,6 +606,11 @@ export function initAnalyse(banque, zones) {
     const bloc = $("[data-comp=c]");
     bloc.hidden = !bloc.hidden;
     e.currentTarget.setAttribute("aria-expanded", String(!bloc.hidden));
+  });
+  // Diamètre BWRA : contrôle local à l'Analyse (pas dans ETAT/DMOS), relit
+  // sa valeur au changement sans redemander tout le formulaire.
+  $("#bwra-diametre")?.addEventListener("change", () => {
+    if (MODE.type === "carbone") majBWRA();
   });
 }
 

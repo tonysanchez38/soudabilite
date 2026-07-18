@@ -274,6 +274,50 @@
               <p class="note" data-i18n="analyse.carbone_message"></p>
               <dl class="ce-iiw-liste" data-liste="carbone-ce"></dl>
               <p class="note" data-i18n="analyse.carbone_seuil"></p>
+
+              <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_seferian_titre"></h3>
+              <div class="tableau-defilant">
+                <table class="tableau">
+                  <thead>
+                    <tr>
+                      <th data-i18n="analyse.col_metal"></th>
+                      <th data-i18n="analyse.col_ceq_seferian"></th>
+                      <th data-i18n="analyse.col_ceqc_seferian"></th>
+                      <th data-i18n="analyse.col_tp"></th>
+                    </tr>
+                  </thead>
+                  <tbody data-liste="seferian"></tbody>
+                </table>
+              </div>
+
+              <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_bwra_titre"></h3>
+              <p class="note" data-bwra-indispo hidden data-i18n="analyse.bwra_reservee_ee"></p>
+              <div data-bwra-zone>
+                <div class="champ">
+                  <label class="champ__label" for="bwra-diametre" data-i18n="analyse.bwra_diametre_label"></label>
+                  <select id="bwra-diametre" class="champ__select">
+                    <option value="3.2">3.2 mm</option>
+                    <option value="4">4 mm</option>
+                    <option value="5">5 mm</option>
+                    <option value="6">6 mm</option>
+                    <option value="8">8 mm</option>
+                  </select>
+                </div>
+                <div class="tableau-defilant">
+                  <table class="tableau">
+                    <thead>
+                      <tr>
+                        <th data-i18n="analyse.col_metal"></th>
+                        <th data-i18n="analyse.col_ceq_bwra"></th>
+                        <th data-i18n="analyse.col_indice_bwra"></th>
+                        <th data-i18n="analyse.col_tp"></th>
+                        <th data-i18n="analyse.col_tracabilite"></th>
+                      </tr>
+                    </thead>
+                    <tbody data-liste="bwra"></tbody>
+                  </table>
+                </div>
+              </div>
             </section>
 
             <!-- CARTE 1 - Diagramme de Schaeffler -->
