@@ -58,7 +58,7 @@
   "annonces": {
     "titre": "Annonces et suivi du projet",
     "titre_onglet_navigateur": "Soudabilite.com",
-    "intro": "Le Calculateur de Soudabilité est un projet en développement continu. De nouvelles fonctionnalités sont intégrées progressivement, au fil des itérations.",
+    "intro": "Le Calculateur de Soudabilité est un projet en développement continu. De nouvelles fonctionnalités sont intégrées progressivement, au fil des mises à jour.",
     "a_venir": "Les prochaines évolutions prévues portent sur l'analyse thermique complète (préchauffe, temps de refroidissement t8/5) ainsi que sur l'enrichissement des bases de métaux de base et de métaux d'apport.",
     "beta_avant": "L'outil est actuellement en version beta. Le ",
     "beta_lien": "module d'analyse",
