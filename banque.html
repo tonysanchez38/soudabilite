@@ -4,8 +4,6 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://soudabilite.goatcounter.com" />
-    <link rel="dns-prefetch" href="https://soudabilite.goatcounter.com" />
     <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
     <meta name="author" content="Tony SANCHEZ" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,11 +25,13 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- Analytics GoatCounter (RGPD sans bandeau cookies - CLAUDE.md #22). -->
+    <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
+         (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
+         les bloqueurs de pub (AdGuard etc.) - CLAUDE.md #22. -->
     <script
-      data-goatcounter="https://soudabilite.goatcounter.com/count"
+      data-goatcounter="https://soudabilite.com/gc/count"
       async
-      src="//gc.zgo.at/count.js"
+      src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
     <link rel="preload" href="assets/css/main.css" as="style" />
@@ -81,5 +81,11 @@
         </div>
       </div>
     </footer>
+
+    <!-- Cloudflare Web Analytics — complémentaire à GoatCounter, ne règle
+         pas le blocage par ad blocker (même limite structurelle) mais
+         donne des métriques de performance/navigateur pour les visiteurs
+         non bloqués. -->
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "58d3688c64a3491ea87da7ba0f2f0767"}'></script>
   </body>
 </html>

@@ -4,8 +4,6 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://soudabilite.goatcounter.com" />
-    <link rel="dns-prefetch" href="https://soudabilite.goatcounter.com" />
     <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
     <meta name="author" content="Tony SANCHEZ" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,11 +26,13 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- Analytics GoatCounter (RGPD sans bandeau cookies - CLAUDE.md #22). -->
+    <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
+         (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
+         les bloqueurs de pub (AdGuard etc.) - CLAUDE.md #22. -->
     <script
-      data-goatcounter="https://soudabilite.goatcounter.com/count"
+      data-goatcounter="https://soudabilite.com/gc/count"
       async
-      src="//gc.zgo.at/count.js"
+      src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
     <link rel="preload" href="assets/css/main.css" as="style" />
@@ -59,6 +59,28 @@
     </script>
   </head>
   <body>
+    <!-- ============================================================
+         Contenu statique de secours pour l'indexation Google.
+         Ce paragraphe est visible immédiatement dans le HTML brut,
+         avant même l'exécution de index.js. Il ne remplace aucun
+         contenu i18n existant : il donne juste à Googlebot un texte
+         à lire sans dépendre du rendu JavaScript complet.
+         A placer une seule fois, sur la page d'accueil uniquement.
+         ============================================================ -->
+    <section class="conteneur" style="max-width: 800px; margin: 0 auto; padding: 1rem;">
+      <p style="line-height: 1.6;">
+        Calculateur de Soudabilité est un outil gratuit d'aide à la préparation
+        du DMOS (Descriptif de Mode Opératoire de Soudage), destiné aux étudiants
+        en BTS CRCI et aux coordonnateurs en soudage (IWE/IWT). Il calcule les
+        équivalents chrome et nickel, positionne le joint sur le diagramme de
+        Schaeffler, évalue l'énergie de soudage et propose une sélection des
+        métaux d'apport les plus adaptés. Pour les aciers non ou faiblement
+        alliés, l'outil calcule également le carbone équivalent et la
+        température de préchauffe recommandée selon les méthodes Séférian et
+        BWRA. L'outil ne remplace ni une QMOS ni des essais en atelier.
+      </p>
+    </section>
+
     <!-- ===================== Barre de navigation ===================== -->
     <header class="topbar">
       <div class="conteneur topbar__inner">
@@ -81,6 +103,7 @@
           <p class="hero__sous-titre" data-i18n="presentation.sous_titre"></p>
           <p class="note" data-i18n="presentation.beta_note"></p>
           <p class="hero__desc"><span data-i18n="presentation.description_avant"></span><a href="parametres.html#analyse" data-i18n="presentation.description_lien"></a><span data-i18n="presentation.description_apres"></span></p>
+          <p class="note" data-compteur-page hidden></p>
         </section>
 
         <!-- Grille : cadre normatif + sommaire des onglets -->
@@ -126,5 +149,11 @@
         </div>
       </div>
     </footer>
+
+    <!-- Cloudflare Web Analytics — complémentaire à GoatCounter, ne règle
+         pas le blocage par ad blocker (même limite structurelle) mais
+         donne des métriques de performance/navigateur pour les visiteurs
+         non bloqués. -->
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "58d3688c64a3491ea87da7ba0f2f0767"}'></script>
   </body>
 </html>

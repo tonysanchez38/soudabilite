@@ -1,0 +1,11 @@
+name = "soudabilite-gc-proxy"
+main = "gc-proxy-worker.js"
+compatibility_date = "2026-01-01"
+
+# Route associée après déploiement (soudabilite.com doit être une zone
+# Cloudflare — DNS proxifié, nuage orange). À ajouter soit ici, soit dans
+# le dashboard Cloudflare (Workers & Pages > soudabilite-gc-proxy > Triggers
+# > Add route).
+# routes = [
+#   { pattern = "soudabilite.com/gc/*", zone_name = "soudabilite.com" }
+# ]

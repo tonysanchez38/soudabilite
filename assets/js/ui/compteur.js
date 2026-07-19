@@ -6,6 +6,7 @@
 // =========================================================================
 
 import { t } from "./i18n.js";
+import { COMPTEUR_PAGE_VISIBLE } from "../core/config.js";
 
 // Lit un endpoint /counter/*.json de GoatCounter. Renvoie l'objet
 // { count, count_unique } ou null si indisponible (compte absent, accès
@@ -48,6 +49,26 @@ export async function rendreCompteurAnalyses() {
   const nb = analyses && analyses.count;
   if (nb != null) {
     cible.textContent = `${String(nb).trim()} ${t("footer.compteur_analyses")}`;
+    cible.hidden = false;
+  }
+}
+
+// Compteur de visiteurs uniques sur la page courante (page Présentation
+// uniquement - élément absent des autres pages). Masqué tant que
+// COMPTEUR_PAGE_VISIBLE (core/config.js) est à false : à activer plus
+// tard sans autre changement de code.
+export async function rendreCompteurPage() {
+  if (!COMPTEUR_PAGE_VISIBLE) return;
+
+  const cible = document.querySelector("[data-compteur-page]");
+  if (!cible) return;
+
+  const url = t("analytics.compteur_page_url_base") + encodeURIComponent(location.pathname) + ".json";
+  const donnees = await litCompteur(url);
+
+  const nb = donnees && (donnees.count_unique ?? donnees.count);
+  if (nb != null) {
+    cible.textContent = `${String(nb).trim()} ${t("analytics.compteur_page_libelle")}`;
     cible.hidden = false;
   }
 }
