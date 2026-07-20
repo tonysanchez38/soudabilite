@@ -61,13 +61,16 @@
   <body>
     <!-- ============================================================
          Contenu statique de secours pour l'indexation Google.
-         Ce paragraphe est visible immédiatement dans le HTML brut,
-         avant même l'exécution de index.js. Il ne remplace aucun
-         contenu i18n existant : il donne juste à Googlebot un texte
-         à lire sans dépendre du rendu JavaScript complet.
+         Visible tel quel pour tout visiteur/crawler sans JS. Une fois
+         app.js chargé et le hero i18n rendu, ce bloc est retiré du DOM
+         (cf. retirerParagrapheSecours(), app.js) pour ne jamais rester
+         un doublon visuel du hero - jamais de CSS "visible aux moteurs,
+         masqué aux humains" (cf. décision du 2026-07-20 : cette
+         technique correspond aux "Hidden text and links" des Search
+         Essentials de Google, à éviter).
          A placer une seule fois, sur la page d'accueil uniquement.
          ============================================================ -->
-    <section class="conteneur" style="max-width: 800px; margin: 0 auto; padding: 1rem;">
+    <section class="conteneur" style="max-width: 800px; margin: 0 auto; padding: 1rem;" data-fallback-seo>
       <p style="line-height: 1.6;">
         Calculateur de Soudabilité est un outil gratuit d'aide à la préparation
         du DMOS (Descriptif de Mode Opératoire de Soudage), destiné aux étudiants
