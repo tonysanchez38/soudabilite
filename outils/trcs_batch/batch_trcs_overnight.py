@@ -10,7 +10,7 @@
 # (« Choix de formules ») - synchronisées avec spec.md §8 le 2026-07-20.
 # ============================================================
 
-import os, re, json, subprocess, traceback, shutil
+import os, re, json, subprocess, traceback, shutil, unicodedata
 from pathlib import Path
 from datetime import datetime
 from PIL import Image
@@ -34,8 +34,9 @@ FICHIER_RAPPORT = os.path.join(DOSSIER_SORTIE, "rapport_matin.md")
 # Ces trois désignations ne correspondent à aucune clé de _manifest.json
 # ni à aucune "designation" de assets/data/data.json au 2026-07-20 - sans
 # effet tant qu'aucun fiches_trcs/<une-de-ces-3>.pdf n'existe (la boucle
-# ne traite que ce qui est déposé dans DOSSIER_PDF). À vérifier avant
-# qu'elles ne deviennent pertinentes.
+# ne traite que ce qui est déposé dans DOSSIER_PDF). Comparaison
+# normalisée (nuance_est_exclue) : accents/casse/séparateurs ignorés.
+# À vérifier avant qu'elles ne deviennent pertinentes.
 NUANCES_EXCLUES = {"Z04CND16.4M", "25M6", "29MV8"}  # hors périmètre ce soir, cf. décisions actées
 
 os.makedirs(DOSSIER_SORTIE, exist_ok=True)
@@ -160,6 +161,72 @@ def resoudre_t85_critique(hv_m, hv_b, seuil_hv, t85_min=1, t85_max=100, toleranc
     return {"statut": "ok", "t85_critique": round((bas + haut) / 2, 1)}
 
 
+# ---------- Normalisation des clés de nuance ----------
+def normaliser_nom_nuance(nom):
+    """
+    Réduit un nom de nuance à une forme comparable, insensible à :
+    - la casse (MAJ/min)
+    - les espaces, points, tirets, underscores
+    - les accents éventuels
+    Permet de faire correspondre un nom de fichier PDF (ex. '25 CD 4.pdf')
+    à une clé de _manifest.json (ex. '25cd4') sans renommage manuel.
+    """
+    if nom is None:
+        return ""
+    nom = unicodedata.normalize("NFKD", nom).encode("ascii", "ignore").decode("ascii")
+    nom = nom.upper()
+    for caractere in [" ", ".", "-", "_"]:
+        nom = nom.replace(caractere, "")
+    return nom
+
+
+def construire_index_normalise(base_existante):
+    """
+    Construit un dictionnaire {nom_normalise: nom_original} pour retrouver
+    une entrée du manifest même si l'orthographe exacte diffère entre
+    _manifest.json et les noms de fichiers PDF.
+    Si deux clés distinctes se normalisent vers la même forme, c'est
+    signalé comme collision plutôt que résolu au hasard.
+    """
+    index = {}
+    collisions = []
+    for nom_original in base_existante:
+        cle = normaliser_nom_nuance(nom_original)
+        if cle in index and index[cle] != nom_original:
+            collisions.append((index[cle], nom_original, cle))
+        else:
+            index[cle] = nom_original
+    return index, collisions
+
+
+def retrouver_entree(nom_nuance_fichier, base_existante, index_normalise):
+    """
+    Cherche l'entrée correspondant à un nom de fichier PDF dans le
+    manifest, d'abord par correspondance exacte, puis par correspondance
+    normalisée. Retourne (entree, statut_correspondance).
+    """
+    if nom_nuance_fichier in base_existante:
+        return base_existante[nom_nuance_fichier], "exacte"
+
+    cle = normaliser_nom_nuance(nom_nuance_fichier)
+    if cle in index_normalise:
+        nom_reel = index_normalise[cle]
+        return base_existante[nom_reel], f"normalisee (fichier='{nom_nuance_fichier}' -> base='{nom_reel}')"
+
+    return None, "aucune_correspondance"
+
+
+def nuance_est_exclue(nom_nuance_fichier, nuances_exclues_brutes):
+    """
+    Remplace le test 'nom_nuance in NUANCES_EXCLUES' par une comparaison
+    normalisée, pour que l'exclusion fonctionne même si le nom de fichier
+    PDF diffère légèrement de celui écrit dans NUANCES_EXCLUES.
+    """
+    cle_fichier = normaliser_nom_nuance(nom_nuance_fichier)
+    cles_exclues = {normaliser_nom_nuance(n) for n in nuances_exclues_brutes}
+    return cle_fichier in cles_exclues
+
+
 # ---------- Orchestration, résiliente fiche par fiche ----------
 def traiter_toutes_les_fiches():
     debut = datetime.now()
@@ -181,22 +248,30 @@ def traiter_toutes_les_fiches():
     with open(FICHIER_JSON_EXISTANT, encoding="utf-8") as f:
         base_existante = json.load(f)["nuances"]
 
+    index_normalise, collisions = construire_index_normalise(base_existante)
+    if collisions:
+        rapport.append("\n## ⚠️ Collisions de noms détectées après normalisation")
+        for a, b, cle in collisions:
+            rapport.append(f"- '{a}' et '{b}' se normalisent tous deux vers '{cle}' — à vérifier manuellement")
+
     for pdf in sorted(Path(DOSSIER_PDF).glob("*.pdf")):
         nom_nuance = pdf.stem
         rapport.append(f"\n## {nom_nuance}")
 
-        if nom_nuance in NUANCES_EXCLUES:
+        if nuance_est_exclue(nom_nuance, NUANCES_EXCLUES):
             rapport.append("- Exclue de ce lot (décision actée), non traitée.")
             compteurs["exclu"] += 1
             continue
 
-        if nom_nuance not in base_existante:
-            rapport.append("- Absente de _manifest.json existant, ignorée. (clés attendues : s235jr, s355, p265gh, 15cd4, 25cd4)")
+        entree, statut_correspondance = retrouver_entree(nom_nuance, base_existante, index_normalise)
+        if entree is None:
+            rapport.append("- Absente de _manifest.json existant (aucune correspondance, même normalisée), ignorée. (clés attendues : s235jr, s355, p265gh, 15cd4, 25cd4)")
             compteurs["erreur"] += 1
             continue
+        if statut_correspondance != "exacte":
+            rapport.append(f"- Correspondance trouvée par normalisation : {statut_correspondance}")
 
         try:
-            entree = base_existante[nom_nuance]
             comp = entree.get("composition") or {}
             seuil_hv = entree.get("seuil_hv")
 

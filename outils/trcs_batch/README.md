@@ -31,10 +31,14 @@ Deux limites connues à vérifier dans le rapport avant usage :
    `assets/data/data.json` ; **15CD4 est absent de la banque** et doit
    y être ajouté d'abord.
 3. Déposer les PDF sources dans `C:\Users\snzto\projets\soudabilite\fiches_trcs\`
-   (racine du dépôt, pas dans ce dossier `outils/trcs_batch/`), nommés
-   exactement comme les clés du manifest : `s235jr.pdf`, `s355.pdf`,
-   `p265gh.pdf`, `15cd4.pdf`, `25cd4.pdf` (le PDF source fourni doit
-   être renommé, ex. `25 CD 4.pdf` → `25cd4.pdf`).
+   (racine du dépôt, pas dans ce dossier `outils/trcs_batch/`). Le nom
+   du fichier est comparé aux clés du manifest (`s235jr`, `s355`,
+   `p265gh`, `15cd4`, `25cd4`) de façon normalisée (accents/casse/
+   espaces/points/tirets/underscores ignorés) : `25 CD 4.pdf` est donc
+   reconnu tel quel, pas besoin de le renommer en `25cd4.pdf`. Le
+   rapport signale chaque correspondance faite par normalisation (à
+   vérifier) et toute collision (deux clés du manifest qui se
+   normaliseraient vers la même forme).
 
 ## Lancer
 
