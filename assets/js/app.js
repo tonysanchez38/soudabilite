@@ -7,14 +7,6 @@
 import { chargerChaines, appliquerChaines, t } from "./ui/i18n.js";
 import { rendreCompteur, rendreCompteurAnalyses, rendreCompteurPage } from "./ui/compteur.js";
 
-// Retire le paragraphe de secours SEO (index.html, [data-fallback-seo])
-// une fois le hero i18n rendu : il ne doit jamais rester affiché en même
-// temps que le hero (doublon visuel), ni être masqué par CSS tout en
-// restant lisible par les crawlers (cf. décision du 2026-07-20).
-function retirerParagrapheSecours() {
-  document.querySelector("[data-fallback-seo]")?.remove();
-}
-
 // Construit le corps du tableau du cadre normatif depuis fr.json.
 function rendreNormes() {
   const corps = document.querySelector('[data-liste="normes"]');
@@ -64,7 +56,6 @@ async function init() {
   try {
     await chargerChaines("fr");
     appliquerChaines();
-    retirerParagrapheSecours();
     rendreNormes();
     rendreOnglets();
     rendreCompteur();

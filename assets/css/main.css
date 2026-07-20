@@ -1216,3 +1216,21 @@ table {
     display: none;
   }
 }
+
+/* ----------------------------------------------------------------------- */
+/* 9. Texte masqué à l'écran, lisible par les moteurs de recherche          */
+/*    Choix explicite de Tony (2026-07-20) malgré le risque de pénalité    */
+/*    "Hidden text" des Search Essentials Google, en connaissance de       */
+/*    cause - à ne pas généraliser sans revalider ce choix.                */
+/* ----------------------------------------------------------------------- */
+.seo-texte-invisible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

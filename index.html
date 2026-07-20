@@ -61,17 +61,16 @@
   <body>
     <!-- ============================================================
          Contenu statique de secours pour l'indexation Google.
-         Visible tel quel pour tout visiteur/crawler sans JS. Une fois
-         app.js chargé et le hero i18n rendu, ce bloc est retiré du DOM
-         (cf. retirerParagrapheSecours(), app.js) pour ne jamais rester
-         un doublon visuel du hero - jamais de CSS "visible aux moteurs,
-         masqué aux humains" (cf. décision du 2026-07-20 : cette
-         technique correspond aux "Hidden text and links" des Search
-         Essentials de Google, à éviter).
+         Masqué à l'écran (.seo-texte-invisible, assets/css/main.css #9)
+         mais présent dans le HTML brut pour les moteurs de recherche.
+         Choix explicite de Tony (2026-07-20), malgré le risque de
+         pénalité "Hidden text" des Search Essentials Google (texte
+         lisible par les crawlers mais invisible aux visiteurs) déjà
+         signalé - à ne pas reproduire ailleurs sans revalider ce choix.
          A placer une seule fois, sur la page d'accueil uniquement.
          ============================================================ -->
-    <section class="conteneur" style="max-width: 800px; margin: 0 auto; padding: 1rem;" data-fallback-seo>
-      <p style="line-height: 1.6;">
+    <section class="seo-texte-invisible">
+      <p>
         Calculateur de Soudabilité est un outil gratuit d'aide à la préparation
         du DMOS (Descriptif de Mode Opératoire de Soudage), destiné aux étudiants
         en BTS CRCI et aux coordonnateurs en soudage (IWE/IWT). Il calcule les
