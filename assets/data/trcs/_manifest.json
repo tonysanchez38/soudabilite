@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "note": "Manifest d'entrée pour outils/trcs_batch/batch_trcs_overnight.py : composition, groupe ISO 15608 et seuil_hv (HV10 max acceptable, cf. hv10_limites.json - pas encore créé) par nuance TRCS de référence (CLAUDE.md #18). Composition reprise telle quelle de assets/data/data.json quand disponible - aucune valeur inventée ici. groupe_iso_15608 et seuil_hv restent null tant que Tony ne les a pas fournis (CLAUDE.md, 'Points à NE PAS trancher seul' : coordonnées TRCS). Ce fichier n'est PAS la sortie du pipeline - c'est son entrée, à compléter à la main."
+  },
+  "nuances": {
+    "s235jr": {
+      "designation_source": "S 235 JR (E 24-2) - assets/data/data.json",
+      "composition": {
+        "C": 0.17,
+        "Mn": 0.5,
+        "Si": 0.35,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "seuil_hv": null
+    },
+    "s355": {
+      "designation_source": "S 355 JO (E 36-3) - assets/data/data.json",
+      "composition": {
+        "C": 0.17,
+        "Mn": 1.4,
+        "Si": 0.45,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "seuil_hv": null
+    },
+    "p265gh": {
+      "designation_source": "P265GH (A42 CP) - assets/data/data.json",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.668,
+        "Si": 0.12,
+        "Cr": 0.107,
+        "Ni": 0.35,
+        "Mo": 0.013,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "seuil_hv": null
+    },
+    "15cd4": {
+      "designation_source": null,
+      "composition": null,
+      "groupe_iso_15608": null,
+      "seuil_hv": null,
+      "TODO": "Absent de assets/data/data.json - composition à ajouter avant de pouvoir traiter cette nuance dans le pipeline."
+    },
+    "25cd4": {
+      "designation_source": "25 CD 4 S - assets/data/data.json",
+      "composition": {
+        "C": 0.26,
+        "Mn": 0.53,
+        "Si": 0.18,
+        "Cr": 1.09,
+        "Ni": 0.14,
+        "Mo": 0.19,
+        "Nb": null,
+        "Ti": null,
+        "N": null
+      },
+      "groupe_iso_15608": null,
+      "seuil_hv": null
+    }
+  }
+}
