@@ -9,6 +9,15 @@ pour chaque nuance.
 `assets/data/trcs/*.json`.** Tout sort dans
 `trcs_overnight_out/trcs_data_DRAFT.json` + un rapport lisible dans
 `trcs_overnight_out/rapport_matin.md`, à vérifier au réveil.
+`trcs_overnight_out/log_execution.txt` s'écrit en tout premier (avant
+même les imports optionnels) et à chaque étape : en cas d'échec cette
+nuit, c'est le premier fichier à ouvrir pour savoir jusqu'où le script
+est allé.
+
+Une nuance sans `seuil_hv` dans le manifest (cas actuel des 5 nuances)
+n'est **pas** ignorée : CE_IIW/HV_m/HV_B sont calculés et rapportés
+quand même, seul `t85_critique` reste indisponible
+(`"statut": "seuil_hv_absent_du_manifest"`).
 
 Deux limites connues à vérifier dans le rapport avant usage :
 - la digitalisation de courbe (calibrage OCR + repérage du tracé) est
@@ -49,4 +58,5 @@ python batch_trcs_overnight.py
 Chemins en dur dans le script (chargé sans supervision, le répertoire
 de travail courant n'est pas garanti) : tout est ancré sur
 `C:\Users\snzto\projets\soudabilite\`. Si le dépôt est déplacé, mettre
-à jour `RACINE_DEPOT` et `DOSSIER_PDF` en tête de fichier.
+à jour `DOSSIER_PDF`, `DOSSIER_SORTIE` et `FICHIER_JSON_EXISTANT` en
+tête de fichier.
