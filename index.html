@@ -11,8 +11,9 @@
       name="description"
       content="Calculateur de soudabilité gratuit pour la préparation du DMOS : diagramme de Schaeffler, équivalents chrome/nickel, carbone équivalent IIW, énergie de soudage selon NF EN 1011-1 et NF EN ISO 15609-1."
     />
-    <!-- Le titre est piloté par i18n ; ce libellé sert de repli avant JS. -->
-    <title data-i18n="app.titre_onglet_navigateur">Soudabilite.com</title>
+    <!-- Titre en dur (SEO) : ne pas piloter par i18n, doit être présent
+         sans exécution de JS pour l'indexation. -->
+    <title>Calculateur de soudabilité gratuit : Schaeffler, préchauffe, DMOS</title>
     <link rel="canonical" href="https://soudabilite.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Calculateur de Soudabilité - Aide à la préparation du DMOS" />
@@ -101,7 +102,7 @@
       <div class="conteneur presentation">
         <!-- Hero : titre + sous-titre + description (3-4 lignes) -->
         <section class="hero">
-          <h1 class="hero__titre" data-i18n="app.titre"></h1>
+          <h1 class="hero__titre" data-i18n="app.titre">Calculateur de soudabilité en ligne</h1>
           <p class="hero__sous-titre" data-i18n="presentation.sous_titre"></p>
           <p class="note" data-i18n="presentation.beta_note"></p>
           <p class="hero__desc"><span data-i18n="presentation.description_avant"></span><a href="parametres.html#analyse" data-i18n="presentation.description_lien"></a><span data-i18n="presentation.description_apres"></span></p>
