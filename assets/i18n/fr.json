@@ -64,7 +64,7 @@
     "linkedin": "Contactez-moi sur LinkedIn pour toute suggestion d'amélioration ou tout signalement d'anomalie."
   },
   "banque": {
-    "titre": "Data - métaux de référence",
+    "titre": "Base de données des métaux de référence",
     "note_indicative": "Compositions indicatives (milieu de fourchette normative ou valeur typique fournisseur) - ne garantissent pas la composition d'une coulée réelle. Se référer au certificat matière (3.1/3.2) pour un dossier qualifié.",
     "titre_base": "Métaux de base",
     "titre_apport": "Métaux d'apport",
@@ -91,7 +91,7 @@
     "detail_retirer": "- composition détaillée"
   },
   "parametres": {
-    "titre": "Paramètres & Analyses",
+    "titre": "Paramètres et analyse de soudabilité",
     "intro": "Renseignez les métaux, le procédé et la géométrie du joint. Ces données alimentent le moteur de calcul de l'onglet Analyse. Les paramètres électriques (intensité, tension, énergie) sont calculés automatiquement.",
     "section_metaux": "Métaux de base",
     "label_metal_a": "Métal A",
