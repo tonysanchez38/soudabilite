@@ -493,6 +493,20 @@ function choisirApport(r, tr) {
   if (window.goatcounter && typeof window.goatcounter.count === "function") {
     window.goatcounter.count({ path: "analyse-realisee", title: "Sélection d'un apport", event: true });
   }
+  envoyerEvenementAnalyse(r.designation);
+}
+
+// Événement dédié par nuance d'apport (en plus du compteur générique
+// "analyse-realisee" ci-dessus) : permet de savoir quels apports sont
+// réellement choisis dans le tableau des 7 meilleurs, pas seulement qu'un
+// choix a eu lieu.
+function envoyerEvenementAnalyse(nomApport) {
+  if (!window.goatcounter || typeof window.goatcounter.count !== "function") return;
+  window.goatcounter.count({
+    path: "analyse-effectuee/" + encodeURIComponent(nomApport),
+    title: "Analyse effectuée : " + nomApport,
+    event: true,
+  });
 }
 
 // --- Synthèse Schaeffler ------------------------------------------------
