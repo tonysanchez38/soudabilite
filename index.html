@@ -60,30 +60,6 @@
     </script>
   </head>
   <body>
-    <!-- ============================================================
-         Contenu statique de secours pour l'indexation Google.
-         Masqué à l'écran (.seo-texte-invisible, assets/css/main.css #9)
-         mais présent dans le HTML brut pour les moteurs de recherche.
-         Choix explicite de Tony (2026-07-20), malgré le risque de
-         pénalité "Hidden text" des Search Essentials Google (texte
-         lisible par les crawlers mais invisible aux visiteurs) déjà
-         signalé - à ne pas reproduire ailleurs sans revalider ce choix.
-         A placer une seule fois, sur la page d'accueil uniquement.
-         ============================================================ -->
-    <section class="seo-texte-invisible">
-      <p>
-        Calculateur de Soudabilité est un outil gratuit d'aide à la préparation
-        du DMOS (Descriptif de Mode Opératoire de Soudage), destiné aux étudiants
-        en BTS CRCI et aux coordonnateurs en soudage (IWE/IWT). Il calcule les
-        équivalents chrome et nickel, positionne le joint sur le diagramme de
-        Schaeffler, évalue l'énergie de soudage et propose une sélection des
-        métaux d'apport les plus adaptés. Pour les aciers non ou faiblement
-        alliés, l'outil calcule également le carbone équivalent et la
-        température de préchauffe recommandée selon les méthodes Séférian et
-        BWRA. L'outil ne remplace ni une QMOS ni des essais en atelier.
-      </p>
-    </section>
-
     <!-- ===================== Barre de navigation ===================== -->
     <header class="topbar">
       <div class="conteneur topbar__inner">
@@ -107,6 +83,26 @@
           <p class="note" data-i18n="presentation.beta_note"></p>
           <p class="hero__desc"><span data-i18n="presentation.description_avant"></span><a href="parametres.html#analyse" data-i18n="presentation.description_lien"></a><span data-i18n="presentation.description_apres"></span></p>
           <p class="note" data-compteur-page hidden></p>
+        </section>
+
+        <section class="carte presentation-seo" aria-labelledby="titre-outil-soudabilite">
+          <h2 id="titre-outil-soudabilite" class="bloc__titre">
+            <img class="presentation-seo__logo" src="favicon.svg" alt="" aria-hidden="true" />
+            Soudabilite.com : Un outil d'aide à la préparation du DMOS
+          </h2>
+          <p>
+            Le Calculateur de Soudabilité est un outil gratuit destiné aux
+            étudiants en BTS CRCI et aux coordonnateurs en soudage IWE/IWT. Il
+            calcule les équivalents chrome et nickel, positionne le joint sur le
+            diagramme de Schaeffler, évalue l'énergie de soudage et propose les
+            métaux d'apport les plus adaptés.
+          </p>
+          <p>
+            Pour les aciers non ou faiblement alliés, il calcule également le
+            carbone équivalent et la température de préchauffage recommandée
+            selon les méthodes Séférian et BWRA. Cet outil d'aide à la décision
+            ne remplace ni une QMOS ni les essais réalisés en atelier.
+          </p>
         </section>
 
         <!-- Grille : cadre normatif + sommaire des onglets -->
