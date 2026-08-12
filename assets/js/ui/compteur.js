@@ -26,11 +26,20 @@ export async function rendreCompteur() {
   const cible = document.querySelector("[data-compteur]");
   if (!cible) return;
 
-  const visites = await litCompteur(t("footer.compteur_total_url"));
+  const urls = t("footer.compteur_pages_urls");
+  if (!Array.isArray(urls) || urls.length === 0) return;
 
-  const nbVisiteurs = visites && (visites.count_unique ?? visites.count);
-  if (nbVisiteurs != null) {
-    cible.textContent = `${String(nbVisiteurs).trim()} ${t("footer.compteur_visiteurs")}`;
+  const compteurs = await Promise.all(urls.map(litCompteur));
+  const valeurs = compteurs.map((donnees) => {
+    const valeur = donnees && donnees.count;
+    if (valeur == null) return null;
+    const nombre = Number(String(valeur).replace(/[^0-9]/g, ""));
+    return Number.isFinite(nombre) ? nombre : null;
+  });
+
+  if (valeurs.every((valeur) => valeur != null)) {
+    const total = valeurs.reduce((somme, valeur) => somme + valeur, 0);
+    cible.textContent = `${total.toLocaleString("fr-FR")} ${t("footer.compteur_consultations")}`;
     cible.hidden = false;
   }
 }
