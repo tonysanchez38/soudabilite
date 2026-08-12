@@ -161,8 +161,8 @@ async function init() {
   try {
     await chargerChaines("fr");
     appliquerChaines();
-    rendreCompteur();
-    rendreCompteurAnalyses();
+    await rendreCompteur();
+    await rendreCompteurAnalyses();
     const banque = await fetch("assets/data/data.json").then((r) => r.json());
     rendreMetauxBase(banque.metaux_base || []);
     rendreMetauxApport(banque.metaux_apport || []);

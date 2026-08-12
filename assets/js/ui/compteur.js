@@ -13,13 +13,16 @@ import { COMPTEUR_PAGE_VISIBLE } from "../core/config.js";
 // non public, réseau) - dans ce cas on n'affiche simplement rien.
 async function litCompteur(url) {
   if (!url) return null;
-  try {
-    const reponse = await fetch(url, { cache: "no-cache" });
-    if (!reponse.ok) return null;
-    return await reponse.json();
-  } catch (err) {
-    return null;
+  for (let tentative = 0; tentative < 2; tentative += 1) {
+    try {
+      const reponse = await fetch(url, { cache: "no-cache" });
+      if (reponse.ok) return await reponse.json();
+    } catch (err) {
+      // Une seconde tentative est effectuée ci-dessous.
+    }
+    await new Promise((resolve) => setTimeout(resolve, 250));
   }
+  return null;
 }
 
 export async function rendreCompteur() {
@@ -29,7 +32,11 @@ export async function rendreCompteur() {
   const urls = t("footer.compteur_pages_urls");
   if (!Array.isArray(urls) || urls.length === 0) return;
 
-  const compteurs = await Promise.all(urls.map(litCompteur));
+  // Lecture séquentielle : le service public de GoatCounter peut refuser
+  // plusieurs requêtes simultanées. Le total n'est affiché que si les cinq
+  // compteurs de pages ont tous répondu, afin d'éviter un total incomplet.
+  const compteurs = [];
+  for (const url of urls) compteurs.push(await litCompteur(url));
   const valeurs = compteurs.map((donnees) => {
     const valeur = donnees && donnees.count;
     if (valeur == null) return null;

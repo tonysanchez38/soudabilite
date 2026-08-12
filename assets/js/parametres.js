@@ -602,8 +602,8 @@ async function init() {
     });
 
     recalculer();
-    rendreCompteur();
-    rendreCompteurAnalyses();
+    await rendreCompteur();
+    await rendreCompteurAnalyses();
   } catch (err) {
     console.error(err);
   }

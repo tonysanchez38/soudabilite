@@ -58,8 +58,8 @@ async function init() {
     appliquerChaines();
     rendreNormes();
     rendreOnglets();
-    rendreCompteur();
-    rendreCompteurAnalyses();
+    await rendreCompteur();
+    await rendreCompteurAnalyses();
     rendreCompteurPage();
   } catch (err) {
     // En cas d'échec de chargement, on laisse les libellés de repli du HTML.
