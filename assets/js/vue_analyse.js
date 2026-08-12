@@ -491,7 +491,12 @@ function choisirApport(r, tr) {
   if (tr) tr.classList.add("is-active");
   definirC(r.composition, r.designation, false);
   if (window.goatcounter && typeof window.goatcounter.count === "function") {
-    window.goatcounter.count({ path: "analyse-realisee", title: "Sélection d'un apport", event: true });
+    window.goatcounter.count({
+      path: "analyse-realisee",
+      title: "Sélection d'un apport",
+      event: true,
+      no_session: true,
+    });
   }
   envoyerEvenementAnalyse(r.designation);
 }
@@ -506,6 +511,7 @@ function envoyerEvenementAnalyse(nomApport) {
     path: "analyse-effectuee/" + encodeURIComponent(nomApport),
     title: "Analyse effectuée : " + nomApport,
     event: true,
+    no_session: true,
   });
 }
 

@@ -323,9 +323,15 @@
   },
   "footer": {
     "disclaimer": "Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.",
-    "compteur_visiteurs": "visiteurs",
-    "compteur_analyses": "analyses générées",
-    "compteur_total_url": "https://soudabilite.com/gc/counter/TOTAL.json",
+    "compteur_consultations": "consultations de pages",
+    "compteur_analyses": "analyses réalisées",
+    "compteur_pages_urls": [
+      "https://soudabilite.com/gc/counter/%2F.json",
+      "https://soudabilite.com/gc/counter/%2Findex.html.json",
+      "https://soudabilite.com/gc/counter/%2Fparametres.html.json",
+      "https://soudabilite.com/gc/counter/%2Fbanque.html.json",
+      "https://soudabilite.com/gc/counter/%2Fannonces.html.json"
+    ],
     "compteur_analyses_url": "https://soudabilite.com/gc/counter/analyse-realisee.json"
   },
   "analytics": {
