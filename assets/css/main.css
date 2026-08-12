@@ -464,6 +464,22 @@ table {
   max-width: 70ch;
 }
 
+.pied__credit {
+  font-size: var(--fs-sm);
+  color: var(--texte-doux);
+}
+
+.pied__credit a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pied__credit a:hover,
+.pied__credit a:focus-visible {
+  text-decoration: underline;
+}
+
 /* min-height : réserve une ligne de texte le temps que les compteurs
    GoatCounter arrivent (hidden -> visible), pour éviter un CLS en pied
    de page. */
