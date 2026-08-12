@@ -56,8 +56,8 @@
   },
   "annonces": {
     "titre": "Annonces et suivi du projet",
-    "intro": "Le Calculateur de Soudabilité est un projet en développement continu. De nouvelles fonctionnalités sont intégrées progressivement, au fil des mises à jour.",
-    "a_venir": "Les prochaines évolutions prévues portent sur l'analyse thermique complète (préchauffe, temps de refroidissement t8/5) ainsi que sur l'enrichissement des bases de métaux de base et de métaux d'apport.",
+    "intro": "Le Calculateur de Soudabilité est un outil en développement continu. De nouvelles fonctionnalités seront intégrées progressivement, au fil des mises à jour.",
+    "a_venir": "Les prochaines évolutions prévues portent sur le calcul du temps de refroidissement pour éviter les risques métallurgiques, ainsi que sur l'enrichissement des bases de données des métaux de base et des métaux d'apport.",
     "beta_avant": "L'outil est actuellement en version beta. Le ",
     "beta_lien": "module d'analyse",
     "beta_apres": " fait l'objet de tests par plusieurs utilisateurs, et des essais portant sur différents matériaux et procédés sont programmés prochainement afin d'en valider la fiabilité.",
@@ -266,42 +266,42 @@
     "zones_explication": [
       {
         "titre": "Zone A - Austénite",
-        "texte": "Structure cristalline cubique à faces centrées (CFC), stabilisée par le Nickel et les éléments gammagènes. Bien qu'elle soit très ductile et amagnétique, une structure 100 % austénitique est extrêmement sensible à la fissuration à chaud (liquation) lors de la solidification."
+        "texte": "L'austénite est une structure généralement ductile, favorisée notamment par le nickel. Si le métal fondu devient presque entièrement austénitique, le risque de fissuration à chaud augmente pendant la solidification. Une petite quantité de ferrite aide habituellement à limiter ce risque."
       },
       {
         "titre": "Zone M - Martensite",
-        "texte": "Structure de trempe sursaturée en carbone, issue d'un refroidissement trop rapide. Très dure et fragile, elle est le siège de la fissuration à froid (différée) lorsqu'elle est soumise à des contraintes de retrait et à de l'hydrogène diffusible. La préchauffe (ralentissant le refroidissement) et les consommables basiques (à très bas hydrogène) sont indispensables pour bloquer sa formation."
+        "texte": "La martensite peut apparaître lorsque certains aciers refroidissent trop rapidement. Elle est dure mais fragile. Associée aux contraintes de soudage et à l'hydrogène, elle augmente le risque de fissuration à froid. Le préchauffage et la maîtrise de l'hydrogène permettent de réduire ce risque."
       },
       {
         "titre": "Zone F - Ferrite",
-        "texte": "Structure cristalline cubique centrée (CC), stabilisée par le Chrome et les éléments alphagènes. Un domaine purement ferritique est soumis à un grossissement de grains irréversible à haute température (> 1150 °C), provoquant un effondrement de la ténacité et de la ductilité du joint."
+        "texte": "La ferrite est une structure favorisée notamment par le chrome. Une proportion excessive de ferrite peut diminuer la ténacité et la ductilité du joint, en particulier après une exposition à une température élevée."
       },
       {
         "titre": "Zone A+M (Austénite + Martensite)",
-        "texte": "Domaine biphasé où le risque de fissuration à froid reste le danger dominant dès l'apparition d'une fraction martensitique significative. C'est une zone à proscrire formellement pour les assemblages fortement bridés."
+        "texte": "Cette zone contient de l'austénite et de la martensite. La présence de martensite rend le joint plus sensible à la fissuration à froid, surtout si l'assemblage est fortement bridé ou si l'hydrogène est mal maîtrisé."
       },
       {
         "titre": "Zone M+F (Martensite + Ferrite)",
-        "texte": "Mélange critique cumulant la fragilité de la martensite (à froid) et la chute de ténacité par grossissement du grain ferritique (à chaud). Il apparaît avec un fort taux de Chrome associé à un refroidissement brutal. Zone globalement défavorable."
+        "texte": "Cette zone associe la fragilité possible de la martensite et les limites d'une forte proportion de ferrite. Elle est généralement défavorable et demande une vérification attentive du métal d'apport, du refroidissement et des conditions de soudage."
       },
       {
         "titre": "Zone A+M+F (Le S central)",
-        "texte": "Zone triphasée de transition. Elle matérialise le couloir de sécurité historique du diagramme de Schaeffler. Elle sert de zone neutre ou de dernier recours, dont le comportement dépend de l'équilibre strict de ces trois phases."
+        "texte": "Cette zone de transition contient de l'austénite, de la martensite et de la ferrite. Elle sert de repère intermédiaire sur le diagramme, mais elle est moins favorable que la zone austéno-ferritique recherchée pour de nombreux assemblages inoxydables."
       },
       {
         "titre": "Zone A+F (Austéno-Ferritique)",
-        "texte": "Le domaine ciblé par excellence pour le soudage des aciers inoxydables et des liaisons hétérogènes."
+        "texte": "Cette zone associe austénite et ferrite. Elle est souvent recherchée pour le soudage des aciers inoxydables et de certains assemblages hétérogènes, car un équilibre adapté limite le risque de fissuration à chaud sans produire trop de ferrite."
       }
     ],
     "mecanismes_titre": "Les mécanismes de dégradation",
     "mecanismes": [
       {
         "titre": "La fissuration à chaud (Liquation)",
-        "texte": "Défaut survenant lors de la solidification des structures 100 % austénitiques. Les impuretés (S, P) forment des films liquides eutectiques aux joints de grains, qui se déchirent sous l'effet du retrait. Une teneur de 5 à 15 % de ferrite delta est vitale : la ferrite solubilise ces impuretés, interrompt le film liquide et bloque la propagation des fissures."
+        "texte": "Elle apparaît pendant la solidification du cordon. Elle est favorisée par les contraintes de retrait, certaines impuretés et une structure trop austénitique. Une proportion adaptée de ferrite delta contribue à diminuer ce risque."
       },
       {
         "titre": "La fissuration à froid (Différée)",
-        "texte": "Rupture survenant après le refroidissement total du joint (parfois plusieurs heures ou jours après le soudage). Elle nécessite la combinaison stricte de trois facteurs : une structure martensitique fragile, de fortes contraintes résiduelles, et un taux critique d'hydrogène diffusible. La préchauffe favorise le dégazage naturel de l'hydrogène, tandis qu'un consommable basique étuvé l'élimine à la source."
+        "texte": "Elle peut apparaître plusieurs heures après le soudage. Elle résulte généralement de la combinaison d'une structure fragile, de contraintes résiduelles et d'hydrogène diffusible. Le préchauffage, le contrôle du refroidissement et l'emploi de consommables à faible hydrogène réduisent ce risque."
       }
     ],
     "etagement_titre": "L'étagement des trois bandes de sécurité",
@@ -309,15 +309,15 @@
     "etagement": [
       {
         "titre": "La Zone Idéale (Bande Bleue)",
-        "texte": "Cible stricte de 5 à 15 % de ferrite delta. Le cordon est parfait : le risque de fissuration à chaud est totalement annulé sans que la résilience du joint ne soit compromise."
+        "texte": "Cible de l'outil, située entre 5 et 15 % de ferrite delta. Dans cette plage, le compromis est généralement favorable entre la limitation de la fissuration à chaud et le maintien des propriétés mécaniques."
       },
       {
         "titre": "La Zone Acceptable (Bande Verte)",
-        "texte": "Tolérance élargie de 0 à 20 % de ferrite. Le risque de fissuration à chaud augmente dangereusement en dessous de 3 % de ferrite, et la résilience s'altère légèrement au-delà de 15 %."
+        "texte": "Plage élargie de 0 à 20 % de ferrite. Le résultat peut rester utilisable, mais il doit être examiné avec plus de prudence : trop peu de ferrite favorise la fissuration à chaud, tandis qu'une quantité élevée peut dégrader certaines propriétés du joint."
       },
       {
         "titre": "La Zone Neutre (Le S Crème)",
-        "texte": "Repère digitalisé du couloir de transition historique (A+M+F). À utiliser en ultime recours si aucun métal d'apport ne permet de placer le joint dans les zones idéale ou acceptable."
+        "texte": "Repère correspondant à la zone de transition A+M+F. L'outil l'utilise comme solution de dernier choix lorsqu'aucun métal d'apport proposé ne place le joint dans les zones idéale ou acceptable."
       }
     ]
   },
