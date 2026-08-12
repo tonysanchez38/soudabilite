@@ -164,12 +164,22 @@ table {
 /* Lien-logo texte : repère de marque + retour accueil, à gauche des
    onglets (CLAUDE.md #26). */
 .nav__marque {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
   font-family: var(--font-sans);
   font-size: var(--fs-xl); /* +50% vs --fs-base (1rem -> 1.5rem) */
   font-weight: 700;
   color: var(--bleu);
   letter-spacing: -0.01em;
   white-space: nowrap;
+}
+
+.nav__logo {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  border-radius: 0.4rem;
 }
 
 .nav__marque:hover {
@@ -1232,11 +1242,4 @@ table {
   display: flex;
   align-items: center;
   gap: var(--espace-sm);
-}
-
-.presentation-seo__logo {
-  width: 2rem;
-  height: 2rem;
-  flex: 0 0 auto;
-  border-radius: 0.4rem;
 }
