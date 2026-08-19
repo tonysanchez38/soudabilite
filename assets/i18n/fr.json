@@ -9,9 +9,9 @@
   "nav": {
     "aria_label": "Navigation principale",
     "presentation": "Présentation",
-    "parametres": "Paramètres & Analyses",
+    "parametres": "Calculateur",
     "data": "Data",
-    "annonces": "Annonces"
+    "annonces": "Contact"
   },
   "presentation": {
     "sous_titre": "Aide à la préparation du DMOS",
@@ -34,8 +34,8 @@
     "sommaire_titre": "Les onglets",
     "onglets": [
       {
-        "titre": "Paramètres & Analyses",
-        "description": "Saisie des métaux de base, du procédé et de la géométrie du joint, puis diagramme de Schaeffler, sélection des 7 meilleurs apports et synthèse - sur la même page.",
+        "titre": "Calculateur",
+        "description": "Saisie des métaux de base, du procédé et de la géométrie du joint, puis analyse automatique, sélection des 7 meilleurs apports et synthèse sur la même page.",
         "lien": "parametres.html"
       },
       {
@@ -44,8 +44,8 @@
         "lien": "banque.html"
       },
       {
-        "titre": "Annonces",
-        "description": "Suivi du projet, mises à jour à venir et contact pour toute question ou suggestion.",
+        "titre": "Contact",
+        "description": "Évolutions de l'outil et contact pour toute question, suggestion ou proposition de collaboration.",
         "lien": "annonces.html"
       }
     ],
@@ -55,7 +55,7 @@
     "linkedin_url": "https://www.linkedin.com/in/tonysanchez38/"
   },
   "annonces": {
-    "titre": "Annonces et suivi du projet",
+    "titre": "Contact et suivi de l'outil",
     "intro": "Le Calculateur de Soudabilité est un outil en développement continu. De nouvelles fonctionnalités seront intégrées progressivement, au fil des mises à jour.",
     "a_venir": "Les prochaines évolutions prévues portent sur le calcul du temps de refroidissement pour éviter les risques métallurgiques, ainsi que sur l'enrichissement des bases de données des métaux de base et des métaux d'apport.",
     "beta_avant": "L'outil est actuellement en version beta. Le ",
