@@ -121,7 +121,7 @@
         </a>
         <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
           <a class="nav__lien is-active" href="index.html" data-i18n="nav.presentation"></a>
-          <a class="nav__lien" href="parametres.html" data-i18n="nav.parametres"></a>
+          <a class="nav__lien nav__lien--principal" href="parametres.html" data-i18n="nav.parametres"></a>
           <a class="nav__lien" href="banque.html" data-i18n="nav.data"></a>
           <a class="nav__lien" href="annonces.html" data-i18n="nav.annonces"></a>
         </nav>
@@ -135,6 +135,13 @@
         <section class="hero">
           <h1 class="hero__titre" data-i18n="app.titre">Calculateur de soudabilité en ligne</h1>
           <p class="hero__sous-titre" data-i18n="presentation.sous_titre"></p>
+          <div class="hero__actions">
+            <a class="btn-primaire hero__cta" href="parametres.html">Lancer une analyse</a>
+            <p class="hero__aide">
+              Renseignez vos métaux et votre procédé. L'outil choisit
+              automatiquement l'analyse adaptée.
+            </p>
+          </div>
           <p class="note" data-compteur-page hidden></p>
         </section>
 
@@ -143,18 +150,33 @@
             Soudabilite.com : Un outil d'aide à la préparation du DMOS
           </h2>
           <p>
-            Le Calculateur de Soudabilité est un outil gratuit destiné aux
-            étudiants en BTS CRCI et aux coordonnateurs en soudage. Il
-            calcule les équivalents chrome et nickel, positionne le joint sur le
-            diagramme de Schaeffler, évalue l'énergie de soudage et propose les
-            métaux d'apport les plus adaptés.
+            Un seul paramétrage suffit pour préparer votre opération de
+            soudage. Selon les matériaux sélectionnés, Soudabilite.com réalise
+            automatiquement une analyse de Schaeffler ou un calcul de
+            préchauffage, puis vous aide à lire les résultats, choisir un métal
+            d'apport et préparer les réglages du poste.
           </p>
-          <p>
-            Pour les aciers non ou faiblement alliés, il calcule également le
-            carbone équivalent et la température de préchauffage recommandée
-            selon les méthodes Séférian et BWRA. Cet outil d'aide à la décision
-            ne remplace ni une QMOS ni les essais réalisés en atelier.
-          </p>
+        </section>
+
+        <section class="parcours-outil" aria-labelledby="titre-parcours-outil">
+          <h2 id="titre-parcours-outil" class="bloc__titre">Comment ça marche ?</h2>
+          <ol class="parcours-outil__liste">
+            <li>
+              <span class="parcours-outil__numero">1</span>
+              <strong>Renseigner</strong>
+              <span>Métaux, procédé et joint</span>
+            </li>
+            <li>
+              <span class="parcours-outil__numero">2</span>
+              <strong>Analyser</strong>
+              <span>Schaeffler ou préchauffage</span>
+            </li>
+            <li>
+              <span class="parcours-outil__numero">3</span>
+              <strong>Exploiter</strong>
+              <span>Métal d'apport, réglages et impression</span>
+            </li>
+          </ol>
         </section>
 
         <section class="seo-complements" aria-label="Fonctionnement et publics du calculateur">
