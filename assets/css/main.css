@@ -1259,3 +1259,34 @@ table {
   align-items: center;
   gap: var(--espace-sm);
 }
+
+.seo-complements {
+  display: grid;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+
+.seo-accordeon {
+  overflow: hidden;
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.seo-accordeon summary {
+  padding: var(--sp-4) var(--sp-5);
+  color: var(--bleu);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.seo-accordeon[open] summary {
+  border-bottom: 1px solid var(--gris-bordure);
+}
+
+.seo-accordeon p {
+  margin: 0;
+  padding: var(--sp-4) var(--sp-5);
+  color: var(--texte-doux);
+  line-height: 1.7;
+}

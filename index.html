@@ -9,21 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Calculateur de soudabilité gratuit pour la préparation du DMOS : diagramme de Schaeffler, équivalents chrome/nickel, carbone équivalent IIW, énergie de soudage selon NF EN 1011-1 et NF EN ISO 15609-1."
+      content="Préparez un DMOS en un seul paramétrage : analyse de Schaeffler, préchauffage, métaux d'apport, réglages de soudage et impression des résultats."
     />
     <!-- Titre en dur (SEO) : ne pas piloter par i18n, doit être présent
          sans exécution de JS pour l'indexation. -->
-    <title>Calculateur de soudabilité gratuit : Schaeffler, préchauffe, DMOS</title>
+    <title>Calculateur de soudabilité, Schaeffler et préchauffage</title>
     <link rel="canonical" href="https://soudabilite.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Calculateur de Soudabilité - Aide à la préparation du DMOS" />
+    <meta property="og:title" content="Calculateur de soudabilité, Schaeffler et préchauffage" />
     <meta
       property="og:description"
-      content="Outil gratuit pour coordonnateurs en soudage IWE/IWT et étudiants BTS CRCI : diagramme de Schaeffler, équivalents Cr/Ni, carbone équivalent, énergie de soudage."
+      content="Un seul paramétrage pour obtenir l'analyse de Schaeffler ou le calcul de préchauffage, les métaux d'apport, les réglages et l'impression des résultats."
     />
     <meta property="og:url" content="https://soudabilite.com/" />
     <meta property="og:image" content="https://soudabilite.com/assets/img/logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculateur de soudabilité, Schaeffler et préchauffage" />
+    <meta
+      name="twitter:description"
+      content="Un seul paramétrage pour analyser un assemblage, lire les résultats et préparer les paramètres de soudage."
+    />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -41,21 +46,68 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Calculateur de Soudabilité",
-      "url": "https://soudabilite.com/",
-      "applicationCategory": "EngineeringApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR"
-      },
-      "description": "Outil gratuit d'aide à la préparation du DMOS : diagramme de Schaeffler, carbone équivalent, énergie de soudage.",
-      "author": {
-        "@type": "Person",
-        "name": "Tony SANCHEZ"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://soudabilite.com/#website",
+          "name": "Soudabilite.com",
+          "url": "https://soudabilite.com/",
+          "inLanguage": "fr-FR"
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://soudabilite.com/#application",
+          "name": "Calculateur de Soudabilité",
+          "alternateName": "Soudabilite.com",
+          "url": "https://soudabilite.com/",
+          "applicationCategory": "EngineeringApplication",
+          "applicationSubCategory": "Calculateur de soudabilité et aide à la préparation du DMOS",
+          "operatingSystem": "Web",
+          "browserRequirements": "Navigateur web moderne avec JavaScript",
+          "isAccessibleForFree": true,
+          "inLanguage": "fr-FR",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          "description": "Un seul paramétrage des métaux de base, du procédé et du joint pour obtenir une analyse de Schaeffler ou un calcul de préchauffage, une aide à la lecture, des réglages de soudage et l'impression des paramètres.",
+          "featureList": [
+            "Analyse d'un assemblage sur le diagramme de Schaeffler",
+            "Sélection de métaux d'apport",
+            "Calcul du carbone équivalent",
+            "Calcul de la température de préchauffage",
+            "Aide à la lecture des résultats métallurgiques",
+            "Réglage des paramètres du poste à souder",
+            "Impression des paramètres"
+          ],
+          "audience": [
+            {
+              "@type": "EducationalAudience",
+              "educationalRole": "student",
+              "audienceType": "Étudiants en BTS CRCI et personnes en formation de soudeur, tuyauteur ou chaudronnier"
+            },
+            {
+              "@type": "EducationalAudience",
+              "educationalRole": "teacher",
+              "audienceType": "Formateurs et enseignants en soudage, chaudronnerie et tuyauterie"
+            },
+            {
+              "@type": "ProfessionalAudience",
+              "audienceType": "Artisans, entrepreneurs, préparateurs, bureaux méthodes, coordinateurs et ingénieurs en soudage"
+            }
+          ],
+          "author": {
+            "@type": "Person",
+            "name": "Tony SANCHEZ"
+          },
+          "creator": {
+            "@type": "Organization",
+            "name": "Bid Consulting",
+            "url": "https://bid-consulting.fr/"
+          }
+        }
+      ]
     }
     </script>
   </head>
@@ -103,6 +155,37 @@
             selon les méthodes Séférian et BWRA. Cet outil d'aide à la décision
             ne remplace ni une QMOS ni les essais réalisés en atelier.
           </p>
+        </section>
+
+        <section class="seo-complements" aria-label="Fonctionnement et publics du calculateur">
+          <details class="seo-accordeon">
+            <summary>Ce que vous obtenez en un seul paramétrage</summary>
+            <p>
+              Après la sélection des métaux de base, du procédé de soudage et de
+              la géométrie du joint, Soudabilite.com oriente automatiquement
+              l'analyse. Pour un assemblage hétérogène ou inoxydable, l'outil
+              positionne le joint sur le diagramme de Schaeffler et propose les
+              métaux d'apport adaptés. Pour un assemblage homogène en acier
+              carbone, il calcule le carbone équivalent et la température de
+              préchauffage. Les résultats comprennent des définitions simples,
+              une aide à la lecture, des indications de réglage du poste à souder
+              et l'impression des paramètres.
+            </p>
+          </details>
+          <details class="seo-accordeon">
+            <summary>À qui s'adresse le calculateur ?</summary>
+            <p>
+              Le calculateur s'adresse aux étudiants en BTS CRCI et aux personnes
+              en formation de soudeur, tuyauteur ou chaudronnier, ainsi qu'aux
+              formateurs et enseignants. Il peut également accompagner les
+              artisans, entrepreneurs, bureaux méthodes, préparateurs,
+              coordinateurs de soudage, ingénieurs soudeurs et professionnels de
+              la qualification des modes opératoires. Il présente enfin une
+              réalisation concrète aux recruteurs et responsables des ressources
+              humaines recherchant des compétences en soudage, métallurgie,
+              méthodes et outils numériques.
+            </p>
+          </details>
         </section>
 
         <!-- Grille : cadre normatif + sommaire des onglets -->
