@@ -61,7 +61,10 @@
     "beta_avant": "L'outil est actuellement en version beta. Le ",
     "beta_lien": "module d'analyse",
     "beta_apres": " fait l'objet de tests par plusieurs utilisateurs, et des essais portant sur différents matériaux et procédés sont programmés prochainement afin d'en valider la fiabilité.",
-    "linkedin": "Contactez-moi sur LinkedIn pour toute suggestion d'amélioration ou tout signalement d'anomalie."
+    "linkedin": "Contactez-moi sur LinkedIn pour toute suggestion d'amélioration ou tout signalement d'anomalie.",
+    "linkedin_page_sep": " | ",
+    "linkedin_page": "Page LinkedIn Soudabilite.com",
+    "linkedin_page_url": "https://www.linkedin.com/company/soudabilite"
   },
   "banque": {
     "titre": "Base de données des métaux de référence",

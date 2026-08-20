@@ -1371,3 +1371,18 @@ table {
   color: var(--texte-doux);
   line-height: 1.7;
 }
+
+.seo-accordeon__contenu p {
+  padding-bottom: 0;
+}
+
+.seo-accordeon__contenu p:last-child {
+  padding-bottom: var(--sp-4);
+}
+
+.seo-accordeon__contenu ul {
+  margin: 0;
+  padding: var(--sp-3) var(--sp-5) 0 calc(var(--sp-5) + var(--sp-4));
+  color: var(--texte-doux);
+  line-height: 1.7;
+}
