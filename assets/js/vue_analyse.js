@@ -6,6 +6,7 @@
 // =========================================================================
 
 import { t } from "./ui/i18n.js";
+import { envoyerEvenement } from "./ui/analytics.js";
 import { creerDiagramme } from "./ui/schaeffler_svg.js";
 import {
   crEqSchaeffler, niEqSchaeffler,
@@ -490,14 +491,7 @@ function choisirApport(r, tr) {
   document.querySelectorAll(".apport-ligne.is-active").forEach((e) => e.classList.remove("is-active"));
   if (tr) tr.classList.add("is-active");
   definirC(r.composition, r.designation, false);
-  if (window.goatcounter && typeof window.goatcounter.count === "function") {
-    window.goatcounter.count({
-      path: "analyse-realisee",
-      title: "Sélection d'un apport",
-      event: true,
-      no_session: true,
-    });
-  }
+  envoyerEvenement("analyse-realisee", "Sélection d'un apport");
   envoyerEvenementAnalyse(r.designation);
 }
 
@@ -506,13 +500,10 @@ function choisirApport(r, tr) {
 // réellement choisis dans le tableau des 7 meilleurs, pas seulement qu'un
 // choix a eu lieu.
 function envoyerEvenementAnalyse(nomApport) {
-  if (!window.goatcounter || typeof window.goatcounter.count !== "function") return;
-  window.goatcounter.count({
-    path: "analyse-effectuee/" + encodeURIComponent(nomApport),
-    title: "Analyse effectuée : " + nomApport,
-    event: true,
-    no_session: true,
-  });
+  envoyerEvenement(
+    "analyse-effectuee/" + encodeURIComponent(nomApport),
+    "Analyse effectuée : " + nomApport
+  );
 }
 
 // --- Synthèse Schaeffler ------------------------------------------------

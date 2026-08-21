@@ -7,6 +7,7 @@
 
 import { chargerChaines, appliquerChaines, t } from "./ui/i18n.js";
 import { rendreCompteur, rendreCompteurAnalyses } from "./ui/compteur.js";
+import { envoyerEvenement } from "./ui/analytics.js";
 import { creerCombobox } from "./ui/combobox.js";
 import {
   intensiteEE,
@@ -597,13 +598,15 @@ async function init() {
 
     // Génération de la fiche imprimable (window.print + @media print).
     $("#btn-pdf")?.addEventListener("click", () => {
+      // L'impression navigateur peut être annulée : on mesure donc la demande,
+      // pas un téléchargement dont l'achèvement serait impossible à confirmer.
+      envoyerEvenement("pdf-demande", "Demande de fiche PDF");
       remplirFicheImpression();
       capturerDiagrammeEnImage(() => window.print());
     });
 
     recalculer();
-    await rendreCompteur();
-    await rendreCompteurAnalyses();
+    await Promise.all([rendreCompteur(), rendreCompteurAnalyses()]);
   } catch (err) {
     console.error(err);
   }

@@ -31,10 +31,19 @@ l'architecture de l'app elle-même.
   `soudabilite.goatcounter.com` directement. Les `<link rel="preconnect">`
   / `dns-prefetch` vers l'ancien domaine ont été retirés (inutiles en
   same-origin).
-- `assets/i18n/fr.json` : les URLs du compteur public de pied de page
+- `assets/i18n/fr.json` : les URLs des compteurs publics de pied de page
   (`compteur_total_url`, `compteur_analyses_url`) pointent sur
   `/gc/counter/*.json` au lieu de `soudabilite.goatcounter.com` — même
-  raisonnement, ce endpoint était lui aussi bloqué par domaine.
+  raisonnement, cet endpoint était lui aussi bloqué par domaine. Le total
+  global utilise le chemin spécial GoatCounter `TOTAL` : toute nouvelle page
+  est intégrée automatiquement, sans liste d'URL à maintenir.
+- `assets/js/parametres.js` : le clic sur « Générer la fiche PDF » envoie
+  l'événement `pdf-demande`. Il mesure une demande d'impression ; le navigateur
+  ne permet pas de confirmer que l'utilisateur a réellement enregistré le PDF.
+
+## Vérification locale
+
+Depuis la racine du dépôt : `node tests/analytics.test.mjs`.
 
 ## Limite connue
 

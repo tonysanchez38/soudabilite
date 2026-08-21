@@ -58,9 +58,11 @@ async function init() {
     appliquerChaines();
     rendreNormes();
     rendreOnglets();
-    await rendreCompteur();
-    await rendreCompteurAnalyses();
-    rendreCompteurPage();
+    await Promise.all([
+      rendreCompteur(),
+      rendreCompteurAnalyses(),
+      rendreCompteurPage(),
+    ]);
   } catch (err) {
     // En cas d'échec de chargement, on laisse les libellés de repli du HTML.
     console.error(err);
