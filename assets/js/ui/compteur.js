@@ -14,11 +14,18 @@ import { COMPTEUR_PAGE_VISIBLE } from "../core/config.js";
 async function litCompteur(url) {
   if (!url) return null;
   for (let tentative = 0; tentative < 2; tentative += 1) {
+    const controleur = new AbortController();
+    const expiration = setTimeout(() => controleur.abort(), 4000);
     try {
-      const reponse = await fetch(url, { cache: "no-cache" });
+      const reponse = await fetch(url, {
+        cache: "no-cache",
+        signal: controleur.signal,
+      });
       if (reponse.ok) return await reponse.json();
     } catch (err) {
       // Une seconde tentative est effectuée ci-dessous.
+    } finally {
+      clearTimeout(expiration);
     }
     await new Promise((resolve) => setTimeout(resolve, 250));
   }
@@ -29,24 +36,12 @@ export async function rendreCompteur() {
   const cible = document.querySelector("[data-compteur]");
   if (!cible) return;
 
-  const urls = t("footer.compteur_pages_urls");
-  if (!Array.isArray(urls) || urls.length === 0) return;
-
-  // Lecture séquentielle : le service public de GoatCounter peut refuser
-  // plusieurs requêtes simultanées. Le total n'est affiché que si les cinq
-  // compteurs de pages ont tous répondu, afin d'éviter un total incomplet.
-  const compteurs = [];
-  for (const url of urls) compteurs.push(await litCompteur(url));
-  const valeurs = compteurs.map((donnees) => {
-    const valeur = donnees && donnees.count;
-    if (valeur == null) return null;
-    const nombre = Number(String(valeur).replace(/[^0-9]/g, ""));
-    return Number.isFinite(nombre) ? nombre : null;
-  });
-
-  if (valeurs.every((valeur) => valeur != null)) {
-    const total = valeurs.reduce((somme, valeur) => somme + valeur, 0);
-    cible.textContent = `${total.toLocaleString("fr-FR")} ${t("footer.compteur_consultations")}`;
+  // TOTAL est le chemin spécial fourni par GoatCounter pour le cumul global.
+  // Il inclut automatiquement les nouvelles pages, sans liste à maintenir.
+  const total = await litCompteur(t("footer.compteur_total_url"));
+  const nb = total && total.count;
+  if (nb != null) {
+    cible.textContent = `${String(nb).trim()} ${t("footer.compteur_consultations")}`;
     cible.hidden = false;
   }
 }
