@@ -34,7 +34,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/main.css?v=20260824-mobile-diagramme-3" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260824-explication-diagramme-4" />
     <!-- Fiche imprimable (window.print + @media print - CLAUDE.md #25). -->
     <link rel="stylesheet" href="assets/css/print.css" media="print" />
 
@@ -47,7 +47,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260824-mobile-diagramme-3" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260824-explication-diagramme-4" as="style" />
     <script type="module" src="assets/js/parametres.js?v=20260824-energie-diagramme-2"></script>
     <script type="application/ld+json">
     {
@@ -351,6 +351,7 @@
             <!-- CARTE 1 - Diagramme de Schaeffler -->
             <section class="carte carte--form" data-carte="diagramme">
               <h2 class="bloc__titre" data-i18n="analyse.carte_diagramme"></h2>
+              <p class="diagramme-introduction" data-i18n="analyse.diagramme_intro_court"></p>
               <p class="note" data-heterogene-note hidden data-i18n="analyse.heterogene_note"></p>
               <div class="schaeffler-zone">
                 <svg id="schaeffler" class="schaeffler-svg" role="img" aria-label="Diagramme de Schaeffler"></svg>
@@ -366,6 +367,32 @@
                 <li><span class="legende__pastille legende__pastille--carre lg-amf"></span><span data-i18n="analyse.leg_amf"></span></li>
                 <li><span class="legende__pastille lg-s"></span><span data-i18n="analyse.leg_zone_s"></span></li>
               </ul>
+              <details class="diagramme-explication">
+                <summary data-i18n="analyse.diagramme_difference_titre"></summary>
+                <div class="diagramme-explication__contenu">
+                  <p data-i18n="analyse.diagramme_difference_intro"></p>
+
+                  <section>
+                    <h3 data-i18n="analyse.diagramme_difference_calcul_titre"></h3>
+                    <p data-i18n="analyse.diagramme_difference_calcul_texte"></p>
+                  </section>
+
+                  <section>
+                    <h3 data-i18n="analyse.diagramme_difference_traces_titre"></h3>
+                    <p data-i18n="analyse.diagramme_difference_traces_texte"></p>
+                  </section>
+
+                  <section>
+                    <h3 data-i18n="analyse.diagramme_difference_lecture_titre"></h3>
+                    <p data-i18n="analyse.diagramme_difference_lecture_texte"></p>
+                  </section>
+
+                  <section>
+                    <h3 data-i18n="analyse.diagramme_difference_limite_titre"></h3>
+                    <p data-i18n="analyse.diagramme_difference_limite_texte"></p>
+                  </section>
+                </div>
+              </details>
             </section>
 
             <!-- CARTE 2 - Sélection des 7 meilleurs apports -->

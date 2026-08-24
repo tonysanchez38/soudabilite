@@ -1014,6 +1014,54 @@ table {
   gap: var(--sp-2);
 }
 
+.diagramme-introduction {
+  margin: 0 0 var(--sp-3);
+  color: var(--texte-doux);
+  font-size: var(--fs-sm);
+}
+
+.diagramme-explication {
+  margin-top: var(--sp-4);
+  overflow: hidden;
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.diagramme-explication summary {
+  padding: var(--sp-3) var(--sp-4);
+  color: var(--bleu);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.diagramme-explication summary::marker {
+  color: var(--bleu);
+}
+
+.diagramme-explication[open] summary {
+  border-bottom: 1px solid var(--gris-bordure);
+}
+
+.diagramme-explication__contenu {
+  display: grid;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+}
+
+.diagramme-explication__contenu p {
+  margin: 0;
+  color: var(--texte-doux);
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+}
+
+.diagramme-explication__contenu h3 {
+  margin: 0 0 var(--sp-1);
+  color: var(--encre);
+  font-size: var(--fs-sm);
+}
+
 .legende__pastille {
   width: 12px;
   height: 12px;
@@ -1229,6 +1277,11 @@ table {
 
   .legende li {
     align-items: flex-start;
+  }
+
+  .diagramme-explication summary,
+  .diagramme-explication__contenu {
+    padding-inline: var(--sp-3);
   }
 
   /* Le diagramme complet doit être visible dès l'ouverture sur téléphone :
