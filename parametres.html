@@ -34,7 +34,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260824-energie-diagramme-2" />
     <!-- Fiche imprimable (window.print + @media print - CLAUDE.md #25). -->
     <link rel="stylesheet" href="assets/css/print.css" media="print" />
 
@@ -47,8 +47,8 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css" as="style" />
-    <script type="module" src="assets/js/parametres.js?v=20260824-diagramme-1"></script>
+    <link rel="preload" href="assets/css/main.css?v=20260824-energie-diagramme-2" as="style" />
+    <script type="module" src="assets/js/parametres.js?v=20260824-energie-diagramme-2"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -187,11 +187,11 @@
                   <input id="vitesse" class="champ__input" data-reglage="vitesse" type="number" min="0" step="0.5" inputmode="decimal" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="reglage-en" data-i18n="parametres.res_en"></label>
+                  <label class="champ__label" for="reglage-en" data-i18n="parametres.label_en"></label>
                   <input id="reglage-en" class="champ__input" data-reglage="energieNominale" type="number" min="0" step="0.001" inputmode="decimal" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="reglage-q" data-i18n="parametres.res_eq"></label>
+                  <label class="champ__label" for="reglage-q" data-i18n="parametres.label_eq"></label>
                   <input id="reglage-q" class="champ__input" data-reglage="energieCorrigee" type="number" min="0" step="0.001" inputmode="decimal" />
                 </div>
               </div>
@@ -253,14 +253,14 @@
                   <dt class="res__label" data-i18n="parametres.res_en"></dt>
                   <dd class="res__valeur">
                     <span data-res="En">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_kjmm"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_kjcm"></span>
                   </dd>
                 </div>
                 <div class="res__ligne res__ligne--fort">
                   <dt class="res__label" data-i18n="parametres.res_eq"></dt>
                   <dd class="res__valeur">
                     <span data-res="Q">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_kjmm"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_kjcm"></span>
                   </dd>
                 </div>
                 <div class="res__ligne">

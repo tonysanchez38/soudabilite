@@ -36,14 +36,18 @@ export function ordonneeIso(ligne, crEq) {
 }
 
 function ligneInterpolee(pct, basse, haute) {
-  const points = [];
-  const xMin = Math.ceil(Math.max(basse.points[0][0], haute.points[0][0]));
-  const xMax = Math.floor(Math.min(basse.points.at(-1)[0], haute.points.at(-1)[0]));
-  for (let cr = xMin; cr <= xMax; cr += 1) {
+  const xMin = Math.max(basse.points[0][0], haute.points[0][0]);
+  const xMax = Math.min(basse.points.at(-1)[0], haute.points.at(-1)[0]);
+  const abscisses = [xMin];
+  for (let cr = Math.ceil(xMin); cr <= Math.floor(xMax); cr += 1) {
+    if (cr > xMin && cr < xMax) abscisses.push(cr);
+  }
+  if (xMax > xMin) abscisses.push(xMax);
+  const points = abscisses.map((cr) => {
     const y0 = ordonneeIso(basse, cr);
     const y1 = ordonneeIso(haute, cr);
-    points.push([cr, y0 + ((pct - basse.pct) / (haute.pct - basse.pct)) * (y1 - y0)]);
-  }
+    return [cr, y0 + ((pct - basse.pct) / (haute.pct - basse.pct)) * (y1 - y0)];
+  });
   return { pct, points, origine: "interpolation_10_20" };
 }
 

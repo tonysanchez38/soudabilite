@@ -12,10 +12,19 @@ import {
   propagerReglages, recommanderTungstene,
 } from "../assets/js/core/reglages.js";
 import { traduireEnrobage } from "../assets/js/core/prechauffe.js";
+import {
+  energieNominale, energieCorrigee, kjMmVersKjCm, kjCmVersKjMm,
+} from "../assets/js/core/energie.js";
 
 const zones = JSON.parse(await readFile(new URL("../assets/data/zones_schaeffler.json", import.meta.url), "utf8"));
 
 assert.deepEqual(ISO_FERRITE_SCHAEFFLER.slice(0, 5).map((l) => l.pct), [0, 5, 10, 15, 20]);
+
+// La ligne 15 % interpolée couvre toute l'étendue commune des lignes 10/20,
+// afin que son extrémité et son libellé rejoignent le même bord droit.
+const fin15 = ligneIso(15).points.at(-1)[0];
+const finCommune1020 = Math.min(ligneIso(10).points.at(-1)[0], ligneIso(20).points.at(-1)[0]);
+assert.ok(Math.abs(fin15 - finCommune1020) < 1e-9);
 
 // Les lignes historiques ne sont pas parallèles.
 const pentes = [0, 5, 10, 20].map((pct) => {
@@ -90,5 +99,14 @@ assert.equal(recommanderTungstene([
 ], { intensite: 100, polarite: "DCEN" }).designation, "WC20 Ø1.6");
 assert.equal(traduireEnrobage("C"), null);
 assert.equal(traduireEnrobage("R"), "rutile");
+
+// Cas visible de la capture : 75 A, 13 V et 12 cm/min donnent 4,875 kJ/cm,
+// soit 0,4875 kJ/mm en unité canonique interne ; Q vaut 2,925 kJ/cm à k=0,6.
+const energieCapture = energieNominale(13, 75, 12);
+assert.equal(energieCapture.kJ_cm, 4.875);
+assert.equal(energieCapture.kJ_mm, 0.4875);
+assert.equal(kjMmVersKjCm(energieCapture.kJ_mm), 4.875);
+assert.equal(kjCmVersKjMm(4.875), 0.4875);
+assert.equal(energieCorrigee(energieCapture.kJ_cm, "141"), 2.925);
 
 console.log("Tests Schaeffler : OK");
