@@ -6,6 +6,8 @@ const traductions = JSON.parse(await readFile(new URL("assets/i18n/fr.json", rac
 const zones = JSON.parse(await readFile(new URL("assets/data/zones_schaeffler.json", racine), "utf8"));
 const vue = await readFile(new URL("assets/js/vue_analyse.js", racine), "utf8");
 const rendu = await readFile(new URL("assets/js/ui/schaeffler_svg.js", racine), "utf8");
+const parametres = await readFile(new URL("assets/js/parametres.js", racine), "utf8");
+const page = await readFile(new URL("parametres.html", racine), "utf8");
 
 assert.equal(traductions.analyse.leg_a, "Métal A");
 assert.equal(traductions.analyse.leg_b, "Métal B");
@@ -22,5 +24,13 @@ for (const etiquette of ["Métal A", "Métal B", "Dilution", "Métal d'apport", 
 }
 assert.match(rendu, /meilleureAncreBande\(15, 20\), "ACCEPTABLE"/);
 assert.match(rendu, /lignes: \["CORRIDOR", "DE SÉCURITÉ"\]/);
+assert.match(rendu, /\[10, 15, 20\]\.includes\(pct\)/);
+assert.match(parametres, /vue_analyse\.js\?v=20260824-energie-diagramme-2/);
+assert.match(parametres, /core\/energie\.js\?v=20260824-energie-diagramme-2/);
+assert.match(page, /parametres\.js\?v=20260824-energie-diagramme-2/);
+assert.match(rendu, /iso_ferrite_schaeffler\.js\?v=20260824-energie-diagramme-2/);
+assert.equal(traductions.parametres.unite_kjcm, "kJ/cm");
+assert.match(traductions.parametres.label_en, /\(kJ\/cm\)$/);
+assert.match(traductions.parametres.label_eq, /\(kJ\/cm\)$/);
 
 console.log("Tests UX diagramme : OK");

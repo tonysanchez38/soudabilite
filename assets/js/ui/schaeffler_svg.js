@@ -11,7 +11,7 @@ import {
   echantillonneIso,
   ligneIso,
   ordonneeIso,
-} from "../core/iso_ferrite_schaeffler.js";
+} from "../core/iso_ferrite_schaeffler.js?v=20260824-energie-diagramme-2";
 
 const NS = "http://www.w3.org/2000/svg";
 
@@ -338,9 +338,10 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     if (etiquetee && options.isoLabels) {
       const surBordHaut = Math.abs(niHaut - niMax) < 1e-6;
       const surBordDroit = Math.abs(crHaut - crMax) < 1e-6;
+      const aligneeBordDroit = [10, 15, 20].includes(pct);
       let tx, ty, ancre;
       if (surBordHaut) { tx = X(crHaut); ty = Y(niHaut) - 5; ancre = "middle"; }
-      else if (surBordDroit) { tx = X(crHaut) + 4; ty = Y(niHaut) + 3; ancre = "start"; }
+      else if (surBordDroit || aligneeBordDroit) { tx = X(crMax) + 4; ty = Y(niHaut) + 3; ancre = "start"; }
       else { tx = X(crHaut) + 3; ty = Y(niHaut) - 3; ancre = "start"; }
       const t = el("text", { x: tx, y: ty, fill: "#94a3b8", "font-size": 8, "text-anchor": ancre });
       t.textContent = `${pct}%`;

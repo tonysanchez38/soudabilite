@@ -7,7 +7,7 @@
 
 import { t } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260824-diagramme-1";
+import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260824-energie-diagramme-2";
 import {
   crEqSchaeffler, niEqSchaeffler,
   crEqDeLong, niEqDeLong,
