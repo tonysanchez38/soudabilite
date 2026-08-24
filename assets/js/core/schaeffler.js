@@ -4,43 +4,29 @@
 // Réf. spec.md §1 (Cr_eq / Ni_eq) et CLAUDE.md #17 (ferrite) / zone idéale.
 // Fonctions pures. Placement/lecture sur axes Schaeffler (Cr_eq, Ni_eq).
 //
-// % ferrite : estimation calibrée sur les iso-ferrite du diagramme de
-// Schaeffler (droites g = Cr_eq − Ni_eq = constante). Le Ferrite Number
-// rigoureux WRC-1992 (diagramme plein) est prévu au Lot 4.
+// % ferrite : estimation par interpolation entre les iso-ferrite réelles.
 // =========================================================================
 
-// Points d'ancrage (g = Cr_eq − Ni_eq ; % ferrite) - cf. zones_schaeffler.json.
-// Source unique de ces valeurs : ni le JSON (zones_schaeffler.json), ni
-// schaeffler_svg.js ne les dupliquent - ils importent FERRITE_G d'ici.
-export const FERRITE_G = [
-  [4, 0],
-  [7, 5],
-  [9.5, 10],
-  [11.25, 15],
-  [13, 20],
-  [17, 40],
-  [22, 80],
-  [25, 100],
-];
-
-// g calibré pour un % ferrite exact de la table (ou null si absent).
-function gPourPct(pct) {
-  const entree = FERRITE_G.find(([, p]) => p === pct);
-  return entree ? entree[0] : null;
-}
+// Source unique des coordonnées : iso_ferrite_schaeffler.js.
+import { ISO_FERRITE_SCHAEFFLER, ordonneeIso } from "./iso_ferrite_schaeffler.js";
 
 // % ferrite estimé pour un point (Cr_eq, Ni_eq) par interpolation linéaire.
 export function ferriteSchaeffler(crEq, niEq) {
-  const g = crEq - niEq;
-  if (g <= FERRITE_G[0][0]) return 0;
-  if (g >= FERRITE_G[FERRITE_G.length - 1][0]) return 100;
-  for (let i = 1; i < FERRITE_G.length; i++) {
-    if (g <= FERRITE_G[i][0]) {
-      const [g0, f0] = FERRITE_G[i - 1];
-      const [g1, f1] = FERRITE_G[i];
-      return f0 + ((g - g0) / (g1 - g0)) * (f1 - f0);
+  const disponibles = ISO_FERRITE_SCHAEFFLER
+    .map((ligne) => ({ pct: ligne.pct, ni: ordonneeIso(ligne, crEq) }))
+    .filter((x) => x.ni != null);
+  if (disponibles.length === 0) return null;
+  // À Cr_eq fixé, Ni_eq décroît lorsque la ferrite augmente.
+  if (niEq >= disponibles[0].ni) return disponibles[0].pct;
+  for (let i = 1; i < disponibles.length; i++) {
+    const haut = disponibles[i - 1];
+    const bas = disponibles[i];
+    if (niEq >= bas.ni) {
+      return haut.pct + ((haut.ni - niEq) / (haut.ni - bas.ni)) * (bas.pct - haut.pct);
     }
   }
+  // Au-dessous de la dernière isoplèthe documentée : aucune valeur précise
+  // n'est inventée ; 100 signifie seulement la saturation de l'échelle.
   return 100;
 }
 
@@ -91,9 +77,9 @@ export function niveauIdeal(crEq, niEq, zones, zoneS) {
   if (crEq <= 25) {
     const af = (zones || []).find((z) => z.id === "AF");
     if (af && pointDansPolygone([crEq, niEq], af.polygone)) {
-      const g = crEq - niEq;
-      if (g >= gPourPct(5) && g <= gPourPct(15)) return "ideal";
-      if (g >= gPourPct(0) && g <= gPourPct(20)) return "acceptable";
+      const fer = ferriteSchaeffler(crEq, niEq);
+      if (fer != null && fer >= 5 && fer <= 15) return "ideal";
+      if (fer != null && fer >= 0 && fer <= 20) return "acceptable";
     }
   }
   if (zoneS && pointDansPolygone([crEq, niEq], zoneS)) return "zone_s";
@@ -114,7 +100,7 @@ export function verdictSchaeffler(crEq, niEq, comp, zones, zoneS) {
   // bande idéale, déjà sourcée - cf. niveauIdeal ci-dessus) même en zone
   // A+F. Un joint à 0,5 % de ferrite reste exposé au risque austénitique
   // pur, quelle que soit la classification de zone (CLAUDE.md #30).
-  if (zone === "A" || fer < 5) risques.push("austenite_pure");
+  if (zone === "A" || (fer != null && fer < 5)) risques.push("austenite_pure");
   const ms = msWalkerGooch(comp);
   if (ms >= 100 && ms <= 300) risques.push("martensite"); // fissuration à froid
   if (crEq > 25) risques.push("sigma"); // fragilisation phase sigma

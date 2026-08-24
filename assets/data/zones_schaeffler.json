@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "note": "Frontières Schaeffler validées visuellement sur maquette (Tony). Coordonnées en (Cr_eq, Ni_eq). Les 7 zones sont assemblées depuis les polylignes de \"frontieres\" (voir _meta.construction). Les valeurs g des iso-ferrite ne sont PAS dupliquées ici : source unique = FERRITE_G exporté par assets/js/core/schaeffler.js.",
+    "note": "Frontières Schaeffler validées visuellement sur maquette (Tony). Coordonnées en (Cr_eq, Ni_eq). Les 7 zones sont assemblées depuis les polylignes de \"frontieres\" (voir _meta.construction). Les iso-ferrite ont leur source unique dans assets/js/core/iso_ferrite_schaeffler.js.",
     "axes": { "cr_eq": [0, 36], "ni_eq": [0, 28] },
     "points_ancrage": {
       "P1": [18, 12],
