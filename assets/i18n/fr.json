@@ -247,6 +247,7 @@
     "lbl_creq": "Cr_eq",
     "lbl_nieq": "Ni_eq",
     "lbl_ferrite": "% ferrite",
+    "ferrite_hors_domaine": "Ferrite non estimée hors du faisceau d’iso-lignes",
     "val_metalA": "Métal A",
     "val_metalB": "Métal B",
     "val_apportC": "Apport C",

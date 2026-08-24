@@ -480,7 +480,7 @@ function remplirFicheImpression() {
     apport
       ? `${apport.designation}${apport.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""} - ` +
           `${t("parametres.eq_creq")} ${apport.crEq.toFixed(2)} / ${t("parametres.eq_nieq")} ${apport.niEq.toFixed(2)} - ` +
-          `${apport.ferrite.toFixed(1)} ${t("analyse.lbl_ferrite")} - ${apport.verdictLabel}`
+          `${Number.isFinite(apport.ferrite) ? `${apport.ferrite.toFixed(1)} ${t("analyse.lbl_ferrite")}` : t("analyse.ferrite_hors_domaine")} - ${apport.verdictLabel}`
       : t("fiche.apport_vide")
   );
 
