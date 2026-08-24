@@ -1221,19 +1221,32 @@ table {
   }
 
   .legende {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    column-gap: var(--sp-3);
+    row-gap: var(--sp-3);
   }
 
-  /* Sur petit écran, conserver une largeur de lecture suffisante pour les
-     repères du diagramme ; le défilement reste contenu dans sa carte. */
+  .legende li {
+    align-items: flex-start;
+  }
+
+  /* Le diagramme complet doit être visible dès l'ouverture sur téléphone :
+     aucun défilement horizontal ni recadrage sur sa partie gauche. */
+  [data-carte="diagramme"] {
+    padding-inline: var(--sp-3);
+  }
+
   .schaeffler-zone {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: var(--sp-2);
+    justify-content: center;
+    overflow: visible;
+    padding-bottom: 0;
   }
 
   .schaeffler-svg {
-    min-width: 600px;
+    width: 100%;
+    min-width: 0;
+    max-height: none;
   }
 
   .hero__titre {
