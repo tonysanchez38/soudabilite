@@ -7,7 +7,7 @@
 
 import { t } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260824-reglages-3";
+import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260824-diagramme-1";
 import {
   crEqSchaeffler, niEqSchaeffler,
   crEqDeLong, niEqDeLong,
@@ -26,7 +26,7 @@ const $ = (s) => document.querySelector(s);
 // Zone S (dernier recours) : overlay digitalisé du diagramme papier de
 // référence - cf. schaeffler_svg.js / core/schaeffler.js (niveauIdeal).
 const TITRE_ZONE_S =
-  "Zone neutre - dernier recours : vigilance fissuration à chaud côté haut du S (proche 100 % austénite).";
+  "Corridor de sécurité A+M+F - zone admise, priorisée après le centre de la zone bleue puis la zone verte.";
 
 // Titre (tooltip) du badge verdict : source duplex si applicable, sinon
 // rappel zone S si le niveau retourné est ce dernier recours.
@@ -285,12 +285,12 @@ function initDiagramme() {
 
 function majDiagramme() {
   const points = [
-    { cr: A.pos[0], ni: A.pos[1], forme: "cercle", couleur: "#4ade80", etiquette: "A", tooltip: tooltip(A) },
+    { cr: A.pos[0], ni: A.pos[1], forme: "cercle", couleur: "#4ade80", etiquette: "Métal A", etiquetteTaille: 8.5, tooltip: tooltip(A) },
     {
-      cr: B.pos[0], ni: B.pos[1], forme: "cercle", couleur: "#fb923c", etiquette: "B",
-      etiquetteDx: -9, etiquetteDy: -8, etiquetteAncre: "end", tooltip: tooltip(B),
+      cr: B.pos[0], ni: B.pos[1], forme: "cercle", couleur: "#fb923c", etiquette: "Métal B",
+      etiquetteTaille: 8.5, etiquetteDx: -9, etiquetteDy: -8, etiquetteAncre: "end", tooltip: tooltip(B),
     },
-    { cr: D.pos[0], ni: D.pos[1], forme: "carre", couleur: "#cbd5e1", etiquette: "D", tooltip: tooltip(D) },
+    { cr: D.pos[0], ni: D.pos[1], forme: "carre", couleur: "#cbd5e1", etiquette: "Dilution", etiquetteTaille: 8.5, tooltip: tooltip(D) },
   ];
   const lignes = [{ de: A.pos, a: B.pos, pointille: true, couleur: "#ffffff", opacite: 0.5, epaisseur: 1.2 }];
 
@@ -299,11 +299,10 @@ function majDiagramme() {
     const J = selectionC.jointMetal;
     // Convention dilution.js/joint() (inchangée) : ZF = C + d·(Mb − C) -
     // ZF est donc géométriquement sur le segment Mb–C, pas de 3e segment.
-    const dilutionPct = ((dA + dB) * 100).toFixed(0);
-    points.push({ cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc", etiquette: "C", tooltip: tooltip(C) });
+    points.push({ cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc", etiquette: "Métal d'apport", etiquetteTaille: 8.5, tooltip: tooltip(C) });
     points.push({
       cr: J.pos[0], ni: J.pos[1], forme: "triangle", couleur: "#f87171", tooltip: tooltip(J),
-      etiquette: `ZF (${dilutionPct} %)`,
+      etiquette: "Joint", etiquetteTaille: 8.5,
     });
     lignes.push({ de: D.pos, a: C.pos, couleur: "#facc15", epaisseur: 1.2 });
   }
