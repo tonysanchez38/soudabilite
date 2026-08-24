@@ -22,7 +22,7 @@ import { matiereTIG, estInox } from "./core/aiguillage.js";
 import { dilutionValide, dilutionParDefaut } from "./core/dilution.js";
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ceIIW } from "./core/carbone_eq.js";
-import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260824-points-1";
+import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260824-points-4";
 
 let BANQUE = { metaux_base: [], metaux_apport: [], electrodes_tungstene: [] };
 let ZONES = {};

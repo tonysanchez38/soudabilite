@@ -479,13 +479,14 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     svg.appendChild(gAxes);
   }
 
-  // --- Groupe dynamique (lignes + points + étiquettes des points) ---
-  const gDyn = el("g");
-  svg.appendChild(gDyn);
-
-  // Étiquettes (zones, %, IDÉALE/ACCEPTABLE) : posées en tout dernier,
-  // par-dessus les segments/points de dilution ci-dessus (ordre demandé).
+  // Étiquettes statiques (zones, %, IDÉALE/ACCEPTABLE).
   svg.appendChild(gEtiquettes);
+
+  // --- Groupe dynamique (lignes + points + étiquettes des points) ---
+  // Placé au premier plan : un point ne doit jamais être masqué par une
+  // étiquette de zone (cas fréquent autour de Cr_eq 20-23 / Ni_eq 13-15).
+  const gDyn = el("g", { "data-calque": "dynamique" });
+  svg.appendChild(gDyn);
 
   const infobulle = options.infobulle || null;
 
@@ -494,12 +495,13 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     const cy = Y(p.ni);
     let noeud;
     if (p.forme === "carre") {
-      noeud = el("rect", { x: cx - 4.25, y: cy - 4.25, width: 8.5, height: 8.5, fill: p.couleur, stroke: "#0f172a", "stroke-width": 1 });
+      noeud = el("rect", { x: cx - 6, y: cy - 6, width: 12, height: 12, rx: 1.5, fill: p.couleur, stroke: "#020617", "stroke-width": 2 });
     } else if (p.forme === "triangle") {
-      noeud = el("polygon", { points: `${cx},${cy - 4.2} ${cx + 4.2},${cy + 3.5} ${cx - 4.2},${cy + 3.5}`, fill: p.couleur, stroke: "#0f172a", "stroke-width": 1 });
+      noeud = el("polygon", { points: `${cx},${cy - 7} ${cx + 7},${cy + 5.8} ${cx - 7},${cy + 5.8}`, fill: p.couleur, stroke: "#020617", "stroke-width": 2 });
     } else {
-      noeud = el("circle", { cx, cy, r: 3.5, fill: p.couleur, stroke: "#0f172a", "stroke-width": 1 });
+      noeud = el("circle", { cx, cy, r: 5.5, fill: p.couleur, stroke: "#020617", "stroke-width": 2 });
     }
+    noeud.setAttribute("vector-effect", "non-scaling-stroke");
     noeud.style.cursor = "pointer";
     if (infobulle && p.tooltip) attacherInfobulle(noeud, p.tooltip, infobulle);
     return noeud;
@@ -518,7 +520,21 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       gDyn.appendChild(ligne);
     }
     for (const p of points) {
-      gDyn.appendChild(forme(p));
+      const marqueur = forme(p);
+      gDyn.appendChild(marqueur);
+      if (p.etiquette) {
+        const etiquette = el("text", {
+          x: X(p.cr) + (p.etiquetteDx ?? 9),
+          y: Y(p.ni) + (p.etiquetteDy ?? -8),
+          fill: "#ffffff", stroke: "#020617", "stroke-width": 3,
+          "paint-order": "stroke", "stroke-linejoin": "round",
+          "font-size": 10, "font-weight": 800,
+          "text-anchor": p.etiquetteAncre || "start",
+          "pointer-events": "none",
+        });
+        etiquette.textContent = p.etiquette;
+        gDyn.appendChild(etiquette);
+      }
     }
   }
 

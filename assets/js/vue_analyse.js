@@ -7,7 +7,7 @@
 
 import { t } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { creerDiagramme } from "./ui/schaeffler_svg.js";
+import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260824-points-4";
 import {
   crEqSchaeffler, niEqSchaeffler,
   crEqDeLong, niEqDeLong,
@@ -280,9 +280,12 @@ function initDiagramme() {
 
 function majDiagramme() {
   const points = [
-    { cr: A.pos[0], ni: A.pos[1], forme: "cercle", couleur: "#4ade80", tooltip: tooltip(A) },
-    { cr: B.pos[0], ni: B.pos[1], forme: "cercle", couleur: "#fb923c", tooltip: tooltip(B) },
-    { cr: D.pos[0], ni: D.pos[1], forme: "carre", couleur: "#cbd5e1", tooltip: tooltip(D) },
+    { cr: A.pos[0], ni: A.pos[1], forme: "cercle", couleur: "#4ade80", etiquette: "A", tooltip: tooltip(A) },
+    {
+      cr: B.pos[0], ni: B.pos[1], forme: "cercle", couleur: "#fb923c", etiquette: "B",
+      etiquetteDx: -9, etiquetteDy: -8, etiquetteAncre: "end", tooltip: tooltip(B),
+    },
+    { cr: D.pos[0], ni: D.pos[1], forme: "carre", couleur: "#cbd5e1", etiquette: "D", tooltip: tooltip(D) },
   ];
   const lignes = [{ de: A.pos, a: B.pos, pointille: true, couleur: "#ffffff", opacite: 0.5, epaisseur: 1.2 }];
 
@@ -292,10 +295,10 @@ function majDiagramme() {
     // Convention dilution.js/joint() (inchangée) : ZF = C + d·(Mb − C) -
     // ZF est donc géométriquement sur le segment Mb–C, pas de 3e segment.
     const dilutionPct = ((dA + dB) * 100).toFixed(0);
-    points.push({ cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc", tooltip: tooltip(C) });
+    points.push({ cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc", etiquette: "C", tooltip: tooltip(C) });
     points.push({
       cr: J.pos[0], ni: J.pos[1], forme: "triangle", couleur: "#f87171", tooltip: tooltip(J),
-      etiquette: `ZF - dilution ${dilutionPct}%`,
+      etiquette: `ZF (${dilutionPct} %)`,
     });
     lignes.push({ de: D.pos, a: C.pos, couleur: "#facc15", epaisseur: 1.2 });
   }
