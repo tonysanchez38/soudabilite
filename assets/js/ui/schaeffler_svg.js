@@ -6,7 +6,12 @@
 // métier : purement graphique.
 // =========================================================================
 
-import { FERRITE_G } from "../core/schaeffler.js";
+import {
+  ISO_FERRITE_SCHAEFFLER,
+  echantillonneIso,
+  ligneIso,
+  ordonneeIso,
+} from "../core/iso_ferrite_schaeffler.js";
 
 const NS = "http://www.w3.org/2000/svg";
 
@@ -31,22 +36,6 @@ function fondEtiquette(groupe, texteNode, options = {}) {
     "fill-opacity": opacite,
   });
   groupe.insertBefore(fond, texteNode);
-}
-
-// g calibré pour un % ferrite exact de FERRITE_G (source unique, importée
-// de core/schaeffler.js - jamais dupliquée ici ni dans zones_schaeffler.json).
-function gPourPct(pct) {
-  const entree = FERRITE_G.find(([, p]) => p === pct);
-  return entree ? entree[0] : null;
-}
-
-// Segment d'une droite iso-ferrite (Ni_eq = Cr_eq − g) coupé à la fenêtre.
-// Renvoie [[crBas,niBas],[crHaut,niHaut]] (niBas < niHaut), ou null si hors champ.
-function segmentIso(g, crMin, crMax, niMin, niMax) {
-  const ni0 = Math.max(niMin, crMin - g);
-  const ni1 = Math.min(niMax, crMax - g);
-  if (ni0 >= ni1) return null;
-  return [[ni0 + g, ni0], [ni1 + g, ni1]];
 }
 
 // Centroïde (aire pondérée) d'un polygone simple - placement des étiquettes
@@ -252,11 +241,15 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // Bornes communes des bandes (iso-ferrite en Cr_eq/Ni_eq pleine échelle,
   // pas la fenêtre d'affichage - cf. bandes idéale/acceptable historiques).
   const axesData = zones._meta.axes;
-  const bandePolygon = (gLow, gHigh) => {
-    const lo = segmentIso(gLow, axesData.cr_eq[0], axesData.cr_eq[1], axesData.ni_eq[0], axesData.ni_eq[1]);
-    const hi = segmentIso(gHigh, axesData.cr_eq[0], axesData.cr_eq[1], axesData.ni_eq[0], axesData.ni_eq[1]);
-    if (!lo || !hi) return null;
-    return [lo[0], lo[1], hi[1], hi[0]];
+  const bandePolygon = (pctLow, pctHigh) => {
+    const ligneLow = ligneIso(pctLow);
+    const ligneHigh = ligneIso(pctHigh);
+    if (!ligneLow || !ligneHigh) return null;
+    const debut = Math.max(axesData.cr_eq[0], ligneLow.points[0][0], ligneHigh.points[0][0]);
+    const fin = Math.min(axesData.cr_eq[1], ligneLow.points.at(-1)[0], ligneHigh.points.at(-1)[0]);
+    const haut = echantillonneIso(pctLow, debut, fin);
+    const bas = echantillonneIso(pctHigh, debut, fin).reverse();
+    return haut.length > 1 && bas.length > 1 ? [...haut, ...bas] : null;
   };
 
   // 2b. Zone S blanche : calque overlay digitalisé depuis le diagramme papier
@@ -288,19 +281,20 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     gPlan.appendChild(gZoneS);
   }
 
-  // 3. Iso-ferrite : droites g = Cr_eq − Ni_eq = cste (FERRITE_G, source
-  // unique). Étiquetées (0/5/10/15/20 %) au point de sortie du cadre, dans
+  // 3. Iso-ferrite : polylignes digitalisées, aux pentes distinctes.
+  // Étiquetées (0/5/10/15/20 %) au point de sortie du tracé, dans
   // gEtiquettes (non clippé - un texte dans gPlan y serait invisible, rogné
   // par le clip-path du plot) ; non étiquetées (40/80/100 %) en pointillé
   // gris discret.
-  for (const [g, pct] of FERRITE_G) {
-    const seg = segmentIso(g, crMin, crMax, niMin, niMax);
-    if (!seg) continue;
-    const [[crBas, niBas], [crHaut, niHaut]] = seg;
+  for (const ligne of ISO_FERRITE_SCHAEFFLER) {
+    const { pct } = ligne;
+    const points = ligne.points.filter(([cr, ni]) => cr >= crMin && cr <= crMax && ni >= niMin && ni <= niMax);
+    if (points.length < 2) continue;
+    const [crHaut, niHaut] = points.at(-1);
     const etiquetee = pct <= 20;
     gPlan.appendChild(
-      el("line", {
-        x1: X(crBas), y1: Y(niBas), x2: X(crHaut), y2: Y(niHaut),
+      el("polyline", {
+        points: pts(points), fill: "none",
         stroke: "#e2e8f0",
         "stroke-width": etiquetee ? 0.7 : 0.5,
         "stroke-opacity": 0.32,
@@ -341,10 +335,8 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   const gBandesAF = el("g", { "clip-path": `url(#clip-af-${idSvg})` });
   const gBandesSigma = el("g", { "clip-path": `url(#clip-sigma-${idSvg})` });
   gBandesAF.appendChild(gBandesSigma);
-  const gAcceptable = gPourPct(0), gAcceptableHaut = gPourPct(20);
-  const gIdeale = gPourPct(5), gIdealeHaut = gPourPct(15);
-  const bandeAcceptable = bandePolygon(gAcceptable, gAcceptableHaut);
-  const bandeIdeale = bandePolygon(gIdeale, gIdealeHaut);
+  const bandeAcceptable = bandePolygon(0, 20);
+  const bandeIdeale = bandePolygon(5, 15);
   if (bandeAcceptable) {
     gBandesSigma.appendChild(el("polygon", {
       points: pts(bandeAcceptable), fill: "#10B981", "fill-opacity": 0.65,
@@ -365,12 +357,15 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // rendue) : on cherche le Cr_eq où l'intersection bande ∩ AF est la plus
   // épaisse (etendueVerticale), donc un point garanti sur la bande visible.
   const pxParNi = plotH / (niMax - niMin);
-  function meilleureAncreBande(gLow, gHigh) {
+  function meilleureAncreBande(pctLow, pctHigh) {
     if (!zoneAF) return null;
+    const ligneLow = ligneIso(pctLow);
+    const ligneHigh = ligneIso(pctHigh);
     let meilleur = null;
     for (let cr = 18; cr <= 24.6; cr += 0.4) {
-      const niHaut = cr - gLow; // borne haute (moins de ferrite)
-      const niBas = cr - gHigh; // borne basse (plus de ferrite)
+      const niHaut = ordonneeIso(ligneLow, cr);
+      const niBas = ordonneeIso(ligneHigh, cr);
+      if (niHaut == null || niBas == null) continue;
       const ext = etendueVerticale(zoneAF.polygone, cr);
       if (!ext) continue;
       const visMin = Math.max(niBas, ext[0]);
@@ -425,13 +420,13 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // IDÉALE : toujours déportée au-dessus de la bande (dans la zone A, hors
   // S), avec trait de rappel - ne partage jamais l'espace des points de
   // dilution qui gravitent près du centre de la bande elle-même.
-  etiquetteBande(meilleureAncreBande(gIdeale, gIdealeHaut), "IDÉALE", "#DBEAFE", {
+  etiquetteBande(meilleureAncreBande(5, 15), "IDÉALE", "#DBEAFE", {
     deportForce: true, deportDX: 6, deportDY: -36,
   });
   // ACCEPTABLE : toujours déportée (repère franc dans le A+F coloré, à
   // droite/en dessous de la bande bleue) - l'ancrage inline flirtait avec
   // la frontière S/vert selon la géométrie du joint sélectionné.
-  etiquetteBande(meilleureAncreBande(gAcceptable, gAcceptableHaut), "ACCEPTABLE", "#D1FAE5", {
+  etiquetteBande(meilleureAncreBande(0, 20), "ACCEPTABLE", "#D1FAE5", {
     deportForce: true, deportDX: 26, deportDY: 14,
   });
 

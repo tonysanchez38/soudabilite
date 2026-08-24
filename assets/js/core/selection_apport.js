@@ -146,55 +146,32 @@ const RANG_VERDICT = { ideal: 0, acceptable: 1, zone_s: 2, hors: 3 };
 // même logique que le badge affiché, zéro divergence tableau/verdict) ;
 // 2) distance croissante au centre à l'intérieur de chaque groupe. n premiers.
 //
-// Duplex/superduplex (A, B ou l'apport candidat) : le rang et la distance
-// de tri sont recalculés sur le critère WRC-1992/ferrite 30-70 % (ISO 17781
-// / NORSOK M-601), pas sur les polygones Schaeffler - sans ce branchement,
-// le tri pouvait classer « hors » un joint que le badge affiché (calculé
-// séparément dans vue_analyse.js avec la même logique duplex) juge idéal,
-// et l'apport idéal réel pouvait manquer les 7 premiers. crEq/niEq/ferrite
-// renvoyés restent Schaeffler dans tous les cas : l'affichage duplex
-// (crEqWRC/niEqWRC) est recalculé côté appelant pour le formatage.
 export function meilleursApports(
   apports,
   procedeUI,
   {
     A, B, dA, dB, dC, centre, joint, crEq, niEq, ferrite, niveauIdeal, zones, zoneS,
-    estDuplex, verdictDuplex, ferriteApproxWRC, crEqWRC, niEqWRC,
-    designationA, designationB,
+    apportsSupplementaires = [],
     n = 7,
   }
 ) {
-  const duplexBase = estDuplex
-    ? estDuplex(designationA) || estDuplex(designationB)
-    : false;
-
-  return (apports || [])
-    .map((a, i) => ({ a, i }))
+  const candidats = [
+    ...(apports || []).map((a, i) => ({ a, i, origine: "banque" })),
+    ...(apportsSupplementaires || []).map((a, i) => ({ a, i: `manuel-${i}`, origine: "manuel" })),
+  ];
+  return candidats
     .filter(({ a }) => compatible(procedeUI, a))
-    .map(({ a, i }) => {
+    .map(({ a, i, origine }) => {
       const comp = joint(A, B, a.composition, dA, dB, dC);
       const cr = crEq(comp);
       const ni = niEq(comp);
       const fer = ferrite(cr, ni);
-      const duplex = duplexBase || (estDuplex ? estDuplex(a.designation) : false);
-
-      let niveau, dist;
-      if (duplex && verdictDuplex && ferriteApproxWRC && crEqWRC && niEqWRC) {
-        const crW = crEqWRC(comp);
-        const niW = niEqWRC(comp);
-        const ferW = ferriteApproxWRC(crW, niW);
-        niveau = verdictDuplex(ferW).niveau;
-        // Cible = milieu de bande idéale 30-70% ferrite (ISO 17781/NORSOK
-        // M-601) - hypothèse de tri, à confirmer.
-        dist = Math.abs(ferW - 50);
-      } else {
-        niveau = niveauIdeal ? niveauIdeal(cr, ni, zones, zoneS) : null;
-        dist = Math.hypot(cr - centre[0], ni - centre[1]);
-      }
+      const niveau = niveauIdeal ? niveauIdeal(cr, ni, zones, zoneS) : null;
+      const dist = Math.hypot(cr - centre[0], ni - centre[1]);
 
       return {
         index: i, designation: a.designation, composition: a.composition, joint: comp,
-        crEq: cr, niEq: ni, ferrite: fer, distance: dist, niveau, duplex,
+        crEq: cr, niEq: ni, ferrite: fer, distance: dist, niveau, origine,
         rangVerdict: RANG_VERDICT[niveau] ?? RANG_VERDICT.hors,
       };
     })

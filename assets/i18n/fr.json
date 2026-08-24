@@ -242,7 +242,7 @@
     "col_nieq_d": "Ni_eq (DeLong)",
     "col_creq_w": "Cr_eq (WRC)",
     "col_nieq_w": "Ni_eq (WRC)",
-    "ferrite_note": "% ferrite estimé sur les iso-ferrite du diagramme de Schaeffler. Ferrite Number rigoureux WRC-1992 (diagramme plein) prévu au Lot 4.",
+    "ferrite_note": "% ferrite estimé par interpolation entre les iso-ferrite du diagramme de Schaeffler. Les duplex sont hors périmètre actuel.",
     "saisie_libre": "[saisie libre]",
     "lbl_creq": "Cr_eq",
     "lbl_nieq": "Ni_eq",

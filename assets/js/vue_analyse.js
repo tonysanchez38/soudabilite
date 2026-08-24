@@ -11,13 +11,11 @@ import { creerDiagramme } from "./ui/schaeffler_svg.js";
 import {
   crEqSchaeffler, niEqSchaeffler,
   crEqDeLong, niEqDeLong,
-  crEqWRC, niEqWRC,
 } from "./core/equivalents.js";
 import { joint, melangeBases } from "./core/dilution.js";
 import { ferriteSchaeffler, verdictSchaeffler, niveauIdeal } from "./core/schaeffler.js";
 import { meilleursApports } from "./core/selection_apport.js";
-import { estDuplex, verdictDuplex, ferriteApproxWRC, SOURCE_DUPLEX_IDEAL } from "./core/famille_alliage.js";
-import { DUPLEX_VISIBLE } from "./core/config.js";
+import { estDuplex } from "./core/perimetre.js";
 import { aiguille } from "./core/aiguillage.js";
 import { ceIIW, ceqSeferian, tpSeferian } from "./core/carbone_eq.js";
 import { ceqBWRA, tpBWRA } from "./core/bwra.js";
@@ -32,8 +30,7 @@ const TITRE_ZONE_S =
 
 // Titre (tooltip) du badge verdict : source duplex si applicable, sinon
 // rappel zone S si le niveau retourné est ce dernier recours.
-function titreVerdict(v, duplex) {
-  if (duplex) return SOURCE_DUPLEX_IDEAL;
+function titreVerdict(v) {
   if (v.niveau === "zone_s") return TITRE_ZONE_S;
   return null;
 }
@@ -48,25 +45,19 @@ let selectionC = null; // apport choisi (tableau ou saisie libre)
 let selectionIndex = null; // index (BANQUE.metaux_apport) de l'apport choisi au tableau
 let MODE = { duplexEnBase: false, type: "inox" }; // cf. determinerMode()
 
-// CLAUDE.md #31/#32 : cascade d'affichage de la section Analyse - duplex en
-// base d'abord (masque uniquement le tableau d'apports, cf.
-// majMeilleursApports), puis aiguillage carbone/hétérogène/inox
-// (aiguillage.js, CLAUDE.md décision #2) qui décide si le diagramme de
-// Schaeffler est pertinent du tout. Les deux checks sont indépendants en
-// pratique : un métal duplex/superduplex (Cr ≥ 22 %) est toujours classé
-// "inox" par aiguille(), jamais "carbone".
+// Le duplex est seulement détecté pour bloquer le classement hors périmètre.
+// L'aiguillage carbone/hétérogène/inox décide ensuite si Schaeffler s'applique.
 function determinerMode() {
-  const duplexEnBase = (estDuplex(A.designation) || estDuplex(B.designation)) && !DUPLEX_VISIBLE;
+  const duplexEnBase = estDuplex(A.designation) || estDuplex(B.designation);
   const { type } = aiguille(A.comp, B.comp);
   return { duplexEnBase, type };
 }
 
-// Équivalents complets d'une composition (Schaeffler / DeLong / WRC-1992).
+// Équivalents actifs d'une composition (Schaeffler et DeLong).
 function equivalents(comp) {
   return {
     S: { cr: crEqSchaeffler(comp), ni: niEqSchaeffler(comp) },
     De: { cr: crEqDeLong(comp), ni: niEqDeLong(comp) },
-    W: { cr: crEqWRC(comp), ni: niEqWRC(comp) },
   };
 }
 
@@ -311,22 +302,9 @@ function majMeilleursApports() {
   const aide = $("[data-aide-dilution]");
   corps.replaceChildren();
 
-  // Cascade CLAUDE.md #31/#32 : duplex en base d'abord, puis aiguillage
-  // carbone/hétérogène/inox.
-  //
-  // 1) CLAUDE.md #31 : tant que DUPLEX_VISIBLE=false, si le métal de base A
-  // ou B est lui-même duplex/superduplex, on ne fait plus tourner
-  // meilleursApports() du tout sur cette branche (carte visible, seul le
-  // tableau est masqué). Le tri duplex actuel (verdictDuplex +
-  // ferriteApproxWRC) classe "idéal" au seul critère ferrite 30-70 % sans
-  // vérifier la famille chimique de l'apport - il classait par exemple des
-  // apports non-duplex (INERTROD 312, INERTROD 430 ferritique) en tête, un
-  // verdict métallurgiquement faux. Principe : pas de verdict plutôt qu'un
-  // verdict faux - on masque le tableau et on affiche un message
-  // d'indisponibilité. Le diagramme et la synthèse restent affichés
-  // (calculés hors de cette fonction).
+  // Un métal de base duplex bloque le classement : aucun moteur de secours.
   const baseDuplex = estDuplex(A.designation) || estDuplex(B.designation);
-  if (baseDuplex && !DUPLEX_VISIBLE) {
+  if (baseDuplex) {
     if (carteApports) carteApports.hidden = false;
     if (zoneTableau) zoneTableau.hidden = true;
     if (noteApports) noteApports.hidden = true;
@@ -348,26 +326,15 @@ function majMeilleursApports() {
   if (noteApports) noteApports.hidden = false;
   if (messageIndispo) messageIndispo.hidden = true;
 
-  // Classement/ranking : rang du verdict (idéale > acceptable > zone S >
-  // hors) puis distance à centre_ideal à l'intérieur de chaque groupe (la
-  // cible duplex 35-65 % ferrite n'est pas concernée par ce tri - cf.
-  // classification par ligne, calculée séparément ci-dessous).
-  // DUPLEX_VISIBLE (CLAUDE.md #29) : les apports duplex/superduplex sont
-  // masqués de la sélection tant que les iso-FN WRC-1992 ne sont pas
-  // digitalisées - ne retire aucun code duplex, seulement la liste passée
-  // à meilleursApports() (le tri/verdict duplex reste actif si A ou B
-  // lui-même est duplex, cf. duplexBase dans selection_apport.js).
-  const apportsVisibles = DUPLEX_VISIBLE
-    ? BANQUE.metaux_apport
-    : (BANQUE.metaux_apport || []).filter((a) => !estDuplex(a.designation));
+  // Classement : verdict puis distance au centre. Les candidats duplex sont
+  // exclus car cette famille est hors périmètre du moteur actuel.
+  const apportsVisibles = (BANQUE.metaux_apport || []).filter((a) => !estDuplex(a.designation));
 
   const rows = meilleursApports(apportsVisibles, ETAT.procede, {
     A: A.comp, B: B.comp, dA, dB, dC,
     centre: ZONES.centre_ideal,
     joint, crEq: crEqSchaeffler, niEq: niEqSchaeffler, ferrite: ferriteSchaeffler,
     niveauIdeal, zones: ZONES.zones, zoneS: ZONES.zone_s,
-    estDuplex, verdictDuplex, ferriteApproxWRC, crEqWRC, niEqWRC,
-    designationA: A.designation, designationB: B.designation,
     n: 7,
   });
 
@@ -385,19 +352,10 @@ function majMeilleursApports() {
 
   let uneIdeale = false;
   rows.forEach((r, i) => {
-    const duplex = r.duplex; // même source que le tri - zéro divergence possible
-    let crAff, niAff, ferAff, v;
-    if (duplex) {
-      crAff = crEqWRC(r.joint);
-      niAff = niEqWRC(r.joint);
-      ferAff = ferriteApproxWRC(crAff, niAff);
-      v = verdictDuplex(ferAff);
-    } else {
-      crAff = r.crEq;
-      niAff = r.niEq;
-      ferAff = r.ferrite;
-      v = verdictSchaeffler(r.crEq, r.niEq, r.joint, ZONES.zones, ZONES.zone_s);
-    }
+    const crAff = r.crEq;
+    const niAff = r.niEq;
+    const ferAff = r.ferrite;
+    const v = verdictSchaeffler(r.crEq, r.niEq, r.joint, ZONES.zones, ZONES.zone_s);
     const tr = document.createElement("tr");
     tr.className = "apport-ligne";
     tr.tabIndex = 0;
@@ -413,7 +371,7 @@ function majMeilleursApports() {
     if (v.niveau === "ideal") uneIdeale = true;
     const tdV = document.createElement("td");
     tdV.dataset.label = t("analyse.col_verdict");
-    tdV.appendChild(badgeVerdict(v.niveau, titreVerdict(v, duplex), noteLimiteFerrite(ferAff)));
+    tdV.appendChild(badgeVerdict(v.niveau, titreVerdict(v), noteLimiteFerrite(ferAff)));
     tr.appendChild(tdV);
     if (selectionIndex != null && r.index === selectionIndex) tr.classList.add("is-active");
     tr.addEventListener("click", () => choisirApport(r, tr));
@@ -528,17 +486,8 @@ function majSynthese() {
     return;
   }
   const J = selectionC.jointMetal;
-  const duplex = estDuplex(A.designation) || estDuplex(B.designation) || estDuplex(selectionC.metal.designation);
-  let ferJ, v;
-  if (duplex) {
-    const crJ = crEqWRC(J.comp);
-    const niJ = niEqWRC(J.comp);
-    ferJ = ferriteApproxWRC(crJ, niJ);
-    v = verdictDuplex(ferJ);
-  } else {
-    ferJ = J.ferrite;
-    v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, J.comp, ZONES.zones, ZONES.zone_s);
-  }
+  const ferJ = J.ferrite;
+  const v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, J.comp, ZONES.zones, ZONES.zone_s);
   const justif = [`${ferJ.toFixed(1)} ${t("analyse.lbl_ferrite")}`];
   const risquesCle = {
     austenite_pure: "analyse.risque_austenite",
@@ -550,7 +499,7 @@ function majSynthese() {
 
   const bloc = document.createElement("div");
   bloc.className = "synth-verdict";
-  bloc.appendChild(badgeVerdict(v.niveau, titreVerdict(v, duplex), noteLimiteFerrite(ferJ)));
+  bloc.appendChild(badgeVerdict(v.niveau, titreVerdict(v), noteLimiteFerrite(ferJ)));
   bloc.appendChild(noteTexte(justif.join(" · ")));
   zoneVerdict.replaceChildren(bloc);
 }
@@ -561,7 +510,6 @@ function ligneValeurs(label, m) {
     label + (m.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""),
     m.eq.S.cr.toFixed(2), m.eq.S.ni.toFixed(2),
     m.eq.De.cr.toFixed(2), m.eq.De.ni.toFixed(2),
-    m.eq.W.cr.toFixed(2), m.eq.W.ni.toFixed(2),
   ]);
   return tr;
 }
@@ -675,17 +623,8 @@ export function majAnalyse(etat) {
 export function resumeApportPourImpression() {
   if (!selectionC) return null;
   const J = selectionC.jointMetal;
-  const duplex = estDuplex(A.designation) || estDuplex(B.designation) || estDuplex(selectionC.metal.designation);
-  let ferJ, v;
-  if (duplex) {
-    const crJ = crEqWRC(J.comp);
-    const niJ = niEqWRC(J.comp);
-    ferJ = ferriteApproxWRC(crJ, niJ);
-    v = verdictDuplex(ferJ);
-  } else {
-    ferJ = J.ferrite;
-    v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, J.comp, ZONES.zones, ZONES.zone_s);
-  }
+  const ferJ = J.ferrite;
+  const v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, J.comp, ZONES.zones, ZONES.zone_s);
   const verdictCle = {
     ideal: "analyse.verdict_ideal",
     acceptable: "analyse.verdict_acceptable",

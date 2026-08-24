@@ -7,11 +7,25 @@ l'implémenter, en citant la référence.
 **Convention** : les compositions sont en pourcentage massique (%wt).
 Les températures en °C. Les épaisseurs en mm. Les énergies en kJ/mm.
 
+## Lecture rapide du moteur actif
+
+| Entrée | Calcul actif | Résultat | Limite |
+|---|---|---|---|
+| Compositions A/B/C + dilution | barycentre chimique (§2) | composition du joint | estimation, à confirmer par macrographie |
+| Composition du joint inox/hétérogène | équivalents Schaeffler (§1) puis iso-ferrite (§2 bis) | zone, ferrite estimée, risques | domaine prioritaire validé : Cr_eq 16-25 / Ni_eq 5-15 |
+| Procédé, diamètre/épaisseur, position, assemblage | règles électriques (§3) | I, U, vitesse indicative, énergie | préréglages, jamais qualification |
+| Aciers carbone/faiblement alliés | CE/CET et méthodes thermiques documentées (§5-9) | indicateurs/préchauffage disponibles | abaques marqués « à digitaliser » non inventés |
+
+**Périmètre actif** : Schaeffler est l'unique moteur de constitution et de
+ferrite. WRC-1992 n'est ni calculé, ni affiché, ni utilisé pour trier les
+apports. Les aciers duplex/superduplex sont hors périmètre actuel : le site
+les détecte uniquement pour bloquer un classement non validé.
+
 ---
 
 ## 1. Équivalents en Chrome et en Nickel
 
-### 1.1 Schaeffler (1949) — usage : placement visuel sur le diagramme de Tony
+### 1.1 Schaeffler (1949) — moteur actif
 ```
 Cr_eq = %Cr + %Mo + 1.5 · %Si + 0.5 · %Nb
 Ni_eq = %Ni + 30 · %C + 0.5 · %Mn
@@ -27,17 +41,14 @@ Ni_eq = %Ni + 30 · %C + 30 · %N + 0.5 · %Mn
 Source : DeLong W.T., *Ferrite in austenitic stainless steel weld metal*,
 Welding Journal 53(7), 1974.
 
-### 1.3 WRC-1992 — usage : Ferrite Number rigoureux, référence duplex
-```
-Cr_eq = %Cr + %Mo + 0.7 · %Nb
-Ni_eq = %Ni + 35 · %C + 20 · %N + 0.25 · %Cu
-```
-Source : Kotecki D.J., Siewert T.A., *WRC-1992 constitution diagram for
-stainless steel weld metals*, Welding Journal 71(5), 1992.
+DeLong reste affiché comme comparaison d'équivalents ; il ne pilote ni le
+diagramme, ni le verdict, ni le classement.
 
-**Décision d'usage** : Schaeffler/DeLong pour le placement des points et le
-tracé des zones sur le diagramme (cohérence avec l'image de fond de Tony).
-WRC-1992 pour la valeur chiffrée du % ferrite, affichée à côté du point.
+### 1.3 Méthodes exclues du moteur actif
+
+- WRC-1992 : évolution future séparée, sans fonction active dans l'interface.
+- Duplex/superduplex : aucun verdict ni classement tant qu'une méthode dédiée
+  et ses cas de validation ne sont pas disponibles.
 
 ---
 
@@ -66,6 +77,60 @@ avec D_A + D_B + D_C = 1
 | SAW     | 121           | 30 % à 60 %                |
 
 Source : ta doc « Cadre normatif », section 5 (croisée avec EN 1011-1).
+
+---
+
+## 2 bis. Iso-ferrite et zones Schaeffler
+
+### 2 bis.1 Méthode
+
+Les iso-ferrite sont des polylignes `(Cr_eq, Ni_eq)`. À `Cr_eq` fixé, le
+moteur interpole d'abord `Ni_eq` sur chaque polyligne, puis interpole le
+pourcentage entre les deux contours qui encadrent le point. Il n'utilise plus
+la différence `Cr_eq - Ni_eq` et ne force donc plus les lignes à être
+parallèles.
+
+La zone **idéale** exige simultanément : zone métallurgique `A+F`, `Cr_eq ≤ 25`
+et ferrite comprise entre 5 et 15 %. La zone **acceptable** applique les mêmes
+contraintes et accepte 0 à 20 %. Les autres zones métallurgiques et risques
+Schaeffler restent prioritaires dans le verdict.
+
+### 2 bis.2 Coordonnées digitalisées
+
+Les extrémités sources ci-dessous sont stockées dans
+`assets/js/core/iso_ferrite_schaeffler.js`. Le moteur peut les échantillonner
+en autant de couples que nécessaire ; les tests relisent notamment Cr_eq 17,
+20, 22 et 25.
+
+| Ferrite | Point bas `(Cr_eq, Ni_eq)` | Point haut `(Cr_eq, Ni_eq)` | Origine |
+|---:|---:|---:|---|
+| 0 % | (6.45, 0.00) | (33.35, 28.00) | frontière sans ferrite digitalisée |
+| 5 % | (15.02, 7.38) | (35.86, 28.00) | iso-ligne digitalisée |
+| 10 % | (15.55, 6.97) | (35.94, 24.50) | iso-ligne digitalisée |
+| 15 % | Cr_eq entiers 17 à 35 | moyenne verticale 10/20 % | interpolation déclarée |
+| 20 % | (16.63, 6.14) | (35.97, 20.15) | iso-ligne digitalisée |
+
+Contours de support au-delà de la zone de classement : 40 % de (17.56, 5.39)
+à (36.00, 17.18), et 80 % de (18.73, 4.43) à (35.97, 12.94). Au-dessous du
+dernier contour, le moteur sature l'affichage à 100 % au lieu d'extrapoler un
+coefficient non sourcé.
+
+Références recoupées :
+
+- A. L. Schaeffler, *Constitution diagram for stainless steel weld metal*,
+  Metal Progress, 1949 (source historique des équivalents et du diagramme).
+- D. J. Kotecki et T. A. Siewert, *WRC-1992 Constitution Diagram for Stainless
+  Steel Weld Metals*, Welding Journal 71(5), 1992, fig. 1 : reproduction du
+  Schaeffler et rappel de son usage pour la dilution.
+  https://s3.us-east-1.amazonaws.com/WJ-www.aws.org/supplement/WJ_1992_05_s171.pdf
+- Christophe Dang Ngoc Chan, *Diagramme de Schaeffler*, reproduction SVG
+  vectorielle du diagramme, domaine public ; utilisée pour le relevé numérique
+  puis contrôlée visuellement contre la fig. 1 ci-dessus.
+  https://commons.wikimedia.org/wiki/File:Diagramme_schaeffler.svg
+
+**Incertitude** : Schaeffler prédit un pourcentage métallographique à partir
+de la chimie ; ce n'est ni une mesure magnétique, ni un Ferrite Number, ni une
+qualification de mode opératoire.
 
 ---
 
@@ -385,7 +450,6 @@ Cas courants pour la validation MVP :
 | 25CD4          | 5.1 |
 | 304L, 1.4307   | 8.1 |
 | 316L, 1.4404   | 8.1 |
-| Duplex 2205    | 10.1 |
 
 ### 9.2 Limites de dureté HV10 par groupe
 
@@ -410,21 +474,22 @@ Source : ta doc « Système expert », section 1 et 3.
 
 ## 10. Sélection des 7 meilleurs métaux d'apport C
 
-Algorithme :
+Algorithme actif :
 
 1. Récupérer (Cr_eq_D, Ni_eq_D) du D_mélange (métaux de base seuls).
 2. Pour chaque apport C_k de la base de données correspondant au procédé
    choisi :
    - Calculer (Cr_eq_JOINT, Ni_eq_JOINT) = D_A·A + D_B·B + D_C·C_k
-   - Calculer la distance euclidienne D_k au **centre de la zone idéale**
-     (point cible = Cr_eq ≈ 21.5, Ni_eq ≈ 14.5, cf. `centre_ideal` dans
-     zones_schaeffler.json) ou distance à la zone (distance nulle si dans
-     la zone).
-3. Trier par D_k croissante, garder les 7 premiers.
-4. Filtrer : exclure les apports qui projettent le JOINT dans les zones
-   martensite pure, austénite pure, ferrite pure, ou A+F avec sigma.
-5. Afficher la marge à la zone (positive = dans la zone, négative = à
-   l'extérieur) pour chaque apport retenu.
+   - Estimer la ferrite par les iso-lignes du §2 bis.
+   - Classer le niveau avec la même fonction que le badge affiché.
+   - Calculer la distance euclidienne au `centre_ideal` uniquement comme
+     deuxième clé de tri.
+3. Trier : idéale, acceptable, zone S, hors ; puis distance croissante.
+4. Garder les 7 premiers. Les candidats duplex sont exclus en amont.
+
+Un apport manuel peut être passé dans `apportsSupplementaires` : il traverse
+exactement le même calcul, le même verdict et le même tri, sans modifier la
+banque JSON. Le branchement de ce contrat à l'interface reste une évolution.
 
 ---
 
@@ -464,6 +529,24 @@ Source : ta doc « Système expert », section 2.
 ---
 
 ## Annexe A — Points ouverts
+
+### Architecture des prochaines évolutions (inactive)
+
+- **AUTO / PERSONNALISÉ** : `core/reglages.js` sépare les valeurs automatiques
+  des surcharges utilisateur. Toute propagation entre I, U, vitesse et énergie
+  devra appeler les formules existantes ; aucun couplage nouveau n'est codé
+  sans source.
+- **TIG tungstène** : le même module filtre déjà les plages d'intensité. La
+  présélection par matière et polarité ne deviendra active que lorsque la banque
+  portera ces champs avec une source fabricant/normative. Aujourd'hui, aucun
+  type WP/WL/WC/WT/WZ/WR n'est préféré artificiellement.
+- **Position / assemblage / chanfrein** : effets actifs limités aux règles
+  documentées (§3 et dilution §2.3). Les futurs effets doivent être ajoutés
+  dans les modules métier, avec provenance et tests, jamais dans le contrôleur UI.
+- **Apport manuel** : contrat `apportsSupplementaires` prêt dans
+  `meilleursApports()` pour l'insérer dans le même top 7.
+- **Duplex et WRC-1992** : travaux futurs séparés ; ils ne doivent pas être
+  réactivés par un simple drapeau dans le moteur courant.
 
 - Digitalisation abaques IRSID, BWRA, Baus-Chapeau (Lot 6).
 - Digitalisation courbes TRCS S235JR, S355, P265GH, 15CD4, 25CD4 (Lot 7).
