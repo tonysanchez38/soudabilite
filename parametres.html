@@ -48,7 +48,7 @@
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
     <link rel="preload" href="assets/css/main.css" as="style" />
-    <script type="module" src="assets/js/parametres.js?v=20260824-points-4"></script>
+    <script type="module" src="assets/js/parametres.js?v=20260824-reglages-3"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -125,6 +125,7 @@
                 <div class="champ" data-champ="enrobage" hidden>
                   <label class="champ__label" for="enrobage" data-i18n="parametres.label_enrobage"></label>
                   <select id="enrobage" class="champ__select"></select>
+                  <p class="erreur" data-enrobage-avertissement hidden data-i18n="parametres.enrobage_non_couvert"></p>
                 </div>
                 <div class="champ" data-champ="diametre" hidden>
                   <label class="champ__label" for="diametre" data-i18n="parametres.label_diametre"></label>
@@ -133,6 +134,7 @@
                 <div class="champ champ--large" data-champ="tungstene" hidden>
                   <label class="champ__label" for="tungstene" data-i18n="parametres.label_tungstene"></label>
                   <select id="tungstene" class="champ__select" data-combobox="tungstene"></select>
+                  <p class="note" data-tungstene-conseil></p>
                 </div>
                 <div class="champ" data-champ="diametre-fil" hidden>
                   <label class="champ__label" for="diametre-fil" data-i18n="parametres.label_diametre_fil"></label>
@@ -164,17 +166,36 @@
             <!-- Intensité et vitesse -->
             <section class="carte carte--form">
               <h2 class="bloc__titre" data-i18n="parametres.section_intensite"></h2>
-              <div class="form-grid" data-grid="intensite">
-                <div class="champ" data-champ="i-manuel" hidden>
-                  <label class="champ__label" for="i-manuel" data-i18n="parametres.label_intensite_manuelle"></label>
-                  <input id="i-manuel" class="champ__input" type="number" min="0" step="1" inputmode="numeric" />
+              <div class="champ champ--large">
+                <label class="champ__label" for="mode-reglages" data-i18n="parametres.label_mode_reglages"></label>
+                <select id="mode-reglages" class="champ__select">
+                  <option value="auto" data-i18n="parametres.mode_auto"></option>
+                  <option value="personnalise" data-i18n="parametres.mode_personnalise"></option>
+                </select>
+              </div>
+              <div class="form-grid form-grid--trois" data-grid="intensite">
+                <div class="champ">
+                  <label class="champ__label" for="reglage-i" data-i18n="parametres.res_intensite"></label>
+                  <input id="reglage-i" class="champ__input" data-reglage="intensite" type="number" min="0" step="1" inputmode="numeric" />
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="reglage-u" data-i18n="parametres.res_tension"></label>
+                  <input id="reglage-u" class="champ__input" data-reglage="tension" type="number" min="0" step="0.1" inputmode="decimal" />
                 </div>
                 <div class="champ">
                   <label class="champ__label" for="vitesse" data-i18n="parametres.label_vitesse"></label>
-                  <input id="vitesse" class="champ__input" type="number" min="0" step="0.5" inputmode="decimal" />
-                  <p class="note" data-i18n="parametres.vitesse_note"></p>
+                  <input id="vitesse" class="champ__input" data-reglage="vitesse" type="number" min="0" step="0.5" inputmode="decimal" />
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="reglage-en" data-i18n="parametres.res_en"></label>
+                  <input id="reglage-en" class="champ__input" data-reglage="energieNominale" type="number" min="0" step="0.001" inputmode="decimal" />
+                </div>
+                <div class="champ">
+                  <label class="champ__label" for="reglage-q" data-i18n="parametres.res_eq"></label>
+                  <input id="reglage-q" class="champ__input" data-reglage="energieCorrigee" type="number" min="0" step="0.001" inputmode="decimal" />
                 </div>
               </div>
+              <p class="note" data-i18n="parametres.reglages_note"></p>
               <p class="note" data-note="tig-hetero" hidden data-i18n="parametres.note_tig_hetero"></p>
             </section>
 
@@ -369,7 +390,13 @@
               </div>
               <p class="note" data-aide-dilution hidden data-i18n="analyse.aide_dilution"></p>
               <button type="button" class="btn-lien" data-toggle-comp-c aria-expanded="false" data-i18n="analyse.comp_manuelle_c"></button>
-              <div class="comp-manuelle" data-comp="c" hidden></div>
+              <div class="comp-manuelle" data-comp="c" hidden>
+                <label class="champ">
+                  <span class="champ__label" data-i18n="analyse.apport_manuel_nom"></span>
+                  <input class="champ__input" data-apport-manuel-nom type="text" data-i18n-attr="placeholder:analyse.apport_manuel_ph" />
+                </label>
+                <p class="note" data-i18n="analyse.apport_manuel_note"></p>
+              </div>
             </section>
 
             <!-- CARTE 2bis - Comprendre les zones métallurgiques -->

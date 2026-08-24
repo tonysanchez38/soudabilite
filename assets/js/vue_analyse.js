@@ -7,7 +7,7 @@
 
 import { t } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260824-points-4";
+import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260824-reglages-3";
 import {
   crEqSchaeffler, niEqSchaeffler,
   crEqDeLong, niEqDeLong,
@@ -43,7 +43,12 @@ let A, B, D; // métaux calculés
 let dA = 0, dB = 0, dC = 0;
 let selectionC = null; // apport choisi (tableau ou saisie libre)
 let selectionIndex = null; // index (BANQUE.metaux_apport) de l'apport choisi au tableau
+let apportManuel = null; // candidat temporaire injecté dans le même classement
 let MODE = { duplexEnBase: false, type: "inox" }; // cf. determinerMode()
+
+function codeProcedeApport(procede) {
+  return { "111": "111_EE", "141": "141_TIG", "131": "131_MIG", "135": "135_MAG" }[procede];
+}
 
 // Le duplex est seulement détecté pour bloquer le classement hors périmètre.
 // L'aiguillage carbone/hétérogène/inox décide ensuite si Schaeffler s'applique.
@@ -348,6 +353,8 @@ function majMeilleursApports() {
     centre: ZONES.centre_ideal,
     joint, crEq: crEqSchaeffler, niEq: niEqSchaeffler, ferrite: ferriteSchaeffler,
     niveauIdeal, zones: ZONES.zones, zoneS: ZONES.zone_s,
+    apportsSupplementaires: apportManuel ? [apportManuel] : [],
+    forcerSupplementaires: true,
     n: 7,
   });
 
@@ -364,7 +371,7 @@ function majMeilleursApports() {
   }
 
   let uneIdeale = false;
-  rows.forEach((r, i) => {
+  rows.forEach((r) => {
     const crAff = r.crEq;
     const niAff = r.niEq;
     const ferAff = r.ferrite;
@@ -375,7 +382,12 @@ function majMeilleursApports() {
     tr.dataset.index = String(r.index);
     ajouterCellules(
       tr,
-      [String(i + 1), r.designation, crAff.toFixed(2), niAff.toFixed(2), ferriteDisponible(ferAff) ? `${ferAff.toFixed(1)} %` : "—", r.distance.toFixed(2)],
+      [
+        String(r.rangGlobal),
+        r.origine === "manuel" ? `${r.designation} · ${t("analyse.apport_manuel_badge")}` : r.designation,
+        crAff.toFixed(2), niAff.toFixed(2),
+        ferriteDisponible(ferAff) ? `${ferAff.toFixed(1)} %` : "—", r.distance.toFixed(2),
+      ],
       [
         t("analyse.col_rang"), t("analyse.col_designation"), t("analyse.col_creq"),
         t("analyse.col_nieq"), t("analyse.col_ferrite"), t("analyse.col_distance"),
@@ -461,7 +473,7 @@ function choisirApport(r, tr) {
   selectionIndex = r.index;
   document.querySelectorAll(".apport-ligne.is-active").forEach((e) => e.classList.remove("is-active"));
   if (tr) tr.classList.add("is-active");
-  definirC(r.composition, r.designation, false);
+  definirC(r.composition, r.designation, r.origine === "manuel");
   envoyerEvenement("analyse-realisee", "Sélection d'un apport");
   envoyerEvenementAnalyse(r.designation);
 }
@@ -539,6 +551,8 @@ function construireBlocC() {
   const conteneur = $("[data-comp=c]");
   if (!conteneur) return;
   const elements = t("analyse.elements_comp") || [];
+  const nom = $("[data-apport-manuel-nom]");
+  nom?.addEventListener("input", onSaisieC);
   const grille = document.createElement("div");
   grille.className = "comp-grille";
   for (const el of elements) {
@@ -567,7 +581,21 @@ function onSaisieC() {
   });
   selectionIndex = null;
   document.querySelectorAll(".apport-ligne.is-active").forEach((e) => e.classList.remove("is-active"));
-  if (aValeur) definirC(comp, null, true);
+  if (!ETAT || !A || !B) return;
+  if (!aValeur) {
+    apportManuel = null;
+    selectionC = null;
+    majMeilleursApports();
+    majDiagramme();
+    majSynthese();
+    return;
+  }
+  const procedure = codeProcedeApport(ETAT.procede);
+  const designation = $("[data-apport-manuel-nom]")?.value.trim() || t("analyse.apport_manuel_defaut");
+  apportManuel = { designation, composition: comp, procede: procedure };
+  selectionIndex = "manuel-0";
+  majMeilleursApports();
+  definirC(comp, designation, true);
 }
 
 // --- Affichage vide / contenu -------------------------------------------
@@ -611,6 +639,7 @@ export function initAnalyse(banque, zones) {
 // (transmis en mémoire depuis parametres.js, plus de sessionStorage).
 export function majAnalyse(etat) {
   ETAT = etat;
+  if (apportManuel) apportManuel.procede = codeProcedeApport(ETAT?.procede);
   const pret = ETAT && ETAT.A && ETAT.A.composition && ETAT.B && ETAT.B.composition;
   if (!pret) {
     afficherVide();

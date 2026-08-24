@@ -11,14 +11,19 @@ import { corrigerParEpaisseur } from "./carbone_eq.js";
 // Traduit la lettre d'enrobage saisie en Paramètres (fr.json
 // parametres.enrobages : R, B, C, A, RB, RC) vers le typeElectrode que
 // tpBWRA()/indiceSoudabilite() savent lire. core/bwra.js CEQ_INDICE_TABLE
-// n'a que deux familles sourcées (rutile/basique) - pas de bucket
-// "cellulosique" séparé : seul "B" bascule en basique, les cinq autres
-// lettres (y compris C, A, RB, RC) sont classées rutile, la famille non
-// basique la plus proche disponible dans la table. Seule traduction
+// n'a que deux familles sourcées (rutile/basique). C, A, RB et RC ne sont
+// plus assimilés au rutile : null force le repli prudent sur Séférian.
+// Seule traduction
 // lettre -> typeElectrode dans tout le code - ne pas la dupliquer côté UI.
 export function traduireEnrobage(lettre) {
   if (lettre == null) return null;
-  return lettre === "B" ? "basique" : "rutile";
+  if (lettre === "B") return "basique";
+  if (lettre === "R") return "rutile";
+  return null;
+}
+
+export function enrobageBWRAPrisEnCharge(lettre) {
+  return lettre === "B" || lettre === "R";
 }
 
 // BWRA seulement si procédé 111 (électrode enrobée) ET type d'électrode

@@ -7,8 +7,7 @@
 // Schaeffler - s'applique uniquement quand l'aiguillage (core/aiguillage.js)
 // a orienté vers la branche thermique.
 //
-// Parqué comme le drapeau DUPLEX_VISIBLE (cf. CLAUDE.md #29) : présent,
-// documenté, sans effet tant que data.json ne contient aucune entrée
+// Module préparatoire documenté, sans effet tant que data.json ne contient aucune entrée
 // metaux_apport de type carbone. Les 218 entrées actuelles sont toutes
 // inox (SAFINOX/STARINOX/...), sans champs type/re/typeElectrode/
 // classeHydrogene/diametre - filtrerApportsCarbone() renvoie donc [] sur

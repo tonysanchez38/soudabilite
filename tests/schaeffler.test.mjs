@@ -7,7 +7,11 @@ import {
 } from "../assets/js/core/iso_ferrite_schaeffler.js";
 import { ferriteSchaeffler, niveauIdeal } from "../assets/js/core/schaeffler.js";
 import { meilleursApports } from "../assets/js/core/selection_apport.js";
-import { candidatsTungstene, creerReglagesAuto, personnaliserReglage, valeursEffectives } from "../assets/js/core/reglages.js";
+import {
+  candidatsTungstene, creerReglagesAuto, personnaliserReglage, valeursEffectives,
+  propagerReglages, recommanderTungstene,
+} from "../assets/js/core/reglages.js";
+import { traduireEnrobage } from "../assets/js/core/prechauffe.js";
 
 const zones = JSON.parse(await readFile(new URL("../assets/data/zones_schaeffler.json", import.meta.url), "utf8"));
 
@@ -51,8 +55,40 @@ const rows = meilleursApports([], "141", {
 });
 assert.equal(rows[0].origine, "manuel");
 
+// Même hors top 7 théorique, la proposition manuelle reste visible avec son
+// rang réel afin de pouvoir la comparer aux meilleurs apports de la banque.
+const banqueFictive = Array.from({ length: 8 }, (_, i) => ({
+  designation: `TIG ${i}`, composition: { x: 22 + i / 100, y: 12 }, procede: "141_TIG",
+}));
+const comparaison = meilleursApports(banqueFictive, "141", {
+  A: {}, B: {}, dA: 0, dB: 0, dC: 1,
+  centre: [22, 12], joint: (_a, _b, c) => c,
+  crEq: identite, niEq: (c) => c.y, ferrite: () => 10,
+  niveauIdeal: () => "ideal", zones: [], zoneS: [], n: 7,
+  apportsSupplementaires: [{ designation: "TIG proposé", composition: { x: 30, y: 12 }, procede: "141_TIG" }],
+  forcerSupplementaires: true,
+});
+assert.equal(comparaison.length, 7);
+assert.equal(comparaison.at(-1).origine, "manuel");
+assert.equal(comparaison.at(-1).rangGlobal, 9);
+
 const auto = creerReglagesAuto({ intensite: 100, tension: 14 });
 assert.deepEqual(valeursEffectives(personnaliserReglage(auto, "intensite", 90)), { intensite: 90, tension: 14 });
 assert.equal(candidatsTungstene([{ diametre_mm: 1.6, plage_courant_A: "70-150" }], { intensite: 100 }).length, 1);
+const propages = propagerReglages(
+  { intensite: 100, tension: 14, vitesse: 20 }, "vitesse", 10, 0.6
+);
+assert.equal(propages.energieNominale, 0.84);
+assert.equal(propages.energieCorrigee, 0.504);
+const depuisQ = propagerReglages(propages, "energieCorrigee", 0.252, 0.6);
+assert.ok(Math.abs(depuisQ.energieNominale - 0.42) < 1e-12);
+assert.ok(Math.abs(depuisQ.vitesse - 20) < 1e-12);
+assert.equal(recommanderTungstene([
+  { designation: "WP Ø1.6", diametre_mm: 1.6, plage_courant_A: "70-150" },
+  { designation: "WC20 Ø1.6", diametre_mm: 1.6, plage_courant_A: "70-150" },
+  { designation: "WL20 Ø1.6", diametre_mm: 1.6, plage_courant_A: "70-150" },
+], { intensite: 100, polarite: "DCEN" }).designation, "WC20 Ø1.6");
+assert.equal(traduireEnrobage("C"), null);
+assert.equal(traduireEnrobage("R"), "rutile");
 
 console.log("Tests Schaeffler : OK");
