@@ -1042,6 +1042,7 @@ table {
 .lg-c { background: #c084fc; }
 .lg-id { background: #3B82F6; }
 .lg-ac { background: #10B981; }
+.lg-amf { background: #94A3B8; }
 .lg-s { background: #FFFFFF; }
 .lg-j { border-bottom-color: #f87171; }
 
@@ -1221,6 +1222,18 @@ table {
 
   .legende {
     grid-template-columns: repeat(2, auto);
+  }
+
+  /* Sur petit écran, conserver une largeur de lecture suffisante pour les
+     repères du diagramme ; le défilement reste contenu dans sa carte. */
+  .schaeffler-zone {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: var(--sp-2);
+  }
+
+  .schaeffler-svg {
+    min-width: 600px;
   }
 
   .hero__titre {

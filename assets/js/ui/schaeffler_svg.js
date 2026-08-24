@@ -120,16 +120,40 @@ const TITRE_MUR_SIGMA =
 // détection géométrique automatique - cf. digitalisation zone_s). Seule
 // A+M+F est concernée : son centroïde standard tombe en plein sur le S.
 const POSITION_LABEL_ZONE = {
-  AMF: [15.5, 7.5],
+  AMF: [16.5, 7.9],
 };
 
 // Halo sombre derrière un texte clair, lisible sur tout fond de zone.
-function halo(txt) {
+function halo(txt, largeur = 3) {
   txt.setAttribute("paint-order", "stroke");
-  txt.setAttribute("stroke", "#0f172a");
-  txt.setAttribute("stroke-width", 3);
+  if (largeur > 0) {
+    txt.setAttribute("stroke", "#0f172a");
+    txt.setAttribute("stroke-width", largeur);
+  }
   txt.setAttribute("stroke-linejoin", "round");
   return txt;
+}
+
+function etiquetteMultiligne(
+  groupe,
+  { x, y, lignes, couleur, taille = 7, interligne = 8, haloLargeur = 2 },
+) {
+  const texte = el("text", {
+    x,
+    y,
+    fill: couleur,
+    "font-size": taille,
+    "font-weight": "700",
+    "text-anchor": "middle",
+    "pointer-events": "none",
+  });
+  lignes.forEach((ligne, index) => {
+    const span = el("tspan", { x, dy: index === 0 ? 0 : interligne });
+    span.textContent = ligne;
+    texte.appendChild(span);
+  });
+  groupe.appendChild(halo(texte, haloLargeur));
+  return texte;
 }
 
 // Crée un diagramme dans un <svg>. Renvoie une API pour mettre à jour les
@@ -192,7 +216,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   svg.appendChild(defs);
 
   // --- Groupe clippé au plot : zones, S, iso-ferrite, bandes, mur sigma ---
-  // Ordre de dessin (fond → avant) : zones métallurgiques → S crème →
+  // Ordre de dessin (fond → avant) : zones métallurgiques → corridor blanc →
   // iso-ferrite → bande verte → bande bleue → mur sigma. Les étiquettes
   // (noms de zone, %, IDÉALE/ACCEPTABLE) sont groupées à part (gEtiquettes)
   // et posées en tout dernier, par-dessus les segments/points de dilution.
@@ -220,16 +244,16 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     gPlan.appendChild(poly);
   }
 
-  // 2. S crème (A+M+F) : repère du corridor triphasé, en retrait derrière
+  // 2. Zone grisée A+M+F : repère triphasé, en retrait derrière
   // les bandes cibles (opacité réduite, pas de trame). Ne déborde pas
-  // visuellement derrière la zone neutre : celle-ci est dessinée après
+  // visuellement derrière le corridor blanc : celui-ci est dessiné après
   // (cf. 2b, plus loin dans le DOM = par-dessus) avec un fond suffisamment
   // opaque (fill-opacity 0.58) pour la recouvrir - pas de découpe
   // géométrique du polygone A+M+F lui-même (cf. régression zigzag corrigée).
   const zoneAMF = zones.zones.find((z) => z.id === "AMF");
   if (zoneAMF) {
     const poly = el("polygon", {
-      points: pts(zoneAMF.polygone), fill: "#F5F0E0", "fill-opacity": 0.55,
+      points: pts(zoneAMF.polygone), fill: zoneAMF.couleur || "#94A3B8", "fill-opacity": 0.62,
       stroke: "#0f172a", "stroke-width": 0.5,
     });
     const titre = el("title");
@@ -252,7 +276,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     return haut.length > 1 && bas.length > 1 ? [...haut, ...bas] : null;
   };
 
-  // 2b. Zone S blanche : calque overlay digitalisé depuis le diagramme papier
+  // 2b. Corridor blanc de sécurité : calque digitalisé depuis le diagramme papier
   // de référence (validé Tony), dessiné par-dessus les zones métallurgiques
   // (silhouette en sablier - lobe haut, pincement, lobe bas). Rendu lissé
   // (Catmull-Rom → Bézier) pour retrouver les courbes organiques d'origine ;
@@ -268,18 +292,28 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     const zoneS = el("path", {
       d: courbeFermee(ptsEcranS),
       fill: "#FFFFFF",
-      "fill-opacity": 0.58, // dernier recours discret, ne domine plus le diagramme
+      "fill-opacity": 0.58, // corridor discret, ne domine plus le diagramme
       stroke: "#0f172a", // même contour sombre que les autres zones
       "stroke-width": 0.9,
       "stroke-dasharray": "2 1.5", // pointillé fin : signale "repère", pas une zone dure
     });
     const titre = el("title");
     titre.textContent =
-      "Zone neutre - interstice de transition du Schaeffler historique. Dernier recours si aucun apport ne place le joint en zone idéale ou acceptable.";
+      "Corridor de sécurité A+M+F - zone admise, classée après le centre de la zone idéale bleue puis la zone acceptable verte.";
     zoneS.appendChild(titre);
     gZoneS.appendChild(zoneS);
     gPlan.appendChild(gZoneS);
   }
+
+  etiquetteMultiligne(gEtiquettes, {
+    x: X(23),
+    y: Y(7.3),
+    lignes: ["CORRIDOR", "DE SÉCURITÉ"],
+    couleur: "#0f172a",
+    taille: 6.8,
+    interligne: 7.8,
+    haloLargeur: 0,
+  });
 
   // 3. Iso-ferrite : polylignes digitalisées, aux pentes distinctes.
   // Étiquetées (0/5/10/15/20 %) au point de sortie du tracé, dans
@@ -426,8 +460,8 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // ACCEPTABLE : toujours déportée (repère franc dans le A+F coloré, à
   // droite/en dessous de la bande bleue) - l'ancrage inline flirtait avec
   // la frontière S/vert selon la géométrie du joint sélectionné.
-  etiquetteBande(meilleureAncreBande(0, 20), "ACCEPTABLE", "#D1FAE5", {
-    deportForce: true, deportDX: 26, deportDY: 14,
+  etiquetteBande(meilleureAncreBande(15, 20), "ACCEPTABLE", "#D1FAE5", {
+    deportForce: true, deportDX: 20, deportDY: 17,
   });
 
   // 6. Mur phase sigma (Cr_eq = 25), pleine hauteur du plot, avec <title>.
@@ -446,6 +480,18 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // sauf override (POSITION_LABEL_ZONE) pour éviter le S blanc / les bandes.
   for (const z of zones.zones) {
     const [cx, cy] = POSITION_LABEL_ZONE[z.id] || centroide(z.polygone);
+    if (z.id === "AMF") {
+      etiquetteMultiligne(gEtiquettes, {
+        x: X(cx),
+        y: Y(cy),
+        lignes: ["AUSTÉNITE + MARTENSITE", "+ FERRITE (A+M+F)"],
+        couleur: "#F8FAFC",
+        taille: 7.2,
+        interligne: 8.2,
+        haloLargeur: 2,
+      });
+      continue;
+    }
     const t = el("text", {
       x: X(cx), y: Y(cy), fill: "#f8fafc", "font-size": 10, "font-weight": 600,
       "text-anchor": "middle", "pointer-events": "none",
@@ -528,7 +574,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
           y: Y(p.ni) + (p.etiquetteDy ?? -8),
           fill: "#ffffff", stroke: "#020617", "stroke-width": 3,
           "paint-order": "stroke", "stroke-linejoin": "round",
-          "font-size": 10, "font-weight": 800,
+          "font-size": p.etiquetteTaille ?? 10, "font-weight": 800,
           "text-anchor": p.etiquetteAncre || "start",
           "pointer-events": "none",
         });

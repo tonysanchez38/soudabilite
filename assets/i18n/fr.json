@@ -223,14 +223,15 @@
     "tp_aucun": "Aucun préchauffe requis",
     "leg_a": "Métal A",
     "leg_b": "Métal B",
-    "leg_dmelange": "D_mélange (barycentre A+B)",
-    "leg_c": "Apport C",
-    "leg_joint": "ZF (JOINT)",
-    "leg_ideale": "Zone idéale (5-15 % ferrite)",
-    "leg_acceptable": "Zone acceptable",
-    "leg_zone_s": "Zone neutre",
+    "leg_dmelange": "Dilution (mélange Métal A + Métal B)",
+    "leg_c": "Métal d'apport",
+    "leg_joint": "Joint",
+    "leg_ideale": "1 — Cible prioritaire : zone idéale (5-15 % ferrite)",
+    "leg_acceptable": "2 — Zone acceptable (bande verte)",
+    "leg_amf": "Zone A+M+F — Austénite + Martensite + Ferrite",
+    "leg_zone_s": "3 — Corridor de sécurité A+M+F (zone blanche)",
     "carte_apports": "Sélection des 7 meilleurs apports",
-    "apports_note": "Classés par zone atteinte (idéale > acceptable > zone neutre), puis par proximité du cœur de cible (Cr_eq ≈ 22.5, Ni_eq ≈ 13). Cliquez une ligne pour placer l'apport et le JOINT sur le diagramme.",
+    "apports_note": "Classés par priorité : centre de la zone idéale bleue, puis zone acceptable verte, puis corridor de sécurité blanc. À niveau égal, la proximité du cœur de cible départage les résultats. Cliquez une ligne pour placer le métal d'apport et le joint sur le diagramme.",
     "apports_vide": "Aucun apport référencé pour ce procédé - utilisez la saisie manuelle.",
     "duplex_indisponible": "Branche duplex/superduplex en cours de validation - la sélection d'apport n'est pas encore proposée pour ces métaux de base.",
     "col_rang": "Rang",
@@ -262,12 +263,12 @@
     "ferrite_hors_domaine": "Ferrite non estimée hors du faisceau d’iso-lignes",
     "val_metalA": "Métal A",
     "val_metalB": "Métal B",
-    "val_apportC": "Apport C",
-    "val_dmelange": "D_mélange",
-    "val_joint": "JOINT",
+    "val_apportC": "Métal d'apport",
+    "val_dmelange": "Dilution",
+    "val_joint": "Joint",
     "verdict_ideal": "Zone idéale",
     "verdict_acceptable": "Zone acceptable",
-    "verdict_zone_s": "Zone neutre",
+    "verdict_zone_s": "Corridor de sécurité",
     "verdict_hors": "Hors zone",
     "risque_austenite": "risque de fissuration à chaud (austénite quasi pure)",
     "risque_martensite": "risque de fissuration à froid (martensite)",
@@ -301,8 +302,8 @@
         "texte": "Cette zone associe la fragilité possible de la martensite et les limites d'une forte proportion de ferrite. Elle est généralement défavorable et demande une vérification attentive du métal d'apport, du refroidissement et des conditions de soudage."
       },
       {
-        "titre": "Zone A+M+F (Le S central)",
-        "texte": "Cette zone de transition contient de l'austénite, de la martensite et de la ferrite. Elle sert de repère intermédiaire sur le diagramme, mais elle est moins favorable que la zone austéno-ferritique recherchée pour de nombreux assemblages inoxydables."
+        "titre": "Zone A+M+F — Austénite + Martensite + Ferrite",
+        "texte": "La zone grisée réunit les trois structures : austénite, martensite et ferrite. Le corridor blanc en forme de S se situe à l'intérieur de cette zone. Il constitue une solution de sécurité admise, mais l'outil privilégie d'abord le centre de la zone bleue, puis la zone verte."
       },
       {
         "titre": "Zone A+F (Austéno-Ferritique)",
@@ -320,20 +321,20 @@
         "texte": "Elle peut apparaître plusieurs heures après le soudage. Elle résulte généralement de la combinaison d'une structure fragile, de contraintes résiduelles et d'hydrogène diffusible. Le préchauffage, le contrôle du refroidissement et l'emploi de consommables à faible hydrogène réduisent ce risque."
       }
     ],
-    "etagement_titre": "L'étagement des trois bandes de sécurité",
-    "etagement_intro": "Comment l'outil détermine les recommandations :",
+    "etagement_titre": "Ordre de priorité des zones",
+    "etagement_intro": "Comment lire le diagramme et le classement :",
     "etagement": [
       {
-        "titre": "La Zone Idéale (Bande Bleue)",
-        "texte": "Cible de l'outil, située entre 5 et 15 % de ferrite delta. Dans cette plage, le compromis est généralement favorable entre la limitation de la fissuration à chaud et le maintien des propriétés mécaniques."
+        "titre": "1 — Zone idéale bleue",
+        "texte": "Cible prioritaire de l'outil, située entre 5 et 15 % de ferrite delta. Le classement privilégie le centre de cette bande, où le compromis est généralement favorable entre la limitation de la fissuration à chaud et le maintien des propriétés mécaniques."
       },
       {
-        "titre": "La Zone Acceptable (Bande Verte)",
+        "titre": "2 — Zone acceptable verte",
         "texte": "Plage élargie de 0 à 20 % de ferrite. Le résultat peut rester utilisable, mais il doit être examiné avec plus de prudence : trop peu de ferrite favorise la fissuration à chaud, tandis qu'une quantité élevée peut dégrader certaines propriétés du joint."
       },
       {
-        "titre": "La Zone Neutre (Le S Crème)",
-        "texte": "Repère correspondant à la zone de transition A+M+F. L'outil l'utilise comme solution de dernier choix lorsqu'aucun métal d'apport proposé ne place le joint dans les zones idéale ou acceptable."
+        "titre": "3 — Corridor de sécurité blanc",
+        "texte": "Ce corridor en forme de S est compris dans la zone A+M+F grisée. Le résultat y reste admis comme solution de repli, après la zone idéale bleue et la zone acceptable verte."
       }
     ]
   },
