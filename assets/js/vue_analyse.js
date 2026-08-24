@@ -73,12 +73,22 @@ function metal(designation, comp, saisieLibre = false) {
   };
 }
 
+function ferriteDisponible(valeur) {
+  return Number.isFinite(valeur);
+}
+
+function texteFerrite(valeur) {
+  return ferriteDisponible(valeur)
+    ? `${valeur.toFixed(1)} ${t("analyse.lbl_ferrite")}`
+    : t("analyse.ferrite_hors_domaine");
+}
+
 function tooltip(m) {
   return [
     m.designation + (m.saisieLibre ? ` ${t("analyse.saisie_libre")}` : ""),
     `${t("analyse.lbl_creq")} ${m.eq.S.cr.toFixed(2)}`,
     `${t("analyse.lbl_nieq")} ${m.eq.S.ni.toFixed(2)}`,
-    `${m.ferrite.toFixed(1)} ${t("analyse.lbl_ferrite")}`,
+    texteFerrite(m.ferrite),
   ];
 }
 
@@ -362,7 +372,7 @@ function majMeilleursApports() {
     tr.dataset.index = String(r.index);
     ajouterCellules(
       tr,
-      [String(i + 1), r.designation, crAff.toFixed(2), niAff.toFixed(2), `${ferAff.toFixed(1)} %`, r.distance.toFixed(2)],
+      [String(i + 1), r.designation, crAff.toFixed(2), niAff.toFixed(2), ferriteDisponible(ferAff) ? `${ferAff.toFixed(1)} %` : "—", r.distance.toFixed(2)],
       [
         t("analyse.col_rang"), t("analyse.col_designation"), t("analyse.col_creq"),
         t("analyse.col_nieq"), t("analyse.col_ferrite"), t("analyse.col_distance"),
@@ -488,7 +498,7 @@ function majSynthese() {
   const J = selectionC.jointMetal;
   const ferJ = J.ferrite;
   const v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, J.comp, ZONES.zones, ZONES.zone_s);
-  const justif = [`${ferJ.toFixed(1)} ${t("analyse.lbl_ferrite")}`];
+  const justif = [texteFerrite(ferJ)];
   const risquesCle = {
     austenite_pure: "analyse.risque_austenite",
     martensite: "analyse.risque_martensite",
