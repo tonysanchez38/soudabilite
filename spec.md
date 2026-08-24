@@ -5,7 +5,9 @@ formule ne doit apparaître qu'ici. Le code des modules JS se contente de
 l'implémenter, en citant la référence.
 
 **Convention** : les compositions sont en pourcentage massique (%wt).
-Les températures en °C. Les épaisseurs en mm. Les énergies en kJ/mm.
+Les températures sont en °C et les épaisseurs en mm. L'énergie peut être
+présentée en kJ/cm, mais l'unité canonique transmise au moteur thermique est
+toujours le kJ/mm (`1 kJ/mm = 10 kJ/cm`).
 
 ## Lecture rapide du moteur actif
 
@@ -158,6 +160,7 @@ Intensité selon épaisseur e (mm) :
 ```
 Acier ferritique : I ≈ 30 · e
 Acier inox :       I ≈ 25 · e
+Soudure d'angle FW : +5 A/mm sur le coefficient précédent
 ```
 
 Tension :
@@ -166,6 +169,21 @@ U = 10 + 0.04 · I     (jusqu'à ~34 V pour très forte intensité)
 ```
 
 Vitesse : 8 à 15 cm/min (indicative).
+
+Pour les aciers ferritiques, inoxydables et leurs assemblages hétérogènes,
+la polarité présélectionnée est DCEN. Le tungstène est recommandé sans agir
+sur le calcul de l'énergie :
+
+- diamètre : première plage de courant de la banque contenant l'intensité ;
+- jusqu'à 150 A : WC20 en priorité, puis WL20/WL15/WR ;
+- au-delà de 150 A : WL20 en priorité, puis WL15/WR/WC20 ;
+- le choix reste modifiable et ne vaut pas qualification de la torche.
+
+Sources fabricant : Miller, *Selecting and Preparing a Tungsten Electrode*,
+table DCEN argon pour acier/inox, et Lincoln Electric, *Tungsten Electrode
+Selection Guide* (cérié faible/moyen courant, lanthané moyen/fort courant).
+https://www.millerwelds.com/files/owners-manuals/O275857P_MIL.pdf
+https://ch-delivery.lincolnelectric.com/api/public/content/4488590b9c8a47fa8ac9d0bdd8e0188f
 
 ### 3.3 MIG (131) / MAG (135)
 
@@ -181,6 +199,20 @@ de fil et de I. **[À VÉRIFIER]** — formule empirique à confirmer.
 
 Source : ta doc « Composition d'un DMOS », section 3.
 
+### 3.4 Modes AUTO et PERSONNALISÉ
+
+- **AUTO** recalcule I, U, Vs, En et Q depuis les seules règles précédentes.
+- **PERSONNALISÉ** autorise la saisie de I, U, Vs, En ou Q.
+- modifier I, U ou Vs recalcule En et Q ; modifier En ou Q résout Vs en
+  conservant I et U. Aucun lien supplémentaire entre I et U n'est imposé.
+- MIG/MAG ne possède pas d'intensité AUTO tant que l'abaque vitesse de fil
+  n'est pas sourcé : l'utilisateur passe en PERSONNALISÉ.
+
+Effets géométriques actifs : la position modifie I uniquement pour EE (§3.1),
+l'assemblage FW modifie I pour EE/TIG, et assemblage/chanfrein modifient la
+suggestion de dilution (§2.3). Aucun facteur thermique de chanfrein n'est
+appliqué tant que la table §4.3 n'est pas validée.
+
 ---
 
 ## 4. Énergie de soudage
@@ -188,6 +220,7 @@ Source : ta doc « Composition d'un DMOS », section 3.
 ### 4.1 Énergie nominale
 ```
 E_n (kJ/cm) = (U · I · 60) / (V_s · 1000)
+E_n (kJ/mm) = E_n (kJ/cm) / 10
 ```
 avec U en volts, I en ampères, V_s en cm/min.
 
@@ -205,6 +238,13 @@ Rendement k (ou η) par procédé :
 | SAW (121)                          | 1.0 |
 
 Source : NF EN 1011-1.
+
+En mode personnalisé, l'inversion utilisée pour une énergie saisie est
+strictement algébrique :
+```
+V_s = U · I · 60 / (E_n[kJ/mm] · 10000)
+E_n = Q / k                si Q est saisi
+```
 
 ### 4.3 Correction géométrie du joint (facteur k_j)
 
@@ -321,6 +361,12 @@ T_p et diamètre d'électrode admissible.
 **[À DIGITALISER]** — table BWRA à intégrer.
 
 Source : ta doc « Méthodes de préchauffe », section C.
+
+La table BWRA disponible ne distingue que les familles **rutile R** et
+**basique B**. Les enrobages cellulosique C, acide A, rutilo-basique RB et
+rutilo-cellulosique RC ne sont jamais assimilés au rutile : BWRA est déclaré
+indisponible et Séférian est affiché en repli, avec avertissement. Aucun taux
+HD fixe n'est inventé sans donnée fabricant du consommable.
 
 ### 6.5 Baus et Chapeau (tôles épaisses, e > 25 mm)
 
@@ -487,9 +533,11 @@ Algorithme actif :
 3. Trier : idéale, acceptable, zone S, hors ; puis distance croissante.
 4. Garder les 7 premiers. Les candidats duplex sont exclus en amont.
 
-Un apport manuel peut être passé dans `apportsSupplementaires` : il traverse
-exactement le même calcul, le même verdict et le même tri, sans modifier la
-banque JSON. Le branchement de ce contrat à l'interface reste une évolution.
+Un apport manuel saisi dans l'interface est passé dans
+`apportsSupplementaires` : il traverse exactement le même calcul, le même
+verdict et le même tri, sans modifier la banque JSON. Son rang réel est
+affiché. S'il est hors du top 7 théorique, il remplace visuellement le dernier
+candidat afin de rester comparable aux meilleurs apports référencés.
 
 ---
 
@@ -530,21 +578,10 @@ Source : ta doc « Système expert », section 2.
 
 ## Annexe A — Points ouverts
 
-### Architecture des prochaines évolutions (inactive)
+### Architecture des prochaines évolutions
 
-- **AUTO / PERSONNALISÉ** : `core/reglages.js` sépare les valeurs automatiques
-  des surcharges utilisateur. Toute propagation entre I, U, vitesse et énergie
-  devra appeler les formules existantes ; aucun couplage nouveau n'est codé
-  sans source.
-- **TIG tungstène** : le même module filtre déjà les plages d'intensité. La
-  présélection par matière et polarité ne deviendra active que lorsque la banque
-  portera ces champs avec une source fabricant/normative. Aujourd'hui, aucun
-  type WP/WL/WC/WT/WZ/WR n'est préféré artificiellement.
-- **Position / assemblage / chanfrein** : effets actifs limités aux règles
-  documentées (§3 et dilution §2.3). Les futurs effets doivent être ajoutés
-  dans les modules métier, avec provenance et tests, jamais dans le contrôleur UI.
-- **Apport manuel** : contrat `apportsSupplementaires` prêt dans
-  `meilleursApports()` pour l'insérer dans le même top 7.
+- **AUTO / PERSONNALISÉ, TIG, géométrie et apport manuel** sont maintenant
+  actifs selon les limites documentées aux §2–4 et §10.
 - **Duplex et WRC-1992** : travaux futurs séparés ; ils ne doivent pas être
   réactivés par un simple drapeau dans le moteur courant.
 

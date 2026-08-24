@@ -22,13 +22,17 @@ import { matiereTIG, estInox } from "./core/aiguillage.js";
 import { dilutionValide, dilutionParDefaut } from "./core/dilution.js";
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ceIIW } from "./core/carbone_eq.js";
-import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260824-points-4";
+import { MODE_REGLAGES, propagerReglages, recommanderTungstene } from "./core/reglages.js";
+import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260824-reglages-3";
 
 let BANQUE = { metaux_base: [], metaux_apport: [], electrodes_tungstene: [] };
 let ZONES = {};
 let comboA = null;
 let comboB = null;
 let comboTungstene = null;
+let modeReglages = MODE_REGLAGES.AUTO;
+let reglagesPersonnalises = null;
+let tungsteneModifieManuel = false;
 
 // Composition manuelle active par rôle. L'apport C est traité dans l'onglet
 // Analyse (résultat Schaeffler), pas ici - cf. CLAUDE.md (architecture Lot 4).
@@ -204,7 +208,6 @@ function majVisibiliteProcede(procede) {
   basculeChamp("tungstene", est("141"));
   // MIG/MAG (131/135) : diamètre de fil + intensité saisie (apport = fil).
   basculeChamp("diametre-fil", migMag);
-  basculeChamp("i-manuel", migMag);
   // Type d'enrobage : électrode enrobée uniquement.
   basculeChamp("enrobage", est("111"));
   centrerVitesseSiSeule();
@@ -227,9 +230,10 @@ function basculeChamp(nom, visible) {
 function onProcedeChange() {
   const procede = $("#procede").value;
   majVisibiliteProcede(procede);
-  // Vitesse indicative pré-remplie (ajustable).
-  const vi = VITESSE_INDICATIVE[procede];
-  if (vi) $("#vitesse").value = String(vi.defaut);
+  modeReglages = MODE_REGLAGES.AUTO;
+  reglagesPersonnalises = null;
+  $("#mode-reglages").value = MODE_REGLAGES.AUTO;
+  tungsteneModifieManuel = false;
   if (!dilutionModifieeManuel) appliquerSuggestionDilution();
   recalculer();
 }
@@ -265,34 +269,129 @@ function calculerIntensite(procede) {
     return intensiteTIG(eCalcul, matiere, $("#assemblage").value);
   }
   // MIG/MAG (131/135) - pas de formule d'intensité (spec.md §3.3) : saisie.
-  return num("#i-manuel");
+  return NaN;
 }
 
-function recalculer() {
+function calculerReglagesAuto(procede) {
+  const I = calculerIntensite(procede);
+  const Vs = VITESSE_INDICATIVE[procede]?.defaut ?? NaN;
+  const U = Number.isFinite(I) && I > 0 ? tension(procede, I) : NaN;
+  const En = Number.isFinite(U) && Vs > 0 ? energieNominale(U, I, Vs).kJ_mm : NaN;
+  const Q = Number.isFinite(En) ? energieCorrigee(En, procede) : NaN;
+  return { intensite: I, tension: U, vitesse: Vs, energieNominale: En, energieCorrigee: Q };
+}
+
+function ecrireChampReglage(id, valeur, decimales = null) {
+  const champ = $(id);
+  if (!champ) return;
+  champ.value = Number.isFinite(valeur)
+    ? (decimales == null ? String(Math.round(valeur)) : valeur.toFixed(decimales))
+    : "";
+}
+
+function afficherChampsReglages(valeurs) {
+  ecrireChampReglage("#reglage-i", valeurs.intensite);
+  ecrireChampReglage("#reglage-u", valeurs.tension, 1);
+  ecrireChampReglage("#vitesse", valeurs.vitesse, 2);
+  ecrireChampReglage("#reglage-en", valeurs.energieNominale, 3);
+  ecrireChampReglage("#reglage-q", valeurs.energieCorrigee, 3);
+  document.querySelectorAll("[data-reglage]").forEach((champ) => {
+    champ.readOnly = modeReglages === MODE_REGLAGES.AUTO;
+  });
+}
+
+function valeursReglages(procede) {
+  if (modeReglages === MODE_REGLAGES.AUTO) return calculerReglagesAuto(procede);
+  if (!reglagesPersonnalises) reglagesPersonnalises = calculerReglagesAuto(procede);
+  return reglagesPersonnalises;
+}
+
+function onModeReglagesChange() {
+  const procede = $("#procede").value;
+  const prochain = $("#mode-reglages").value;
+  if (prochain === MODE_REGLAGES.PERSONNALISE) {
+    reglagesPersonnalises = { ...calculerReglagesAuto(procede) };
+  } else {
+    reglagesPersonnalises = null;
+  }
+  modeReglages = prochain;
+  recalculer();
+}
+
+function onReglageInput(champ) {
+  if (modeReglages !== MODE_REGLAGES.PERSONNALISE) return;
+  const procede = $("#procede").value;
+  const valeur = parseFloat(champ.value);
+  const base = reglagesPersonnalises || calculerReglagesAuto(procede);
+  if (champ.dataset.reglage === "intensite" && !Number.isFinite(Number(base.tension))) {
+    base.tension = tension(procede, valeur);
+  }
+  reglagesPersonnalises = propagerReglages(
+    base,
+    champ.dataset.reglage,
+    valeur,
+    rendement(procede)
+  );
+  afficherChampsReglages(reglagesPersonnalises);
+  recalculer(false);
+}
+
+function majTungstene(procede, I) {
+  const note = document.querySelector("[data-tungstene-conseil]");
+  if (!note || procede !== "141") return;
+  const matiere = matiereTIG(compositionEffective("a").comp, compositionEffective("b").comp);
+  const recommande = recommanderTungstene(BANQUE.electrodes_tungstene, {
+    intensite: I, matiere, polarite: "DCEN",
+  });
+  if (!recommande) {
+    note.textContent = t("parametres.tungstene_indisponible");
+    return;
+  }
+  note.textContent = t("parametres.tungstene_conseil")
+    .replace("{designation}", recommande.designation)
+    .replace("{intensite}", Number(I).toFixed(0));
+  if (!tungsteneModifieManuel) {
+    const index = BANQUE.electrodes_tungstene.indexOf(recommande);
+    if (comboTungstene) comboTungstene.setChoiceByValue(String(index));
+    else $("#tungstene").value = String(index);
+  }
+}
+
+function majAvertissementEnrobage(procede) {
+  const alerte = document.querySelector("[data-enrobage-avertissement]");
+  if (!alerte) return;
+  alerte.hidden = procede !== "111" || ["R", "B"].includes($("#enrobage").value);
+}
+
+function recalculer(rafraichirChamps = true) {
   const procede = $("#procede").value;
   const vide = t("parametres.res_vide");
-
-  const I = calculerIntensite(procede);
-  const Vs = num("#vitesse");
+  const reglages = valeursReglages(procede);
+  if (rafraichirChamps) afficherChampsReglages(reglages);
+  const nombreOuNaN = (valeur) => valeur == null ? NaN : Number(valeur);
+  const I = nombreOuNaN(reglages.intensite);
+  const U = nombreOuNaN(reglages.tension);
+  const Vs = nombreOuNaN(reglages.vitesse);
+  const En = nombreOuNaN(reglages.energieNominale);
+  const Q = nombreOuNaN(reglages.energieCorrigee);
   const k = rendement(procede);
   const iValide = Number.isFinite(I) && I > 0;
+  const uValide = Number.isFinite(U) && U > 0;
   const vsValide = Number.isFinite(Vs) && Vs > 0;
 
-  const U = iValide ? tension(procede, I) : NaN;
-  const En = iValide && vsValide ? energieNominale(U, I, Vs).kJ_mm : NaN;
-  const Q = Number.isFinite(En) ? energieCorrigee(En, procede) : NaN;
-
   poser("I", iValide ? Math.round(I) : vide);
-  poser("U", iValide ? U.toFixed(1) : vide);
-  poser("Vs", vsValide ? String(Vs) : vide);
+  poser("U", uValide ? U.toFixed(1) : vide);
+  poser("Vs", vsValide ? Vs.toFixed(2) : vide);
   poser("En", Number.isFinite(En) ? En.toFixed(3) : vide);
   poser("Q", Number.isFinite(Q) ? Q.toFixed(3) : vide);
   poser("k", k.toFixed(2));
 
   ["a", "b"].forEach(majEquivalents);
   majNoteTigHetero(procede);
+  majTungstene(procede, I);
+  majAvertissementEnrobage(procede);
   validerDilution();
-  majAnalyse(collecterEtat());
+  majAnalyse(collecterEtat(reglages));
 }
 
 // Note « intensité réduite » : TIG avec au moins une base inox (hétérogène).
@@ -306,7 +405,7 @@ function majNoteTigHetero(procede) {
 }
 
 // Snapshot des paramètres transmis à l'onglet Analyse (via sessionStorage).
-function collecterEtat() {
+function collecterEtat(reglages = valeursReglages($("#procede").value)) {
   const donneesRole = (role) => {
     const cfg = ROLES[role];
     const idx = document.getElementById(cfg.selectId)?.value;
@@ -325,6 +424,10 @@ function collecterEtat() {
     dC: num("#dc"),
     epA: num("#ep-a"),
     epB: num("#ep-b"),
+    position: $("#position").value,
+    assemblage: $("#assemblage").value,
+    chanfrein: $("#chanfrein").value,
+    reglages: { mode: modeReglages, ...reglages },
   };
 }
 
@@ -411,7 +514,7 @@ function appliquerSuggestionDilution() {
 
 // --- Valeurs par défaut -------------------------------------------------
 function valeursParDefaut() {
-  $("#vitesse").value = String(VITESSE_INDICATIVE["111"].defaut);
+  $("#mode-reglages").value = MODE_REGLAGES.AUTO;
   appliquerSuggestionDilution();
 }
 
@@ -554,10 +657,18 @@ async function init() {
     valeursParDefaut();
     majVisibiliteProcede("111");
 
-    // Recalcul à chaque modification du formulaire.
-    $("#form-dmos").addEventListener("input", recalculer);
-    $("#form-dmos").addEventListener("change", recalculer);
+    // Recalcul à chaque modification. Les cinq réglages personnalisables
+    // passent par leur propagation algébrique avant le rendu.
+    $("#form-dmos").addEventListener("input", (e) => {
+      if (e.target.matches("[data-reglage]")) onReglageInput(e.target);
+      else recalculer();
+    });
+    $("#form-dmos").addEventListener("change", (e) => {
+      if (!e.target.matches("[data-reglage], #mode-reglages, #procede")) recalculer();
+    });
     $("#procede").addEventListener("change", onProcedeChange);
+    $("#mode-reglages").addEventListener("change", onModeReglagesChange);
+    $("#tungstene").addEventListener("change", () => { tungsteneModifieManuel = true; });
 
     // Ouverture / réinitialisation des blocs de composition manuelle.
     $("#form-dmos").addEventListener("click", (e) => {

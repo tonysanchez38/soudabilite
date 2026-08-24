@@ -151,7 +151,7 @@ export function meilleursApports(
   procedeUI,
   {
     A, B, dA, dB, dC, centre, joint, crEq, niEq, ferrite, niveauIdeal, zones, zoneS,
-    apportsSupplementaires = [],
+    apportsSupplementaires = [], forcerSupplementaires = false,
     n = 7,
   }
 ) {
@@ -159,7 +159,7 @@ export function meilleursApports(
     ...(apports || []).map((a, i) => ({ a, i, origine: "banque" })),
     ...(apportsSupplementaires || []).map((a, i) => ({ a, i: `manuel-${i}`, origine: "manuel" })),
   ];
-  return candidats
+  const classes = candidats
     .filter(({ a }) => compatible(procedeUI, a))
     .map(({ a, i, origine }) => {
       const comp = joint(A, B, a.composition, dA, dB, dC);
@@ -176,5 +176,13 @@ export function meilleursApports(
       };
     })
     .sort((x, y) => x.rangVerdict - y.rangVerdict || x.distance - y.distance)
-    .slice(0, n);
+    .map((row, index) => ({ ...row, rangGlobal: index + 1 }));
+
+  const premiers = classes.slice(0, n);
+  if (!forcerSupplementaires || apportsSupplementaires.length === 0) return premiers;
+  const manuelsHorsTop = classes.filter((r) => r.origine === "manuel" && !premiers.includes(r));
+  if (manuelsHorsTop.length === 0) return premiers;
+  const conserves = premiers.filter((r) => r.origine !== "manuel");
+  return [...conserves.slice(0, Math.max(0, n - manuelsHorsTop.length)), ...manuelsHorsTop]
+    .sort((x, y) => x.rangGlobal - y.rangGlobal);
 }
