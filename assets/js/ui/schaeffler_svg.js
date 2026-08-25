@@ -116,11 +116,11 @@ const TITRE_MUR_SIGMA =
   "Cr_eq = 25 : limite phase sigma - au-delà, précipitation intermétallique fragilisante";
 
 // Étiquette de zone déportée hors centroïde géométrique quand celui-ci
-// tombe sous la zone S blanche ou les bandes cibles (repère métier, pas de
-// détection géométrique automatique - cf. digitalisation zone_s). Seule
-// A+M+F est concernée : son centroïde standard tombe en plein sur le S.
+// tombe sous la zone S blanche, les bandes cibles ou les points dynamiques
+// (repère métier, pas de détection géométrique automatique).
 const POSITION_LABEL_ZONE = {
   AMF: [16.5, 7.9],
+  AF: [31.0, 17.2],
 };
 
 // Halo sombre derrière un texte clair, lisible sur tout fond de zone.

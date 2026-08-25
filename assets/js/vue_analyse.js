@@ -7,7 +7,7 @@
 
 import { t } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260825-sans-cartouche-2";
+import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260825-lecture-apport-3";
 import {
   crEqSchaeffler, niEqSchaeffler,
   crEqDeLong, niEqDeLong,
@@ -309,10 +309,18 @@ function majDiagramme() {
     const J = selectionC.jointMetal;
     // Convention dilution.js/joint() (inchangée) : ZF = C + d·(Mb − C) -
     // ZF est donc géométriquement sur le segment Mb–C, pas de 3e segment.
-    // Le métal d'apport reste identifiable par sa couleur et par la légende.
-    // Son libellé est volontairement retiré du tracé pour ne pas masquer la
-    // zone métallurgique ni le segment de dilution.
-    points.push({ cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc", tooltip: tooltip(C) });
+    points.push({
+      cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc",
+      etiquette: "Métal d'apport", etiquetteTaille: 8.5,
+      etiquetteDx: 9, etiquetteDy: -8, tooltip: tooltip(C),
+    });
+    // La droite complète montre la construction métallurgique entre le
+    // mélange A+B et l'apport. Le segment jaune posé par-dessus indique
+    // seulement la plage de dilution réellement analysée.
+    lignes.push({
+      de: D.pos, a: C.pos, couleur: "#e9d5ff",
+      epaisseur: 1.6, opacite: 0.65, arrondi: true,
+    });
     const plage = selectionC.analysePlage;
     if (plage?.points?.length) {
       const pMin = plage.points[0];
