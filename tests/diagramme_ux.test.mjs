@@ -36,15 +36,16 @@ assert.match(traductions.analyse.heterogene_note, /Le préchauffage n'est pas ca
 const zoneAMF = zones.zones.find((zone) => zone.id === "AMF");
 assert.equal(zoneAMF?.couleur, "#94A3B8");
 
-for (const etiquette of ["Métal A", "Métal B", "Dilution", "Métal d'apport"]) {
+for (const etiquette of ["Métal A", "Métal B", "Dilution"]) {
   assert.ok(vue.includes(`etiquette: \"${etiquette}\"`), `Étiquette dynamique manquante : ${etiquette}`);
 }
+assert.doesNotMatch(vue, /etiquette: "Métal d'apport"/);
 assert.match(rendu, /meilleureAncreBande\(15, 20\), "ACCEPTABLE"/);
 assert.match(rendu, /lignes: \["CORRIDOR", "DE SÉCURITÉ"\]/);
 assert.match(rendu, /\[10, 15, 20\]\.includes\(pct\)/);
-assert.match(parametres, /vue_analyse\.js\?v=20260825-plage-epuree-1/);
+assert.match(parametres, /vue_analyse\.js\?v=20260825-sans-cartouche-2/);
 assert.match(parametres, /core\/energie\.js\?v=20260824-energie-diagramme-2/);
-assert.match(page, /parametres\.js\?v=20260825-plage-epuree-1/);
+assert.match(page, /parametres\.js\?v=20260825-sans-cartouche-2/);
 assert.match(page, /CARTE 2bis[\s\S]*?<section class="carte carte--form" data-carte="zones">/);
 assert.match(vue, /carteZones\.hidden = carbone/);
 assert.match(page, /main\.css\?v=20260824-explication-diagramme-4/);
@@ -53,7 +54,7 @@ assert.match(page, /data-i18n="analyse\.diagramme_difference_limite_texte"/);
 assert.match(page, /data-i18n="analyse\.col_plage"/);
 assert.match(page, /data-i18n="analyse\.col_couverture_ideale"/);
 assert.doesNotMatch(page, /data-plage-aide/);
-assert.match(vue, /schaeffler_svg\.js\?v=20260825-plage-epuree-1/);
+assert.match(vue, /schaeffler_svg\.js\?v=20260825-sans-cartouche-2/);
 assert.doesNotMatch(vue, /cartouches\.push/);
 assert.match(vue, /epaisseur: 14, opacite: 0\.22, arrondi: true/);
 assert.match(vue, /centreCr, ni: centreNi, forme: "triangle"/);
