@@ -554,7 +554,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     return noeud;
   }
 
-  function majDynamique(points = [], lignes = [], cartouches = []) {
+  function majDynamique(points = [], lignes = []) {
     gDyn.replaceChildren();
     for (const l of lignes) {
       const ligne = el("line", {
@@ -564,6 +564,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       if (l.pointille) ligne.setAttribute("stroke-dasharray", "5 4");
       if (l.fleche) ligne.setAttribute("marker-end", `url(#fleche-${idSvg})`);
       if (l.opacite != null) ligne.setAttribute("stroke-opacity", l.opacite);
+      if (l.arrondi) ligne.setAttribute("stroke-linecap", "round");
       gDyn.appendChild(ligne);
     }
     for (const p of points) {
@@ -582,70 +583,6 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
         etiquette.textContent = p.etiquette;
         gDyn.appendChild(etiquette);
       }
-    }
-    for (const cartouche of cartouches) {
-      const ancreX = X(cartouche.ancre[0]);
-      const ancreY = Y(cartouche.ancre[1]);
-      const largeur = 158;
-      const hauteur = 42;
-      const marge = 8;
-      const x = Math.min(
-        Math.max(ancreX - largeur / 2, padL + marge),
-        padL + plotW - largeur - marge,
-      );
-      const y = Math.min(
-        Math.max(ancreY - 92, padT + marge),
-        padT + plotH - hauteur - marge,
-      );
-      const groupe = el("g", {
-        "data-cartouche": "plage",
-        role: "img",
-        "aria-label": `${cartouche.titre}. ${cartouche.detail}`,
-      });
-      groupe.appendChild(el("line", {
-        x1: x + largeur / 2,
-        y1: y + hauteur,
-        x2: ancreX,
-        y2: ancreY - 7,
-        stroke: "#facc15",
-        "stroke-width": 1.4,
-        "vector-effect": "non-scaling-stroke",
-      }));
-      groupe.appendChild(el("rect", {
-        x,
-        y,
-        width: largeur,
-        height: hauteur,
-        rx: 6,
-        fill: "#0f172a",
-        "fill-opacity": 0.96,
-        stroke: "#facc15",
-        "stroke-width": 1.2,
-        "vector-effect": "non-scaling-stroke",
-      }));
-      const titre = el("text", {
-        x: x + largeur / 2,
-        y: y + 16,
-        fill: "#facc15",
-        "font-size": 9,
-        "font-weight": 800,
-        "text-anchor": "middle",
-        "pointer-events": "none",
-      });
-      titre.textContent = cartouche.titre.toUpperCase();
-      groupe.appendChild(titre);
-      const detail = el("text", {
-        x: x + largeur / 2,
-        y: y + 31,
-        fill: "#ffffff",
-        "font-size": 10,
-        "font-weight": 800,
-        "text-anchor": "middle",
-        "pointer-events": "none",
-      });
-      detail.textContent = cartouche.detail;
-      groupe.appendChild(detail);
-      gDyn.appendChild(groupe);
     }
   }
 

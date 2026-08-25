@@ -25,7 +25,7 @@ import { dilutionValide, dilutionParDefaut } from "./core/dilution.js?v=20260825
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ceIIW } from "./core/carbone_eq.js";
 import { MODE_REGLAGES, propagerReglages, recommanderTungstene } from "./core/reglages.js";
-import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260825-plage-lisible-1";
+import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260825-plage-epuree-1";
 
 let BANQUE = { metaux_base: [], metaux_apport: [], electrodes_tungstene: [] };
 let ZONES = {};
