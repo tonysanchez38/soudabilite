@@ -1,2 +1,2 @@
 # soudabilite
-Description : Calculateur de Soudabilité — Aide au DMOS
+Description : Calculateur de Soudabilité - Aide au DMOS
