@@ -30,6 +30,9 @@ assert.equal(traductions.analyse.carte_apports, "Sélection des 7 apports les pl
 assert.equal(traductions.analyse.col_plage, "Plage testée");
 assert.equal(traductions.analyse.col_couverture_ideale, "Part en zone idéale");
 assert.equal(traductions.analyse.plage_ideal, "Idéal sur toute la plage");
+assert.equal(traductions.analyse.plage_diagramme_titre, "Plage {procede} analysée");
+assert.match(traductions.analyse.plage_diagramme_aide, /segment jaune/);
+assert.match(traductions.analyse.point_affiche, /dilution retenue/);
 assert.match(traductions.analyse.heterogene_note, /Le préchauffage n'est pas calculé/);
 
 const zoneAMF = zones.zones.find((zone) => zone.id === "AMF");
@@ -41,9 +44,9 @@ for (const etiquette of ["Métal A", "Métal B", "Dilution", "Métal d'apport", 
 assert.match(rendu, /meilleureAncreBande\(15, 20\), "ACCEPTABLE"/);
 assert.match(rendu, /lignes: \["CORRIDOR", "DE SÉCURITÉ"\]/);
 assert.match(rendu, /\[10, 15, 20\]\.includes\(pct\)/);
-assert.match(parametres, /vue_analyse\.js\?v=20260825-plage-dilution-2/);
+assert.match(parametres, /vue_analyse\.js\?v=20260825-plage-lisible-1/);
 assert.match(parametres, /core\/energie\.js\?v=20260824-energie-diagramme-2/);
-assert.match(page, /parametres\.js\?v=20260825-plage-dilution-2/);
+assert.match(page, /parametres\.js\?v=20260825-plage-lisible-1/);
 assert.match(page, /CARTE 2bis[\s\S]*?<section class="carte carte--form" data-carte="zones">/);
 assert.match(vue, /carteZones\.hidden = carbone/);
 assert.match(page, /main\.css\?v=20260824-explication-diagramme-4/);
@@ -51,7 +54,14 @@ assert.match(page, /<details class="diagramme-explication">/);
 assert.match(page, /data-i18n="analyse\.diagramme_difference_limite_texte"/);
 assert.match(page, /data-i18n="analyse\.col_plage"/);
 assert.match(page, /data-i18n="analyse\.col_couverture_ideale"/);
-assert.match(vue, /schaeffler_svg\.js\?v=20260825-plage-dilution-1/);
+assert.match(page, /data-plage-aide/);
+assert.match(vue, /schaeffler_svg\.js\?v=20260825-plage-lisible-1/);
+assert.match(vue, /cartouches\.push/);
+assert.match(vue, /plage_borne_basse/);
+assert.doesNotMatch(vue, /etiquette:\s*`\$\{Math\.round\(plage\.(?:min|max)/);
+assert.match(rendu, /majDynamique\(points = \[\], lignes = \[\], cartouches = \[\]\)/);
+assert.match(rendu, /"data-cartouche": "plage"/);
+assert.match(rendu, /pointerType === "touch"/);
 assert.match(rendu, /iso_ferrite_schaeffler\.js\?v=20260824-energie-diagramme-2/);
 assert.doesNotMatch(styles, /min-width:\s*600px/);
 assert.match(styles, /\[data-carte="diagramme"\]\s*\{[^}]*padding-inline:\s*var\(--sp-3\)/s);

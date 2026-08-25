@@ -7,7 +7,7 @@
 
 import { t } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260825-plage-dilution-1";
+import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260825-plage-lisible-1";
 import {
   crEqSchaeffler, niEqSchaeffler,
   crEqDeLong, niEqDeLong,
@@ -22,6 +22,21 @@ import { ceqBWRA, tpBWRA } from "./core/bwra.js";
 import { choisirMethodePreachauffe, MESSAGES_METHODE, calculerCeqCompense, traduireEnrobage } from "./core/prechauffe.js";
 
 const $ = (s) => document.querySelector(s);
+
+const PROCEDES_COURTS = {
+  "111": "EE",
+  "141": "TIG",
+  "131": "MIG",
+  "135": "MAG",
+};
+
+function texteModele(cle, valeurs = {}) {
+  let texte = t(cle) || "";
+  for (const [nom, valeur] of Object.entries(valeurs)) {
+    texte = texte.replaceAll(`{${nom}}`, String(valeur));
+  }
+  return texte;
+}
 
 // Zone S (dernier recours) : overlay digitalisé du diagramme papier de
 // référence - cf. schaeffler_svg.js / core/schaeffler.js (niveauIdeal).
@@ -286,6 +301,12 @@ function initDiagramme() {
 }
 
 function majDiagramme() {
+  const cartouches = [];
+  const aidePlage = $("[data-plage-aide]");
+  if (aidePlage) {
+    aidePlage.hidden = true;
+    aidePlage.textContent = "";
+  }
   const points = [
     { cr: A.pos[0], ni: A.pos[1], forme: "cercle", couleur: "#4ade80", etiquette: "Métal A", etiquetteTaille: 8.5, tooltip: tooltip(A) },
     {
@@ -302,30 +323,44 @@ function majDiagramme() {
     // Convention dilution.js/joint() (inchangée) : ZF = C + d·(Mb − C) -
     // ZF est donc géométriquement sur le segment Mb–C, pas de 3e segment.
     points.push({ cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc", etiquette: "Métal d'apport", etiquetteTaille: 8.5, tooltip: tooltip(C) });
-    points.push({
-      cr: J.pos[0], ni: J.pos[1], forme: "triangle", couleur: "#f87171", tooltip: tooltip(J),
-      etiquette: "Joint", etiquetteTaille: 8.5,
-    });
     lignes.push({ de: D.pos, a: C.pos, couleur: "#facc15", epaisseur: 1.2 });
     const plage = selectionC.analysePlage;
     if (plage?.points?.length) {
       const pMin = plage.points[0];
       const pMax = plage.points.at(-1);
+      const minPct = Math.round(plage.min * 100);
+      const maxPct = Math.round(plage.max * 100);
+      const procede = PROCEDES_COURTS[ETAT.procede] || ETAT.procede;
       lignes.push({
         de: [pMin.crEq, pMin.niEq], a: [pMax.crEq, pMax.niEq],
         couleur: "#facc15", epaisseur: 4,
       });
       points.push({
         cr: pMin.crEq, ni: pMin.niEq, forme: "cercle", couleur: "#facc15",
-        etiquette: `${Math.round(plage.min * 100)} %`, etiquetteTaille: 8,
+        tooltip: [texteModele("analyse.plage_borne_basse", { valeur: minPct })],
       });
       points.push({
         cr: pMax.crEq, ni: pMax.niEq, forme: "cercle", couleur: "#facc15",
-        etiquette: `${Math.round(plage.max * 100)} %`, etiquetteTaille: 8,
+        tooltip: [texteModele("analyse.plage_borne_haute", { valeur: maxPct })],
       });
+      cartouches.push({
+        ancre: [(pMin.crEq + pMax.crEq) / 2, (pMin.niEq + pMax.niEq) / 2],
+        titre: texteModele("analyse.plage_diagramme_titre", { procede }),
+        detail: texteModele("analyse.plage_diagramme_detail", { min: minPct, max: maxPct }),
+      });
+      if (aidePlage) {
+        aidePlage.textContent = texteModele("analyse.plage_diagramme_aide", { min: minPct, max: maxPct });
+        aidePlage.hidden = false;
+      }
     }
+    // Le joint est ajouté en dernier pour rester visible lorsqu'il coïncide
+    // avec une borne de la plage de dilution.
+    points.push({
+      cr: J.pos[0], ni: J.pos[1], forme: "triangle", couleur: "#f87171", tooltip: tooltip(J),
+      etiquette: "Joint", etiquetteTaille: 8.5,
+    });
   }
-  diagPrincipal.majDynamique(points, lignes);
+  diagPrincipal.majDynamique(points, lignes, cartouches);
 }
 
 // --- Tableau des 7 apports les plus robustes ----------------------------
@@ -560,6 +595,11 @@ function majSynthese() {
       : texteFerrite(ferJ),
   ];
   if (analyse) justif.push(texteFerrite(ferJ));
+  if (analyse) {
+    justif.splice(1, 0, texteModele("analyse.point_affiche", {
+      valeur: Math.round((dA + dB) * 100),
+    }));
+  }
   const risquesCle = {
     austenite_pure: "analyse.risque_austenite",
     martensite: "analyse.risque_martensite",

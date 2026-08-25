@@ -554,7 +554,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     return noeud;
   }
 
-  function majDynamique(points = [], lignes = []) {
+  function majDynamique(points = [], lignes = [], cartouches = []) {
     gDyn.replaceChildren();
     for (const l of lignes) {
       const ligne = el("line", {
@@ -583,6 +583,70 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
         gDyn.appendChild(etiquette);
       }
     }
+    for (const cartouche of cartouches) {
+      const ancreX = X(cartouche.ancre[0]);
+      const ancreY = Y(cartouche.ancre[1]);
+      const largeur = 158;
+      const hauteur = 42;
+      const marge = 8;
+      const x = Math.min(
+        Math.max(ancreX - largeur / 2, padL + marge),
+        padL + plotW - largeur - marge,
+      );
+      const y = Math.min(
+        Math.max(ancreY - 92, padT + marge),
+        padT + plotH - hauteur - marge,
+      );
+      const groupe = el("g", {
+        "data-cartouche": "plage",
+        role: "img",
+        "aria-label": `${cartouche.titre}. ${cartouche.detail}`,
+      });
+      groupe.appendChild(el("line", {
+        x1: x + largeur / 2,
+        y1: y + hauteur,
+        x2: ancreX,
+        y2: ancreY - 7,
+        stroke: "#facc15",
+        "stroke-width": 1.4,
+        "vector-effect": "non-scaling-stroke",
+      }));
+      groupe.appendChild(el("rect", {
+        x,
+        y,
+        width: largeur,
+        height: hauteur,
+        rx: 6,
+        fill: "#0f172a",
+        "fill-opacity": 0.96,
+        stroke: "#facc15",
+        "stroke-width": 1.2,
+        "vector-effect": "non-scaling-stroke",
+      }));
+      const titre = el("text", {
+        x: x + largeur / 2,
+        y: y + 16,
+        fill: "#facc15",
+        "font-size": 9,
+        "font-weight": 800,
+        "text-anchor": "middle",
+        "pointer-events": "none",
+      });
+      titre.textContent = cartouche.titre.toUpperCase();
+      groupe.appendChild(titre);
+      const detail = el("text", {
+        x: x + largeur / 2,
+        y: y + 31,
+        fill: "#ffffff",
+        "font-size": 10,
+        "font-weight": 800,
+        "text-anchor": "middle",
+        "pointer-events": "none",
+      });
+      detail.textContent = cartouche.detail;
+      groupe.appendChild(detail);
+      gDyn.appendChild(groupe);
+    }
   }
 
   // Marqueur de flèche (défini une fois).
@@ -595,13 +659,31 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
 
 // Attache une infobulle (survol) à un nœud SVG.
 function attacherInfobulle(noeud, lignes, bulle) {
+  let masqueurTouch = null;
   const afficher = (e) => {
     bulle.textContent = lignes.join("\n");
     bulle.hidden = false;
     bulle.style.left = `${e.clientX + 12}px`;
     bulle.style.top = `${e.clientY + 12}px`;
   };
+  noeud.setAttribute("tabindex", "0");
+  noeud.setAttribute("role", "img");
+  noeud.setAttribute("aria-label", lignes.join(". "));
   noeud.addEventListener("pointerenter", afficher);
   noeud.addEventListener("pointermove", afficher);
-  noeud.addEventListener("pointerleave", () => (bulle.hidden = true));
+  noeud.addEventListener("pointerdown", (e) => {
+    afficher(e);
+    if (e.pointerType === "touch") {
+      clearTimeout(masqueurTouch);
+      masqueurTouch = setTimeout(() => (bulle.hidden = true), 3000);
+    }
+  });
+  noeud.addEventListener("pointerleave", (e) => {
+    if (e.pointerType !== "touch") bulle.hidden = true;
+  });
+  noeud.addEventListener("focus", () => {
+    const rect = noeud.getBoundingClientRect();
+    afficher({ clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2 });
+  });
+  noeud.addEventListener("blur", () => (bulle.hidden = true));
 }
