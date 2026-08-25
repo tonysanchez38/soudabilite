@@ -41,9 +41,11 @@ for (const etiquette of ["Métal A", "Métal B", "Dilution", "Métal d'apport", 
 assert.match(rendu, /meilleureAncreBande\(15, 20\), "ACCEPTABLE"/);
 assert.match(rendu, /lignes: \["CORRIDOR", "DE SÉCURITÉ"\]/);
 assert.match(rendu, /\[10, 15, 20\]\.includes\(pct\)/);
-assert.match(parametres, /vue_analyse\.js\?v=20260825-plage-dilution-1/);
+assert.match(parametres, /vue_analyse\.js\?v=20260825-plage-dilution-2/);
 assert.match(parametres, /core\/energie\.js\?v=20260824-energie-diagramme-2/);
-assert.match(page, /parametres\.js\?v=20260825-plage-dilution-1/);
+assert.match(page, /parametres\.js\?v=20260825-plage-dilution-2/);
+assert.match(page, /CARTE 2bis[\s\S]*?<section class="carte carte--form" data-carte="zones">/);
+assert.match(vue, /carteZones\.hidden = carbone/);
 assert.match(page, /main\.css\?v=20260824-explication-diagramme-4/);
 assert.match(page, /<details class="diagramme-explication">/);
 assert.match(page, /data-i18n="analyse\.diagramme_difference_limite_texte"/);

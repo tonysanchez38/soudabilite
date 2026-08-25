@@ -157,6 +157,7 @@ function majModeAffichage() {
   const carteDiagramme = $("[data-carte=diagramme]");
   const carteSynthese = $("[data-carte=synthese]");
   const carteCarbone = $("[data-carte=carbone]");
+  const carteZones = $("[data-carte=zones]");
   const noteHeterogene = $("[data-heterogene-note]");
   const intro = $("[data-analyse-intro]");
 
@@ -164,6 +165,7 @@ function majModeAffichage() {
   if (carteDiagramme) carteDiagramme.hidden = carbone;
   if (carteSynthese) carteSynthese.hidden = carbone;
   if (carteCarbone) carteCarbone.hidden = !carbone;
+  if (carteZones) carteZones.hidden = carbone;
   if (noteHeterogene) noteHeterogene.hidden = MODE.type !== "heterogene";
   // Sous-titre de la section : reflète la branche active (Schaeffler pour
   // inox/hétérogène, préchauffe pour carbone) - jamais un texte générique
