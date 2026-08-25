@@ -5,8 +5,13 @@ import {
   ligneIso,
   ordonneeIso,
 } from "../assets/js/core/iso_ferrite_schaeffler.js";
-import { ferriteSchaeffler, niveauIdeal } from "../assets/js/core/schaeffler.js";
+import {
+  ferriteSchaeffler, niveauIdeal, verdictSchaeffler,
+} from "../assets/js/core/schaeffler.js";
 import { meilleursApports } from "../assets/js/core/selection_apport.js";
+import { joint, dilutionValide, plageDilution } from "../assets/js/core/dilution.js";
+import { crEqSchaeffler, niEqSchaeffler } from "../assets/js/core/equivalents.js";
+import { aiguille } from "../assets/js/core/aiguillage.js";
 import {
   candidatsTungstene, creerReglagesAuto, personnaliserReglage, valeursEffectives,
   propagerReglages, recommanderTungstene,
@@ -17,6 +22,7 @@ import {
 } from "../assets/js/core/energie.js";
 
 const zones = JSON.parse(await readFile(new URL("../assets/data/zones_schaeffler.json", import.meta.url), "utf8"));
+const banque = JSON.parse(await readFile(new URL("../assets/data/data.json", import.meta.url), "utf8"));
 
 assert.deepEqual(ISO_FERRITE_SCHAEFFLER.slice(0, 5).map((l) => l.pct), [0, 5, 10, 15, 20]);
 
@@ -51,6 +57,52 @@ assert.equal(niveauIdeal(22, 12, zones.zones, zones.zone_s), "ideal");
 assert.equal(niveauIdeal(24, 12, zones.zones, zones.zone_s), "acceptable");
 assert.equal(niveauIdeal(24, 10, zones.zones, zones.zone_s), "hors");
 assert.equal(niveauIdeal(25.1, 13, zones.zones, zones.zone_s), "hors");
+
+assert.deepEqual(plageDilution("141"), { min: 0.15, max: 0.30 });
+assert.deepEqual(plageDilution("111"), { min: 0.10, max: 0.35 });
+assert.equal(dilutionValide(0.08, 0.08, 0.84), true);
+assert.equal(dilutionValide(0.5, 0.5, 0.5), false);
+
+// En zone acceptable, aucun risque de fissuration n'est ajouté. En zone
+// A+M hors des zones admises, le risque froid remplace le faux risque chaud.
+assert.deepEqual(verdictSchaeffler(24, 12, {}, zones.zones, zones.zone_s).risques, []);
+
+const p265 = banque.metaux_base.find((m) => m.designation.startsWith("P265GH"));
+const inox316 = banque.metaux_base.find((m) => m.designation.startsWith("316 L"));
+const apport309 = banque.metaux_apport.find((m) => m.designation === "INERTROD 309L Si");
+const jointFortementDilue = joint(
+  p265.composition, inox316.composition, apport309.composition, 0.35, 0.35, 0.30
+);
+const crFort = crEqSchaeffler(jointFortementDilue);
+const niFort = niEqSchaeffler(jointFortementDilue);
+const risquesForteDilution = verdictSchaeffler(
+  crFort, niFort, jointFortementDilue, zones.zones, zones.zone_s
+).risques;
+assert.equal(risquesForteDilution.includes("martensite"), true);
+assert.equal(risquesForteDilution.includes("austenite_pure"), false);
+assert.equal(ferriteSchaeffler(crFort, niFort, zones.zones), null);
+
+// L'assemblage hétérogène reste volontairement sur Schaeffler. Le carbone
+// homogène conserve la branche thermique de préchauffage.
+assert.deepEqual(aiguille(p265.composition, inox316.composition).branches, ["schaeffler"]);
+assert.deepEqual(aiguille(p265.composition, p265.composition).branches, ["thermique"]);
+
+// Cas de référence de l'interface : le 309L Si reste idéal sur toute la
+// plage TIG 15 à 30 %. Les apports sensibles sont rétrogradés par leur pire
+// verdict, même si le point de dilution saisi est favorable.
+const classementPlage = meilleursApports(banque.metaux_apport, "141", {
+  A: p265.composition, B: inox316.composition, dA: 0.08, dB: 0.08, dC: 0.84,
+  centre: zones.centre_ideal, joint,
+  crEq: crEqSchaeffler, niEq: niEqSchaeffler, ferrite: ferriteSchaeffler,
+  niveauIdeal, zones: zones.zones, zoneS: zones.zone_s,
+  plageDilution: plageDilution("141"), n: 218,
+});
+assert.equal(classementPlage[0].designation, "INERTROD 309L Si");
+assert.equal(classementPlage[0].analysePlage.niveauPire, "ideal");
+assert.equal(classementPlage[0].analysePlage.couvertureIdeale, 100);
+const altig316 = classementPlage.find((r) => r.designation === "ALTIG 316L");
+assert.equal(altig316.analysePlage.niveauPire, "hors");
+assert.ok(altig316.analysePlage.couvertureSecurisee < 100);
 
 // Un apport manuel emprunte exactement le même pipeline et peut entrer dans
 // les sept premiers sans être injecté dans la banque persistante.

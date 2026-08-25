@@ -21,11 +21,11 @@ import {
   VITESSE_INDICATIVE,
 } from "./core/energie.js?v=20260824-energie-diagramme-2";
 import { matiereTIG, estInox } from "./core/aiguillage.js";
-import { dilutionValide, dilutionParDefaut } from "./core/dilution.js";
+import { dilutionValide, dilutionParDefaut } from "./core/dilution.js?v=20260825-plage-dilution-1";
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ceIIW } from "./core/carbone_eq.js";
 import { MODE_REGLAGES, propagerReglages, recommanderTungstene } from "./core/reglages.js";
-import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260824-energie-diagramme-2";
+import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260825-plage-dilution-1";
 
 let BANQUE = { metaux_base: [], metaux_apport: [], electrodes_tungstene: [] };
 let ZONES = {};

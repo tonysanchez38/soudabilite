@@ -11,7 +11,14 @@
 import { ISO_FERRITE_SCHAEFFLER, ordonneeIso } from "./iso_ferrite_schaeffler.js";
 
 // % ferrite estimé pour un point (Cr_eq, Ni_eq) par interpolation linéaire.
-export function ferriteSchaeffler(crEq, niEq) {
+export function ferriteSchaeffler(crEq, niEq, zones = null) {
+  // Quand la géométrie est disponible, les iso-ferrite ne sont lues que
+  // dans la zone austéno-ferritique. Ailleurs, un chiffre créerait une
+  // fausse précision.
+  if (Array.isArray(zones)) {
+    const af = zones.find((z) => z.id === "AF");
+    if (!af || !pointDansPolygone([crEq, niEq], af.polygone)) return null;
+  }
   const disponibles = ISO_FERRITE_SCHAEFFLER
     .map((ligne) => ({ pct: ligne.pct, ni: ordonneeIso(ligne, crEq) }))
     .filter((x) => x.ni != null);
@@ -95,16 +102,14 @@ export function verdictSchaeffler(crEq, niEq, comp, zones, zoneS) {
 
   const zone = classifieZone(crEq, niEq, zones);
   const risques = [];
-  const fer = ferriteSchaeffler(crEq, niEq);
-  // Fissuration à chaud : zone A pure, OU ferrite < 5 % (borne basse de la
-  // bande idéale, déjà sourcée - cf. niveauIdeal ci-dessus) même en zone
-  // A+F. Un joint à 0,5 % de ferrite reste exposé au risque austénitique
-  // pur, quelle que soit la classification de zone (CLAUDE.md #30).
-  if (zone === "A" || (fer != null && fer < 5)) risques.push("austenite_pure");
-  const ms = msWalkerGooch(comp);
-  if (ms >= 100 && ms <= 300) risques.push("martensite"); // fissuration à froid
-  if (crEq > 25) risques.push("sigma"); // fragilisation phase sigma
-  if (zone === "F") risques.push("grossissement_grain"); // grain grossier en ferrite pure
+  // Les zones validées par Tony ne portent pas d'alerte de fissuration.
+  // Hors de ces zones, le type de risque vient de la zone métallurgique,
+  // sans extrapoler la ferrite ni utiliser Ms comme verdict autonome.
+  if (["ideal", "acceptable", "zone_s"].includes(niveau)) return { niveau, risques };
+  if (zone === "A") risques.push("austenite_pure");
+  if (["AM", "M", "MF", "AMF"].includes(zone)) risques.push("martensite");
+  if (crEq > 25) risques.push("sigma");
+  if (zone === "F") risques.push("grossissement_grain");
 
   return { niveau, risques };
 }

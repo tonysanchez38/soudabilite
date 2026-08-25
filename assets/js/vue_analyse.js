@@ -7,16 +7,16 @@
 
 import { t } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260824-energie-diagramme-2";
+import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260825-plage-dilution-1";
 import {
   crEqSchaeffler, niEqSchaeffler,
   crEqDeLong, niEqDeLong,
 } from "./core/equivalents.js";
-import { joint, melangeBases } from "./core/dilution.js";
-import { ferriteSchaeffler, verdictSchaeffler, niveauIdeal } from "./core/schaeffler.js";
-import { meilleursApports } from "./core/selection_apport.js";
+import { joint, melangeBases, plageDilution } from "./core/dilution.js?v=20260825-plage-dilution-1";
+import { ferriteSchaeffler, verdictSchaeffler, niveauIdeal } from "./core/schaeffler.js?v=20260825-plage-dilution-1";
+import { meilleursApports } from "./core/selection_apport.js?v=20260825-plage-dilution-1";
 import { estDuplex } from "./core/perimetre.js";
-import { aiguille } from "./core/aiguillage.js";
+import { aiguille } from "./core/aiguillage.js?v=20260825-plage-dilution-1";
 import { ceIIW, ceqSeferian, tpSeferian } from "./core/carbone_eq.js";
 import { ceqBWRA, tpBWRA } from "./core/bwra.js";
 import { choisirMethodePreachauffe, MESSAGES_METHODE, calculerCeqCompense, traduireEnrobage } from "./core/prechauffe.js";
@@ -26,7 +26,7 @@ const $ = (s) => document.querySelector(s);
 // Zone S (dernier recours) : overlay digitalisé du diagramme papier de
 // référence - cf. schaeffler_svg.js / core/schaeffler.js (niveauIdeal).
 const TITRE_ZONE_S =
-  "Corridor de sécurité A+M+F - zone admise, priorisée après le centre de la zone bleue puis la zone verte.";
+  "Corridor de sécurité A+M+F - zone admise après la zone idéale puis la zone acceptable.";
 
 // Titre (tooltip) du badge verdict : source duplex si applicable, sinon
 // rappel zone S si le niveau retourné est ce dernier recours.
@@ -73,7 +73,7 @@ function metal(designation, comp, saisieLibre = false) {
     saisieLibre,
     comp,
     eq,
-    ferrite: ferriteSchaeffler(eq.S.cr, eq.S.ni),
+    ferrite: ferriteSchaeffler(eq.S.cr, eq.S.ni, ZONES.zones),
     pos: [eq.S.cr, eq.S.ni],
   };
 }
@@ -305,11 +305,28 @@ function majDiagramme() {
       etiquette: "Joint", etiquetteTaille: 8.5,
     });
     lignes.push({ de: D.pos, a: C.pos, couleur: "#facc15", epaisseur: 1.2 });
+    const plage = selectionC.analysePlage;
+    if (plage?.points?.length) {
+      const pMin = plage.points[0];
+      const pMax = plage.points.at(-1);
+      lignes.push({
+        de: [pMin.crEq, pMin.niEq], a: [pMax.crEq, pMax.niEq],
+        couleur: "#facc15", epaisseur: 4,
+      });
+      points.push({
+        cr: pMin.crEq, ni: pMin.niEq, forme: "cercle", couleur: "#facc15",
+        etiquette: `${Math.round(plage.min * 100)} %`, etiquetteTaille: 8,
+      });
+      points.push({
+        cr: pMax.crEq, ni: pMax.niEq, forme: "cercle", couleur: "#facc15",
+        etiquette: `${Math.round(plage.max * 100)} %`, etiquetteTaille: 8,
+      });
+    }
   }
   diagPrincipal.majDynamique(points, lignes);
 }
 
-// --- Tableau des 7 meilleurs apports ------------------------------------
+// --- Tableau des 7 apports les plus robustes ----------------------------
 function majMeilleursApports() {
   const carteApports = $("[data-carte=apports]");
   const corps = $("[data-liste=apports]");
@@ -343,7 +360,7 @@ function majMeilleursApports() {
   if (noteApports) noteApports.hidden = false;
   if (messageIndispo) messageIndispo.hidden = true;
 
-  // Classement : verdict puis distance au centre. Les candidats duplex sont
+  // Classement sur toute la plage du procédé. Les candidats duplex sont
   // exclus car cette famille est hors périmètre du moteur actuel.
   const apportsVisibles = (BANQUE.metaux_apport || []).filter((a) => !estDuplex(a.designation));
 
@@ -354,13 +371,14 @@ function majMeilleursApports() {
     niveauIdeal, zones: ZONES.zones, zoneS: ZONES.zone_s,
     apportsSupplementaires: apportManuel ? [apportManuel] : [],
     forcerSupplementaires: true,
+    plageDilution: plageDilution(ETAT.procede),
     n: 7,
   });
 
   if (rows.length === 0) {
     const tr = document.createElement("tr");
     const td = document.createElement("td");
-    td.colSpan = 7;
+    td.colSpan = 5;
     td.className = "note";
     td.textContent = t("analyse.apports_vide");
     tr.appendChild(td);
@@ -369,12 +387,9 @@ function majMeilleursApports() {
     return;
   }
 
-  let uneIdeale = false;
+  let uneRobuste = false;
   rows.forEach((r) => {
-    const crAff = r.crEq;
-    const niAff = r.niEq;
-    const ferAff = r.ferrite;
-    const v = verdictSchaeffler(r.crEq, r.niEq, r.joint, ZONES.zones, ZONES.zone_s);
+    const analyse = r.analysePlage;
     const tr = document.createElement("tr");
     tr.className = "apport-ligne";
     tr.tabIndex = 0;
@@ -384,27 +399,50 @@ function majMeilleursApports() {
       [
         String(r.rangGlobal),
         r.origine === "manuel" ? `${r.designation} · ${t("analyse.apport_manuel_badge")}` : r.designation,
-        crAff.toFixed(2), niAff.toFixed(2),
-        ferriteDisponible(ferAff) ? `${ferAff.toFixed(1)} %` : "—", r.distance.toFixed(2),
+        textePlage(analyse),
+        `${Math.round(analyse?.couvertureIdeale ?? 0)} %`,
       ],
       [
-        t("analyse.col_rang"), t("analyse.col_designation"), t("analyse.col_creq"),
-        t("analyse.col_nieq"), t("analyse.col_ferrite"), t("analyse.col_distance"),
+        t("analyse.col_rang"), t("analyse.col_designation"),
+        t("analyse.col_plage"), t("analyse.col_couverture_ideale"),
       ]
     );
-    if (v.niveau === "ideal") uneIdeale = true;
+    if (analyse?.robuste) uneRobuste = true;
     const tdV = document.createElement("td");
     tdV.dataset.label = t("analyse.col_verdict");
-    tdV.appendChild(badgeVerdict(v.niveau, titreVerdict(v), noteLimiteFerrite(ferAff)));
+    tdV.appendChild(badgeVerdict(
+      analyse?.niveauPire ?? r.niveau,
+      t("analyse.plage_explication"),
+      null,
+      cleVerdictPlage(analyse?.niveauPire ?? r.niveau)
+    ));
     tr.appendChild(tdV);
-    if (selectionIndex != null && r.index === selectionIndex) tr.classList.add("is-active");
+    if (selectionIndex != null && r.index === selectionIndex) {
+      tr.classList.add("is-active");
+      if (selectionC) selectionC.analysePlage = analyse;
+    }
     tr.addEventListener("click", () => choisirApport(r, tr));
     tr.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); choisirApport(r, tr); }
     });
     corps.appendChild(tr);
   });
-  if (aide) aide.hidden = uneIdeale;
+  if (aide) aide.hidden = uneRobuste;
+  return rows;
+}
+
+function textePlage(analyse) {
+  if (!analyse) return t("analyse.plage_indisponible");
+  return `${Math.round(analyse.min * 100)} à ${Math.round(analyse.max * 100)} %`;
+}
+
+function cleVerdictPlage(niveau) {
+  return {
+    ideal: "analyse.plage_ideal",
+    acceptable: "analyse.plage_acceptable",
+    zone_s: "analyse.plage_zone_s",
+    hors: "analyse.plage_hors",
+  }[niveau] || "analyse.plage_hors";
 }
 
 // labels : en-têtes traduits, alignés positionnellement avec valeurs -
@@ -432,7 +470,7 @@ function noteLimiteFerrite(ferrite) {
   return cle ? t(cle) : null;
 }
 
-function badgeVerdict(niveau, titre = null, note = null) {
+function badgeVerdict(niveau, titre = null, note = null, cleTexte = null) {
   const map = {
     ideal: { cls: "verdict--ok", icone: "✓", cle: "analyse.verdict_ideal" },
     acceptable: { cls: "verdict--attention", icone: "⚠", cle: "analyse.verdict_acceptable" },
@@ -447,7 +485,7 @@ function badgeVerdict(niveau, titre = null, note = null) {
   ic.className = "verdict__icone";
   ic.textContent = d.icone;
   const tx = document.createElement("span");
-  tx.textContent = t(d.cle);
+  tx.textContent = t(cleTexte || d.cle);
   span.append(ic, tx);
   if (note) {
     const nt = document.createElement("span");
@@ -459,11 +497,11 @@ function badgeVerdict(niveau, titre = null, note = null) {
 }
 
 // --- Choix d'un apport (tableau ou saisie libre) ------------------------
-function definirC(comp, designation, saisieLibre) {
+function definirC(comp, designation, saisieLibre, analysePlage = null) {
   const C = metal(designation, comp, saisieLibre);
   const jc = joint(A.comp, B.comp, comp, dA, dB, dC);
   const J = metal(t("analyse.val_joint"), jc);
-  selectionC = { metal: C, jointMetal: J };
+  selectionC = { metal: C, jointMetal: J, analysePlage };
   majDiagramme();
   majSynthese();
 }
@@ -472,14 +510,14 @@ function choisirApport(r, tr) {
   selectionIndex = r.index;
   document.querySelectorAll(".apport-ligne.is-active").forEach((e) => e.classList.remove("is-active"));
   if (tr) tr.classList.add("is-active");
-  definirC(r.composition, r.designation, r.origine === "manuel");
+  definirC(r.composition, r.designation, r.origine === "manuel", r.analysePlage);
   envoyerEvenement("analyse-realisee", "Sélection d'un apport");
   envoyerEvenementAnalyse(r.designation);
 }
 
 // Événement dédié par nuance d'apport (en plus du compteur générique
 // "analyse-realisee" ci-dessus) : permet de savoir quels apports sont
-// réellement choisis dans le tableau des 7 meilleurs, pas seulement qu'un
+// réellement choisis dans le tableau des 7 apports, pas seulement qu'un
 // choix a eu lieu.
 function envoyerEvenementAnalyse(nomApport) {
   envoyerEvenement(
@@ -512,18 +550,35 @@ function majSynthese() {
   const J = selectionC.jointMetal;
   const ferJ = J.ferrite;
   const v = verdictSchaeffler(J.eq.S.cr, J.eq.S.ni, J.comp, ZONES.zones, ZONES.zone_s);
-  const justif = [texteFerrite(ferJ)];
+  const analyse = selectionC.analysePlage;
+  const niveauAffiche = analyse?.niveauPire ?? v.niveau;
+  const justif = [
+    analyse
+      ? `${t("analyse.plage_etudiee")} ${textePlage(analyse)} · ${Math.round(analyse.couvertureIdeale)} % ${t("analyse.plage_en_zone_ideale")}`
+      : texteFerrite(ferJ),
+  ];
+  if (analyse) justif.push(texteFerrite(ferJ));
   const risquesCle = {
     austenite_pure: "analyse.risque_austenite",
     martensite: "analyse.risque_martensite",
     sigma: "analyse.risque_sigma",
     grossissement_grain: "analyse.risque_grossissement_grain",
   };
-  for (const rq of v.risques) justif.push(t(risquesCle[rq]));
+  const risques = new Set(v.risques);
+  for (const p of analyse?.points || []) {
+    const vp = verdictSchaeffler(p.crEq, p.niEq, p.comp, ZONES.zones, ZONES.zone_s);
+    for (const rq of vp.risques) risques.add(rq);
+  }
+  for (const rq of risques) justif.push(t(risquesCle[rq]));
 
   const bloc = document.createElement("div");
   bloc.className = "synth-verdict";
-  bloc.appendChild(badgeVerdict(v.niveau, titreVerdict(v), noteLimiteFerrite(ferJ)));
+  bloc.appendChild(badgeVerdict(
+    niveauAffiche,
+    analyse ? t("analyse.plage_explication") : titreVerdict(v),
+    analyse ? null : noteLimiteFerrite(ferJ),
+    analyse ? cleVerdictPlage(niveauAffiche) : null
+  ));
   bloc.appendChild(noteTexte(justif.join(" · ")));
   zoneVerdict.replaceChildren(bloc);
 }
@@ -593,8 +648,9 @@ function onSaisieC() {
   const designation = $("[data-apport-manuel-nom]")?.value.trim() || t("analyse.apport_manuel_defaut");
   apportManuel = { designation, composition: comp, procede: procedure };
   selectionIndex = "manuel-0";
-  majMeilleursApports();
-  definirC(comp, designation, true);
+  const rows = majMeilleursApports();
+  const ligne = rows?.find((r) => r.index === selectionIndex);
+  definirC(comp, designation, true, ligne?.analysePlage ?? null);
 }
 
 // --- Affichage vide / contenu -------------------------------------------

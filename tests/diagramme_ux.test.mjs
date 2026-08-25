@@ -26,6 +26,11 @@ assert.equal(
 );
 assert.match(traductions.analyse.diagramme_difference_traces_texte, /digitalisées/);
 assert.match(traductions.analyse.diagramme_difference_limite_texte, /Il ne garantit ni la structure réelle/);
+assert.equal(traductions.analyse.carte_apports, "Sélection des 7 apports les plus robustes");
+assert.equal(traductions.analyse.col_plage, "Plage testée");
+assert.equal(traductions.analyse.col_couverture_ideale, "Part en zone idéale");
+assert.equal(traductions.analyse.plage_ideal, "Idéal sur toute la plage");
+assert.match(traductions.analyse.heterogene_note, /Le préchauffage n'est pas calculé/);
 
 const zoneAMF = zones.zones.find((zone) => zone.id === "AMF");
 assert.equal(zoneAMF?.couleur, "#94A3B8");
@@ -36,12 +41,15 @@ for (const etiquette of ["Métal A", "Métal B", "Dilution", "Métal d'apport", 
 assert.match(rendu, /meilleureAncreBande\(15, 20\), "ACCEPTABLE"/);
 assert.match(rendu, /lignes: \["CORRIDOR", "DE SÉCURITÉ"\]/);
 assert.match(rendu, /\[10, 15, 20\]\.includes\(pct\)/);
-assert.match(parametres, /vue_analyse\.js\?v=20260824-energie-diagramme-2/);
+assert.match(parametres, /vue_analyse\.js\?v=20260825-plage-dilution-1/);
 assert.match(parametres, /core\/energie\.js\?v=20260824-energie-diagramme-2/);
-assert.match(page, /parametres\.js\?v=20260824-energie-diagramme-2/);
+assert.match(page, /parametres\.js\?v=20260825-plage-dilution-1/);
 assert.match(page, /main\.css\?v=20260824-explication-diagramme-4/);
 assert.match(page, /<details class="diagramme-explication">/);
 assert.match(page, /data-i18n="analyse\.diagramme_difference_limite_texte"/);
+assert.match(page, /data-i18n="analyse\.col_plage"/);
+assert.match(page, /data-i18n="analyse\.col_couverture_ideale"/);
+assert.match(vue, /schaeffler_svg\.js\?v=20260825-plage-dilution-1/);
 assert.match(rendu, /iso_ferrite_schaeffler\.js\?v=20260824-energie-diagramme-2/);
 assert.doesNotMatch(styles, /min-width:\s*600px/);
 assert.match(styles, /\[data-carte="diagramme"\]\s*\{[^}]*padding-inline:\s*var\(--sp-3\)/s);

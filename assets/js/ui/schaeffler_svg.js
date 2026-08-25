@@ -299,7 +299,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     });
     const titre = el("title");
     titre.textContent =
-      "Corridor de sécurité A+M+F - zone admise, classée après le centre de la zone idéale bleue puis la zone acceptable verte.";
+      "Corridor de sécurité A+M+F - zone admise après la zone idéale puis la zone acceptable.";
     zoneS.appendChild(titre);
     gZoneS.appendChild(zoneS);
     gPlan.appendChild(gZoneS);
