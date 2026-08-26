@@ -575,6 +575,15 @@ table {
   white-space: nowrap;
 }
 
+.pied__signature {
+  margin: 0;
+  padding-left: var(--sp-3);
+  border-left: 1px solid var(--gris-bordure);
+  color: var(--texte-doux);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
 /* ----------------------------------------------------------------------- */
 /* 6b. Onglet Paramètres DMOS - formulaire et carte résultats               */
 /* ----------------------------------------------------------------------- */
