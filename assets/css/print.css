@@ -164,6 +164,20 @@
     margin-inline: auto;
     border: 1px solid #999999;
   }
+
+  /* Répété par le moteur d'impression sur chaque page de la fiche. La
+     marge négative l'aligne entre l'URL et le numéro de page ajoutés par
+     le navigateur lorsqu'ils sont activés. */
+  .fiche-pied {
+    position: fixed;
+    right: 30mm;
+    bottom: -9mm;
+    left: 30mm;
+    text-align: center;
+    font-size: 7.5pt;
+    font-weight: 600;
+    white-space: nowrap;
+  }
 }
 
 /* Filet de sécurité final : certains éléments de la fiche (badges de
