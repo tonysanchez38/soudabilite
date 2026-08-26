@@ -15,15 +15,17 @@ import {
   tension,
   energieNominale,
   energieCorrigee,
+  kjMmVersKjCm,
+  kjCmVersKjMm,
   rendement,
   VITESSE_INDICATIVE,
-} from "./core/energie.js";
+} from "./core/energie.js?v=20260824-energie-diagramme-2";
 import { matiereTIG, estInox } from "./core/aiguillage.js";
-import { dilutionValide, dilutionParDefaut } from "./core/dilution.js";
+import { dilutionValide, dilutionParDefaut } from "./core/dilution.js?v=20260825-plage-dilution-1";
 import { crEqSchaeffler, niEqSchaeffler } from "./core/equivalents.js";
 import { ceIIW } from "./core/carbone_eq.js";
 import { MODE_REGLAGES, propagerReglages, recommanderTungstene } from "./core/reglages.js";
-import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260824-reglages-3";
+import { initAnalyse, majAnalyse, resumeApportPourImpression } from "./vue_analyse.js?v=20260825-lecture-apport-3";
 
 let BANQUE = { metaux_base: [], metaux_apport: [], electrodes_tungstene: [] };
 let ZONES = {};
@@ -293,8 +295,8 @@ function afficherChampsReglages(valeurs) {
   ecrireChampReglage("#reglage-i", valeurs.intensite);
   ecrireChampReglage("#reglage-u", valeurs.tension, 1);
   ecrireChampReglage("#vitesse", valeurs.vitesse, 2);
-  ecrireChampReglage("#reglage-en", valeurs.energieNominale, 3);
-  ecrireChampReglage("#reglage-q", valeurs.energieCorrigee, 3);
+  ecrireChampReglage("#reglage-en", kjMmVersKjCm(valeurs.energieNominale), 3);
+  ecrireChampReglage("#reglage-q", kjMmVersKjCm(valeurs.energieCorrigee), 3);
   document.querySelectorAll("[data-reglage]").forEach((champ) => {
     champ.readOnly = modeReglages === MODE_REGLAGES.AUTO;
   });
@@ -321,7 +323,10 @@ function onModeReglagesChange() {
 function onReglageInput(champ) {
   if (modeReglages !== MODE_REGLAGES.PERSONNALISE) return;
   const procede = $("#procede").value;
-  const valeur = parseFloat(champ.value);
+  const valeurAffichee = parseFloat(champ.value);
+  const valeur = ["energieNominale", "energieCorrigee"].includes(champ.dataset.reglage)
+    ? kjCmVersKjMm(valeurAffichee)
+    : valeurAffichee;
   const base = reglagesPersonnalises || calculerReglagesAuto(procede);
   if (champ.dataset.reglage === "intensite" && !Number.isFinite(Number(base.tension))) {
     base.tension = tension(procede, valeur);
@@ -382,8 +387,8 @@ function recalculer(rafraichirChamps = true) {
   poser("I", iValide ? Math.round(I) : vide);
   poser("U", uValide ? U.toFixed(1) : vide);
   poser("Vs", vsValide ? Vs.toFixed(2) : vide);
-  poser("En", Number.isFinite(En) ? En.toFixed(3) : vide);
-  poser("Q", Number.isFinite(Q) ? Q.toFixed(3) : vide);
+  poser("En", Number.isFinite(En) ? kjMmVersKjCm(En).toFixed(3) : vide);
+  poser("Q", Number.isFinite(Q) ? kjMmVersKjCm(Q).toFixed(3) : vide);
   poser("k", k.toFixed(2));
 
   ["a", "b"].forEach(majEquivalents);
@@ -569,8 +574,8 @@ function remplirFicheImpression() {
   poserFiche("I", avecUnite("I", t("parametres.unite_a")));
   poserFiche("U", avecUnite("U", t("parametres.unite_v")));
   poserFiche("Vs", avecUnite("Vs", t("parametres.unite_cmmin")));
-  poserFiche("En", avecUnite("En", t("parametres.unite_kjmm")));
-  poserFiche("Q", avecUnite("Q", t("parametres.unite_kjmm")));
+  poserFiche("En", avecUnite("En", t("parametres.unite_kjcm")));
+  poserFiche("Q", avecUnite("Q", t("parametres.unite_kjcm")));
   poserFiche("k", lireRes("k"));
 
   poserFiche("dA", Number.isFinite(etat.dA) ? `${etat.dA} %` : vide);

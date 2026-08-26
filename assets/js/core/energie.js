@@ -94,6 +94,18 @@ export function energieNominale(U, I, Vs) {
   return { kJ_cm, kJ_mm: kJ_cm / 10 };
 }
 
+// Conversion d'affichage : l'interface présente En et Q en kJ/cm tandis que
+// le moteur thermique conserve son unité canonique en kJ/mm (spec.md §0).
+export function kjMmVersKjCm(valeur) {
+  const nombre = Number(valeur);
+  return Number.isFinite(nombre) ? nombre * 10 : NaN;
+}
+
+export function kjCmVersKjMm(valeur) {
+  const nombre = Number(valeur);
+  return Number.isFinite(nombre) ? nombre / 10 : NaN;
+}
+
 // --- Énergie corrigée par le rendement - spec.md §4.2 -------------------
 // E_q = k · E_n. Renvoie la valeur dans la même unité que En fournie.
 export function rendement(procede) {

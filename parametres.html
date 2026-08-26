@@ -34,7 +34,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260824-explication-diagramme-4" />
     <!-- Fiche imprimable (window.print + @media print - CLAUDE.md #25). -->
     <link rel="stylesheet" href="assets/css/print.css" media="print" />
 
@@ -47,8 +47,8 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css" as="style" />
-    <script type="module" src="assets/js/parametres.js?v=20260824-reglages-3"></script>
+    <link rel="preload" href="assets/css/main.css?v=20260824-explication-diagramme-4" as="style" />
+    <script type="module" src="assets/js/parametres.js?v=20260825-lecture-apport-3"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -187,11 +187,11 @@
                   <input id="vitesse" class="champ__input" data-reglage="vitesse" type="number" min="0" step="0.5" inputmode="decimal" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="reglage-en" data-i18n="parametres.res_en"></label>
+                  <label class="champ__label" for="reglage-en" data-i18n="parametres.label_en"></label>
                   <input id="reglage-en" class="champ__input" data-reglage="energieNominale" type="number" min="0" step="0.001" inputmode="decimal" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="reglage-q" data-i18n="parametres.res_eq"></label>
+                  <label class="champ__label" for="reglage-q" data-i18n="parametres.label_eq"></label>
                   <input id="reglage-q" class="champ__input" data-reglage="energieCorrigee" type="number" min="0" step="0.001" inputmode="decimal" />
                 </div>
               </div>
@@ -253,14 +253,14 @@
                   <dt class="res__label" data-i18n="parametres.res_en"></dt>
                   <dd class="res__valeur">
                     <span data-res="En">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_kjmm"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_kjcm"></span>
                   </dd>
                 </div>
                 <div class="res__ligne res__ligne--fort">
                   <dt class="res__label" data-i18n="parametres.res_eq"></dt>
                   <dd class="res__valeur">
                     <span data-res="Q">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_kjmm"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_kjcm"></span>
                   </dd>
                 </div>
                 <div class="res__ligne">
@@ -351,6 +351,7 @@
             <!-- CARTE 1 - Diagramme de Schaeffler -->
             <section class="carte carte--form" data-carte="diagramme">
               <h2 class="bloc__titre" data-i18n="analyse.carte_diagramme"></h2>
+              <p class="diagramme-introduction" data-i18n="analyse.diagramme_intro_court"></p>
               <p class="note" data-heterogene-note hidden data-i18n="analyse.heterogene_note"></p>
               <div class="schaeffler-zone">
                 <svg id="schaeffler" class="schaeffler-svg" role="img" aria-label="Diagramme de Schaeffler"></svg>
@@ -363,11 +364,38 @@
                 <li><span class="legende__pastille legende__pastille--triangle lg-j"></span><span data-i18n="analyse.leg_joint"></span></li>
                 <li><span class="legende__pastille lg-id"></span><span data-i18n="analyse.leg_ideale"></span></li>
                 <li><span class="legende__pastille lg-ac"></span><span data-i18n="analyse.leg_acceptable"></span></li>
+                <li><span class="legende__pastille legende__pastille--carre lg-amf"></span><span data-i18n="analyse.leg_amf"></span></li>
                 <li><span class="legende__pastille lg-s"></span><span data-i18n="analyse.leg_zone_s"></span></li>
               </ul>
+              <details class="diagramme-explication">
+                <summary data-i18n="analyse.diagramme_difference_titre"></summary>
+                <div class="diagramme-explication__contenu">
+                  <p data-i18n="analyse.diagramme_difference_intro"></p>
+
+                  <section>
+                    <h3 data-i18n="analyse.diagramme_difference_calcul_titre"></h3>
+                    <p data-i18n="analyse.diagramme_difference_calcul_texte"></p>
+                  </section>
+
+                  <section>
+                    <h3 data-i18n="analyse.diagramme_difference_traces_titre"></h3>
+                    <p data-i18n="analyse.diagramme_difference_traces_texte"></p>
+                  </section>
+
+                  <section>
+                    <h3 data-i18n="analyse.diagramme_difference_lecture_titre"></h3>
+                    <p data-i18n="analyse.diagramme_difference_lecture_texte"></p>
+                  </section>
+
+                  <section>
+                    <h3 data-i18n="analyse.diagramme_difference_limite_titre"></h3>
+                    <p data-i18n="analyse.diagramme_difference_limite_texte"></p>
+                  </section>
+                </div>
+              </details>
             </section>
 
-            <!-- CARTE 2 - Sélection des 7 meilleurs apports -->
+            <!-- CARTE 2 - Sélection des 7 apports les plus robustes -->
             <section class="carte carte--form" data-carte="apports">
               <h2 class="bloc__titre" data-i18n="analyse.carte_apports"></h2>
               <p class="note" data-apports-note data-i18n="analyse.apports_note"></p>
@@ -378,10 +406,8 @@
                     <tr>
                       <th data-i18n="analyse.col_rang"></th>
                       <th data-i18n="analyse.col_designation"></th>
-                      <th data-i18n="analyse.col_creq"></th>
-                      <th data-i18n="analyse.col_nieq"></th>
-                      <th data-i18n="analyse.col_ferrite"></th>
-                      <th data-i18n="analyse.col_distance"></th>
+                      <th data-i18n="analyse.col_plage"></th>
+                      <th data-i18n="analyse.col_couverture_ideale"></th>
                       <th data-i18n="analyse.col_verdict"></th>
                     </tr>
                   </thead>
@@ -400,7 +426,7 @@
             </section>
 
             <!-- CARTE 2bis - Comprendre les zones métallurgiques -->
-            <section class="carte carte--form">
+            <section class="carte carte--form" data-carte="zones">
               <h2 class="bloc__titre" data-i18n="analyse.carte_zones_titre"></h2>
               <div class="zones-explication" data-liste="zones-explication"></div>
 

@@ -44,12 +44,20 @@ export function dilutionValide(dA, dB, dC, tolerance = 1e-6) {
 // Suggestion de dilution par défaut selon procédé/assemblage/chanfrein.
 // Valeur indicative de préparation DMOS - pas une mesure : la précision
 // réelle nécessite une macrographie de l'assemblage réel.
-const PLAGES_DILUTION = {
+export const PLAGES_DILUTION = {
   "111": [0.10, 0.35],
   "141": [0.15, 0.30],
   "131": [0.20, 0.40],
   "135": [0.20, 0.40],
 };
+
+// Plage usuelle de dilution totale des métaux de base pour un procédé.
+// Les valeurs sont des fractions du bain fondu, par exemple 0,15 à 0,30
+// pour le TIG. Une copie est renvoyée pour protéger la table de référence.
+export function plageDilution(procede) {
+  const [min, max] = PLAGES_DILUTION[procede] || [0.15, 0.30];
+  return { min, max };
+}
 
 export function dilutionParDefaut(procede, assemblage, chanfrein) {
   const [min, max] = PLAGES_DILUTION[procede] || [0.15, 0.30];

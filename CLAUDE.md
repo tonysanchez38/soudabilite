@@ -236,6 +236,22 @@ catalogue, cet outil intègre en une interface unique :
     de type carbone (`type`/`re`/`typeElectrode`/`classeHydrogene`/
     `diametre`, noms de champs à confirmer avec Tony).
 
+34. **Classement robuste sur la plage de dilution du procédé** : la valeur
+    ponctuelle D_A/D_B/D_C reste l'hypothèse affichée dans la synthèse et la
+    fiche imprimable, mais elle ne pilote plus le rang des apports. Pour chaque
+    candidat, `selection_apport.js` conserve le partage A/B saisi et parcourt
+    toute la plage de `PLAGES_DILUTION` par pas maximal de 0,5 point. Le tri
+    retient le pire verdict, puis les couvertures sécurisée et idéale, puis la
+    distance au centre pour le dernier départage. Le tableau simple affiche
+    rang, désignation, plage testée, part en zone idéale et verdict global.
+    Les alertes de fissuration sont supprimées en zone idéale, acceptable et
+    corridor de sécurité. Hors de ces zones, A signale le risque chaud et les
+    zones AM/M/MF/AMF signalent le risque froid. La ferrite chiffrée n'est pas
+    affichée hors de la zone AF. Pour le périmètre actuel, un assemblage
+    hétérogène reste sur Schaeffler uniquement ; un assemblage carbone/carbone
+    reste sur le module de préchauffage, avant le futur calcul t8/5. Cette
+    décision remplace les parties contraires des décisions #2, #30 et #32.
+
 ## Séquence de construction — 11 étapes
 
 1. Fond et architecture (CLAUDE.md, arborescence, spec.md, data.json)

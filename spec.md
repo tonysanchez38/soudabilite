@@ -518,20 +518,25 @@ Source : ta doc « Système expert », section 1 et 3.
 
 ---
 
-## 10. Sélection des 7 meilleurs métaux d'apport C
+## 10. Sélection des 7 métaux d'apport les plus robustes
 
 Algorithme actif :
 
-1. Récupérer (Cr_eq_D, Ni_eq_D) du D_mélange (métaux de base seuls).
-2. Pour chaque apport C_k de la base de données correspondant au procédé
-   choisi :
-   - Calculer (Cr_eq_JOINT, Ni_eq_JOINT) = D_A·A + D_B·B + D_C·C_k
-   - Estimer la ferrite par les iso-lignes du §2 bis.
-   - Classer le niveau avec la même fonction que le badge affiché.
-   - Calculer la distance euclidienne au `centre_ideal` uniquement comme
-     deuxième clé de tri.
-3. Trier : idéale, acceptable, zone S, hors ; puis distance croissante.
-4. Garder les 7 premiers. Les candidats duplex sont exclus en amont.
+1. Lire la plage de dilution du procédé dans `PLAGES_DILUTION`.
+2. Conserver la répartition A/B saisie et faire varier la dilution totale
+   sur toute la plage, par pas maximal de 0,5 point de pourcentage.
+3. Pour chaque apport C_k correspondant au procédé :
+   - calculer le JOINT à chaque valeur de dilution ;
+   - classer chaque point avec la même fonction que le diagramme ;
+   - retenir le pire niveau rencontré ;
+   - calculer les taux de couverture sécurisée et idéale.
+4. Trier par pire niveau, couverture sécurisée décroissante, couverture idéale
+   décroissante, puis distance au centre pour le dernier départage.
+5. Garder les 7 premiers. Les candidats duplex sont exclus en amont.
+
+Le tableau principal affiche la plage testée, la part située en zone idéale
+et le verdict global. Les valeurs Cr_eq, Ni_eq et ferrite du point saisi
+restent dans la synthèse détaillée après sélection d'un apport.
 
 Un apport manuel saisi dans l'interface est passé dans
 `apportsSupplementaires` : il traverse exactement le même calcul, le même

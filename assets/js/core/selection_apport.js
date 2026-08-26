@@ -138,13 +138,58 @@ export function classementApports(apports) {
 // Rang de tri par verdict - idéale d'abord, hors-zone en dernier.
 const RANG_VERDICT = { ideal: 0, acceptable: 1, zone_s: 2, hors: 3 };
 
-// --- Sélection des 7 meilleurs apports - spec.md §10 --------------------
-// Pour chaque apport compatible : JOINT = D_A·A + D_B·B + D_C·C (spec.md §2.1),
-// puis (Cr_eq, Ni_eq) Schaeffler du JOINT, % ferrite et distance euclidienne
-// au centre de la zone idéale. Tri à deux clés : 1) rang du verdict (idéale
-// > acceptable > zone S > hors, via la cascade niveauIdeal() injectée -
-// même logique que le badge affiché, zéro divergence tableau/verdict) ;
-// 2) distance croissante au centre à l'intérieur de chaque groupe. n premiers.
+const NIVEAU_PAR_RANG = ["ideal", "acceptable", "zone_s", "hors"];
+
+// Évalue un apport sur toute la plage de dilution du procédé en conservant
+// la répartition A/B saisie. Un pas de 0,5 point de pourcentage détecte les
+// changements de zone sans donner une fausse précision à l'utilisateur.
+export function evaluerApportSurPlage({
+  A, B, C, dA, dB, plage, joint, crEq, niEq, ferrite, niveauIdeal, zones, zoneS,
+  pas = 0.005,
+}) {
+  if (!plage || !Number.isFinite(plage.min) || !Number.isFinite(plage.max)) return null;
+  const min = Math.max(0, Math.min(plage.min, plage.max));
+  const max = Math.min(1, Math.max(plage.min, plage.max));
+  const dilutionCourante = dA + dB;
+  const partA = dilutionCourante > 0 ? dA / dilutionCourante : 0.5;
+  const points = [];
+  const largeur = max - min;
+  const nombrePas = largeur > 0 ? Math.max(1, Math.ceil(largeur / pas)) : 1;
+
+  for (let i = 0; i <= nombrePas; i++) {
+    const dilution = largeur > 0 ? min + (largeur * i) / nombrePas : min;
+    const da = dilution * partA;
+    const db = dilution * (1 - partA);
+    const dc = 1 - dilution;
+    const comp = joint(A, B, C, da, db, dc);
+    const cr = crEq(comp);
+    const ni = niEq(comp);
+    const niveau = niveauIdeal(cr, ni, zones, zoneS);
+    points.push({
+      dilution, dA: da, dB: db, dC: dc, comp, crEq: cr, niEq: ni,
+      ferrite: ferrite(cr, ni, zones), niveau,
+      rangVerdict: RANG_VERDICT[niveau] ?? RANG_VERDICT.hors,
+    });
+  }
+
+  const rangPire = Math.max(...points.map((p) => p.rangVerdict));
+  const nbIdeal = points.filter((p) => p.niveau === "ideal").length;
+  const nbSecurise = points.filter((p) => p.rangVerdict <= RANG_VERDICT.zone_s).length;
+  return {
+    min, max, points,
+    niveauPire: NIVEAU_PAR_RANG[rangPire] || "hors",
+    rangPire,
+    couvertureIdeale: (100 * nbIdeal) / points.length,
+    couvertureSecurisee: (100 * nbSecurise) / points.length,
+    robuste: nbSecurise === points.length,
+  };
+}
+
+// --- Sélection des 7 apports les plus robustes - spec.md §10 ------------
+// Le point saisi reste calculé pour le diagramme et la synthèse détaillée.
+// Quand plageDilution est fournie, le tri porte d'abord sur le pire verdict
+// rencontré sur toute la plage, puis sur les couvertures sécurisée et idéale.
+// La distance au centre ne sert plus qu'au dernier départage.
 //
 export function meilleursApports(
   apports,
@@ -152,7 +197,7 @@ export function meilleursApports(
   {
     A, B, dA, dB, dC, centre, joint, crEq, niEq, ferrite, niveauIdeal, zones, zoneS,
     apportsSupplementaires = [], forcerSupplementaires = false,
-    n = 7,
+    n = 7, plageDilution = null,
   }
 ) {
   const candidats = [
@@ -165,17 +210,30 @@ export function meilleursApports(
       const comp = joint(A, B, a.composition, dA, dB, dC);
       const cr = crEq(comp);
       const ni = niEq(comp);
-      const fer = ferrite(cr, ni);
-      const niveau = niveauIdeal ? niveauIdeal(cr, ni, zones, zoneS) : null;
+      const fer = ferrite(cr, ni, zones);
+      const niveauPoint = niveauIdeal ? niveauIdeal(cr, ni, zones, zoneS) : null;
       const dist = Math.hypot(cr - centre[0], ni - centre[1]);
+      const analysePlage = plageDilution && niveauIdeal
+        ? evaluerApportSurPlage({
+            A, B, C: a.composition, dA, dB, plage: plageDilution,
+            joint, crEq, niEq, ferrite, niveauIdeal, zones, zoneS,
+          })
+        : null;
+      const niveau = analysePlage?.niveauPire ?? niveauPoint;
 
       return {
         index: i, designation: a.designation, composition: a.composition, joint: comp,
-        crEq: cr, niEq: ni, ferrite: fer, distance: dist, niveau, origine,
+        crEq: cr, niEq: ni, ferrite: fer, distance: dist, niveau, niveauPoint,
+        analysePlage, origine,
         rangVerdict: RANG_VERDICT[niveau] ?? RANG_VERDICT.hors,
       };
     })
-    .sort((x, y) => x.rangVerdict - y.rangVerdict || x.distance - y.distance)
+    .sort((x, y) =>
+      x.rangVerdict - y.rangVerdict ||
+      (y.analysePlage?.couvertureSecurisee ?? 0) - (x.analysePlage?.couvertureSecurisee ?? 0) ||
+      (y.analysePlage?.couvertureIdeale ?? 0) - (x.analysePlage?.couvertureIdeale ?? 0) ||
+      x.distance - y.distance
+    )
     .map((row, index) => ({ ...row, rangGlobal: index + 1 }));
 
   const premiers = classes.slice(0, n);

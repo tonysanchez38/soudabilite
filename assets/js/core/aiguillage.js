@@ -5,7 +5,7 @@
 // Fonctions pures.
 //   - Cr ≥ 10.5 % OU Ni ≥ 8 %                → métal inox (branche Schaeffler)
 //   - sinon                                  → carbone / faiblement allié
-//   - un inox + un carbone                   → hétérogène (deux branches)
+//   - un inox + un carbone                   → hétérogène (Schaeffler seul)
 // =========================================================================
 
 function v(comp, element) {
@@ -35,8 +35,10 @@ export function aiguille(A, B) {
   if (a === "carbone" && b === "carbone") {
     return { type: "carbone", branches: ["thermique"] };
   }
-  // Un inox + un carbone : les deux branches en parallèle (verdict croisé).
-  return { type: "heterogene", branches: ["schaeffler", "thermique"] };
+  // Un inox + un carbone : diagramme de Schaeffler uniquement dans le
+  // périmètre actuel. La branche thermique hétérogène sera ajoutée après
+  // validation de sa méthode et de ses entrées.
+  return { type: "heterogene", branches: ["schaeffler"] };
 }
 
 // Pour l'intensité TIG (spec.md §3.2), matière = "inox", "ferritique" ou
