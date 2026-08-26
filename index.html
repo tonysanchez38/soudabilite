@@ -31,7 +31,7 @@
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260826-signature-linkedin-1" />
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
          les bloqueurs de pub (AdGuard etc.) - CLAUDE.md #22. -->
@@ -41,7 +41,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260826-signature-linkedin-1" as="style" />
     <script type="module" src="assets/js/app.js"></script>
     <script type="application/ld+json">
     {
@@ -284,7 +284,7 @@
         <div class="pied__compteurs">
           <p class="pied__compteur" data-compteur hidden></p>
           <p class="pied__compteur" data-compteur-analyses hidden></p>
-          <p class="pied__signature" data-i18n="footer.signature"></p>
+          <a class="pied__signature" data-i18n="footer.signature" data-i18n-attr="href:presentation.linkedin_url" target="_blank" rel="noopener noreferrer"></a>
         </div>
       </div>
     </footer>

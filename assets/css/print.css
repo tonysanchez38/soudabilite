@@ -80,9 +80,11 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    min-height: 269mm;
+    height: 250mm;
     page-break-after: always;
     break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .fiche-page:last-child {
@@ -187,6 +189,11 @@
     font-size: 8pt;
     font-weight: 600;
     white-space: nowrap;
+  }
+
+  .fiche-pied a {
+    color: #000000;
+    text-decoration: none;
   }
 }
 

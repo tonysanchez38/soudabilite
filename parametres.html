@@ -34,9 +34,9 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/main.css?v=20260824-explication-diagramme-4" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260826-signature-linkedin-1" />
     <!-- Fiche imprimable (window.print + @media print - CLAUDE.md #25). -->
-    <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-2" media="print" />
+    <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-3" media="print" />
 
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
@@ -47,7 +47,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260824-explication-diagramme-4" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260826-signature-linkedin-1" as="style" />
     <script type="module" src="assets/js/parametres.js?v=20260825-lecture-apport-3"></script>
     <script type="application/ld+json">
     {
@@ -477,7 +477,7 @@
         <div class="pied__compteurs">
           <p class="pied__compteur" data-compteur hidden></p>
           <p class="pied__compteur" data-compteur-analyses hidden></p>
-          <p class="pied__signature" data-i18n="footer.signature"></p>
+          <a class="pied__signature" data-i18n="footer.signature" data-i18n-attr="href:presentation.linkedin_url" target="_blank" rel="noopener noreferrer"></a>
         </div>
       </div>
     </footer>
@@ -568,7 +568,9 @@
         <p data-fiche="apport"></p>
       </section>
 
-        <footer class="fiche-pied" data-i18n="fiche.signature_pied"></footer>
+        <footer class="fiche-pied">
+          <a data-i18n="fiche.signature_pied" data-i18n-attr="href:presentation.linkedin_url"></a>
+        </footer>
       </div>
 
       <div class="fiche-page fiche-page--diagramme">
@@ -577,7 +579,9 @@
           <img id="schaeffler-print" alt="Diagramme de Schaeffler" />
         </section>
 
-        <footer class="fiche-pied" data-i18n="fiche.signature_pied"></footer>
+        <footer class="fiche-pied">
+          <a data-i18n="fiche.signature_pied" data-i18n-attr="href:presentation.linkedin_url"></a>
+        </footer>
       </div>
     </section>
 

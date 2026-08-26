@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260826-signature-linkedin-1" />
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
          les bloqueurs de pub (AdGuard etc.) - CLAUDE.md #22. -->
@@ -36,7 +36,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260826-signature-linkedin-1" as="style" />
     <script type="module" src="assets/js/app.js"></script>
   </head>
   <body>
@@ -69,19 +69,10 @@
           <p class="carte__texte"><span data-i18n="annonces.beta_avant"></span><a href="parametres.html#analyse" data-i18n="annonces.beta_lien"></a><span data-i18n="annonces.beta_apres"></span></p>
         </div>
 
-        <!-- Contact (même lien LinkedIn que l'onglet Présentation) -->
+        <!-- Page professionnelle du projet. Le lien personnel est désormais
+             porté uniquement par la signature commune en pied de page. -->
         <section class="auteur">
           <img class="auteur__logo" src="assets/img/logo.png" alt="Logo Soudabilite.com" width="512" height="512" />
-          <span class="auteur__nom" data-i18n="presentation.auteur_nom"></span>
-          <span data-i18n="presentation.auteur_sep"></span>
-          <a
-            class="auteur__lien"
-            data-i18n="annonces.linkedin"
-            data-i18n-attr="href:presentation.linkedin_url"
-            target="_blank"
-            rel="noopener"
-          ></a>
-          <span data-i18n="annonces.linkedin_page_sep"></span>
           <a
             class="auteur__lien"
             data-i18n="annonces.linkedin_page"
@@ -100,7 +91,7 @@
         <div class="pied__compteurs">
           <p class="pied__compteur" data-compteur hidden></p>
           <p class="pied__compteur" data-compteur-analyses hidden></p>
-          <p class="pied__signature" data-i18n="footer.signature"></p>
+          <a class="pied__signature" data-i18n="footer.signature" data-i18n-attr="href:presentation.linkedin_url" target="_blank" rel="noopener noreferrer"></a>
         </div>
       </div>
     </footer>
