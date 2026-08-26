@@ -76,6 +76,20 @@
     print-color-adjust: exact;
   }
 
+  .fiche-page {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 269mm;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .fiche-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
   .fiche-entete {
     margin-bottom: 8mm;
     border-bottom: 1px solid #000000;
@@ -165,16 +179,12 @@
     border: 1px solid #999999;
   }
 
-  /* Répété par le moteur d'impression sur chaque page de la fiche. La
-     marge négative l'aligne entre l'URL et le numéro de page ajoutés par
-     le navigateur lorsqu'ils sont activés. */
   .fiche-pied {
-    position: fixed;
-    right: 30mm;
-    bottom: -9mm;
-    left: 30mm;
+    margin-top: auto;
+    padding-top: 4mm;
+    border-top: 1px solid #999999;
     text-align: center;
-    font-size: 7.5pt;
+    font-size: 8pt;
     font-weight: 600;
     white-space: nowrap;
   }

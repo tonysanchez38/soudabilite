@@ -36,7 +36,7 @@
 
     <link rel="stylesheet" href="assets/css/main.css?v=20260824-explication-diagramme-4" />
     <!-- Fiche imprimable (window.print + @media print - CLAUDE.md #25). -->
-    <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-1" media="print" />
+    <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-2" media="print" />
 
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
@@ -395,6 +395,12 @@
               </details>
             </section>
 
+            <!-- Génération de la fiche placée au point logique du parcours :
+                 après lecture du diagramme, avant comparaison des apports. -->
+            <div class="pdf-action">
+              <button type="button" id="btn-pdf" class="btn-primaire" data-i18n="fiche.bouton"></button>
+            </div>
+
             <!-- CARTE 2 - Sélection des 7 apports les plus robustes -->
             <section class="carte carte--form" data-carte="apports">
               <h2 class="bloc__titre" data-i18n="analyse.carte_apports"></h2>
@@ -461,13 +467,6 @@
           </div>
         </section>
 
-        <!-- ================ Génération de la fiche imprimable ============= -->
-        <!-- CLAUDE.md #25 : impression navigateur (window.print + @media
-             print), pas de dépendance externe. Le bouton peuple #fiche-
-             impression (assets/js/parametres.js) puis déclenche window.print(). -->
-        <div class="pdf-action">
-          <button type="button" id="btn-pdf" class="btn-primaire" data-i18n="fiche.bouton"></button>
-        </div>
       </div>
     </main>
 
@@ -489,7 +488,8 @@
     <!-- Peuplée par remplirFicheImpression() juste avant window.print() ;
          visible uniquement via assets/css/print.css (media print). -->
     <section id="fiche-impression" aria-hidden="true">
-      <header class="fiche-entete">
+      <div class="fiche-page">
+        <header class="fiche-entete">
         <h1 data-i18n="fiche.titre"></h1>
         <p class="fiche-meta">
           <span data-i18n="fiche.date"></span> :
@@ -498,7 +498,7 @@
           <span data-i18n="fiche.repere"></span> : ________________________
         </p>
         <p class="fiche-disclaimer" data-i18n="footer.disclaimer"></p>
-      </header>
+        </header>
 
       <section class="fiche-section">
         <h2 data-i18n="parametres.section_metaux"></h2>
@@ -568,12 +568,17 @@
         <p data-fiche="apport"></p>
       </section>
 
-      <section class="fiche-section fiche-diagramme">
-        <h2 data-i18n="analyse.carte_diagramme"></h2>
-        <img id="schaeffler-print" alt="Diagramme de Schaeffler" />
-      </section>
+        <footer class="fiche-pied" data-i18n="fiche.signature_pied"></footer>
+      </div>
 
-      <footer class="fiche-pied" data-i18n="fiche.signature_pied"></footer>
+      <div class="fiche-page fiche-page--diagramme">
+        <section class="fiche-section fiche-diagramme">
+          <h2 data-i18n="analyse.carte_diagramme"></h2>
+          <img id="schaeffler-print" alt="Diagramme de Schaeffler" />
+        </section>
+
+        <footer class="fiche-pied" data-i18n="fiche.signature_pied"></footer>
+      </div>
     </section>
 
     <!-- Cloudflare Web Analytics — complémentaire à GoatCounter, ne règle
