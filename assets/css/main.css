@@ -367,31 +367,6 @@ table {
   color: var(--texte-doux);
 }
 
-/* --- Bloc auteur + LinkedIn (discret) --- */
-.auteur {
-  text-align: right;
-  font-size: var(--fs-sm);
-  color: var(--texte-faible);
-  padding-top: var(--sp-2);
-  border-top: 1px solid var(--gris-bordure);
-}
-
-.auteur__logo {
-  height: 22px;
-  width: auto;
-  vertical-align: middle;
-  margin-right: 4px;
-}
-
-.auteur__nom {
-  color: var(--encre);
-  font-weight: 600;
-}
-
-.auteur__lien {
-  font-size: var(--fs-sm);
-}
-
 /* ----------------------------------------------------------------------- */
 /* 5. Badges de verdict (préparés pour les onglets Analyse - CLAUDE.md #12) */
 /* ----------------------------------------------------------------------- */
