@@ -48,7 +48,7 @@ assert.match(parametres, /core\/energie\.js\?v=20260824-energie-diagramme-2/);
 assert.match(page, /parametres\.js\?v=20260825-lecture-apport-3/);
 assert.match(page, /CARTE 2bis[\s\S]*?<section class="carte carte--form" data-carte="zones">/);
 assert.match(vue, /carteZones\.hidden = carbone/);
-assert.match(page, /main\.css\?v=20260824-explication-diagramme-4/);
+assert.match(page, /main\.css\?v=20260826-signature-linkedin-1/);
 assert.match(page, /<details class="diagramme-explication">/);
 assert.match(page, /data-i18n="analyse\.diagramme_difference_limite_texte"/);
 assert.match(page, /data-i18n="analyse\.col_plage"/);
