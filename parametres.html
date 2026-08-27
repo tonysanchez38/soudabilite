@@ -34,7 +34,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/main.css?v=20260826-signature-linkedin-1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260827-icone-linkedin-1" />
     <!-- Fiche imprimable (window.print + @media print - CLAUDE.md #25). -->
     <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-3" media="print" />
 
@@ -47,7 +47,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260826-signature-linkedin-1" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260827-icone-linkedin-1" as="style" />
     <script type="module" src="assets/js/parametres.js?v=20260825-lecture-apport-3"></script>
     <script type="application/ld+json">
     {
@@ -477,7 +477,10 @@
         <div class="pied__compteurs">
           <p class="pied__compteur" data-compteur hidden></p>
           <p class="pied__compteur" data-compteur-analyses hidden></p>
-          <a class="pied__signature" data-i18n="footer.signature" data-i18n-attr="href:presentation.linkedin_url" target="_blank" rel="noopener noreferrer"></a>
+          <a class="pied__signature" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
+            <span class="pied__linkedin-icone" aria-hidden="true">in</span>
+            <span class="pied__signature-texte" data-i18n="footer.signature"></span>
+          </a>
         </div>
       </div>
     </footer>
