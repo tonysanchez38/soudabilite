@@ -551,6 +551,9 @@ table {
 }
 
 .pied__signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   margin: 0;
   padding-left: var(--sp-3);
   border-left: 1px solid var(--gris-bordure);
@@ -560,9 +563,29 @@ table {
   text-decoration: none;
 }
 
+.pied__linkedin-icone {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 2px;
+  background: #0a66c2;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
 .pied__signature:hover,
 .pied__signature:focus-visible {
   color: var(--accent);
+}
+
+.pied__signature:hover .pied__signature-texte,
+.pied__signature:focus-visible .pied__signature-texte {
   text-decoration: underline;
 }
 
