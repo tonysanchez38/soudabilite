@@ -8,11 +8,11 @@
   },
   "nav": {
     "aria_label": "Navigation principale",
-    "presentation": "Présentation",
-    "parametres": "Calculateur",
-    "data": "Data",
-    "guide": "Guide",
-    "annonces": "Contact"
+    "accueil": "Accueil",
+    "analyse": "Analyse thermique et métallurgique",
+    "guide": "Guide métallurgique",
+    "bibliotheque": "Bibliothèque des matériaux",
+    "reglementation": "Réglementation et DMOS"
   },
   "presentation": {
     "sous_titre": "Aide à la préparation du DMOS",
@@ -35,19 +35,24 @@
     "sommaire_titre": "Les onglets",
     "onglets": [
       {
-        "titre": "Calculateur",
+        "titre": "Analyse thermique et métallurgique",
         "description": "Saisie des métaux de base, du procédé et de la géométrie du joint, puis analyse automatique, sélection des 7 apports les plus robustes et synthèse sur la même page.",
-        "lien": "parametres.html"
+        "lien": "analyse-thermique-metallurgique.html"
       },
       {
-        "titre": "Data",
+        "titre": "Guide métallurgique",
+        "description": "Fissuration à froid, carbone équivalent, énergie de soudage, lecture du diagramme de Schaeffler et taux de ferrite, expliqués pas à pas.",
+        "lien": "guide-metallurgique.html"
+      },
+      {
+        "titre": "Bibliothèque des matériaux",
         "description": "Nuances d'aciers et métaux d'apport de référence, avec saisie libre pour une nuance hors-liste.",
-        "lien": "banque.html"
+        "lien": "bibliotheque-materiaux.html"
       },
       {
-        "titre": "Contact",
-        "description": "Évolutions de l'outil et contact pour toute question, suggestion ou proposition de collaboration.",
-        "lien": "annonces.html"
+        "titre": "Réglementation et DMOS",
+        "description": "DMOS préliminaire, épreuve de qualification, qualification des soudeurs et groupement des matériaux selon les normes en vigueur.",
+        "lien": "reglementation-dmos.html"
       }
     ],
     "auteur_nom": "Tony SANCHEZ",
@@ -113,8 +118,8 @@
     "label_chanfrein": "Type de chanfrein",
     "section_intensite": "Paramètres d'intensité et de vitesse",
     "label_mode_reglages": "Mode de réglage",
-    "mode_auto": "AUTO — valeurs proposées",
-    "mode_personnalise": "PERSONNALISÉ — valeurs modifiables",
+    "mode_auto": "AUTO : valeurs proposées",
+    "mode_personnalise": "PERSONNALISÉ : valeurs modifiables",
     "label_diametre": "Diamètre électrode (mm)",
     "label_diametre_fil": "Diamètre fil (mm)",
     "label_tungstene": "Électrode tungstène",
@@ -225,10 +230,10 @@
     "leg_dmelange": "Dilution A+B",
     "leg_c": "Métal d'apport",
     "leg_joint": "Joint",
-    "leg_ideale": "1 — Zone idéale (5-15 % ferrite)",
-    "leg_acceptable": "2 — Zone acceptable",
+    "leg_ideale": "1 : Zone idéale (5-15 % ferrite)",
+    "leg_acceptable": "2 : Zone acceptable",
     "leg_amf": "Zone A+M+F grisée",
-    "leg_zone_s": "3 — Corridor de sécurité blanc",
+    "leg_zone_s": "3 : Corridor de sécurité blanc",
     "joint_centre_plage": "Joint représentatif : centre de la plage à {valeur} % de dilution",
     "diagramme_intro_court": "Une interprétation interactive du diagramme de Schaeffler : l'outil calcule la dilution, positionne le joint et classe les métaux d'apport. Les résultats restent des estimations métallurgiques.",
     "diagramme_difference_titre": "Pourquoi ce diagramme diffère-t-il des supports de cours ?",
@@ -323,7 +328,7 @@
         "texte": "Cette zone associe la fragilité possible de la martensite et les limites d'une forte proportion de ferrite. Elle est généralement défavorable et demande une vérification attentive du métal d'apport, du refroidissement et des conditions de soudage."
       },
       {
-        "titre": "Zone A+M+F — Austénite + Martensite + Ferrite",
+        "titre": "Zone A+M+F : Austénite + Martensite + Ferrite",
         "texte": "La zone grisée réunit les trois structures : austénite, martensite et ferrite. Le corridor blanc en forme de S se situe à l'intérieur de cette zone. Il constitue une solution de sécurité admise après la zone idéale et la zone acceptable."
       },
       {
@@ -346,15 +351,15 @@
     "etagement_intro": "Comment lire le diagramme et le classement :",
     "etagement": [
       {
-        "titre": "1 — Zone idéale bleue",
+        "titre": "1 : Zone idéale bleue",
         "texte": "Cible prioritaire de l'outil, située entre 5 et 15 % de ferrite delta. Le classement privilégie le centre de cette bande, où le compromis est généralement favorable entre la limitation de la fissuration à chaud et le maintien des propriétés mécaniques."
       },
       {
-        "titre": "2 — Zone acceptable verte",
+        "titre": "2 : Zone acceptable verte",
         "texte": "Plage élargie de 0 à 20 % de ferrite. Le résultat peut rester utilisable, mais il doit être examiné avec plus de prudence : trop peu de ferrite favorise la fissuration à chaud, tandis qu'une quantité élevée peut dégrader certaines propriétés du joint."
       },
       {
-        "titre": "3 — Corridor de sécurité blanc",
+        "titre": "3 : Corridor de sécurité blanc",
         "texte": "Ce corridor en forme de S est compris dans la zone A+M+F grisée. Le résultat y reste admis comme solution de repli, après la zone idéale bleue et la zone acceptable verte."
       }
     ]
