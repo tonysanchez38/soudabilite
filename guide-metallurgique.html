@@ -159,23 +159,6 @@ Ni_eq = %Ni + 30 &times; %C + 0,5 &times; %Mn            (axe vertical)</p>
 
           <p>Le coefficient 30 devant le carbone mérite qu'on s'y arrête. Un dixième de pourcent de carbone déplace le point de trois unités sur l'axe vertical, autant que trois pourcents de nickel. Sur un acier de construction, la teneur en carbone gouverne à elle seule la position verticale. C'est la raison pour laquelle un S355 se retrouve en bas à gauche du diagramme, en zone martensitique, alors qu'un 304L monte au milieu de la zone austénitique.</p>
 
-          <h3>Les sept zones</h3>
-
-          <div class="tableau-defilant">
-            <table class="tableau">
-              <thead><tr><th>Zone</th><th>Structure</th><th>Comportement</th></tr></thead>
-              <tbody>
-                <tr><td>A</td><td>Austénite</td><td>Ductile et tenace. Une structure entièrement austénitique reste sensible à la fissuration à chaud pendant la solidification.</td></tr>
-                <tr><td>F</td><td>Ferrite</td><td>Une proportion excessive dégrade la ténacité et la ductilité, en particulier après exposition à température élevée.</td></tr>
-                <tr><td>M</td><td>Martensite</td><td>Dure et fragile. Sensible à la fissuration à froid, surtout si l'assemblage est bridé ou si l'hydrogène est mal maîtrisé.</td></tr>
-                <tr><td>A+M</td><td>Austénite et martensite</td><td>La présence de martensite rend le joint plus sensible à la fissuration différée.</td></tr>
-                <tr><td>M+F</td><td>Martensite et ferrite</td><td>Combinaison généralement défavorable, qui demande un examen attentif de l'apport et du refroidissement.</td></tr>
-                <tr><td>A+M+F</td><td>Les trois structures</td><td>Zone grisée. Un corridor en forme de S y est admis comme solution de repli, après les zones idéale et acceptable.</td></tr>
-                <tr><td>A+F</td><td>Austéno-ferritique</td><td>Zone recherchée pour les inox et les assemblages hétérogènes. Un peu de ferrite limite la fissuration à chaud sans dégrader la ténacité.</td></tr>
-              </tbody>
-            </table>
-          </div>
-
           <h3>La ligne de dilution, le vrai sujet</h3>
 
           <p>Placer le métal de base sur le diagramme est une opération d'école. Le joint réel n'est ni le métal A, ni le métal B, ni l'apport. C'est un mélange des trois, et c'est ce mélange qu'il faut positionner.</p>
@@ -216,6 +199,45 @@ Ni_eq(joint) = 0,30 &times; 7,72 + 0,70 &times; 13,65 = 2,32 + 9,56 = 11,87</p>
           <p>Notez le déplacement. Le point de dilution était en pleine martensite. C'est l'apport, qui pèse 70 % du bain, qui ramène le joint vers l'austéno-ferritique. Baisser la fraction d'apport à 50 % tirerait le point vers la gauche et vers le bas, en direction de la zone A+M. La dilution n'est pas un paramètre de second ordre, elle décide du résultat.</p>
 
           <p><a class="lien-outil" href="parametres.html">Vérifier votre propre cas dans le calculateur</a></p>
+        </div>
+
+        <!-- ===================== Zones métallurgiques ================= -->
+        <div class="carte contenu-guide" id="zones-metallurgiques">
+          <h2>Les sept zones métallurgiques et les trois bandes de sécurité</h2>
+
+          <p>Une fois le point du joint placé, la zone d'arrivée annonce la structure obtenue et les risques qui vont avec.</p>
+
+
+          <div class="tableau-defilant">
+            <table class="tableau">
+              <thead><tr><th>Zone</th><th>Structure</th><th>Comportement</th></tr></thead>
+              <tbody>
+                <tr><td>A</td><td>Austénite</td><td>Ductile et tenace. Une structure entièrement austénitique reste sensible à la fissuration à chaud pendant la solidification.</td></tr>
+                <tr><td>F</td><td>Ferrite</td><td>Une proportion excessive dégrade la ténacité et la ductilité, en particulier après exposition à température élevée.</td></tr>
+                <tr><td>M</td><td>Martensite</td><td>Dure et fragile. Sensible à la fissuration à froid, surtout si l'assemblage est bridé ou si l'hydrogène est mal maîtrisé.</td></tr>
+                <tr><td>A+M</td><td>Austénite et martensite</td><td>La présence de martensite rend le joint plus sensible à la fissuration différée.</td></tr>
+                <tr><td>M+F</td><td>Martensite et ferrite</td><td>Combinaison généralement défavorable, qui demande un examen attentif de l'apport et du refroidissement.</td></tr>
+                <tr><td>A+M+F</td><td>Les trois structures</td><td>Zone grisée. Un corridor en forme de S y est admis comme solution de repli, après les zones idéale et acceptable.</td></tr>
+                <tr><td>A+F</td><td>Austéno-ferritique</td><td>Zone recherchée pour les inox et les assemblages hétérogènes. Un peu de ferrite limite la fissuration à chaud sans dégrader la ténacité.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Les mécanismes de dégradation</h3>
+
+          <p><strong>La fissuration à chaud, dite de liquation.</strong> Elle apparaît pendant la solidification du cordon. Elle est favorisée par les contraintes de retrait, par certaines impuretés et par une structure trop austénitique. Une proportion adaptée de ferrite delta contribue à diminuer ce risque.</p>
+
+          <p><strong>La fissuration à froid, dite différée.</strong> Elle peut apparaître plusieurs heures après le soudage et résulte de la combinaison d'une structure fragile, de contraintes résiduelles et d'hydrogène diffusible. Elle est traitée en détail plus haut, dans la section consacrée aux trois facteurs.</p>
+
+          <h3>Ordre de priorité des zones</h3>
+
+          <p>Le classement des métaux d'apport s'étage sur trois bandes, de la plus favorable à la solution de repli.</p>
+
+          <ul>
+            <li><strong>Zone idéale, en bleu.</strong> Cible prioritaire, située entre 5 et 15 % de ferrite delta. Le classement privilégie le centre de cette bande, où le compromis est généralement favorable entre la limitation de la fissuration à chaud et le maintien des propriétés mécaniques.</li>
+            <li><strong>Zone acceptable, en vert.</strong> Plage élargie de 0 à 20 % de ferrite. Le résultat peut rester utilisable, mais il demande plus de prudence : trop peu de ferrite favorise la fissuration à chaud, tandis qu'une quantité élevée peut dégrader certaines propriétés du joint.</li>
+            <li><strong>Corridor de sécurité, en blanc.</strong> Ce corridor en forme de S est compris dans la zone A+M+F grisée. Le résultat y reste admis comme solution de repli, après la zone idéale et la zone acceptable.</li>
+          </ul>
         </div>
 
         <!-- ===================== Ferrite et FN ======================== -->

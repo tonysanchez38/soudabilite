@@ -1491,4 +1491,4 @@ table {
   border-left:3px solid currentColor;background:rgba(255,255,255,.04);
   font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9rem;
   white-space:pre-wrap;overflow-x:auto}
-.contenu-guide .lien-outil{display:inline-block;margin-top:.5rem;font-weight:600}
+.lien-outil{display:inline-block;margin-top:.5rem;font-weight:600}
