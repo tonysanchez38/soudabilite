@@ -1,40 +1,25 @@
 <!DOCTYPE html>
 <!-- Calculateur de Soudabilité - soudabilite.com
-     Conception et développement : Tony SANCHEZ -->
+     Conception et développement : Tony SANCHEZ
+     Rubrique en maintenance. Le contenu rédigé est conservé dans
+     l'historique du dépôt et sera remis en ligne après relecture. -->
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
     <meta name="author" content="Tony SANCHEZ" />
-    <meta name="robots" content="noindex, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="DMOS, DMOS préliminaire et QMOS expliqués : contenu du descriptif selon NF EN ISO 15609-1, épreuve de qualification 15614-1 et qualification des soudeurs 9606-1."
-    />
-    <!-- Titre et contenu en dur (SEO) : présents sans exécution de JS. -->
-    <title>DMOS, QMOS et qualifications : le cadre normatif | Soudabilite.com</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="La rubrique réglementation et DMOS est en cours de rédaction et de relecture technique." />
+    <title>Réglementation et DMOS | Maintenance en cours | Soudabilite.com</title>
     <link rel="canonical" href="https://soudabilite.com/reglementation-dmos.html" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="DMOS, QMOS et qualifications : le cadre normatif" />
-    <meta
-      property="og:description"
-      content="De la fiche de préparation au mode opératoire qualifié : qui écrit quoi, dans quel ordre, et selon quelle norme."
-    />
-    <meta property="og:url" content="https://soudabilite.com/reglementation-dmos.html" />
-    <meta property="og:image" content="https://soudabilite.com/assets/img/logo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css?v=20260920-guide-1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260827-icone-linkedin-1" />
     <script
       data-goatcounter="https://soudabilite.com/gc/count"
       async
       src="/gc/count.js"
     ></script>
-    <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260920-guide-1" as="style" />
-    <script type="module" src="assets/js/app.js"></script>
     <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
          s'affichent sans dependre du chargement de fr.json. -->
     <style>
@@ -44,6 +29,31 @@
         .topbar__inner{flex-wrap:wrap;row-gap:.5rem}
         .nav{width:100%;justify-content:flex-start}
         .nav__lien{font-size:.86rem}
+      }
+      .mtn{display:flex;align-items:center;justify-content:center;
+        min-height:62vh;padding:2.5rem 1rem}
+      .mtn__carte{width:100%;max-width:620px;text-align:center;
+        padding:2.75rem 2rem;border-radius:14px;
+        border:1px solid rgba(255,255,255,.10);
+        background:rgba(255,255,255,.035)}
+      .mtn__marque{font-weight:700;font-size:1.05rem;letter-spacing:.01em;
+        margin:0 0 1.35rem}
+      .mtn__marque span{color:#38a9f5}
+      .mtn__pastille{display:inline-flex;align-items:center;gap:.5rem;
+        padding:.45rem 1.05rem;border-radius:999px;
+        background:rgba(184,122,14,.16);color:#e0a53a;
+        font-size:.88rem;font-weight:600;margin:0 0 1.5rem}
+      .mtn__point{width:8px;height:8px;border-radius:50%;background:#e0a53a;
+        display:inline-block}
+      .mtn__titre{font-size:1.95rem;line-height:1.2;margin:0 0 1.15rem;
+        font-weight:700}
+      .mtn__texte{line-height:1.6;margin:0 0 .85rem;opacity:.82}
+      .mtn__regle{border:0;border-top:1px solid rgba(255,255,255,.10);
+        margin:2rem 0 1.4rem}
+      .mtn__pied{font-size:.94rem;opacity:.8;margin:0}
+      @media (max-width:520px){
+        .mtn__carte{padding:2rem 1.25rem}
+        .mtn__titre{font-size:1.5rem}
       }
     </style>
   </head>
@@ -64,155 +74,28 @@
 
     <!-- ========================= Contenu ============================= -->
     <main class="page">
-      <div class="conteneur presentation">
+      <div class="mtn">
+        <div class="mtn__carte">
+          <p class="mtn__marque">www.<span>soudabilite.com</span></p>
 
-        <section class="hero">
-          <h1 class="hero__titre">DMOS, QMOS et qualifications</h1>
-          <p class="hero__soustitre">Qui écrit quoi, dans quel ordre, et selon quelle norme</p>
-        </section>
+          <p class="mtn__pastille"><span class="mtn__point" aria-hidden="true"></span>Maintenance en cours</p>
 
-        <div class="carte contenu-guide" style="border-left:4px solid #b87a0e">
-          <h2>Rubrique en cours de rédaction</h2>
-          <p>Le contenu ci-dessous est une première version, en attente de relecture technique. Les informations qu'il contient ne doivent pas être utilisées comme référence tant que cette mention est affichée.</p>
+          <h1 class="mtn__titre">Cette rubrique revient très bientôt.</h1>
+
+          <p class="mtn__texte">DMOS préliminaire, épreuve de qualification et groupement des matériaux sont en cours de rédaction. Le contenu sera publié une fois relu.</p>
+          <p class="mtn__texte">Merci de votre patience.</p>
+
+          <hr class="mtn__regle" />
+
+          <p class="mtn__pied">En attendant, le <a href="analyse-thermique-metallurgique.html">calculateur</a> et la <a href="bibliotheque-materiaux.html">bibliothèque des matériaux</a> restent accessibles.</p>
         </div>
-
-        <div class="carte contenu-guide">
-          <p>Un atelier a beau savoir souder, sans papier il ne peut rien livrer sur une affaire encadrée. Le cadre normatif du soudage tient en une chaîne simple : on écrit ce qu'on compte faire, on le prouve par un essai, puis on soude selon ce qui a été prouvé. Chaque maillon porte un nom et une norme.</p>
-        </div>
-
-        <!-- ===================== La chaîne =========================== -->
-        <div class="carte contenu-guide" id="chaine-documentaire">
-          <h2>La chaîne documentaire en quatre maillons</h2>
-
-          <div class="tableau-defilant">
-            <table class="tableau">
-              <thead><tr><th>Document</th><th>Sigle</th><th>Statut</th></tr></thead>
-              <tbody>
-                <tr><td>DMOS préliminaire</td><td>pWPS</td><td>Proposition écrite avant essai. Non qualifié par construction.</td></tr>
-                <tr><td>Épreuve de qualification</td><td>-</td><td>Soudage d'un assemblage témoin, puis essais destructifs et non destructifs.</td></tr>
-                <tr><td>Procès-verbal de qualification</td><td>QMOS ou WPQR</td><td>Constat des résultats de l'épreuve et du domaine de validité obtenu.</td></tr>
-                <tr><td>Descriptif de mode opératoire</td><td>DMOS ou WPS</td><td>Document de production, couvert par un QMOS, remis au soudeur.</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p>L'ordre ne se contourne pas. Un DMOS qui ne s'appuie sur aucun procès-verbal n'est pas un DMOS qualifié, quelle que soit la qualité de sa rédaction.</p>
-        </div>
-
-        <!-- ===================== pWPS =============================== -->
-        <div class="carte contenu-guide" id="dmos-preliminaire">
-          <h2>Le DMOS préliminaire</h2>
-
-          <p>La NF EN ISO 15607 pose les règles générales de la famille et définit le DMOS préliminaire. C'est la proposition technique que le coordinateur rédige avant de lancer l'essai : les métaux de base retenus, le procédé, la préparation du joint, le métal d'apport envisagé, les paramètres électriques visés, le préchauffage et les températures d'interpasse.</p>
-
-          <p>Son statut est clair. Il n'est pas qualifié, et il n'a pas vocation à l'être en l'état. Son rôle est de cadrer l'essai de qualification, donc de coûter un assemblage témoin plutôt qu'une série entière. C'est un document de travail, et c'est précisément ce que produit le calculateur de ce site.</p>
-
-          <p><a class="lien-outil" href="analyse-thermique-metallurgique.html">Préparer une analyse et exporter la fiche</a></p>
-        </div>
-
-        <!-- ===================== 15609-1 ============================= -->
-        <div class="carte contenu-guide" id="contenu-dmos">
-          <h2>Ce que contient un DMOS</h2>
-
-          <p>La NF EN ISO 15609-1 fixe le contenu du descriptif pour le soudage à l'arc. Elle ne dit pas comment souder, elle dit ce qui doit figurer sur le document pour qu'un autre atelier puisse reproduire le joint à l'identique.</p>
-
-          <ul>
-            <li>Identification du fabricant, référence du document et du procès-verbal de qualification associé.</li>
-            <li>Métaux de base : désignation, norme, groupe au sens de l'ISO/TR 15608, épaisseurs et diamètres couverts.</li>
-            <li>Procédé de soudage selon la numérotation ISO 4063, croquis de préparation du joint et répartition des passes.</li>
-            <li>Métal d'apport : désignation normalisée, diamètre, conditions d'étuvage le cas échéant.</li>
-            <li>Gaz de protection et gaz envers, avec débits.</li>
-            <li>Paramètres électriques par passe : intensité, tension, polarité, vitesse d'avance et énergie de soudage.</li>
-            <li>Températures : préchauffage, interpasse, et traitement thermique après soudage s'il est requis.</li>
-          </ul>
-
-          <p>L'énergie de soudage figure parmi les variables consignées, calculée selon la NF EN 1011-1 et exprimée en kilojoules par centimètre.</p>
-        </div>
-
-        <!-- ===================== 15614-1 ============================= -->
-        <div class="carte contenu-guide" id="qualification-mode-operatoire">
-          <h2>L'épreuve de qualification du mode opératoire</h2>
-
-          <p>La NF EN ISO 15614-1 décrit l'épreuve pour les aciers et les alliages de nickel. Un assemblage témoin est soudé en suivant le DMOS préliminaire, puis soumis à un programme d'essais : examen visuel, contrôles non destructifs, essais de traction, de pliage, de résilience et macrographie selon les cas.</p>
-
-          <p>Le procès-verbal qui en découle ne couvre pas seulement le cas soudé. Il ouvre un <strong>domaine de validité</strong> : une plage d'épaisseurs, une plage de diamètres, un ensemble de positions, un ou plusieurs groupes de matériaux. C'est ce mécanisme qui évite de requalifier à chaque affaire. Les plages exactes figurent dans les tableaux de la norme et se lisent au cas par cas, sans extrapolation.</p>
-        </div>
-
-        <!-- ===================== 9606-1 ============================== -->
-        <div class="carte contenu-guide" id="qualification-soudeurs">
-          <h2>La qualification des soudeurs</h2>
-
-          <p>Qualifier un mode opératoire ne qualifie pas celui qui l'exécute. La NF EN ISO 9606-1 traite la qualification des soudeurs pour les aciers, par épreuve individuelle. Elle ouvre elle aussi un domaine de validité propre, fondé sur le procédé, le type de produit, la position, le type de joint et le métal d'apport.</p>
-
-          <p>Les deux qualifications sont indépendantes et cumulatives. Un atelier conforme dispose des deux : un mode opératoire prouvé, et des opérateurs prouvés pour l'exécuter.</p>
-        </div>
-
-        <!-- ===================== ISO/TR 15608 ======================== -->
-        <div class="carte contenu-guide" id="groupes-materiaux">
-          <h2>Le groupement des matériaux</h2>
-
-          <p>L'ISO/TR 15608 range les matériaux métalliques en groupes selon leur composition et leur comportement au soudage. Sans ce classement, chaque nuance exigerait sa propre qualification.</p>
-
-          <div class="tableau-defilant">
-            <table class="tableau">
-              <thead><tr><th>Groupe</th><th>Famille</th></tr></thead>
-              <tbody>
-                <tr><td>1</td><td>Aciers non alliés et faiblement alliés à limite d'élasticité modérée</td></tr>
-                <tr><td>2</td><td>Aciers à grains fins obtenus par laminage thermomécanique</td></tr>
-                <tr><td>3</td><td>Aciers trempés et revenus à haute limite d'élasticité</td></tr>
-                <tr><td>8</td><td>Aciers inoxydables austénitiques</td></tr>
-                <tr><td>10</td><td>Aciers inoxydables austéno-ferritiques, dits duplex</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p>La liste ci-dessus ne retient que les groupes les plus rencontrés en tuyauterie industrielle. Le rapport technique en compte davantage, avec des sous-groupes dont le détail conditionne les règles de couverture d'une qualification.</p>
-        </div>
-
-        <!-- ===================== Limite ============================== -->
-        <div class="carte contenu-guide" id="limite-outil">
-          <h2>La limite de cet outil</h2>
-
-          <p>Le calculateur de ce site aide à préparer. Il ne qualifie rien, et ne le prétend pas. Le document qu'il exporte est une fiche de préparation, à confronter aux essais et à valider par le service qualité avant toute production.</p>
-
-          <p>Cette limite n'est pas une faiblesse, c'est le bon niveau. Un outil qui prétendrait délivrer un mode opératoire qualifié sans essai ne serait pas utile, il serait dangereux.</p>
-        </div>
-
-        <!-- ===================== Références ========================== -->
-        <div class="carte contenu-guide" id="references-normatives">
-          <h2>Références normatives</h2>
-
-          <div class="tableau-defilant">
-            <table class="tableau">
-              <thead><tr><th>Référence</th><th>Objet</th></tr></thead>
-              <tbody>
-                <tr><td>NF EN ISO 15607</td><td>Règles générales, définition du DMOS préliminaire</td></tr>
-                <tr><td>NF EN ISO 15609-1</td><td>Contenu du descriptif de mode opératoire, soudage à l'arc</td></tr>
-                <tr><td>NF EN ISO 15614-1</td><td>Épreuve de qualification du mode opératoire, aciers et alliages de nickel</td></tr>
-                <tr><td>NF EN ISO 9606-1</td><td>Qualification des soudeurs, soudage par fusion des aciers</td></tr>
-                <tr><td>ISO/TR 15608</td><td>Système de groupement des matériaux métalliques</td></tr>
-                <tr><td>ISO 4063</td><td>Numérotation des procédés de soudage</td></tr>
-                <tr><td>NF EN 1011-1</td><td>Soudage à l'arc, directives générales, énergie de soudage</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
     </main>
 
     <!-- ==================== Pied de page permanent =================== -->
     <footer class="pied">
       <div class="conteneur pied__inner">
-        <p class="pied__disclaimer" data-i18n="footer.disclaimer"></p>
-        <div class="pied__compteurs">
-          <p class="pied__compteur" data-compteur hidden></p>
-          <p class="pied__compteur" data-compteur-analyses hidden></p>
-          <a class="pied__signature" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
-            <span class="pied__linkedin-icone" aria-hidden="true">in</span>
-            <span class="pied__signature-texte" data-i18n="footer.signature"></span>
-          </a>
-        </div>
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS.</p>
       </div>
     </footer>
 

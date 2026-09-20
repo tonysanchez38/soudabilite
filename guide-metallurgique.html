@@ -1,41 +1,25 @@
 <!DOCTYPE html>
 <!-- Calculateur de Soudabilité - soudabilite.com
-     Conception et développement : Tony SANCHEZ -->
+     Conception et développement : Tony SANCHEZ
+     Rubrique en maintenance. Le contenu rédigé est conservé dans
+     l'historique du dépôt et sera remis en ligne après relecture. -->
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
     <meta name="author" content="Tony SANCHEZ" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Guide métallurgique du soudage : fissuration à froid, carbone équivalent, énergie en kJ/cm, préchauffage, lecture du diagramme de Schaeffler et taux de ferrite."
-    />
-    <!-- Titre en dur (SEO) : ne pas piloter par i18n, doit être présent
-         sans exécution de JS pour l'indexation. Tout le contenu de cette
-         page est en dur pour la même raison. -->
-    <title>Guide métallurgique du soudage | Soudabilite.com</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="Le guide métallurgique du soudage est en cours de relecture technique avant publication." />
+    <title>Guide métallurgique | Maintenance en cours | Soudabilite.com</title>
     <link rel="canonical" href="https://soudabilite.com/guide-metallurgique.html" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Guide métallurgique du soudage" />
-    <meta
-      property="og:description"
-      content="Fissuration à froid, carbone équivalent, énergie de soudage, préchauffage, diagramme de Schaeffler et taux de ferrite, expliqués pour la préparation du soudage."
-    />
-    <meta property="og:url" content="https://soudabilite.com/guide-metallurgique.html" />
-    <meta property="og:image" content="https://soudabilite.com/assets/img/logo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css?v=20260920-guide-1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260827-icone-linkedin-1" />
     <script
       data-goatcounter="https://soudabilite.com/gc/count"
       async
       src="/gc/count.js"
     ></script>
-    <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260920-guide-1" as="style" />
-    <script type="module" src="assets/js/app.js"></script>
     <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
          s'affichent sans dependre du chargement de fr.json. -->
     <style>
@@ -45,6 +29,31 @@
         .topbar__inner{flex-wrap:wrap;row-gap:.5rem}
         .nav{width:100%;justify-content:flex-start}
         .nav__lien{font-size:.86rem}
+      }
+      .mtn{display:flex;align-items:center;justify-content:center;
+        min-height:62vh;padding:2.5rem 1rem}
+      .mtn__carte{width:100%;max-width:620px;text-align:center;
+        padding:2.75rem 2rem;border-radius:14px;
+        border:1px solid rgba(255,255,255,.10);
+        background:rgba(255,255,255,.035)}
+      .mtn__marque{font-weight:700;font-size:1.05rem;letter-spacing:.01em;
+        margin:0 0 1.35rem}
+      .mtn__marque span{color:#38a9f5}
+      .mtn__pastille{display:inline-flex;align-items:center;gap:.5rem;
+        padding:.45rem 1.05rem;border-radius:999px;
+        background:rgba(184,122,14,.16);color:#e0a53a;
+        font-size:.88rem;font-weight:600;margin:0 0 1.5rem}
+      .mtn__point{width:8px;height:8px;border-radius:50%;background:#e0a53a;
+        display:inline-block}
+      .mtn__titre{font-size:1.95rem;line-height:1.2;margin:0 0 1.15rem;
+        font-weight:700}
+      .mtn__texte{line-height:1.6;margin:0 0 .85rem;opacity:.82}
+      .mtn__regle{border:0;border-top:1px solid rgba(255,255,255,.10);
+        margin:2rem 0 1.4rem}
+      .mtn__pied{font-size:.94rem;opacity:.8;margin:0}
+      @media (max-width:520px){
+        .mtn__carte{padding:2rem 1.25rem}
+        .mtn__titre{font-size:1.5rem}
       }
     </style>
   </head>
@@ -65,251 +74,28 @@
 
     <!-- ========================= Contenu ============================= -->
     <main class="page">
-      <div class="conteneur presentation">
+      <div class="mtn">
+        <div class="mtn__carte">
+          <p class="mtn__marque">www.<span>soudabilite.com</span></p>
 
-        <section class="hero">
-          <h1 class="hero__titre">Guide métallurgique du soudage</h1>
-          <p class="hero__soustitre">Comprendre ce que le calculateur mesure, et pourquoi</p>
-        </section>
+          <p class="mtn__pastille"><span class="mtn__point" aria-hidden="true"></span>Maintenance en cours</p>
 
-        <div class="carte contenu-guide">
-          <p>Un piquage 304L de 3 mm à raccorder sur une tubulure S355 de 5 mm. Le plan ne dit rien du métal d'apport. Avant de brancher le poste, deux questions se posent : qu'est-ce que je vais obtenir dans le cordon, et est-ce que le joint va tenir. Ce guide explique les notions qui répondent à ces deux questions, et sur lesquelles repose le calculateur.</p>
+          <h1 class="mtn__titre">Le guide revient très bientôt.</h1>
+
+          <p class="mtn__texte">Le contenu est sur l'établi. Il passe une relecture technique avant d'être publié, pour qu'aucune valeur affichée ne parte sans être sourcée.</p>
+          <p class="mtn__texte">Merci de votre patience.</p>
+
+          <hr class="mtn__regle" />
+
+          <p class="mtn__pied">En attendant, le <a href="analyse-thermique-metallurgique.html">calculateur</a> et la <a href="bibliotheque-materiaux.html">bibliothèque des matériaux</a> restent accessibles.</p>
         </div>
-
-        <!-- ===================== Fissuration à froid ================== -->
-        <div class="carte contenu-guide" id="fissuration-froid">
-          <h2>La fissuration à froid : trois facteurs, pas un seul</h2>
-
-          <p>La fissuration à froid n'apparaît pas pendant le soudage. Elle se déclare plusieurs heures après, parfois le lendemain, une fois le joint revenu à température ambiante. C'est ce délai qui la rend redoutable : la pièce est contrôlée bonne, puis elle fissure.</p>
-
-          <p>Elle demande la réunion de trois conditions. Retirer une seule suffit à l'empêcher.</p>
-
-          <ul>
-            <li><strong>Une structure fragile.</strong> Un refroidissement rapide transforme l'austénite en martensite dans la zone affectée thermiquement. La NF EN 1011-2 retient une dureté de 350 HV10 comme repère de sensibilité pour les aciers ferritiques courants.</li>
-            <li><strong>De l'hydrogène diffusible.</strong> Il vient de l'humidité de l'enrobage, de bords mal préparés, de la graisse ou de la condensation. Il migre vers les zones de contrainte et fragilise le métal.</li>
-            <li><strong>Des contraintes de traction.</strong> Le retrait du cordon en refroidissant génère des contraintes que le bridage de la pièce empêche de se relâcher.</li>
-          </ul>
-
-          <p>Le préchauffage agit sur deux de ces trois facteurs à la fois. Il ralentit le refroidissement, ce qui limite la formation de martensite, et il laisse à l'hydrogène le temps de sortir du joint. C'est la raison pour laquelle il reste la parade la plus employée en atelier.</p>
-        </div>
-
-        <!-- ===================== Carbone équivalent =================== -->
-        <div class="carte contenu-guide" id="carbone-equivalent">
-          <h2>Le carbone équivalent et le seuil de 0,42 %</h2>
-
-          <p>Un acier ne se juge pas sur son seul carbone. Le manganèse, le chrome, le molybdène, le vanadium, le nickel et le cuivre augmentent eux aussi l'aptitude à la trempe. Le carbone équivalent les ramène tous à une valeur unique, exprimée comme un pourcentage de carbone.</p>
-
-          <p class="formule-guide">CE_IIW = %C + %Mn/6 + (%Cr + %Mo + %V)/5 + (%Ni + %Cu)/15</p>
-
-          <p>Le calculateur affiche cette valeur pour chaque métal de base, avec un repère indicatif : un acier dont le CE_IIW reste sous 0,42 % est réputé soudable sans préchauffage dans des conditions courantes. Au-dessus, le préchauffage doit être examiné. Le seuil est un repère de dégrossissage, pas une règle. L'épaisseur, le bridage et la classe d'hydrogène du consommable pèsent aussi sur la décision.</p>
-
-          <p>Un S235JR se situe autour de 0,26 %, largement sous le seuil. Un P275NL2 monte au-delà de 0,45 %, ce qui change la conduite à tenir.</p>
-
-          <p>Le calcul du préchauffage repose sur une seconde formule, propre à la méthode retenue et distincte du CE_IIW. Les deux valeurs apparaissent séparément à l'écran et ne doivent pas être confondues.</p>
-        </div>
-
-        <!-- ===================== Énergie de soudage =================== -->
-        <div class="carte contenu-guide" id="energie-soudage">
-          <h2>Énergie nominale et énergie corrigée</h2>
-
-          <p>L'énergie de soudage se calcule en kilojoules par centimètre, selon la NF EN 1011-1. C'est l'unité du site, sans exception.</p>
-
-          <p class="formule-guide">En = (U &times; I &times; 60) / (Vs &times; 1000)     énergie nominale, kJ/cm
-Q = k &times; En                          énergie corrigée, kJ/cm</p>
-
-          <p>U est la tension en volts, I l'intensité en ampères, Vs la vitesse de soudage en centimètres par minute. Le facteur k est le rendement thermique du procédé : une partie de l'énergie de l'arc part en rayonnement et en projections au lieu d'entrer dans la pièce.</p>
-
-          <div class="tableau-defilant">
-            <table class="tableau">
-              <thead><tr><th>Procédé (ISO 4063)</th><th>Rendement k</th></tr></thead>
-              <tbody>
-                <tr><td>141 TIG, 15 plasma</td><td>0,60</td></tr>
-                <tr><td>111 électrode enrobée, 131 MIG, 135 MAG, 136 fil fourré</td><td>0,80</td></tr>
-                <tr><td>121 arc submergé</td><td>1,00</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p>Sur un cas TIG à 90 A, 13,6 V et 12 cm/min, l'énergie nominale atteint 6,12 kJ/cm et l'énergie corrigée 3,67 kJ/cm. C'est la valeur corrigée qui compte pour le comportement thermique du joint. L'écart de 40 % entre les deux explique à lui seul pourquoi un même réglage ne produit pas le même résultat selon le procédé.</p>
-        </div>
-
-        <!-- ===================== Préchauffage ========================= -->
-        <div class="carte contenu-guide" id="prechauffage">
-          <h2>Le préchauffage : deux méthodes, un aiguillage</h2>
-
-          <p>Préchauffer consiste à élever la température de la pièce avant de souder, pour ralentir le refroidissement du joint. La température retenue dépend de la composition de l'acier, de l'épaisseur combinée de l'assemblage et du procédé employé.</p>
-
-          <p>Le calculateur retient une méthode à la fois, jamais les deux en parallèle, et affiche la justification de son choix. L'aiguillage se fait sur le type d'enrobage lorsque le procédé est l'électrode enrobée, et non sur la seule classe d'hydrogène, qui reste une variable indépendante.</p>
-
-          <ul>
-            <li><strong>Séférian</strong> s'appuie sur un carbone équivalent propre à la méthode, corrigé par l'épaisseur.</li>
-            <li><strong>BWRA</strong> entre par le type d'enrobage, rutile, basique ou cellulosique, et traite l'épaisseur comme un axe séparé.</li>
-          </ul>
-
-          <p>Sur un assemblage hétérogène acier et inox, le préchauffage n'est pas calculé. L'analyse reste centrée sur la composition du bain fondu, parce que c'est elle qui décide de la structure obtenue.</p>
-        </div>
-
-        <!-- ===================== Schaeffler =========================== -->
-        <div class="carte contenu-guide" id="diagramme-schaeffler">
-          <h2>Lire un diagramme de Schaeffler</h2>
-
-          <h3>Ce que le diagramme prédit, et ce qu'il ne prédit pas</h3>
-
-          <p>Anton Schaeffler publie son abaque en 1949. L'idée tient en une phrase : la structure du métal fondu après refroidissement peut se déduire de sa composition chimique, à condition de ramener tous les éléments d'alliage à deux familles.</p>
-
-          <p>Il ne s'agit pas d'un diagramme d'équilibre. Le diagramme fer-carbone décrit un métal qui a eu le temps de se réorganiser. Le soudage ne laisse pas ce temps. Schaeffler décrit un état hors équilibre, celui d'un bain qui refroidit vite depuis environ 1050 degrés, à l'air calme. C'est exactement la situation d'un cordon.</p>
-
-          <p>La contrepartie de cette précision, c'est un périmètre étroit. Le diagramme donne une structure : austénite, ferrite, martensite, ou un mélange. Il ne donne ni une dureté, ni un temps de refroidissement, ni un risque de fissuration à froid, ni une tenue mécanique. Ces réponses relèvent de la branche thermique traitée plus haut.</p>
-
-          <h3>Les deux axes</h3>
-
-          <p>Tous les éléments d'alliage ne poussent pas dans le même sens. Certains stabilisent la ferrite, on les dit alphagènes. D'autres stabilisent l'austénite, ils sont gammagènes. Schaeffler regroupe chaque famille dans un équivalent, pondéré par le pouvoir réel de chaque élément.</p>
-
-          <p class="formule-guide">Cr_eq = %Cr + %Mo + 1,5 &times; %Si + 0,5 &times; %Nb     (axe horizontal)
-Ni_eq = %Ni + 30 &times; %C + 0,5 &times; %Mn            (axe vertical)</p>
-
-          <p>Le coefficient 30 devant le carbone mérite qu'on s'y arrête. Un dixième de pourcent de carbone déplace le point de trois unités sur l'axe vertical, autant que trois pourcents de nickel. Sur un acier de construction, la teneur en carbone gouverne à elle seule la position verticale. C'est la raison pour laquelle un S355 se retrouve en bas à gauche du diagramme, en zone martensitique, alors qu'un 304L monte au milieu de la zone austénitique.</p>
-
-          <h3>La ligne de dilution, le vrai sujet</h3>
-
-          <p>Placer le métal de base sur le diagramme est une opération d'école. Le joint réel n'est ni le métal A, ni le métal B, ni l'apport. C'est un mélange des trois, et c'est ce mélange qu'il faut positionner.</p>
-
-          <p>La construction se fait en deux segments. On place d'abord les deux métaux de base avec leurs équivalents. On trace le segment qui les relie, sur lequel se situe le point de dilution, à la position dictée par la part de chaque base réellement fondue. On trace enfin le segment reliant ce point de dilution au métal d'apport : le joint s'y place selon la fraction d'apport dans le bain.</p>
-
-          <p>L'erreur la plus courante consiste à lire la position du métal d'apport et à s'arrêter là. Un 309L placé en pleine zone austéno-ferritique ne garantit rien si la dilution tire le joint vers la martensite. Ce qui compte, c'est le point d'arrivée.</p>
-
-          <p>La fraction d'apport dépend du procédé et de la préparation. Ordre de grandeur usuel : 15 à 30 % de dilution en TIG, 20 à 40 % en MIG-MAG, 10 à 35 % à l'électrode enrobée, 40 à 100 % en arc submergé. Une macrographie de l'assemblage réel reste le seul moyen de connaître la valeur exacte.</p>
-
-          <h3>Un cas traité de bout en bout</h3>
-
-          <p>Reprenons l'assemblage du départ : une tôle S355 JO de 5 mm sur un 304L de 3 mm, en TIG 141, soudure d'angle à plat. Les contributions au bain retenues sont 20 % pour la base A, 10 % pour la base B et 70 % pour l'apport, avec un INERTROD 309L Si.</p>
-
-          <div class="tableau-defilant">
-            <table class="tableau">
-              <thead><tr><th>Métal</th><th>Cr_eq</th><th>Ni_eq</th></tr></thead>
-              <tbody>
-                <tr><td>A : S355 JO (E 36-3)</td><td>0,68</td><td>5,80</td></tr>
-                <tr><td>B : 304L</td><td>19,04</td><td>11,56</td></tr>
-                <tr><td>Apport : INERTROD 309L Si</td><td>25,27</td><td>13,65</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p>Les bases représentent ensemble 30 % du bain, réparties en deux tiers pour A et un tiers pour B.</p>
-
-          <p class="formule-guide">Cr_eq(dilution) = (20 &times; 0,68 + 10 &times; 19,04) / 30 = 204,0 / 30 = 6,80
-Ni_eq(dilution) = (20 &times; 5,80 + 10 &times; 11,56) / 30 = 231,6 / 30 = 7,72</p>
-
-          <p>Ce point tombe en zone martensitique. Soudé sans apport, ce joint fissurerait.</p>
-
-          <p class="formule-guide">Cr_eq(joint) = 0,30 &times; 6,80 + 0,70 &times; 25,27 = 2,04 + 17,69 = 19,73
-Ni_eq(joint) = 0,30 &times; 7,72 + 0,70 &times; 13,65 = 2,32 + 9,56 = 11,87</p>
-
-          <p>Le joint se place à 19,73 pour 11,87, en zone A+F, avec une teneur en ferrite estimée autour de 5,6 %. Sur toute la plage de dilution du procédé, de 15 à 30 %, le point reste dans la bande idéale. Le choix de l'apport est validé.</p>
-
-          <p>Notez le déplacement. Le point de dilution était en pleine martensite. C'est l'apport, qui pèse 70 % du bain, qui ramène le joint vers l'austéno-ferritique. Baisser la fraction d'apport à 50 % tirerait le point vers la gauche et vers le bas, en direction de la zone A+M. La dilution n'est pas un paramètre de second ordre, elle décide du résultat.</p>
-
-          <p><a class="lien-outil" href="analyse-thermique-metallurgique.html">Vérifier votre propre cas dans le calculateur</a></p>
-        </div>
-
-        <!-- ===================== Zones métallurgiques ================= -->
-        <div class="carte contenu-guide" id="zones-metallurgiques">
-          <h2>Les sept zones métallurgiques et les trois bandes de sécurité</h2>
-
-          <p>Une fois le point du joint placé, la zone d'arrivée annonce la structure obtenue et les risques qui vont avec.</p>
-
-
-          <div class="tableau-defilant">
-            <table class="tableau">
-              <thead><tr><th>Zone</th><th>Structure</th><th>Comportement</th></tr></thead>
-              <tbody>
-                <tr><td>A</td><td>Austénite</td><td>Ductile et tenace. Une structure entièrement austénitique reste sensible à la fissuration à chaud pendant la solidification.</td></tr>
-                <tr><td>F</td><td>Ferrite</td><td>Une proportion excessive dégrade la ténacité et la ductilité, en particulier après exposition à température élevée.</td></tr>
-                <tr><td>M</td><td>Martensite</td><td>Dure et fragile. Sensible à la fissuration à froid, surtout si l'assemblage est bridé ou si l'hydrogène est mal maîtrisé.</td></tr>
-                <tr><td>A+M</td><td>Austénite et martensite</td><td>La présence de martensite rend le joint plus sensible à la fissuration différée.</td></tr>
-                <tr><td>M+F</td><td>Martensite et ferrite</td><td>Combinaison généralement défavorable, qui demande un examen attentif de l'apport et du refroidissement.</td></tr>
-                <tr><td>A+M+F</td><td>Les trois structures</td><td>Zone grisée. Un corridor en forme de S y est admis comme solution de repli, après les zones idéale et acceptable.</td></tr>
-                <tr><td>A+F</td><td>Austéno-ferritique</td><td>Zone recherchée pour les inox et les assemblages hétérogènes. Un peu de ferrite limite la fissuration à chaud sans dégrader la ténacité.</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3>Les mécanismes de dégradation</h3>
-
-          <p><strong>La fissuration à chaud, dite de liquation.</strong> Elle apparaît pendant la solidification du cordon. Elle est favorisée par les contraintes de retrait, par certaines impuretés et par une structure trop austénitique. Une proportion adaptée de ferrite delta contribue à diminuer ce risque.</p>
-
-          <p><strong>La fissuration à froid, dite différée.</strong> Elle peut apparaître plusieurs heures après le soudage et résulte de la combinaison d'une structure fragile, de contraintes résiduelles et d'hydrogène diffusible. Elle est traitée en détail plus haut, dans la section consacrée aux trois facteurs.</p>
-
-          <h3>Ordre de priorité des zones</h3>
-
-          <p>Le classement des métaux d'apport s'étage sur trois bandes, de la plus favorable à la solution de repli.</p>
-
-          <ul>
-            <li><strong>Zone idéale, en bleu.</strong> Cible prioritaire, située entre 5 et 15 % de ferrite delta. Le classement privilégie le centre de cette bande, où le compromis est généralement favorable entre la limitation de la fissuration à chaud et le maintien des propriétés mécaniques.</li>
-            <li><strong>Zone acceptable, en vert.</strong> Plage élargie de 0 à 20 % de ferrite. Le résultat peut rester utilisable, mais il demande plus de prudence : trop peu de ferrite favorise la fissuration à chaud, tandis qu'une quantité élevée peut dégrader certaines propriétés du joint.</li>
-            <li><strong>Corridor de sécurité, en blanc.</strong> Ce corridor en forme de S est compris dans la zone A+M+F grisée. Le résultat y reste admis comme solution de repli, après la zone idéale et la zone acceptable.</li>
-          </ul>
-        </div>
-
-        <!-- ===================== Ferrite et FN ======================== -->
-        <div class="carte contenu-guide" id="ferrite-fn">
-          <h2>Pourcentage de ferrite et Ferrite Number : deux échelles distinctes</h2>
-
-          <p>La synthèse du calculateur affiche un pourcentage de ferrite estimé par interpolation entre les courbes iso-ferrite du diagramme de Schaeffler. Ce n'est pas un Ferrite Number.</p>
-
-          <p>Le Ferrite Number, ou FN, est une grandeur normalisée par la NF EN ISO 8249 et l'AWS A4.2, obtenue par mesure de la réponse magnétique du métal déposé. Il sert de référence sur les diagrammes de DeLong et WRC-1992.</p>
-
-          <p>Les deux échelles restent proches sous dix, puis divergent. Un seuil exprimé en FN ne se transpose pas en pourcentage, et l'inverse non plus. Une valeur s'écrit dans une seule des deux unités, jamais séparée par une barre oblique.</p>
-
-          <p>La bande visée par le calculateur se situe entre 5 et 15 % de ferrite delta. En dessous de 5 %, le bain devient presque entièrement austénitique et le risque de fissuration à chaud augmente pendant la solidification. Au-delà de 20 %, la ténacité recule et une exposition prolongée en température ouvre la voie à la phase sigma.</p>
-
-          <p>Le diagramme de Schaeffler ignore par ailleurs l'azote. DeLong a corrigé ce point en ajoutant un terme 30 &times; %N au nickel équivalent, puis le WRC-1992 a refondu les deux équivalents. Les aciers duplex et superduplex, dont la cible de ferrite se situe entre 30 et 70 %, sortent du périmètre de Schaeffler et relèvent du WRC-1992.</p>
-        </div>
-
-        <!-- ===================== pWPS ================================= -->
-        <div class="carte contenu-guide" id="dmos-preliminaire">
-          <h2>Ce que contient le document exporté</h2>
-
-          <p>Le bouton d'export du calculateur produit une fiche de préparation, aussi appelée DMOS préliminaire, ou pWPS au sens de la NF EN ISO 15607. Elle rassemble les métaux de base, le métal d'apport retenu, le procédé, la géométrie du joint, les paramètres électriques, l'énergie en kJ/cm et le diagramme tel qu'affiché à l'écran.</p>
-
-          <p>Un DMOS préliminaire n'est pas qualifié, et il n'a pas à l'être. Son rôle est de préparer l'épreuve de qualification décrite par la NF EN ISO 15614-1. Le document ne se substitue ni à un DMOS qualifié, ni à une QMOS. Les valeurs proposées en mode automatique sont des points de départ issus de règles usuelles d'atelier, à confronter à la pratique réelle et à une macrographie de l'assemblage.</p>
-        </div>
-
-        <!-- ===================== Références =========================== -->
-        <div class="carte contenu-guide" id="references-normatives">
-          <h2>Références normatives</h2>
-
-          <div class="tableau-defilant">
-            <table class="tableau">
-              <thead><tr><th>Référence</th><th>Objet</th></tr></thead>
-              <tbody>
-                <tr><td>NF EN ISO 15607</td><td>Règles générales du descriptif et de la qualification d'un mode opératoire, définition du DMOS préliminaire</td></tr>
-                <tr><td>NF EN ISO 15609-1</td><td>Contenu du descriptif de mode opératoire de soudage</td></tr>
-                <tr><td>NF EN ISO 15614-1</td><td>Épreuve de qualification du mode opératoire, aciers et alliages de nickel</td></tr>
-                <tr><td>NF EN 1011-1</td><td>Soudage à l'arc, directives générales, calcul de l'énergie de soudage</td></tr>
-                <tr><td>NF EN 1011-2</td><td>Aciers ferritiques, préchauffage et prévention de la fissuration à froid</td></tr>
-                <tr><td>NF EN ISO 8249</td><td>Détermination du Ferrite Number dans le métal déposé inoxydable</td></tr>
-                <tr><td>ISO/TR 15608</td><td>Système de groupement des matériaux métalliques</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
     </main>
 
     <!-- ==================== Pied de page permanent =================== -->
     <footer class="pied">
       <div class="conteneur pied__inner">
-        <p class="pied__disclaimer" data-i18n="footer.disclaimer"></p>
-        <div class="pied__compteurs">
-          <p class="pied__compteur" data-compteur hidden></p>
-          <p class="pied__compteur" data-compteur-analyses hidden></p>
-          <a class="pied__signature" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
-            <span class="pied__linkedin-icone" aria-hidden="true">in</span>
-            <span class="pied__signature-texte" data-i18n="footer.signature"></span>
-          </a>
-        </div>
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS.</p>
       </div>
     </footer>
 
