@@ -110,6 +110,17 @@
       ]
     }
     </script>
+    <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
+         s'affichent sans dependre du chargement de fr.json. -->
+    <style>
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:flex-end}
+      .nav__lien{white-space:nowrap}
+      @media (max-width:720px){
+        .topbar__inner{flex-wrap:wrap;row-gap:.5rem}
+        .nav{width:100%;justify-content:flex-start}
+        .nav__lien{font-size:.86rem}
+      }
+    </style>
   </head>
   <body>
     <!-- ===================== Barre de navigation ===================== -->
@@ -119,12 +130,12 @@
           <img class="nav__logo" src="favicon.svg" alt="" aria-hidden="true" />
           <span>www.soudabilite.com</span>
         </a>
-        <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
-          <a class="nav__lien is-active" href="index.html" data-i18n="nav.accueil"></a>
-          <a class="nav__lien nav__lien--principal" href="analyse-thermique-metallurgique.html" data-i18n="nav.analyse"></a>
-          <a class="nav__lien" href="guide-metallurgique.html" data-i18n="nav.guide"></a>
-          <a class="nav__lien" href="bibliotheque-materiaux.html" data-i18n="nav.bibliotheque"></a>
-          <a class="nav__lien" href="reglementation-dmos.html" data-i18n="nav.reglementation"></a>
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__lien is-active" href="index.html">Accueil</a>
+          <a class="nav__lien nav__lien--principal" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien" href="guide-metallurgique.html">Guide métallurgique</a>
+          <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
+          <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
         </nav>
       </div>
     </header>
@@ -264,7 +275,24 @@
               class="bloc__titre"
               data-i18n="presentation.sommaire_titre"
             ></h2>
-            <div class="cartes" data-liste="onglets"></div>
+            <div class="cartes">
+            <a class="carte carte--onglet" href="analyse-thermique-metallurgique.html">
+              <h3 class="carte__titre">Analyse thermique et métallurgique</h3>
+              <p class="carte__texte">Saisie des métaux de base, du procédé et de la géométrie du joint, puis analyse automatique, sélection des 7 apports les plus robustes et synthèse sur la même page.</p>
+            </a>
+            <a class="carte carte--onglet" href="guide-metallurgique.html">
+              <h3 class="carte__titre">Guide métallurgique</h3>
+              <p class="carte__texte">Fissuration à froid, carbone équivalent, énergie de soudage, lecture du diagramme de Schaeffler et taux de ferrite, expliqués pas à pas.</p>
+            </a>
+            <a class="carte carte--onglet" href="bibliotheque-materiaux.html">
+              <h3 class="carte__titre">Bibliothèque des matériaux</h3>
+              <p class="carte__texte">Nuances d'aciers et métaux d'apport de référence, avec saisie libre pour une nuance hors-liste.</p>
+            </a>
+            <a class="carte carte--onglet" href="reglementation-dmos.html">
+              <h3 class="carte__titre">Réglementation et DMOS</h3>
+              <p class="carte__texte">DMOS préliminaire, épreuve de qualification, qualification des soudeurs et groupement des matériaux. Rubrique en cours de rédaction.</p>
+            </a>
+          </div>
           </section>
         </div>
 

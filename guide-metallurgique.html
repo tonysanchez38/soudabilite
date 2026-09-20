@@ -36,18 +36,29 @@
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
     <link rel="preload" href="assets/css/main.css?v=20260920-guide-1" as="style" />
     <script type="module" src="assets/js/app.js"></script>
+    <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
+         s'affichent sans dependre du chargement de fr.json. -->
+    <style>
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:flex-end}
+      .nav__lien{white-space:nowrap}
+      @media (max-width:720px){
+        .topbar__inner{flex-wrap:wrap;row-gap:.5rem}
+        .nav{width:100%;justify-content:flex-start}
+        .nav__lien{font-size:.86rem}
+      }
+    </style>
   </head>
   <body>
     <!-- ===================== Barre de navigation ===================== -->
     <header class="topbar">
       <div class="conteneur topbar__inner">
         <a class="nav__marque" href="index.html">www.soudabilite.com</a>
-        <nav class="nav" data-i18n-attr="aria-label:nav.aria_label">
-          <a class="nav__lien" href="index.html" data-i18n="nav.accueil"></a>
-          <a class="nav__lien nav__lien--principal" href="analyse-thermique-metallurgique.html" data-i18n="nav.analyse"></a>
-          <a class="nav__lien is-active" href="guide-metallurgique.html" data-i18n="nav.guide"></a>
-          <a class="nav__lien" href="bibliotheque-materiaux.html" data-i18n="nav.bibliotheque"></a>
-          <a class="nav__lien" href="reglementation-dmos.html" data-i18n="nav.reglementation"></a>
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__lien" href="index.html">Accueil</a>
+          <a class="nav__lien nav__lien--principal" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien is-active" href="guide-metallurgique.html">Guide métallurgique</a>
+          <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
+          <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
         </nav>
       </div>
     </header>
