@@ -1481,13 +1481,14 @@ table {
 }
 
 
-/* --- Contenu editorial des cartes (ajout 2026-09) -------------------- */
-.carte--form h2{font-size:1.25rem;line-height:1.3;margin:0 0 .75rem}
-.carte--form h3{font-size:1.05rem;line-height:1.35;margin:1.5rem 0 .5rem}
-.carte--form p{line-height:1.65;margin:0 0 1rem}
-.carte--form ul{margin:0 0 1rem;padding-left:1.25rem;line-height:1.6}
-.carte--form li{margin-bottom:.4rem}
-.carte--form .formule{display:block;padding:.8rem 1rem;margin:0 0 1rem;
+/* --- Pages de contenu editorial (guide) - portee limitee ------------- */
+.contenu-guide h2{font-size:1.25rem;line-height:1.3;margin:0 0 .85rem}
+.contenu-guide h3{font-size:1.05rem;line-height:1.35;margin:1.75rem 0 .6rem}
+.contenu-guide p{line-height:1.65;margin:0 0 1rem;max-width:74ch}
+.contenu-guide ul{margin:0 0 1rem;padding-left:1.25rem;line-height:1.6;max-width:74ch}
+.contenu-guide li{margin-bottom:.45rem}
+.contenu-guide .formule-guide{display:block;padding:.8rem 1rem;margin:0 0 1rem;
   border-left:3px solid currentColor;background:rgba(255,255,255,.04);
   font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9rem;
   white-space:pre-wrap;overflow-x:auto}
+.contenu-guide .lien-outil{display:inline-block;margin-top:.5rem;font-weight:600}
