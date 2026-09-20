@@ -464,6 +464,107 @@
               </div>
               <p class="note" data-i18n="analyse.ferrite_note"></p>
             </section>
+
+            <section class="carte carte--form" id="comprendre-analyse">
+              <h2>Comprendre l'analyse produite par cette page</h2>
+
+              <p>Un piquage 304L de 3 mm sur une tubulure S355 de 5 mm, en TIG, sans indication d'apport sur le plan. La page traite ce cas en trois temps : elle calcule l'énergie réellement apportée, elle oriente vers la bonne analyse selon la nature des métaux, puis elle positionne le joint et compare les apports candidats. Ce qui suit explique comment lire chacun de ces résultats.</p>
+
+              <h3>Ce que la page calcule, et ce qu'elle ne calcule pas</h3>
+
+              <p>L'aiguillage se fait sur la nature des deux métaux de base. Un assemblage acier non allié ou faiblement allié bascule vers l'analyse de fissuration à froid, avec carbone équivalent et température de préchauffage. Un assemblage inox ou hétérogène bascule vers le diagramme de Schaeffler, avec dilution, position du joint et classement des métaux d'apport. Sur un assemblage hétérogène, le préchauffage n'est pas calculé, parce que l'analyse reste centrée sur la composition du bain fondu.</p>
+
+              <p>Le temps de refroidissement entre 800 et 500 degrés, ainsi que la dureté prévisible en zone affectée thermiquement, ne sont pas calculés à ce stade. Ces deux grandeurs demandent des courbes de transformation en refroidissement continu propres à chaque nuance. Le travail est engagé, il n'est pas livré. Aucun résultat affiché sur cette page ne repose dessus.</p>
+            </section>
+
+            <section class="carte carte--form" id="fissuration-froid">
+              <h2>Fissuration à froid : trois facteurs, pas un seul</h2>
+
+              <p>La fissuration à froid n'apparaît pas pendant le soudage. Elle se déclare plusieurs heures après, parfois le lendemain, une fois le joint revenu à température ambiante. C'est ce délai qui la rend redoutable : la pièce est contrôlée bonne, puis elle fissure.</p>
+
+              <p>Elle demande la réunion de trois conditions. Retirer une seule suffit à l'empêcher.</p>
+
+              <ul>
+                <li><strong>Une structure fragile.</strong> Un refroidissement rapide transforme l'austénite en martensite dans la zone affectée thermiquement. La NF EN 1011-2 retient une dureté de 350 HV10 comme repère de sensibilité pour les aciers ferritiques courants.</li>
+                <li><strong>De l'hydrogène diffusible.</strong> Il vient de l'humidité de l'enrobage, des bords mal préparés, de la graisse ou de la condensation. Il migre vers les zones de contrainte et fragilise le métal.</li>
+                <li><strong>Des contraintes de traction.</strong> Le retrait du cordon en refroidissant génère des contraintes que le bridage de la pièce empêche de se relâcher.</li>
+              </ul>
+
+              <p>Le préchauffage agit sur deux de ces trois facteurs à la fois. Il ralentit le refroidissement, ce qui limite la formation de martensite, et il laisse à l'hydrogène le temps de sortir du joint. C'est la raison pour laquelle il reste la parade la plus employée en atelier.</p>
+            </section>
+
+            <section class="carte carte--form" id="carbone-equivalent">
+              <h2>Le carbone équivalent et le seuil de 0,42 %</h2>
+
+              <p>Un acier ne se juge pas sur son seul carbone. Le manganèse, le chrome, le molybdène, le vanadium, le nickel et le cuivre augmentent eux aussi l'aptitude à la trempe. Le carbone équivalent les ramène tous à une valeur unique, exprimée comme un pourcentage de carbone.</p>
+
+              <p class="formule">CE_IIW = %C + %Mn/6 + (%Cr + %Mo + %V)/5 + (%Ni + %Cu)/15</p>
+
+              <p>La page affiche cette valeur pour chaque métal de base, avec un repère indicatif : un acier dont le CE_IIW reste sous 0,42 % est réputé soudable sans préchauffage dans des conditions courantes. Au-dessus, le préchauffage doit être examiné. Le seuil est un repère de dégrossissage, pas une règle : l'épaisseur, le bridage et la classe d'hydrogène du consommable pèsent aussi sur la décision.</p>
+
+              <p>Un S235JR se situe autour de 0,26 %, largement sous le seuil. Un P275NL2 monte au-delà de 0,45 %, ce qui change la conduite à tenir.</p>
+
+              <p>Le calcul de préchauffage repose sur une seconde formule, propre à la méthode retenue, distincte du CE_IIW. Les deux valeurs apparaissent séparément à l'écran et ne doivent pas être confondues.</p>
+            </section>
+
+            <section class="carte carte--form" id="energie-soudage">
+              <h2>Énergie nominale et énergie corrigée</h2>
+
+              <p>L'énergie de soudage se calcule en kilojoules par centimètre, selon la NF EN 1011-1. C'est l'unité du site, sans exception.</p>
+
+              <p class="formule">En = (U × I × 60) / (Vs × 1000)     énergie nominale, kJ/cm
+            Q = k × En                          énergie corrigée, kJ/cm</p>
+
+              <p>U est la tension en volts, I l'intensité en ampères, Vs la vitesse de soudage en centimètres par minute. Le facteur k est le rendement thermique du procédé : une partie de l'énergie de l'arc part en rayonnement et en projections au lieu d'entrer dans la pièce.</p>
+
+              <table>
+                <thead><tr><th>Procédé (ISO 4063)</th><th>Rendement k</th></tr></thead>
+                <tbody>
+                  <tr><td>141 TIG, 15 plasma</td><td>0,60</td></tr>
+                  <tr><td>111 électrode enrobée, 131 MIG, 135 MAG, 136 fil fourré</td><td>0,80</td></tr>
+                  <tr><td>121 arc submergé</td><td>1,00</td></tr>
+                </tbody>
+              </table>
+
+              <p>Sur un cas TIG à 90 A, 13,6 V et 12 cm/min, l'énergie nominale atteint 6,12 kJ/cm et l'énergie corrigée 3,67 kJ/cm. C'est la valeur corrigée qui compte pour le comportement thermique du joint. L'écart de 40 % entre les deux explique à lui seul pourquoi un même réglage ne produit pas le même résultat selon le procédé.</p>
+            </section>
+
+            <section class="carte carte--form" id="ferrite-fn">
+              <h2>Pourcentage de ferrite et Ferrite Number : deux échelles distinctes</h2>
+
+              <p>La synthèse affiche un pourcentage de ferrite estimé par interpolation entre les courbes iso-ferrite du diagramme de Schaeffler. Ce n'est pas un Ferrite Number.</p>
+
+              <p>Le Ferrite Number, ou FN, est une grandeur normalisée par la NF EN ISO 8249 et l'AWS A4.2, obtenue par mesure de la réponse magnétique du métal déposé. Il sert de référence sur les diagrammes de DeLong et WRC-1992.</p>
+
+              <p>Les deux échelles restent proches sous dix, puis divergent. Un seuil exprimé en FN ne se transpose pas en pourcentage, et l'inverse non plus. Une valeur s'écrit dans une seule des deux unités, jamais séparée par une barre oblique.</p>
+
+              <p>La bande visée sur cette page se situe entre 5 et 15 % de ferrite delta. En dessous, le bain devient presque entièrement austénitique et le risque de fissuration à chaud augmente pendant la solidification. Au-delà de 20 %, la ténacité recule et une exposition prolongée en température ouvre la voie à la phase sigma.</p>
+            </section>
+
+            <section class="carte carte--form" id="document-exporte">
+              <h2>Ce que contient le document exporté</h2>
+
+              <p>Le bouton d'export produit une fiche de préparation, aussi appelée DMOS préliminaire, ou pWPS au sens de la NF EN ISO 15607. Elle rassemble les métaux de base, le métal d'apport retenu, le procédé, la géométrie du joint, les paramètres électriques, l'énergie en kJ/cm et le diagramme de Schaeffler tel qu'affiché à l'écran.</p>
+
+              <p>Un DMOS préliminaire n'est pas qualifié, et il n'a pas à l'être : son rôle est de préparer l'épreuve de qualification décrite par la NF EN ISO 15614-1. Le document ne se substitue ni à un DMOS qualifié, ni à une QMOS. Les valeurs proposées en mode automatique sont des points de départ issus de règles usuelles d'atelier, à confronter à la pratique réelle et à une macrographie de l'assemblage.</p>
+            </section>
+
+            <section class="carte carte--form" id="references-normatives">
+              <h2>Références normatives</h2>
+
+              <table>
+                <thead><tr><th>Référence</th><th>Objet</th></tr></thead>
+                <tbody>
+                  <tr><td>NF EN ISO 15607</td><td>Règles générales du descriptif et de la qualification d'un mode opératoire, définition du DMOS préliminaire</td></tr>
+                  <tr><td>NF EN ISO 15609-1</td><td>Contenu du descriptif de mode opératoire de soudage</td></tr>
+                  <tr><td>NF EN ISO 15614-1</td><td>Épreuve de qualification du mode opératoire, aciers et alliages de nickel</td></tr>
+                  <tr><td>NF EN 1011-1</td><td>Soudage à l'arc, directives générales, calcul de l'énergie de soudage</td></tr>
+                  <tr><td>NF EN 1011-2</td><td>Aciers ferritiques, préchauffage et prévention de la fissuration à froid</td></tr>
+                  <tr><td>NF EN ISO 8249</td><td>Détermination du Ferrite Number dans le métal déposé inoxydable</td></tr>
+                  <tr><td>ISO/TR 15608</td><td>Système de groupement des matériaux métalliques</td></tr>
+                </tbody>
+              </table>
+            </section>
           </div>
         </section>
 
@@ -588,7 +689,7 @@
       </div>
     </section>
 
-    <!-- Cloudflare Web Analytics — complémentaire à GoatCounter, ne règle
+    <!-- Cloudflare Web Analytics  - complémentaire à GoatCounter, ne règle
          pas le blocage par ad blocker (même limite structurelle) mais
          donne des métriques de performance/navigateur pour les visiteurs
          non bloqués. -->
