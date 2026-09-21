@@ -31,7 +31,7 @@
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css?v=20260827-icone-linkedin-1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260921-charte-v2" />
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
          les bloqueurs de pub (AdGuard etc.) - CLAUDE.md #22. -->
@@ -41,7 +41,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260827-icone-linkedin-1" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260921-charte-v2" as="style" />
     <script type="module" src="assets/js/app.js"></script>
     <script type="application/ld+json">
     {
@@ -113,11 +113,9 @@
     <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
          s'affichent sans dependre du chargement de fr.json. -->
     <style>
-      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:flex-end}
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:center}
       .nav__lien{white-space:nowrap}
       @media (max-width:720px){
-        .topbar__inner{flex-wrap:wrap;row-gap:.5rem}
-        .nav{width:100%;justify-content:flex-start}
         .nav__lien{font-size:.86rem}
       }
     </style>
@@ -127,12 +125,12 @@
     <header class="topbar">
       <div class="conteneur topbar__inner">
         <a class="nav__marque" href="index.html">
-          <img class="nav__logo" src="favicon.svg" alt="" aria-hidden="true" />
+          <img class="nav__logo" src="favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
           <span>www.soudabilite.com</span>
         </a>
         <nav class="nav" aria-label="Navigation principale">
-          <a class="nav__lien is-active" href="index.html">Accueil</a>
-          <a class="nav__lien nav__lien--principal" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien is-active" href="index.html" aria-current="page">Accueil</a>
+          <a class="nav__lien" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
           <a class="nav__lien" href="guide-metallurgique.html">Guide métallurgique</a>
           <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
           <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
@@ -159,7 +157,7 @@
 
         <section class="carte presentation-seo" aria-labelledby="titre-outil-soudabilite">
           <h2 id="titre-outil-soudabilite" class="bloc__titre">
-            Soudabilite.com : Un outil d'aide à la préparation du DMOS
+            Soudabilite.com : un outil d'aide à la préparation du DMOS
           </h2>
           <p>
             Un seul paramétrage suffit pour préparer votre opération de
@@ -236,7 +234,7 @@
             <summary>À qui s'adresse le calculateur ?</summary>
             <p>
               Le calculateur s'adresse aux étudiants en BTS CRCI et aux personnes
-              en formation de soudeur, tuyauteur ou chaudronnier, ainsi qu'aux
+              en formation de soudeur, tuyauteur ou chaudronnier, et aux
               formateurs et enseignants. Il peut également accompagner les
               artisans, entrepreneurs, bureaux méthodes, préparateurs,
               coordinateurs de soudage, ingénieurs soudeurs et professionnels de
@@ -248,8 +246,34 @@
           </details>
         </section>
 
-        <!-- Grille : cadre normatif + sommaire des onglets -->
-        <div class="grille-presentation">
+        <!-- Onglets puis cadre normatif, pleine largeur et centrés (charte v2) -->
+        <div class="grille-presentation grille-presentation--pile">
+          <!-- Sommaire des onglets (rempli par app.js depuis fr.json) -->
+          <section aria-labelledby="titre-sommaire">
+            <h2
+              id="titre-sommaire"
+              class="bloc__titre"
+              data-i18n="presentation.sommaire_titre"
+            ></h2>
+            <div class="cartes">
+            <a class="carte carte--onglet" href="analyse-thermique-metallurgique.html">
+              <h3 class="carte__titre">Analyse thermique et métallurgique</h3>
+              <p class="carte__texte">Saisie des métaux de base, du procédé et de la géométrie du joint, puis analyse automatique, sélection des 7 apports les plus robustes et synthèse sur la même page.</p>
+            </a>
+            <a class="carte carte--onglet" href="guide-metallurgique.html">
+              <h3 class="carte__titre">Guide métallurgique</h3>
+              <p class="carte__texte">Acier carbone ou inox, zones métallurgiques, réglages du poste, dilution, choix du métal d'apport, fissuration et préchauffe.</p>
+            </a>
+            <a class="carte carte--onglet" href="bibliotheque-materiaux.html">
+              <h3 class="carte__titre">Bibliothèque des matériaux</h3>
+              <p class="carte__texte">Nuances d'aciers et métaux d'apport de référence, avec saisie libre pour une nuance hors-liste.</p>
+            </a>
+            <a class="carte carte--onglet" href="reglementation-dmos.html">
+              <h3 class="carte__titre">Réglementation et DMOS</h3>
+              <p class="carte__texte">Fiche d'aide au DMOS préparatoire, qualification des modes opératoires et groupement des matériaux. Rubrique en préparation.</p>
+            </a>
+          </div>
+          </section>
           <!-- Tableau des normes (rempli par app.js depuis fr.json) -->
           <section aria-labelledby="titre-normes">
             <h2
@@ -268,39 +292,13 @@
             </table>
           </section>
 
-          <!-- Sommaire des onglets (rempli par app.js depuis fr.json) -->
-          <section aria-labelledby="titre-sommaire">
-            <h2
-              id="titre-sommaire"
-              class="bloc__titre"
-              data-i18n="presentation.sommaire_titre"
-            ></h2>
-            <div class="cartes">
-            <a class="carte carte--onglet" href="analyse-thermique-metallurgique.html">
-              <h3 class="carte__titre">Analyse thermique et métallurgique</h3>
-              <p class="carte__texte">Saisie des métaux de base, du procédé et de la géométrie du joint, puis analyse automatique, sélection des 7 apports les plus robustes et synthèse sur la même page.</p>
-            </a>
-            <a class="carte carte--onglet" href="guide-metallurgique.html">
-              <h3 class="carte__titre">Guide métallurgique</h3>
-              <p class="carte__texte">Fissuration à froid, carbone équivalent, énergie de soudage et lecture du diagramme de Schaeffler. Rubrique en maintenance.</p>
-            </a>
-            <a class="carte carte--onglet" href="bibliotheque-materiaux.html">
-              <h3 class="carte__titre">Bibliothèque des matériaux</h3>
-              <p class="carte__texte">Nuances d'aciers et métaux d'apport de référence, avec saisie libre pour une nuance hors-liste.</p>
-            </a>
-            <a class="carte carte--onglet" href="reglementation-dmos.html">
-              <h3 class="carte__titre">Réglementation et DMOS</h3>
-              <p class="carte__texte">DMOS préliminaire, épreuve de qualification et groupement des matériaux. Rubrique en maintenance.</p>
-            </a>
-          </div>
-          </section>
         </div>
 
         <div class="carte contenu-guide" id="contact">
           <h2>Suivi de l'outil et contact</h2>
           <p>Le calculateur est en développement continu. Les prochaines évolutions portent sur le calcul du temps de refroidissement et sur l'enrichissement de la bibliothèque des matériaux.</p>
           <p>L'outil est en version beta. Le module d'analyse fait l'objet de tests par plusieurs utilisateurs, et des essais sur différents matériaux et procédés sont programmés. Pour toute question, suggestion, proposition de collaboration ou signalement d'anomalie, le lien de contact figure en pied de page.</p>
-          <p><a class="lien-outil" href="analyse-thermique-metallurgique.html">Lancer une analyse</a></p>
+          <p class="contenu-guide__action"><a class="btn-primaire" href="analyse-thermique-metallurgique.html">Lancer une analyse</a></p>
         </div>
 
       </div>
@@ -309,22 +307,17 @@
     <!-- ==================== Pied de page permanent =================== -->
     <footer class="pied">
       <div class="conteneur pied__inner">
-        <p class="pied__disclaimer" data-i18n="footer.disclaimer"></p>
-        <p class="pied__credit">
-          Conçu et développé par
-          <a
-            href="https://bid-consulting.fr/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Bid Consulting</a>
-        </p>
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.</p>
         <div class="pied__compteurs">
           <p class="pied__compteur" data-compteur hidden></p>
           <p class="pied__compteur" data-compteur-analyses hidden></p>
-          <a class="pied__signature" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
+        </div>
+        <div class="pied__signatures">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" target="_blank" rel="noopener noreferrer">
             <span class="pied__linkedin-icone" aria-hidden="true">in</span>
-            <span class="pied__signature-texte" data-i18n="footer.signature"></span>
+            <span class="pied__signature-texte">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
           </a>
+          <p class="pied__credit">Conçu et développé par <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
         </div>
       </div>
     </footer>

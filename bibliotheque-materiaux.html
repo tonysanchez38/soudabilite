@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css?v=20260827-icone-linkedin-1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260921-charte-v2" />
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
          les bloqueurs de pub (AdGuard etc.) - CLAUDE.md #22. -->
@@ -36,16 +36,14 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260827-icone-linkedin-1" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260921-charte-v2" as="style" />
     <script type="module" src="assets/js/banque.js"></script>
     <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
          s'affichent sans dependre du chargement de fr.json. -->
     <style>
-      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:flex-end}
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:center}
       .nav__lien{white-space:nowrap}
       @media (max-width:720px){
-        .topbar__inner{flex-wrap:wrap;row-gap:.5rem}
-        .nav{width:100%;justify-content:flex-start}
         .nav__lien{font-size:.86rem}
       }
     </style>
@@ -54,12 +52,15 @@
     <!-- ===================== Barre de navigation ===================== -->
     <header class="topbar">
       <div class="conteneur topbar__inner">
-        <a class="nav__marque" href="index.html">www.soudabilite.com</a>
+        <a class="nav__marque" href="index.html">
+          <img class="nav__logo" src="favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
+          <span>www.soudabilite.com</span>
+        </a>
         <nav class="nav" aria-label="Navigation principale">
           <a class="nav__lien" href="index.html">Accueil</a>
-          <a class="nav__lien nav__lien--principal" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
           <a class="nav__lien" href="guide-metallurgique.html">Guide métallurgique</a>
-          <a class="nav__lien is-active" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
+          <a class="nav__lien is-active" href="bibliotheque-materiaux.html" aria-current="page">Bibliothèque matériaux</a>
           <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
         </nav>
       </div>
@@ -88,14 +89,17 @@
     <!-- ==================== Pied de page permanent =================== -->
     <footer class="pied">
       <div class="conteneur pied__inner">
-        <p class="pied__disclaimer" data-i18n="footer.disclaimer"></p>
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.</p>
         <div class="pied__compteurs">
           <p class="pied__compteur" data-compteur hidden></p>
           <p class="pied__compteur" data-compteur-analyses hidden></p>
-          <a class="pied__signature" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
+        </div>
+        <div class="pied__signatures">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" target="_blank" rel="noopener noreferrer">
             <span class="pied__linkedin-icone" aria-hidden="true">in</span>
-            <span class="pied__signature-texte" data-i18n="footer.signature"></span>
+            <span class="pied__signature-texte">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
           </a>
+          <p class="pied__credit">Conçu et développé par <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
         </div>
       </div>
     </footer>
