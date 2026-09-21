@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <!-- Calculateur de Soudabilité - soudabilite.com
      Conception et développement : Tony SANCHEZ
-     Rubrique en maintenance. Le contenu rédigé est conservé dans
-     l'historique du dépôt et sera remis en ligne après relecture. -->
+     Guide métallurgique. Texte en HTML statique (pas d'i18n) pour
+     l'indexation et la stabilité d'affichage. Toutes les valeurs sont
+     calées sur le moteur de calcul en ligne : ne jamais modifier une
+     valeur ici sans la modifier d'abord dans le calculateur. -->
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
     <meta name="author" content="Tony SANCHEZ" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="Le guide métallurgique du soudage est en cours de relecture technique avant publication." />
-    <title>Guide métallurgique | Maintenance en cours | Soudabilite.com</title>
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Guide de soudabilité métallurgique pour préparateurs, chiffreurs et étudiants : aciers carbone et inox, microstructures, fissuration à froid et à chaud, dilution, choix du métal d'apport, diagramme de Schaeffler, DeLong, WRC-1992 et préchauffage."
+    />
+    <title>Guide métallurgique du soudage : Schaeffler, dilution, fissuration | Soudabilite.com</title>
     <link rel="canonical" href="https://soudabilite.com/guide-metallurgique.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Guide métallurgique du soudage" />
+    <meta
+      property="og:description"
+      content="Préparer un assemblage soudé : métaux de base, dilution, diagramme de Schaeffler, fissuration à froid et à chaud, cycle thermique."
+    />
+    <meta property="og:url" content="https://soudabilite.com/guide-metallurgique.html" />
+    <meta property="og:image" content="https://soudabilite.com/assets/img/logo.png" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.css?v=20260827-icone-linkedin-1" />
@@ -20,8 +34,19 @@
       async
       src="/gc/count.js"
     ></script>
-    <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
-         s'affichent sans dependre du chargement de fr.json. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Guide métallurgique du soudage : de l'analyse des métaux au cycle thermique",
+      "about": "Soudabilité métallurgique, diagramme de Schaeffler, dilution, fissuration à froid, fissuration à chaud, choix du métal d'apport, préchauffage",
+      "inLanguage": "fr",
+      "author": { "@type": "Person", "name": "Tony SANCHEZ" },
+      "publisher": { "@type": "Organization", "name": "Soudabilite.com" },
+      "mainEntityOfPage": "https://soudabilite.com/guide-metallurgique.html"
+    }
+    </script>
+    <!-- Navigation : libelles en dur (pas de data-i18n). -->
     <style>
       .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:flex-end}
       .nav__lien{white-space:nowrap}
@@ -30,31 +55,114 @@
         .nav{width:100%;justify-content:flex-start}
         .nav__lien{font-size:.86rem}
       }
-      .mtn{display:flex;align-items:center;justify-content:center;
-        min-height:62vh;padding:2.5rem 1rem}
-      .mtn__carte{width:100%;max-width:620px;text-align:center;
-        padding:2.75rem 2rem;border-radius:14px;
-        border:1px solid rgba(255,255,255,.10);
-        background:rgba(255,255,255,.035)}
-      .mtn__marque{font-weight:700;font-size:1.05rem;letter-spacing:.01em;
-        margin:0 0 1.35rem}
-      .mtn__marque span{color:#38a9f5}
-      .mtn__pastille{display:inline-flex;align-items:center;gap:.5rem;
-        padding:.45rem 1.05rem;border-radius:999px;
-        background:rgba(184,122,14,.16);color:#e0a53a;
-        font-size:.88rem;font-weight:600;margin:0 0 1.5rem}
-      .mtn__point{width:8px;height:8px;border-radius:50%;background:#e0a53a;
-        display:inline-block}
-      .mtn__titre{font-size:1.95rem;line-height:1.2;margin:0 0 1.15rem;
-        font-weight:700}
-      .mtn__texte{line-height:1.6;margin:0 0 .85rem;opacity:.82}
-      .mtn__regle{border:0;border-top:1px solid rgba(255,255,255,.10);
-        margin:2rem 0 1.4rem}
-      .mtn__pied{font-size:.94rem;opacity:.8;margin:0}
-      @media (max-width:520px){
-        .mtn__carte{padding:2rem 1.25rem}
-        .mtn__titre{font-size:1.5rem}
+
+      /* ================= Guide métallurgique ================= */
+      .gm{display:grid;grid-template-columns:220px minmax(0,1fr);gap:var(--sp-6);align-items:start}
+      .gm__sommaire{position:sticky;top:var(--sp-4);font-size:var(--fs-sm)}
+      .gm__sommaire p{margin:0 0 var(--sp-2);color:var(--texte-faible);font-weight:600}
+      .gm__sommaire ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--gris-bordure)}
+      .gm__sommaire a{display:block;padding:.35rem 0 .35rem var(--sp-3);color:var(--texte-doux);line-height:1.35}
+      .gm__sommaire a:hover{color:var(--encre);text-decoration:none;border-left:2px solid var(--bleu);margin-left:-1px}
+      .gm__corps{min-width:0;max-width:760px}
+
+      .gm__tete{margin-bottom:var(--sp-6)}
+      .gm__tete h1{font-size:var(--fs-2xl);line-height:1.2;margin:0 0 var(--sp-4);letter-spacing:-.015em}
+      .gm__chapo{font-size:var(--fs-lg);line-height:1.6;color:var(--encre);margin:0 0 var(--sp-4)}
+      .gm__tete p{line-height:1.65}
+
+      .gm section{padding-top:var(--sp-6);margin-top:var(--sp-6);border-top:1px solid var(--gris-bordure);scroll-margin-top:var(--sp-4)}
+      .gm h2{font-size:var(--fs-xl);line-height:1.25;margin:0 0 var(--sp-4);color:var(--bleu)}
+      .gm h3{font-size:var(--fs-lg);margin:var(--sp-5) 0 var(--sp-2);color:var(--encre)}
+      .gm p,.gm li{line-height:1.65}
+      .gm p{margin:0 0 var(--sp-3)}
+      .gm ul{margin:0 0 var(--sp-4);padding-left:1.2rem}
+      .gm li{margin-bottom:.35rem}
+      .gm strong{color:var(--encre)}
+      .gm__doux{color:var(--texte-doux)}
+
+      /* Le fil de préparation : seul élément graphique fort de la page */
+      .fil{margin:var(--sp-5) 0 var(--sp-4);width:100%;height:auto;display:block;aspect-ratio:760/190}
+      .fil text{font-family:var(--font-sans)}
+
+      /* Cartes comparatives */
+      .duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin:var(--sp-4) 0}
+      .quatuor{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin:var(--sp-4) 0}
+      .fiche{background:var(--surface);border:1px solid var(--gris-bordure);border-radius:var(--radius);padding:var(--sp-4) var(--sp-5)}
+      .fiche h3{margin-top:0}
+      .fiche dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:.4rem var(--sp-3);font-size:var(--fs-sm)}
+      .fiche dt{color:var(--texte-faible)}
+      .fiche dd{margin:0;line-height:1.5}
+      .fiche__nuances{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--texte-doux);margin:0 0 var(--sp-3)}
+
+      /* Encadrés : alerte atelier et bonne pratique */
+      .encart{border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-4) 0;border-left:3px solid}
+      .encart p:last-child,.encart ul:last-child{margin-bottom:0}
+      .encart__titre{font-weight:700;margin:0 0 .35rem}
+      .encart--alerte{background:var(--ambre-voile);border-color:var(--ambre)}
+      .encart--alerte .encart__titre{color:var(--ambre)}
+      .encart--danger{background:var(--rouge-voile);border-color:var(--rouge)}
+      .encart--danger .encart__titre{color:var(--rouge)}
+      .encart--pratique{background:var(--vert-voile);border-color:var(--vert)}
+      .encart--pratique .encart__titre{color:var(--vert)}
+      .encart--outil{background:var(--bleu-voile);border-color:var(--bleu)}
+      .encart--outil .encart__titre{color:var(--bleu)}
+
+      /* Formules en HTML pur, sans bibliothèque */
+      .formule{font-family:var(--font-mono);font-size:.95rem;background:var(--fond);border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-3) 0 var(--sp-4);overflow-x:auto;white-space:nowrap;line-height:1.9}
+      .formule sub{font-size:.75em}
+      .frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .3em}
+      .frac>span:first-child{border-bottom:1px solid var(--encre);padding:0 .3em}
+      .frac>span:last-child{padding:0 .3em}
+
+      /* Tableaux */
+      .defile{overflow-x:auto;margin:var(--sp-4) 0;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm)}
+      .gm table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+      .gm th,.gm td{padding:.6rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--gris-bordure);line-height:1.5}
+      .gm th{background:var(--gris-fond);color:var(--encre);font-weight:600}
+      .gm tr:last-child td{border-bottom:0}
+      .gm td:first-child{font-weight:600;color:var(--encre)}
+
+      /* Schémas */
+      .schema{margin:var(--sp-4) 0;text-align:center}
+      .schema svg{width:100%;height:auto;display:block;margin:0 auto}
+      .schema figcaption{font-size:var(--fs-xs);color:var(--texte-faible);margin-top:var(--sp-2)}
+      .schema--triangle svg{max-width:460px;aspect-ratio:460/330}
+      .schema--coupe svg{max-width:560px;aspect-ratio:560/210}
+
+      /* Zones du diagramme */
+      .zones{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);margin:var(--sp-4) 0}
+      .zone{border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4)}
+      .zone h3{font-size:var(--fs-base);margin:0 0 .3rem}
+      .zone p{font-size:var(--fs-sm);margin:0;color:var(--texte-doux)}
+      .zone--cible{border-color:var(--bleu-bordure);background:var(--bleu-voile)}
+
+      /* Check-list */
+      .check{list-style:none;padding:0;counter-reset:etape}
+      .check li{counter-increment:etape;position:relative;padding:var(--sp-3) var(--sp-4) var(--sp-3) 3rem;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);margin-bottom:var(--sp-2)}
+      .check li::before{content:counter(etape);position:absolute;left:var(--sp-4);top:var(--sp-3);font-weight:700;color:var(--bleu);font-family:var(--font-mono)}
+
+      .cta{display:inline-block;margin-top:var(--sp-2);padding:.55rem 1rem;border-radius:var(--radius-sm);background:var(--bleu-fonce);color:var(--blanc);font-weight:600;font-size:var(--fs-sm)}
+      .cta:hover{background:var(--bleu);color:var(--fond);text-decoration:none}
+      .cta:focus-visible,.gm a:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
+
+      .gm__cloture{font-size:var(--fs-lg);font-weight:600;color:var(--encre);margin-top:var(--sp-5)}
+      .sources{font-size:var(--fs-sm);color:var(--texte-doux)}
+
+      @media (max-width:900px){
+        .gm{grid-template-columns:1fr}
+        .gm__sommaire{position:static}
+        .gm__sommaire ol{display:flex;flex-wrap:wrap;gap:.25rem;border-left:0}
+        .gm__sommaire a{padding:.3rem .6rem;border:1px solid var(--gris-bordure);border-radius:999px}
+        .gm__sommaire a:hover{border-left:1px solid var(--bleu);margin-left:0}
       }
+      @media (max-width:640px){
+        .duo,.quatuor,.zones{grid-template-columns:1fr}
+        .gm__tete h1{font-size:1.65rem}
+        .fiche dl{grid-template-columns:1fr}
+        .fiche dt{margin-top:.3rem}
+      }
+      @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+      @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
     </style>
   </head>
   <body>
@@ -65,7 +173,7 @@
         <nav class="nav" aria-label="Navigation principale">
           <a class="nav__lien" href="index.html">Accueil</a>
           <a class="nav__lien nav__lien--principal" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
-          <a class="nav__lien is-active" href="guide-metallurgique.html">Guide métallurgique</a>
+          <a class="nav__lien is-active" href="guide-metallurgique.html" aria-current="page">Guide métallurgique</a>
           <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
           <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
         </nav>
@@ -74,21 +182,426 @@
 
     <!-- ========================= Contenu ============================= -->
     <main class="page">
-      <div class="mtn">
-        <div class="mtn__carte">
-          <p class="mtn__marque">www.<span>soudabilite.com</span></p>
+      <div class="conteneur gm">
 
-          <p class="mtn__pastille"><span class="mtn__point" aria-hidden="true"></span>Maintenance en cours</p>
+        <!-- Sommaire -->
+        <nav class="gm__sommaire" aria-label="Sommaire du guide">
+          <p>Sommaire</p>
+          <ol>
+            <li><a href="#fil">Le fil de préparation</a></li>
+            <li><a href="#familles">Carbone ou inox</a></li>
+            <li><a href="#structures">Les quatre structures</a></li>
+            <li><a href="#fissuration">Fissuration à froid et à chaud</a></li>
+            <li><a href="#dilution">Dilution et métal d'apport</a></li>
+            <li><a href="#diagrammes">Diagrammes de constitution</a></li>
+            <li><a href="#zones-metallurgiques">Les zones de Schaeffler</a></li>
+            <li><a href="#thermique">Le cycle thermique</a></li>
+            <li><a href="#checklist">Check-list du préparateur</a></li>
+            <li><a href="#sources">Sources</a></li>
+          </ol>
+        </nav>
 
-          <h1 class="mtn__titre">Le guide revient très bientôt.</h1>
+        <article class="gm__corps">
 
-          <p class="mtn__texte">Le contenu est sur l'établi. Il passe une relecture technique avant d'être publié, pour qu'aucune valeur affichée ne parte sans être sourcée.</p>
-          <p class="mtn__texte">Merci de votre patience.</p>
+          <!-- ========== En-tête ========== -->
+          <header class="gm__tete" id="fil">
+            <h1>Guide métallurgique du soudage</h1>
+            <p class="gm__chapo">Déposer un cordon, c'est couler une pièce de fonderie miniature, en quelques secondes, sous contrainte mécanique. Si la chimie du bain ou sa vitesse de refroidissement échappe au préparateur, le joint fissure. Parfois tout de suite. Parfois à l'épreuve hydraulique.</p>
+            <p>Ce guide suit l'ordre dans lequel on prépare un assemblage : lire les métaux de base, mesurer ce que le procédé va mélanger, équilibrer le bain, puis arbitrer le régime thermique. Chaque valeur citée ici est celle qu'utilise le calculateur du site. La théorie et l'outil disent la même chose.</p>
 
-          <hr class="mtn__regle" />
+            <svg class="fil" viewBox="0 0 760 190" role="img" aria-labelledby="fil-titre fil-desc">
+              <title id="fil-titre">Le fil de préparation en quatre étapes</title>
+              <desc id="fil-desc">Étape 1 : analyser les métaux de base. Étape 2 : choisir le procédé et estimer la dilution. Étape 3 : équilibrer le bain sur le diagramme de Schaeffler. Étape 4 : arbitrer le cycle thermique.</desc>
+              <line x1="70" y1="62" x2="690" y2="62" stroke="var(--gris-bordure)" stroke-width="10" stroke-linecap="round" />
+              <line x1="70" y1="62" x2="690" y2="62" stroke="var(--bleu)" stroke-width="2" stroke-dasharray="6 8" />
+              <g font-size="13" text-anchor="middle">
+                <g>
+                  <circle cx="95" cy="62" r="30" fill="var(--surface)" stroke="var(--bleu)" stroke-width="2" />
+                  <text x="95" y="68" fill="var(--bleu)" font-size="18" font-weight="700">1</text>
+                  <text x="95" y="122" fill="var(--encre)" font-weight="600">Métaux de base</text>
+                  <text x="95" y="142" fill="var(--texte-doux)" font-size="12">certificat 3.1</text>
+                  <text x="95" y="160" fill="var(--texte-doux)" font-size="12">épaisseurs, bridage</text>
+                </g>
+                <g>
+                  <circle cx="285" cy="62" r="30" fill="var(--surface)" stroke="var(--bleu)" stroke-width="2" />
+                  <text x="285" y="68" fill="var(--bleu)" font-size="18" font-weight="700">2</text>
+                  <text x="285" y="122" fill="var(--encre)" font-weight="600">Procédé et dilution</text>
+                  <text x="285" y="142" fill="var(--texte-doux)" font-size="12">TIG, EE, MIG/MAG, SAW</text>
+                  <text x="285" y="160" fill="var(--texte-doux)" font-size="12">énergie de soudage</text>
+                </g>
+                <g>
+                  <circle cx="475" cy="62" r="30" fill="var(--surface)" stroke="var(--bleu)" stroke-width="2" />
+                  <text x="475" y="68" fill="var(--bleu)" font-size="18" font-weight="700">3</text>
+                  <text x="475" y="122" fill="var(--encre)" font-weight="600">Équilibre du bain</text>
+                  <text x="475" y="142" fill="var(--texte-doux)" font-size="12">Cr éq et Ni éq</text>
+                  <text x="475" y="160" fill="var(--texte-doux)" font-size="12">choix de l'apport</text>
+                </g>
+                <g>
+                  <circle cx="665" cy="62" r="30" fill="var(--surface)" stroke="var(--bleu)" stroke-width="2" />
+                  <text x="665" y="68" fill="var(--bleu)" font-size="18" font-weight="700">4</text>
+                  <text x="665" y="122" fill="var(--encre)" font-weight="600">Cycle thermique</text>
+                  <text x="665" y="142" fill="var(--texte-doux)" font-size="12">préchauffage</text>
+                  <text x="665" y="160" fill="var(--texte-doux)" font-size="12">entre passes</text>
+                </g>
+              </g>
+            </svg>
 
-          <p class="mtn__pied">En attendant, le <a href="analyse-thermique-metallurgique.html">calculateur</a> et la <a href="bibliotheque-materiaux.html">bibliothèque des matériaux</a> restent accessibles.</p>
-        </div>
+            <a class="cta" href="analyse-thermique-metallurgique.html">Ouvrir le calculateur</a>
+          </header>
+
+          <!-- ========== 1. Familles ========== -->
+          <section id="familles" aria-labelledby="t-familles">
+            <h2 id="t-familles">Carbone ou inox : deux métiers thermiques</h2>
+            <p><strong>On ne prépare pas un acier au carbone et un acier inoxydable avec les mêmes règles thermiques.</strong> Le premier craint la trempe, le second craint la chaleur. Tout le reste découle de cette opposition.</p>
+
+            <div class="duo">
+              <div class="fiche">
+                <h3>Aciers au carbone et faiblement alliés</h3>
+                <p class="fiche__nuances">S235, S355, P265GH, 16Mo3</p>
+                <dl>
+                  <dt>Point critique</dt><dd>La trempabilité</dd>
+                  <dt>Risque n° 1</dt><dd>Durcissement de la zone affectée thermiquement (ZAT) sous un refroidissement trop rapide</dd>
+                  <dt>Aggravants</dt><dd>Forte épaisseur, bridage, hydrogène</dd>
+                  <dt>Levier</dt><dd>Ralentir le refroidissement (préchauffage)</dd>
+                </dl>
+              </div>
+              <div class="fiche">
+                <h3>Aciers inoxydables</h3>
+                <p class="fiche__nuances">304L, 316L, 1.4016, 2205</p>
+                <dl>
+                  <dt>Définition</dt><dd>Au moins 10,5 % de chrome et au plus 1,2 % de carbone (EN 10088-1)</dd>
+                  <dt>Protection</dt><dd>Couche passive d'oxyde de chrome</dd>
+                  <dt>Physique</dt><dd>Conduit moins la chaleur, se dilate davantage que l'acier carbone</dd>
+                  <dt>Levier</dt><dd>Limiter l'apport d'énergie et la température entre passes</dd>
+                </dl>
+              </div>
+            </div>
+
+            <p>La différence physique pèse sur la pièce. Un inox austénitique évacue mal la chaleur et se dilate davantage : la chaleur reste concentrée près du cordon, le retrait est plus fort, la tuyauterie se déforme. Sur un acier carbone, la chaleur fuit vite dans la masse, et c'est cette fuite qui trempe la ZAT.</p>
+
+            <div class="encart encart--alerte">
+              <p class="encart__titre">Alerte atelier</p>
+              <p>Sur un tube S355 de forte épaisseur, souder sans préchauffage donne une ZAT dure et fragile. Sur un 304L, un excès d'énergie dégrade la tenue à la corrosion et amplifie les retraits. Même geste, deux erreurs opposées.</p>
+            </div>
+          </section>
+
+          <!-- ========== 2. Structures ========== -->
+          <section id="structures" aria-labelledby="t-structures">
+            <h2 id="t-structures">Les quatre structures des aciers inoxydables</h2>
+            <p>La structure d'un inox dépend de l'équilibre entre deux familles d'éléments. Les éléments gammagènes (nickel, carbone, azote, manganèse) stabilisent l'austénite. Les éléments alphagènes (chrome, molybdène, silicium, niobium, titane) stabilisent la ferrite. Chaque structure impose sa propre discipline au soudage.</p>
+
+            <div class="quatuor">
+              <div class="fiche">
+                <h3>Austénitique</h3>
+                <p class="fiche__nuances">Série 300 : 304L, 316L</p>
+                <dl>
+                  <dt>Réseau</dt><dd>Cubique à faces centrées</dd>
+                  <dt>Atouts</dt><dd>Amagnétique à l'état recuit, très ductile, résilient à basse température, bon formage</dd>
+                  <dt>En soudage</dt><dd>Fissuration à chaud si le bain se solidifie en austénite pure, sans ferrite résiduelle</dd>
+                </dl>
+              </div>
+              <div class="fiche">
+                <h3>Ferritique</h3>
+                <p class="fiche__nuances">Série 400 : 1.4000, 1.4016</p>
+                <dl>
+                  <dt>Réseau</dt><dd>Cubique centré</dd>
+                  <dt>Atouts</dt><dd>Magnétique, bonne tenue à la corrosion sous contrainte en milieu chloré ; sans nickel, il tient mieux que l'austénitique aux gaz chauds soufrés</dd>
+                  <dt>En soudage</dt><dd>Grossissement du grain dans la ZAT, perte de ténacité qu'aucun traitement thermique courant ne rattrape</dd>
+                </dl>
+              </div>
+              <div class="fiche">
+                <h3>Martensitique</h3>
+                <p class="fiche__nuances">1.4006, 1.4021</p>
+                <dl>
+                  <dt>Réseau</dt><dd>Quadratique centré, sursaturé en carbone (structure de trempe)</dd>
+                  <dt>Atouts</dt><dd>Dureté élevée, résistance à l'usure, magnétique</dd>
+                  <dt>En soudage</dt><dd>Fragile au refroidissement, très sensible à la fissuration à froid ; préchauffage et revenu après soudage</dd>
+                </dl>
+              </div>
+              <div class="fiche">
+                <h3>Austéno-ferritique (duplex)</h3>
+                <p class="fiche__nuances">1.4462 (2205), 1.4410 (2507)</p>
+                <dl>
+                  <dt>Réseau</dt><dd>Biphasé : austénite et ferrite</dd>
+                  <dt>Atouts</dt><dd>Haute limite d'élasticité, forte résistance à la corrosion sous contrainte et par piqûres</dd>
+                  <dt>En soudage</dt><dd>Ferrite du métal fondu entre 30 et 70 % ; maîtrise du refroidissement entre 1200 et 800 °C</dd>
+                </dl>
+              </div>
+            </div>
+
+            <div class="encart encart--outil">
+              <p class="encart__titre">Duplex dans le calculateur</p>
+              <p>La branche duplex du calculateur est en cours de validation et n'est pas encore ouverte. Ce guide en explique la métallurgie ; le calcul arrivera quand ses références seront vérifiées.</p>
+            </div>
+          </section>
+
+          <!-- ========== 3. Fissuration ========== -->
+          <section id="fissuration" aria-labelledby="t-fissuration">
+            <h2 id="t-fissuration">Fissuration à froid et fissuration à chaud</h2>
+            <p>Deux défauts concentrent la plupart des rebuts métallurgiques. Ils n'ont ni la même origine ni le même remède, et les confondre conduit à appliquer le mauvais correctif.</p>
+
+            <h3>La fissuration à froid : un défaut différé</h3>
+            <p><strong>Elle apparaît après le soudage, quand la pièce revient vers la température ambiante</strong>, souvent dans les heures qui suivent et parfois jusqu'à 48 heures plus tard. Elle se loge à la racine, au raccordement ou sous le cordon, dans la ZAT. C'est pour cette raison que certaines normes d'exécution, comme l'EN 1090-2, fixent un délai d'attente avant le contrôle des aciers sensibles.</p>
+            <p>Trois facteurs doivent être réunis. Retirer un seul d'entre eux suffit à casser le mécanisme.</p>
+
+            <figure class="schema schema--triangle">
+              <svg viewBox="0 0 460 330" role="img" aria-labelledby="tri-titre tri-desc">
+                <title id="tri-titre">Les trois facteurs de la fissuration à froid</title>
+                <desc id="tri-desc">Triangle dont les sommets sont l'hydrogène diffusible, une microstructure fragile et les contraintes de traction. Au centre, la fissuration à froid, déclenchée au retour vers la température ambiante.</desc>
+                <polygon points="230,40 60,270 400,270" fill="var(--rouge-voile)" stroke="var(--rouge)" stroke-width="2" />
+                <g font-family="var(--font-sans)" text-anchor="middle">
+                  <text x="230" y="185" fill="var(--rouge)" font-size="15" font-weight="700">Fissuration</text>
+                  <text x="230" y="204" fill="var(--rouge)" font-size="15" font-weight="700">à froid</text>
+                  <text x="230" y="226" fill="var(--texte-doux)" font-size="11">au retour à l'ambiante</text>
+                  <circle cx="230" cy="40" r="7" fill="var(--rouge)" />
+                  <text x="230" y="20" fill="var(--encre)" font-size="14" font-weight="600">Hydrogène diffusible</text>
+                  <circle cx="60" cy="270" r="7" fill="var(--rouge)" />
+                  <text x="112" y="298" fill="var(--encre)" font-size="14" font-weight="600">Microstructure fragile</text>
+                  <text x="112" y="316" fill="var(--texte-doux)" font-size="11">martensite de trempe</text>
+                  <circle cx="400" cy="270" r="7" fill="var(--rouge)" />
+                  <text x="370" y="298" fill="var(--encre)" font-size="14" font-weight="600">Contraintes</text>
+                  <text x="370" y="316" fill="var(--texte-doux)" font-size="11">bridage, retrait</text>
+                </g>
+              </svg>
+              <figcaption>Trois facteurs, une condition de déclenchement : le retour vers la température ambiante.</figcaption>
+            </figure>
+
+            <ul>
+              <li><strong>L'hydrogène diffusible</strong> vient de l'humidité de l'enrobage, de la calamine, de l'huile ou d'un gaz mal sec.</li>
+              <li><strong>La microstructure fragile</strong> est la martensite formée par un refroidissement trop rapide.</li>
+              <li><strong>Les contraintes de traction</strong> naissent du bridage de la tuyauterie et des retraits thermiques.</li>
+            </ul>
+
+            <div class="encart encart--pratique">
+              <p class="encart__titre">Bonnes pratiques atelier</p>
+              <ul>
+                <li>Étuver les électrodes basiques selon les préconisations du fabricant, et les maintenir au chaud sur site.</li>
+                <li>Préchauffer les pièces massives ou alliées pour ralentir le refroidissement et laisser l'hydrogène s'échapper.</li>
+                <li>Pratiquer un post-chauffage de dégazage immédiat, entre 150 et 250 °C pour les aciers de construction courants (S355, P265GH), avant le retour à l'ambiante. Les aciers au Cr-Mo relèvent de prescriptions plus élevées, fixées par le DMOS.</li>
+                <li>Organiser l'ordre des passes pour limiter le bridage.</li>
+              </ul>
+            </div>
+
+            <h3>La fissuration à chaud : un défaut de solidification</h3>
+            <p><strong>Elle naît en fin de solidification du bain</strong>, sous forme de déchirure longitudinale ou transversale. Les impuretés à bas point de fusion, soufre et phosphore en tête, sont repoussées aux joints de grains. Elles y forment un film liquide qui cède sous le retrait.</p>
+            <p>La ferrite delta est la parade. Elle dissout mieux le soufre et le phosphore que l'austénite, et elle empêche ces films de se former. D'où le seuil retenu par le calculateur : <strong>sous 5 % de ferrite, le risque de fissuration à chaud est signalé</strong>, même quand le point reste en zone acceptable.</p>
+
+            <div class="encart encart--pratique">
+              <p class="encart__titre">Bonnes pratiques atelier</p>
+              <ul>
+                <li>Proscrire les chanfreins trop étroits, qui donnent des cordons profonds ou concaves.</li>
+                <li>Choisir l'apport pour viser la zone idéale du calculateur, entre 5 et 15 % de ferrite.</li>
+                <li>Nettoyer les rives avant pointage : aucune graisse, aucun marquage soufré, aucun polluant.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ========== 4. Dilution ========== -->
+          <section id="dilution" aria-labelledby="t-dilution">
+            <h2 id="t-dilution">Dilution et choix du métal d'apport</h2>
+            <p><strong>Le métal fondu n'est ni le métal de base ni le fil : c'est un mélange des deux.</strong> La part de métal de base qui participe au bain s'appelle la dilution. Elle se mesure sur la coupe du joint.</p>
+
+            <figure class="schema schema--coupe">
+              <svg viewBox="0 40 560 210" role="img" aria-labelledby="coupe-titre coupe-desc">
+                <title id="coupe-titre">Coupe transversale d'un joint soudé</title>
+                <desc id="coupe-desc">Deux métaux de base en chanfrein. La zone A représente le métal d'apport déposé, les zones B et C la part fondue de chaque métal de base.</desc>
+                <rect x="20" y="70" width="260" height="130" fill="var(--surface)" stroke="var(--gris-bordure)" />
+                <rect x="280" y="70" width="260" height="130" fill="var(--surface)" stroke="var(--gris-bordure)" />
+                <path d="M195,70 Q212,150 264,206 L272,200 L220,70 Z" fill="var(--ambre-voile)" stroke="var(--ambre)" stroke-width="1.5" />
+                <path d="M365,70 Q348,150 296,206 L288,200 L340,70 Z" fill="var(--vert-voile)" stroke="var(--vert)" stroke-width="1.5" />
+                <path d="M195,70 Q212,150 264,206 L296,206 Q348,150 365,70 Z" fill="var(--fond)" />
+                <path d="M195,70 Q212,150 264,206 L272,200 L220,70 Z" fill="var(--ambre-voile)" stroke="var(--ambre)" stroke-width="1.5" />
+                <path d="M365,70 Q348,150 296,206 L288,200 L340,70 Z" fill="var(--vert-voile)" stroke="var(--vert)" stroke-width="1.5" />
+                <path d="M220,70 L272,200 L288,200 L340,70 Q280,50 220,70 Z" fill="var(--bleu-voile)" stroke="var(--bleu)" stroke-width="2" />
+                <path d="M195,70 Q280,40 365,70" fill="none" stroke="var(--bleu)" stroke-width="1" stroke-dasharray="4 4" />
+                <g font-family="var(--font-sans)" text-anchor="middle">
+                  <text x="280" y="122" fill="var(--bleu)" font-size="26" font-weight="700">A</text>
+                  <text x="280" y="140" fill="var(--texte-doux)" font-size="10">apport</text>
+                  <text x="224" y="130" fill="var(--ambre)" font-size="18" font-weight="700">B</text>
+                  <text x="336" y="130" fill="var(--vert)" font-size="18" font-weight="700">C</text>
+                  <text x="100" y="140" fill="var(--texte-doux)" font-size="13">Métal de base 1</text>
+                  <text x="460" y="140" fill="var(--texte-doux)" font-size="13">Métal de base 2</text>
+                  <text x="280" y="235" fill="var(--texte-faible)" font-size="11">B et C : part fondue de chaque métal de base</text>
+                </g>
+              </svg>
+              <figcaption>La dilution mesure la part des zones B et C dans le cordon.</figcaption>
+            </figure>
+
+            <div class="formule">Dilution D (%) = <span class="frac"><span>B + C</span><span>A + B + C</span></span> × 100</div>
+
+            <p>Le procédé fixe l'ordre de grandeur. Le calculateur retient les plages suivantes :</p>
+            <div class="defile">
+              <table>
+                <thead><tr><th>Procédé</th><th>Code ISO 4063</th><th>Dilution retenue</th></tr></thead>
+                <tbody>
+                  <tr><td>TIG</td><td>141</td><td>15 à 30 %</td></tr>
+                  <tr><td>Électrode enrobée (EE)</td><td>111</td><td>10 à 35 %</td></tr>
+                  <tr><td>MIG / MAG</td><td>131 / 135</td><td>20 à 40 %</td></tr>
+                  <tr><td>Arc submergé (SAW)</td><td>121</td><td>40 à 100 %</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Le soudage hétérogène : le fil corrige le mélange</h3>
+            <p>Sur un assemblage acier noir et inox, le fer de l'acier carbone appauvrit le bain en chrome et en nickel. Un apport de même nuance que l'inox ne compense pas cette perte : le point du joint glisse vers la zone martensitique, dure et fragile. Il faut un apport surallié, plus riche en chrome et en nickel que l'inox à assembler, pour tirer le bain vers la zone austéno-ferritique.</p>
+
+            <div class="encart encart--outil">
+              <p class="encart__titre">Cas vérifié sur le calculateur</p>
+              <p>S235 soudé sur 316L, dilution 15 / 15 / 70. L'outil classe un apport de type 309L Mo en premier rang, en zone idéale, avec environ 11 % de ferrite. C'est la réponse attendue du métallurgiste : un apport surallié qui absorbe le fer de l'acier noir.</p>
+              <a class="cta" href="analyse-thermique-metallurgique.html">Tester mon assemblage hétérogène</a>
+            </div>
+          </section>
+
+          <!-- ========== 5. Diagrammes ========== -->
+          <section id="diagrammes" aria-labelledby="t-diagrammes">
+            <h2 id="t-diagrammes">Diagrammes de constitution : Schaeffler, DeLong, WRC-1992</h2>
+            <p><strong>Un diagramme de constitution prédit la structure du cordon brut de soudage à partir de sa chimie.</strong> Chaque métal est placé par deux coordonnées : le chrome équivalent, qui cumule les éléments alphagènes, et le nickel équivalent, qui cumule les éléments gammagènes.</p>
+
+            <h3>Schaeffler (1949) : la formule du calculateur</h3>
+            <div class="formule">Cr<sub>éq</sub> = %Cr + %Mo + 1,5 × %Si + 0,5 × %Nb<br />Ni<sub>éq</sub> = %Ni + 30 × %C + 0,5 × %Mn</div>
+            <p>C'est l'outil historique et le plus large. Il couvre martensite, ferrite, austénite et leurs mélanges, ce qui en fait la référence pour les assemblages hétérogènes. Le calculateur l'utilise tel quel.</p>
+
+            <h3>DeLong (1973) : l'azote entre en compte</h3>
+            <div class="formule">Cr<sub>éq</sub> = %Cr + %Mo + 1,5 × %Si + 0,5 × %Nb<br />Ni<sub>éq</sub> = %Ni + 30 × %C + 30 × %N + 0,5 × %Mn</div>
+            <p>DeLong ajoute l'effet gammagène de l'azote et affine la lecture de la ferrite dans les inox austénitiques courants.</p>
+
+            <h3>WRC-1992 : le diagramme des nuances modernes</h3>
+            <div class="formule">Cr<sub>éq</sub> = %Cr + %Mo + 0,7 × %Nb<br />Ni<sub>éq</sub> = %Ni + 35 × %C + 20 × %N + 0,25 × %Cu</div>
+            <p>Il intègre l'azote et le cuivre et s'exprime en Ferrite Number. C'est la référence pour les duplex, les super duplex et les nuances fortement alliées.</p>
+
+            <div class="encart encart--alerte">
+              <p class="encart__titre">Pourcentage ou FN : ne pas mélanger</p>
+              <p>Sur Schaeffler, la ferrite s'exprime en pourcentage volumique : c'est une estimation. Le Ferrite Number (FN), apparu avec DeLong puis repris par le WRC-1992, est une grandeur normalisée par mesure magnétique (ISO 8249). Les deux ne sont pas interchangeables. Le calculateur travaille en pourcentage Schaeffler, et ce guide aussi.</p>
+            </div>
+
+            <div class="defile">
+              <table>
+                <thead><tr><th>Diagramme</th><th>Éléments ajoutés</th><th>Unité de ferrite</th><th>Usage</th></tr></thead>
+                <tbody>
+                  <tr><td>Schaeffler</td><td>Base : Cr, Mo, Si, Nb, Ni, C, Mn</td><td>%</td><td>Hétérogènes, lecture large des structures</td></tr>
+                  <tr><td>DeLong</td><td>+ azote</td><td>FN</td><td>Inox austénitiques courants</td></tr>
+                  <tr><td>WRC-1992</td><td>+ azote, cuivre</td><td>FN</td><td>Duplex, super duplex, nuances très alliées</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ========== 6. Zones (ancre appelée depuis le calculateur) ========== -->
+          <section id="zones-metallurgiques" aria-labelledby="t-zones">
+            <h2 id="t-zones">Les zones du diagramme de Schaeffler</h2>
+            <p>Le diagramme découpe le plan en sept zones. Le point du joint, calculé après dilution, tombe dans l'une d'elles. Sa position dit ce qu'il faut craindre.</p>
+
+            <div class="zones">
+              <div class="zone"><h3>A : austénite</h3><p>Ductile. En austénite presque pure, le risque de fissuration à chaud monte pendant la solidification.</p></div>
+              <div class="zone"><h3>M : martensite</h3><p>Dure et fragile. Avec l'hydrogène et les contraintes, elle ouvre la voie à la fissuration à froid.</p></div>
+              <div class="zone"><h3>F : ferrite</h3><p>Trop de ferrite fait perdre ténacité et ductilité, surtout après exposition à haute température.</p></div>
+              <div class="zone"><h3>A+M</h3><p>La martensite présente rend le joint sensible à la fissuration à froid, surtout sous bridage.</p></div>
+              <div class="zone"><h3>M+F</h3><p>Cumule la fragilité de la martensite et les limites d'une ferrite abondante. Zone défavorable.</p></div>
+              <div class="zone"><h3>A+M+F</h3><p>Les trois structures ensemble. Elle contient le corridor de sécurité blanc, en forme de S.</p></div>
+              <div class="zone zone--cible"><h3>A+F : austéno-ferritique</h3><p>La zone recherchée pour les inox et les hétérogènes : assez de ferrite contre la fissuration à chaud, sans excès.</p></div>
+            </div>
+
+            <h3>L'ordre de priorité du calculateur</h3>
+            <div class="defile">
+              <table>
+                <thead><tr><th>Rang</th><th>Bande</th><th>Ferrite</th><th>Lecture</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>Zone idéale (bleue)</td><td>5 à 15 %</td><td>Cible prioritaire. Compromis favorable entre fissuration à chaud et propriétés mécaniques.</td></tr>
+                  <tr><td>2</td><td>Zone acceptable (verte)</td><td>0 à 20 %</td><td>Utilisable avec prudence. Sous 5 %, alerte fissuration à chaud.</td></tr>
+                  <tr><td>3</td><td>Corridor de sécurité (blanc)</td><td>Dans A+M+F</td><td>Solution de repli, admise après les deux bandes précédentes.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a class="cta" href="analyse-thermique-metallurgique.html#schaeffler">Voir mon joint sur le diagramme</a>
+          </section>
+
+          <!-- ========== 7. Cycle thermique ========== -->
+          <section id="thermique" aria-labelledby="t-thermique">
+            <h2 id="t-thermique">Le cycle thermique : ralentir ou contrôler</h2>
+            <p>La chimie est calée. Reste la vitesse de refroidissement, qui gouverne les transformations à l'état solide. Deux logiques s'opposent : sur l'acier carbone, on ralentit ; sur l'inox, on contrôle.</p>
+
+            <h3>Aciers carbone et faiblement alliés : empêcher la trempe</h3>
+            <p><strong>Le préchauffage a un seul but : ralentir le refroidissement</strong> pour éviter la martensite et laisser partir l'hydrogène. Le paramètre qui compte est le temps de passage entre 800 et 500 °C, noté Δt<sub>8/5</sub>. Trop court, le carbone n'a pas le temps de diffuser et la ZAT durcit au-delà d'environ 350 HV10, seuil à partir duquel elle devient criquable.</p>
+            <div class="formule">CE = %C + <span class="frac"><span>%Mn</span><span>6</span></span> + <span class="frac"><span>%Cr + %Mo + %V</span><span>5</span></span> + <span class="frac"><span>%Ni + %Cu</span><span>15</span></span></div>
+            <p>Le carbone équivalent (formule IIW) donne un premier signal. <strong>Au-delà de 0,42, le calculateur lève une alerte.</strong> Mais le CE seul ne tranche rien : l'épaisseur combinée, l'énergie de soudage et l'hydrogène apporté par l'enrobage décident de la température de préchauffage. Le calculateur applique la méthode Séférian ou la méthode BWRA selon le type d'enrobage.</p>
+
+            <div class="encart encart--alerte">
+              <p class="encart__titre">Alerte atelier</p>
+              <p>Un piquage sur une tôle épaisse forme un puits thermique. Sans préchauffage, la première passe fige d'un coup, la zone sous cordon durcit et fissure sous le retrait.</p>
+            </div>
+
+            <div class="formule">Q (kJ/cm) = k × <span class="frac"><span>U × I × 60</span><span>V<sub>s</sub> × 1000</span></span></div>
+            <p class="gm__doux">Énergie de soudage selon l'EN 1011-1, avec U en volts, I en ampères, V<sub>s</sub> en cm/min. Rendement thermique k : 0,6 en TIG, 0,8 en électrode enrobée et MIG/MAG, 1,0 en arc submergé.</p>
+            <a class="cta" href="analyse-thermique-metallurgique.html">Calculer mon préchauffage</a>
+
+            <h3>Inox austénitiques : pas de préchauffage, une chaleur tenue</h3>
+            <p><strong>Sur un inox, on ne préchauffe pas : on limite l'énergie et la température entre passes.</strong> Un séjour prolongé entre 450 et 850 °C fait précipiter des carbures de chrome aux joints de grains. Le chrome manque alors autour d'eux et la corrosion intergranulaire s'installe. Les nuances à bas carbone (L) réduisent ce risque sans le supprimer. La température entre passes reste sous 150 °C.</p>
+
+            <h3>Duplex : ni trop vite, ni trop lentement</h3>
+            <p>Le duplex se solidifie entièrement en ferrite. L'austénite se reforme ensuite à l'état solide, entre 1200 et 800 °C. Le temps de passage dans cette plage, noté Δt<sub>12/8</sub>, règle l'équilibre des deux phases.</p>
+            <ul>
+              <li><strong>Trop court</strong> : l'austénite n'a pas le temps de germer, la soudure reste trop ferritique et sa résilience chute.</li>
+              <li><strong>Trop long</strong> : des phases intermétalliques dures et cassantes précipitent, dont la phase sigma, qui ruinent la tenue aux chocs et aux piqûres.</li>
+            </ul>
+            <p>En TIG, un gaz de protection enrichi de 1 à 2 % d'azote aide la reformation de l'austénite. L'énergie reste modérée, dans la fenêtre donnée par le fabricant de l'apport et validée par le DMOS.</p>
+
+            <div class="defile">
+              <table>
+                <thead><tr><th>Nuance</th><th>Préchauffage</th><th>Température entre passes</th></tr></thead>
+                <tbody>
+                  <tr><td>Inox austénitique (304L, 316L)</td><td>Non</td><td>≤ 150 °C</td></tr>
+                  <tr><td>Duplex (2205, 1.4462)</td><td>Non</td><td>≤ 150 °C</td></tr>
+                  <tr><td>Super duplex (2507, 1.4410)</td><td>Non</td><td>≤ 100 °C</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ========== 8. Check-list ========== -->
+          <section id="checklist" aria-labelledby="t-checklist">
+            <h2 id="t-checklist">Check-list du préparateur</h2>
+            <p>Six contrôles, dans l'ordre où ils se posent sur le bureau des méthodes.</p>
+            <ol class="check">
+              <li><strong>Lire le certificat matière 3.1</strong> (EN 10204) : teneurs réelles en C, S, P, Cr, Ni, Mo. On calcule sur l'analyse de la coulée livrée, pas sur la norme.</li>
+              <li><strong>Calculer le carbone équivalent</strong> sur les aciers carbone et faiblement alliés, puis la température de préchauffage avec le calculateur.</li>
+              <li><strong>Estimer la dilution</strong> selon le procédé retenu (141, 111, 131/135, 121).</li>
+              <li><strong>Valider l'apport sur le diagramme</strong> : zone idéale, 5 à 15 % de ferrite, sur les inox et les hétérogènes ; 30 à 70 % de ferrite sur les duplex.</li>
+              <li><strong>Prescrire la préparation des bords</strong> : brosse inox dédiée, dégraissage à l'acétone, aucun outil partagé avec l'acier noir.</li>
+              <li><strong>Définir l'étuvage et le maintien au chaud</strong> des électrodes basiques sur site.</li>
+            </ol>
+
+            <h3>Synthèse par famille d'assemblage</h3>
+            <div class="defile">
+              <table>
+                <thead><tr><th>Assemblage</th><th>Outil de validation</th><th>Risque à neutraliser</th><th>Consigne thermique</th></tr></thead>
+                <tbody>
+                  <tr><td>Carbone ou faiblement allié</td><td>Carbone équivalent, puis méthode de préchauffage</td><td>Fissuration à froid, trempe de la ZAT</td><td>Préchauffer selon CE, épaisseur et enrobage ; étuver les électrodes</td></tr>
+                  <tr><td>Inox austénitique</td><td>Schaeffler</td><td>Fissuration à chaud sous 5 % de ferrite</td><td>Pas de préchauffage ; énergie limitée ; entre passes ≤ 150 °C</td></tr>
+                  <tr><td>Duplex</td><td>WRC-1992</td><td>Excès de ferrite ou phase sigma</td><td>Pas de préchauffage ; contrôler Δt<sub>12/8</sub> ; entre passes ≤ 150 °C (≤ 100 °C en super duplex)</td></tr>
+                  <tr><td>Hétérogène carbone et inox</td><td>Schaeffler avec dilution</td><td>Martensite par dilution du fer</td><td>Apport surallié ; préchauffer côté acier carbone si le CE l'exige</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="gm__cloture">Une soudure saine se décide au bureau, bien avant l'arc. On ne soude bien que ce que l'on a préparé.</p>
+          </section>
+
+          <!-- ========== Sources ========== -->
+          <section id="sources" aria-labelledby="t-sources" class="sources">
+            <h2 id="t-sources">Sources normatives</h2>
+            <ul>
+              <li>EN 10088-1 : aciers inoxydables, définition et liste des nuances.</li>
+              <li>EN 1011-1 et EN 1011-2 : recommandations pour le soudage, énergie de soudage, préchauffage des aciers ferritiques.</li>
+              <li>EN 10204 : documents de contrôle, certificat 3.1.</li>
+              <li>ISO 4063 : désignation numérique des procédés de soudage.</li>
+              <li>ISO 8249 : détermination du Ferrite Number.</li>
+              <li>ISO 17781 et NORSOK M-601 : exigences sur la ferrite du métal fondu des aciers duplex.</li>
+              <li>EN 1090-2 : exécution des structures en acier, délais avant contrôle.</li>
+            </ul>
+            <p>Ce guide est une aide à la préparation. Il ne remplace ni un DMOS qualifié, ni la QMOS, ni les prescriptions du fabricant d'apport.</p>
+          </section>
+
+        </article>
       </div>
     </main>
 
