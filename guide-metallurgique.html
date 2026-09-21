@@ -253,7 +253,7 @@
             </ul>
 
             <h3>Lire le diagramme de Schaeffler</h3>
-            <p>Le diagramme de Schaeffler place le métal fondu selon deux valeurs calculées à partir de sa composition :</p>
+            <p>Le diagramme de Schaeffler place le métal fondu selon deux valeurs calculées à partir de sa composition. En abscisse, le chrome équivalent regroupe les éléments alphagènes, qui favorisent la ferrite. En ordonnée, le nickel équivalent regroupe les éléments gammagènes, qui favorisent l'austénite.</p>
             <div class="formule">Cr<sub>éq</sub> = %Cr + %Mo + 1,5 × %Si + 0,5 × %Nb<br />Ni<sub>éq</sub> = %Ni + 30 × %C + 0,5 × %Mn</div>
             <p>Le point obtenu tombe dans l'une des sept zones du diagramme. Sa position dit ce qu'il faut craindre.</p>
 
@@ -370,7 +370,7 @@
               <figcaption>La dilution mesure la part des zones B et C dans le cordon.</figcaption>
             </figure>
             <div class="formule">Dilution D (%) = <span class="frac"><span>B + C</span><span>A + B + C</span></span> × 100</div>
-            <p>Le procédé et la préparation des bords fixent l'ordre de grandeur. Un chanfrein réduit la dilution ; des bords droits l'augmentent.</p>
+            <p>Le procédé et la préparation des bords fixent l'ordre de grandeur. Un chanfrein réduit la dilution ; des bords droits l'augmentent. Dans un même joint, la passe de fond dilue davantage que les passes de remplissage, où l'apport domine.</p>
             <div class="defile">
               <table>
                 <thead><tr><th>Procédé</th><th>Code ISO 4063</th><th>Dilution</th></tr></thead>
@@ -395,7 +395,7 @@
 
             <div class="encart encart--outil">
               <p class="encart__titre">Cas vérifié sur le calculateur</p>
-              <p>S235 soudé sur 316L, dilution 15 / 15 / 70. L'outil classe un apport de type 309L Mo en premier, en zone idéale, avec environ 11 % de ferrite. L'apport surallié absorbe le fer de l'acier carbone.</p>
+              <p>S235 soudé sur 316L. Sans apport, le mélange des deux pièces à parts égales tombe en zone A+M (Cr<sub>éq</sub> 10,8 ; Ni<sub>éq</sub> 9,6) : de la martensite apparaît. Avec une dilution 15 / 15 / 70, l'outil classe un apport de type 309L Mo en premier, en zone idéale, avec environ 11 % de ferrite. Plus riche en chrome, l'apport surallié tire le cordon hors de la martensite.</p>
               <a class="cta" href="analyse-thermique-metallurgique.html">Tester mon assemblage</a>
             </div>
 
@@ -447,7 +447,7 @@
             <div class="encart encart--pratique">
               <p class="encart__titre">Trois réflexes</p>
               <ul>
-                <li>Étuver les électrodes basiques selon le fabricant et les garder au chaud sur site : on chasse l'hydrogène.</li>
+                <li>Choisir des électrodes à bas hydrogène (désignation H5 ou H10 selon l'EN ISO 2560), les étuver selon le fabricant et les garder au chaud sur site : on chasse l'hydrogène.</li>
                 <li>Préchauffer les pièces épaisses quand le calcul le demande : on évite la martensite.</li>
                 <li>Organiser l'ordre des passes et maintenir la pièce en température après soudage si le DMOS le prévoit, pour que l'hydrogène s'échappe avant le refroidissement complet.</li>
               </ul>
@@ -511,6 +511,7 @@
               <li>EN 10088-1 : aciers inoxydables, définition.</li>
               <li>EN 1011-1 : énergie de soudage et rendements thermiques.</li>
               <li>EN 1011-2 : soudage des aciers ferritiques, préchauffage.</li>
+              <li>EN ISO 2560 : électrodes enrobées pour aciers non alliés, classes d'hydrogène.</li>
               <li>EN 60974-1 : tensions conventionnelles de charge.</li>
               <li>EN 10204 : documents de contrôle, certificat 3.1.</li>
               <li>ISO 4063 : numérotation des procédés de soudage.</li>
