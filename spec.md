@@ -1,4 +1,4 @@
-# Spécification technique — Calculateur de Soudabilité
+# Spécification technique - Calculateur de Soudabilité
 
 Ce fichier est la référence unique pour toutes les formules du moteur. Une
 formule ne doit apparaître qu'ici. Le code des modules JS se contente de
@@ -27,7 +27,7 @@ les détecte uniquement pour bloquer un classement non validé.
 
 ## 1. Équivalents en Chrome et en Nickel
 
-### 1.1 Schaeffler (1949) — moteur actif
+### 1.1 Schaeffler (1949) - moteur actif
 ```
 Cr_eq = %Cr + %Mo + 1.5 · %Si + 0.5 · %Nb
 Ni_eq = %Ni + 30 · %C + 0.5 · %Mn
@@ -35,7 +35,7 @@ Ni_eq = %Ni + 30 · %C + 0.5 · %Mn
 Source : Schaeffler A.L., *Constitution diagram for stainless steel weld
 metal*, Metal Progress, 1949.
 
-### 1.2 DeLong (1974) — variante Schaeffler intégrant l'azote
+### 1.2 DeLong (1974) - variante Schaeffler intégrant l'azote
 ```
 Cr_eq = %Cr + %Mo + 1.5 · %Si + 0.5 · %Nb        (identique Schaeffler)
 Ni_eq = %Ni + 30 · %C + 30 · %N + 0.5 · %Mn
@@ -78,7 +78,7 @@ avec D_A + D_B + D_C = 1
 | MIG/MAG | 131 / 135     | 20 % à 40 %                |
 | SAW     | 121           | 30 % à 60 %                |
 
-Source : ta doc « Cadre normatif », section 5 (croisée avec EN 1011-1).
+Source : document interne « Cadre normatif », section 5 (croisée avec EN 1011-1).
 
 ---
 
@@ -195,9 +195,9 @@ U = 14 + 0.05 · I
 Vitesse : 25 à 45 cm/min en semi-automatique.
 
 Vitesse de fil V_f : abaque à intégrer plus tard (Lot 4), dépend du diamètre
-de fil et de I. **[À VÉRIFIER]** — formule empirique à confirmer.
+de fil et de I. **[À VÉRIFIER]** - formule empirique à confirmer.
 
-Source : ta doc « Composition d'un DMOS », section 3.
+Source : document interne « Composition d'un DMOS », section 3.
 
 ### 3.4 Modes AUTO et PERSONNALISÉ
 
@@ -261,7 +261,7 @@ Table à intégrer :
 | Chanfrein Y (avec talon)                 | 0.6 à 0.7 (selon angle) |
 | Chanfrein X                              | 0.75 à 1.2 |
 
-Source : ta doc « Méthodes de préchauffe », abaque IRSID, colonne « géométrie ».
+Source : document interne « Méthodes de préchauffe », abaque IRSID, colonne « géométrie ».
 
 ---
 
@@ -316,10 +316,10 @@ Méthode abaque : croiser E_q (kJ/cm) avec l'épaisseur e (mm) sur l'abaque
 IRSID pour lire directement le t8/5 puis, si zone de trempe, la T_p requise.
 
 **Implémentation** : abaque à digitaliser en tableau de valeurs (T_p en
-fonction de CE_IIW, e, E_q). **[À DIGITALISER]** — Tony fournira les
+fonction de CE_IIW, e, E_q). **[À DIGITALISER]** - Tony fournira les
 coordonnées.
 
-Source : ta doc « Méthodes de préchauffe », section A.
+Source : document interne « Méthodes de préchauffe », section A.
 
 ### 6.2 Séférian
 ```
@@ -329,7 +329,7 @@ Avec CE_compensé défini en §5.3.
 
 **Précaution** : formule valide si CE_compensé > 0.25 ; sinon T_p = 0.
 
-### 6.3 CET (EN 1011-2 Méthode B) — RÉFÉRENCE INDUSTRIELLE ACTUELLE
+### 6.3 CET (EN 1011-2 Méthode B) - RÉFÉRENCE INDUSTRIELLE ACTUELLE
 ```
 T_p (°C) = 697 · CET + 160 · tanh(d/35) + 62 · HD^0.35
              + (53 · CET − 32) · Q − 328
@@ -358,9 +358,9 @@ TSN = (somme des épaisseurs des tôles au joint) / 6
 Croisement TSN × CE × diamètre électrode dans un tableau BWRA →
 T_p et diamètre d'électrode admissible.
 
-**[À DIGITALISER]** — table BWRA à intégrer.
+**[À DIGITALISER]** - table BWRA à intégrer.
 
-Source : ta doc « Méthodes de préchauffe », section C.
+Source : document interne « Méthodes de préchauffe », section C.
 
 La table BWRA disponible ne distingue que les familles **rutile R** et
 **basique B**. Les enrobages cellulosique C, acide A, rutilo-basique RB et
@@ -378,9 +378,9 @@ où r est le facteur de dissipation (~ 1 en 3D, dépend de la géométrie).
 
 Épaisseur combinée e' via abaque à digitaliser.
 
-**[À DIGITALISER]** — abaque Baus-Chapeau.
+**[À DIGITALISER]** - abaque Baus-Chapeau.
 
-Source : ta doc « Méthodes de préchauffe », section D.
+Source : document interne « Méthodes de préchauffe », section D.
 
 ---
 
@@ -417,7 +417,7 @@ Règle d'aiguillage :
 | Angle passe unique (FW) | 0.45 à 0.67 | 0.67 |
 | Renforcement passe unique | 0.9 | 0.9 |
 
-**[À COMPLÉTER]** — table complète à intégrer depuis EN 1011-2 Annexe D.
+**[À COMPLÉTER]** - table complète à intégrer depuis EN 1011-2 Annexe D.
 
 Source : NF EN 1011-2:2001 Annexe D.
 
@@ -482,7 +482,7 @@ limite normative HV10 par groupe (§9) prévaut.
 
 ### 9.1 Attribution du groupe (ISO/TR 15608 via ISO/TR 20172)
 
-**[À COMPLÉTER]** — inférence à partir de la nuance et de la composition.
+**[À COMPLÉTER]** - inférence à partir de la nuance et de la composition.
 Table de correspondance à intégrer.
 
 Cas courants pour la validation MVP :
@@ -504,7 +504,7 @@ Cas courants pour la validation MVP :
 | 1, 2   | 380 HV10          | 320 HV10  |
 | 3      | 450 HV10          | 380 HV10  |
 | 4, 5   | 380 HV10          | 350 HV10 (rév. 2017) |
-| 6      | —                 | 350 HV10  |
+| 6      | -                 | 350 HV10  |
 | 9.1    | 350 HV10          | 300 HV10  |
 | 9.2, 9.3 | 450 HV10        | 350 HV10  |
 | 11     | 380 HV10          | 320 HV10  |
@@ -514,7 +514,7 @@ Cas courants pour la validation MVP :
 Plafond dureté ZAT + métal fondu aciers carbone : **250 HV**.
 Active une case dans l'onglet Paramètres DMOS pour écraser les limites §9.2.
 
-Source : ta doc « Système expert », section 1 et 3.
+Source : document interne « Système expert », section 1 et 3.
 
 ---
 
@@ -546,7 +546,7 @@ candidat afin de rester comparable aux meilleurs apports référencés.
 
 ---
 
-## 11. Fissuration à chaud (UCS — Unit of Crack Susceptibility)
+## 11. Fissuration à chaud (UCS - Unit of Crack Susceptibility)
 
 Pour aciers carbone/manganèse en soudage sous flux :
 ```
@@ -558,7 +558,7 @@ Interprétation :
 - 10 ≤ UCS ≤ 30 : risque modéré, ajuster vitesse et dilution
 - UCS > 30 : risque très élevé
 
-Source : ta doc « Système expert », section 2.
+Source : document interne « Système expert », section 2.
 
 **Statut** : à activer en Lot 4.
 
@@ -575,13 +575,13 @@ Interprétation (CODAP) :
 - X ≤ 15 : conforme
 - X > 15 : risque de fragilisation au revenu, réévaluer TTAS
 
-Source : ta doc « Système expert », section 2.
+Source : document interne « Système expert », section 2.
 
 **Statut** : à activer en Lot 4.
 
 ---
 
-## Annexe A — Points ouverts
+## Annexe A - Points ouverts
 
 ### Architecture des prochaines évolutions
 
@@ -597,7 +597,7 @@ Source : ta doc « Système expert », section 2.
 - Correspondance nuance → groupe ISO 15608 (à générer, cf. §9.1).
 - Vitesse de fil V_f MIG/MAG (formule empirique, cf. §3.3).
 
-## Annexe B — Références normatives citées
+## Annexe B - Références normatives citées
 
 - NF EN ISO 15609-1 : DMOS – Contenu du descriptif de mode opératoire
 - NF EN ISO 15614-1 : Épreuve de qualification de mode opératoire de soudage

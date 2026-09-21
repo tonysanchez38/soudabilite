@@ -1,4 +1,4 @@
-// Cloudflare Worker — proxy first-party pour GoatCounter.
+// Cloudflare Worker - proxy first-party pour GoatCounter.
 // Route à créer dans Cloudflare : soudabilite.com/gc/*
 //
 // But : les bloqueurs de pub (AdGuard, uBlock...) bloquent le DOMAINE

@@ -1,6 +1,6 @@
 // soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
-// compteur.js - compteur de pied de page (GoatCounter, RGPD - CLAUDE.md #22).
+// compteur.js - compteur de pied de page (GoatCounter, RGPD - DECISIONS.md #22).
 // Affiche « X visiteurs » et, séparément, « Y analyses générées ».
 // Partagé par toutes les pages. Aucune logique métier.
 // =========================================================================

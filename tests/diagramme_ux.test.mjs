@@ -15,9 +15,9 @@ assert.equal(traductions.analyse.leg_b, "Métal B");
 assert.equal(traductions.analyse.leg_c, "Métal d'apport");
 assert.equal(traductions.analyse.leg_joint, "Joint");
 assert.equal(traductions.analyse.leg_dmelange, "Dilution A+B");
-assert.equal(traductions.analyse.leg_ideale, "1 — Zone idéale (5-15 % ferrite)");
-assert.equal(traductions.analyse.leg_acceptable, "2 — Zone acceptable");
-assert.equal(traductions.analyse.leg_zone_s, "3 — Corridor de sécurité blanc");
+assert.equal(traductions.analyse.leg_ideale, "1. Zone idéale (5 à 15 % de ferrite)");
+assert.equal(traductions.analyse.leg_acceptable, "2. Zone acceptable");
+assert.equal(traductions.analyse.leg_zone_s, "3. Corridor de sécurité blanc");
 assert.equal(traductions.analyse.leg_amf, "Zone A+M+F grisée");
 assert.match(traductions.analyse.diagramme_intro_court, /estimations métallurgiques/);
 assert.equal(

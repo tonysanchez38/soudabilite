@@ -3,7 +3,7 @@
    Chargé uniquement en média print (voir <link media="print"> dans le
    HTML) : n'affecte jamais l'écran, le mode sombre reste inchangé à l'écran.
    Approche retenue : window.print() + @media print, pas de dépendance
-   externe (CLAUDE.md décision #25 - remplace le plan initial jsPDF).
+   externe (DECISIONS.md décision #25 - remplace le plan initial jsPDF).
    ========================================================================= */
 
 @page {

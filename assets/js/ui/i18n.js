@@ -1,7 +1,7 @@
 // soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
 // i18n.js - chargement des chaînes visibles et injection dans le DOM.
-// Décision CLAUDE.md #23 : toute chaîne visible provient de
+// Décision DECISIONS.md #23 : toute chaîne visible provient de
 // assets/i18n/<lang>.json. Aucune logique métier ici : uniquement du binding.
 // Le fichier en.json sera ajouté au Lot 3.
 // =========================================================================

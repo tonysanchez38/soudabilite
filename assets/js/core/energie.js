@@ -33,7 +33,7 @@ export const VITESSE_INDICATIVE = {
   "135": { min: 25, max: 45, defaut: 35 },
 };
 
-// --- Intensité électrode enrobée (111) - spec.md §3.1 + CLAUDE.md #21 -----
+// --- Intensité électrode enrobée (111) - spec.md §3.1 + DECISIONS.md #21 -----
 // Trois cas (les 5 cas conservés s'y ramènent), positions EN ISO 6947 :
 //   Plat (PA / PB bout à bout) :                 I = 50·(∅ − 1)
 //   Angle intérieur (assemblage FW) :            I = 60·(∅ − 1)

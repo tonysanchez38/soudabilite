@@ -61,7 +61,7 @@ export function classerParIsoresistance(candidats, reMetalA, reMetalB) {
 
 // Point d'entrée appelé depuis la carte Analyse thermique. Ne lève jamais
 // d'exception : en l'absence de données, renvoie un statut explicite
-// plutôt qu'un tableau vide silencieux (cf. CLAUDE.md #31, "pas de verdict
+// plutôt qu'un tableau vide silencieux (cf. DECISIONS.md #31, "pas de verdict
 // plutôt qu'un verdict faux").
 export function selectionnerApportCarbone(
   baseConsommables,

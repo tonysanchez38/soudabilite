@@ -46,7 +46,7 @@ export const MESSAGES_METHODE = {
 // SOURCÉE à ce jour (à valider avec Tony contre le support de cours BTS
 // CRCI). Ne fabrique jamais de correction sans formule sourcée : le CEQ
 // est renvoyé inchangé, avec un indicateur d'approximation plutôt qu'une
-// exception qui casserait l'affichage (cf. CLAUDE.md #31, "pas de verdict
+// exception qui casserait l'affichage (cf. DECISIONS.md #31, "pas de verdict
 // plutôt qu'un verdict faux" - ici appliqué sans bloquer le rendu).
 export function ajusterParHydrogeneSecurise(ceq, classeHydrogene) {
   if (classeHydrogene == null) {

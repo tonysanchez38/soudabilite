@@ -1,5 +1,5 @@
 # ============================================================
-# batch_trcs_overnight.py — version consolidée et blindée
+# batch_trcs_overnight.py - version consolidée et blindée
 # Fusionne : formules HV corrigées (spec.md §8), normalisation
 # des clés de nuance, exclusions, et surtout : un log qui s'écrit
 # AVANT toute autre opération, pour qu'une absence de log ne
@@ -36,7 +36,7 @@ with open(FICHIER_LOG_BRUT, "w", encoding="utf-8") as f:
 
 def log(message):
     with open(FICHIER_LOG_BRUT, "a", encoding="utf-8") as f:
-        f.write(f"{datetime.now()} — {message}\n")
+        f.write(f"{datetime.now()} - {message}\n")
     print(message)
 
 
@@ -53,7 +53,7 @@ try:
     import numpy as np
     log("Pillow et numpy importés avec succès.")
 except ImportError as e:
-    log(f"ERREUR FATALE — Pillow ou numpy manquant : {e}")
+    log(f"ERREUR FATALE - Pillow ou numpy manquant : {e}")
     log("Le script ne peut pas continuer sans ces bibliothèques. Exécuter : pip install pillow numpy")
     sys.exit(1)
 
@@ -136,7 +136,7 @@ def calibrer_axes(graduations, valeurs_x_attendues, valeurs_y_attendues):
     return {"statut": "ok_a_verifier"}
 
 
-# ---------- Formules — alignées sur spec.md §8 ----------
+# ---------- Formules - alignées sur spec.md §8 ----------
 def composition_suffisante(comp):
     return comp.get("C") is not None and comp.get("Mn") is not None
 
@@ -162,7 +162,7 @@ def calculer_hv_bainite_spec(comp):
 
 def fonction_hv_selon_t85_rampe_provisoire(t85, hv_m, hv_b):
     """
-    Rampe linéaire 3 segments — PROVISOIRE tant que t* de Yurioka (2004)
+    Rampe linéaire 3 segments - PROVISOIRE tant que t* de Yurioka (2004)
     n'est pas sourcé. Ne pas présenter comme la formule arctan de spec.md §8.4.
     """
     if t85 < 5:
@@ -196,10 +196,10 @@ def traiter_toutes_les_fiches():
 
     prerequis_manquants = verifier_prerequis()
     resultats, compteurs = {}, {"ok": 0, "echec_calibrage": 0, "erreur": 0, "exclu": 0}
-    rapport = [f"# Rapport matinal — digitalisation TRCS ({debut:%Y-%m-%d %H:%M})\n"]
+    rapport = [f"# Rapport matinal - digitalisation TRCS ({debut:%Y-%m-%d %H:%M})\n"]
 
     if prerequis_manquants:
-        rapport.append("## ⚠️ Prérequis manquants — traitement interrompu avant de commencer\n")
+        rapport.append("## ⚠️ Prérequis manquants - traitement interrompu avant de commencer\n")
         for m in prerequis_manquants:
             rapport.append(f"- {m}")
         with open(FICHIER_RAPPORT, "w", encoding="utf-8") as f:
@@ -208,14 +208,14 @@ def traiter_toutes_les_fiches():
         return
 
     if not os.path.isdir(DOSSIER_PDF):
-        log(f"ERREUR FATALE — DOSSIER_PDF introuvable : {DOSSIER_PDF}")
+        log(f"ERREUR FATALE - DOSSIER_PDF introuvable : {DOSSIER_PDF}")
         rapport.append(f"## ⚠️ Dossier PDF introuvable : {DOSSIER_PDF}")
         with open(FICHIER_RAPPORT, "w", encoding="utf-8") as f:
             f.write("\n".join(rapport))
         return
 
     if not os.path.isfile(FICHIER_JSON_EXISTANT):
-        log(f"ERREUR FATALE — JSON manifest introuvable : {FICHIER_JSON_EXISTANT}")
+        log(f"ERREUR FATALE - JSON manifest introuvable : {FICHIER_JSON_EXISTANT}")
         rapport.append(f"## ⚠️ Fichier manifest introuvable : {FICHIER_JSON_EXISTANT}")
         with open(FICHIER_RAPPORT, "w", encoding="utf-8") as f:
             f.write("\n".join(rapport))
@@ -229,7 +229,7 @@ def traiter_toutes_les_fiches():
     if collisions:
         rapport.append("\n## ⚠️ Collisions de noms détectées après normalisation")
         for a, b, cle in collisions:
-            rapport.append(f"- '{a}' et '{b}' se normalisent vers '{cle}' — à vérifier manuellement")
+            rapport.append(f"- '{a}' et '{b}' se normalisent vers '{cle}' - à vérifier manuellement")
 
     pdfs_trouves = sorted(Path(DOSSIER_PDF).glob("*.pdf"))
     log(f"{len(pdfs_trouves)} fichiers PDF trouvés dans {DOSSIER_PDF}")
@@ -280,7 +280,7 @@ def traiter_toutes_les_fiches():
             rapport.append(f"- HV_m (spec.md §8, Yurioka) : {hv_m:.0f}")
             rapport.append(f"- HV_B (spec.md §8) : {hv_b:.0f}")
             rapport.append(f"- Seuil normatif : {seuil_hv} HV10" if seuil_hv is not None else "- Seuil normatif : absent du manifest")
-            rapport.append(f"- t8/5 critique : {t85_resultat} — **rampe linéaire provisoire, pas l'arctan de spec.md §8.4 (t* non sourcé)**")
+            rapport.append(f"- t8/5 critique : {t85_resultat} - **rampe linéaire provisoire, pas l'arctan de spec.md §8.4 (t* non sourcé)**")
 
             graduations_ok = False
             for img_path in images:
@@ -289,10 +289,10 @@ def traiter_toutes_les_fiches():
                 calibrage = calibrer_axes(graduations, range(0, 70, 10), range(200, 550, 50))
                 if calibrage["statut"] == "ok_a_verifier":
                     graduations_ok = True
-                    rapport.append(f"- Calibrage OCR réussi sur {img_path.name} — **À VÉRIFIER VISUELLEMENT.**")
+                    rapport.append(f"- Calibrage OCR réussi sur {img_path.name} - **À VÉRIFIER VISUELLEMENT.**")
                     break
             if not graduations_ok:
-                rapport.append("- Calibrage automatique échoué — repli sur formules seules pour cette nuance.")
+                rapport.append("- Calibrage automatique échoué - repli sur formules seules pour cette nuance.")
 
             resultats[nom_nuance] = {
                 "ce_iiw": round(ce_iiw, 3), "hv_m": hv_m, "hv_b": hv_b, "seuil_hv": seuil_hv,
@@ -318,7 +318,7 @@ def traiter_toutes_les_fiches():
     with open(FICHIER_RAPPORT, "w", encoding="utf-8") as f:
         f.write("\n".join(rapport))
 
-    log(f"Terminé en {duree}. Brouillon : {FICHIER_BROUILLON} — Rapport : {FICHIER_RAPPORT}")
+    log(f"Terminé en {duree}. Brouillon : {FICHIER_BROUILLON} - Rapport : {FICHIER_RAPPORT}")
 
 
 if __name__ == "__main__":

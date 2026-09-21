@@ -16,7 +16,7 @@ l'architecture de l'app elle-même.
    Propagation : quelques minutes à quelques heures.
 3. Une fois la zone active, vérifier que l'enregistrement DNS existant
    pointant vers GitHub Pages (apex + `www`) est en mode **proxifié**
-   (nuage orange, pas gris) — sinon le Worker ne s'exécutera jamais.
+   (nuage orange, pas gris) - sinon le Worker ne s'exécutera jamais.
 4. Workers & Pages > Create > déployer `gc-proxy-worker.js` (soit copier-
    coller le contenu dans l'éditeur en ligne, soit `wrangler deploy`
    depuis ce dossier avec `wrangler.toml`).
@@ -33,7 +33,7 @@ l'architecture de l'app elle-même.
   same-origin).
 - `assets/i18n/fr.json` : les URLs des compteurs publics de pied de page
   (`compteur_total_url`, `compteur_analyses_url`) pointent sur
-  `/gc/counter/*.json` au lieu de `soudabilite.goatcounter.com` — même
+  `/gc/counter/*.json` au lieu de `soudabilite.goatcounter.com` - même
   raisonnement, cet endpoint était lui aussi bloqué par domaine. Le total
   global utilise le chemin spécial GoatCounter `TOTAL` : toute nouvelle page
   est intégrée automatiquement, sans liste d'URL à maintenir.

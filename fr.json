@@ -1,24 +1,25 @@
 {
   "_meta": {
     "lang": "fr",
-    "note": "Source unique des chaînes visibles (décision CLAUDE.md #23). Zéro texte en dur dans le HTML/JS."
+    "note": "Source unique des chaînes visibles (décision DECISIONS.md #23). Zéro texte en dur dans le HTML/JS."
   },
   "app": {
     "titre": "Calculateur de soudabilité en ligne"
   },
   "nav": {
     "aria_label": "Navigation principale",
-    "presentation": "Présentation",
-    "parametres": "Calculateur",
-    "data": "Data",
-    "annonces": "Contact"
+    "accueil": "Accueil",
+    "analyse": "Analyse thermique et métallurgique",
+    "guide": "Guide métallurgique",
+    "bibliotheque": "Bibliothèque des matériaux",
+    "reglementation": "Réglementation et DMOS"
   },
   "presentation": {
     "sous_titre": "Aide à la préparation du DMOS",
     "beta_note": "Version beta - l'analyse et les essais métallurgiques sont en cours de validation.",
     "description_avant": "Outil d'aide à la préparation du DMOS (Descriptif de Mode Opératoire de Soudage). Il calcule les équivalents chrome / nickel et positionne le joint sur le ",
     "description_lien": "diagramme de Schaeffler",
-    "description_apres": ", évalue la préchauffe, le temps de refroidissement t8/5 et la dureté prévisible, puis confronte les résultats aux limites normatives. L'aiguillage entre acier carbone, inox et assemblage hétérogène est automatique. L'outil ne remplace pas une QMOS et des essais en atelier.",
+    "description_apres": ", évalue la préchauffe adaptée au procédé, puis confronte les résultats aux limites normatives. L'aiguillage entre acier carbone, inox et assemblage hétérogène est automatique. L'outil ne remplace pas une QMOS et des essais en atelier.",
     "normes_titre": "Cadre normatif",
     "normes_col_code": "Référence",
     "normes_col_objet": "Objet",
@@ -34,19 +35,24 @@
     "sommaire_titre": "Les onglets",
     "onglets": [
       {
-        "titre": "Calculateur",
+        "titre": "Analyse thermique et métallurgique",
         "description": "Saisie des métaux de base, du procédé et de la géométrie du joint, puis analyse automatique, sélection des 7 apports les plus robustes et synthèse sur la même page.",
-        "lien": "parametres.html"
+        "lien": "analyse-thermique-metallurgique.html"
       },
       {
-        "titre": "Data",
+        "titre": "Guide métallurgique",
+        "description": "Fissuration à froid, carbone équivalent, énergie de soudage, lecture du diagramme de Schaeffler et taux de ferrite, expliqués pas à pas.",
+        "lien": "guide-metallurgique.html"
+      },
+      {
+        "titre": "Bibliothèque des matériaux",
         "description": "Nuances d'aciers et métaux d'apport de référence, avec saisie libre pour une nuance hors-liste.",
-        "lien": "banque.html"
+        "lien": "bibliotheque-materiaux.html"
       },
       {
-        "titre": "Contact",
-        "description": "Évolutions de l'outil et contact pour toute question, suggestion ou proposition de collaboration.",
-        "lien": "annonces.html"
+        "titre": "Réglementation et DMOS",
+        "description": "DMOS préliminaire, épreuve de qualification, qualification des soudeurs et groupement des matériaux selon les normes en vigueur.",
+        "lien": "reglementation-dmos.html"
       }
     ],
     "auteur_nom": "Tony SANCHEZ",
@@ -57,7 +63,7 @@
   "annonces": {
     "titre": "Contact et suivi de l'outil",
     "intro": "Le Calculateur de Soudabilité est un outil en développement continu. De nouvelles fonctionnalités seront intégrées progressivement, au fil des mises à jour.",
-    "a_venir": "Les prochaines évolutions prévues portent sur le calcul du temps de refroidissement pour éviter les risques métallurgiques, et sur l'enrichissement des bases de données des métaux de base et des métaux d'apport.",
+    "a_venir": "Les prochaines évolutions prévues portent sur le calcul du temps de refroidissement pour éviter les risques métallurgiques, ainsi que sur l'enrichissement des bases de données des métaux de base et des métaux d'apport.",
     "beta_avant": "L'outil est actuellement en version beta. Le ",
     "beta_lien": "module d'analyse",
     "beta_apres": " fait l'objet de tests par plusieurs utilisateurs, et des essais portant sur différents matériaux et procédés sont programmés prochainement afin d'en valider la fiabilité."
@@ -73,8 +79,8 @@
     "apport_vide": "Aucun apport compatible recensé pour ce procédé.",
     "col_designation": "Désignation",
     "col_groupe_iso": "Groupe ISO",
-    "col_creq": "Cr éq",
-    "col_nieq": "Ni éq",
+    "col_creq": "Cr_eq",
+    "col_nieq": "Ni_eq",
     "col_c": "%C",
     "col_mn": "%Mn",
     "col_si": "%Si",
@@ -104,7 +110,7 @@
     "ph_apport": "Rechercher un apport…",
     "apport_note": "Liste filtrée par procédé. Pour une nuance hors-liste, ajoutez une composition manuelle.",
     "apport_vide": "Aucun apport référencé pour ce procédé - utilisez la saisie libre",
-    "apport_analyse_note": "Le métal d'apport est proposé plus bas, dans l'analyse, après un calcul sur toute la plage de dilution du procédé.",
+    "apport_analyse_note": "La sélection du métal d'apport se fait dans l'onglet Analyse, après le calcul Schaeffler sur toute la plage de dilution du procédé.",
     "apport_enrobage_note": "Filtrage par enrobage à compléter dans la base.",
     "section_joint": "Assemblage",
     "label_position": "Position de soudage",
@@ -125,22 +131,22 @@
     "comp_manuelle_titre": "Composition utilisée pour le calcul (modifiable)",
     "comp_manuelle_reset": "Réinitialiser",
     "saisie_libre": "[saisie libre]",
-    "eq_creq": "Cr éq",
-    "eq_nieq": "Ni éq",
+    "eq_creq": "Cr_eq",
+    "eq_nieq": "Ni_eq",
     "eq_ce": "CE_IIW",
     "elements_comp": ["C", "Mn", "Si", "Cr", "Ni", "Mo", "Nb", "Ti", "N", "Cu"],
     "label_intensite_manuelle": "Intensité I (A)",
     "label_vitesse": "Vitesse de soudage Vs (cm/min)",
     "vitesse_note": "Valeur indicative pré-remplie selon le procédé, ajustable.",
-    "reglages_note": "En mode personnalisé, modifier l'intensité, la tension ou la vitesse recalcule l'énergie. Modifier l'énergie recalcule la vitesse, sans toucher à l'intensité ni à la tension.",
+    "reglages_note": "En mode personnalisé, I, U et Vs recalculent En et Q. Modifier En ou Q ajuste Vs par l'identité énergétique documentée. Aucune corrélation physique supplémentaire n'est inventée.",
     "enrobage_non_couvert": "BWRA n'est pas disponible pour cet enrobage : affichage prudent de Séférian, sans assimilation au rutile.",
     "note_tig_hetero": "Intensité réduite - protection du côté inox.",
     "section_dilution": "Dilution",
-    "dilution_note": "Le cordon mélange trois parts : le métal A fondu, le métal B fondu et le métal d'apport. Les trois parts font 100 %. La dilution est la somme des deux parts fondues.",
-    "label_da": "Part fondue du métal A (%)",
-    "label_db": "Part fondue du métal B (%)",
-    "label_dc": "Part de métal d'apport (%)",
-    "dilution_erreur": "Les trois parts doivent faire 100 % au total.",
+    "dilution_note": "D_A et D_B : contributions des métaux de base fondus au bain. D_C : fraction d'apport dans le bain (= 100 % − dilution au sens usuel). D_A + D_B + D_C = 100 %.",
+    "label_da": "D_A - base A fondue (%)",
+    "label_db": "D_B - base B fondue (%)",
+    "label_dc": "D_C - fraction d'apport (%)",
+    "dilution_erreur": "La somme D_A + D_B + D_C doit valoir 100 %.",
     "dilution_indicative_note": "Valeur indicative par procédé/préparation - la précision réelle nécessite une macrographie de l'assemblage réel.",
     "dilution_suggestion_btn": "Suggestion procédé",
     "section_resultats": "Énergie de soudage",
@@ -152,7 +158,7 @@
     "res_en": "Énergie nominale En",
     "res_eq": "Énergie corrigée Q",
     "res_rendement": "Rendement k",
-    "resultats_note": "Q = k × En, avec k le rendement thermique du procédé (EN 1011-1). Valeurs exprimées en kJ/cm.",
+    "resultats_note": "En et Q sont affichées en kJ/cm (spec §4.1–4.2). Q = k · En, k = rendement du procédé (EN 1011-1). La conversion interne en kJ/mm est automatique pour les calculs thermiques.",
     "res_vide": "-",
     "unite_a": "A",
     "unite_v": "V",
@@ -207,7 +213,7 @@
     "carbone_message": "Le diagramme de Schaeffler ne s'applique pas aux aciers non ou faiblement alliés. Pour cet assemblage, l'analyse pertinente est le risque de fissuration à froid, évalué ci-dessous par le carbone équivalent et la méthode de préchauffe la plus adaptée.",
     "carbone_seuil": "Seuil indicatif : soudable sans préchauffe si CE_IIW < 0.42 %.",
     "lbl_ce_iiw": "CE_IIW =",
-    "methode_seferian_msg": "Méthode Séférian retenue : le procédé ou la famille d'enrobage ne relève pas de la table BWRA disponible.",
+    "methode_seferian_msg": "Méthode Séférian retenue : le procédé ou la famille d'enrobage ne permet pas d'appliquer la table BWRA disponible.",
     "methode_bwra_msg": "Méthode BWRA retenue : procédé électrode enrobée avec classe d'hydrogène du consommable renseignée.",
     "prechauffe_seferian_titre": "Préchauffe - Séférian",
     "col_ceq_seferian": "Ceq",
@@ -224,17 +230,17 @@
     "leg_dmelange": "Dilution A+B",
     "leg_c": "Métal d'apport",
     "leg_joint": "Joint",
-    "leg_ideale": "1. Zone idéale (5 à 15 % de ferrite)",
-    "leg_acceptable": "2. Zone acceptable",
+    "leg_ideale": "1 : Zone idéale (5-15 % ferrite)",
+    "leg_acceptable": "2 : Zone acceptable",
     "leg_amf": "Zone A+M+F grisée",
-    "leg_zone_s": "3. Corridor de sécurité blanc",
+    "leg_zone_s": "3 : Corridor de sécurité blanc",
     "joint_centre_plage": "Joint représentatif : centre de la plage à {valeur} % de dilution",
     "diagramme_intro_court": "Une interprétation interactive du diagramme de Schaeffler : l'outil calcule la dilution, positionne le joint et classe les métaux d'apport. Les résultats restent des estimations métallurgiques.",
     "diagramme_difference_titre": "Pourquoi ce diagramme diffère-t-il des supports de cours ?",
     "diagramme_difference_intro": "Le graphique de Soudabilite.com reprend les principes du diagramme de Schaeffler historique et les transforme en une aide à la décision interactive.",
     "diagramme_difference_calcul_titre": "Un calcul adapté à votre assemblage",
-    "diagramme_difference_calcul_texte": "L'outil positionne le métal A, le métal B, leur dilution, le métal d'apport et la composition finale estimée du joint. Vous voyez directement l'influence du mélange sur la structure métallurgique attendue.",
-    "diagramme_difference_traces_titre": "Des tracés numériques au service du calcul",
+    "diagramme_difference_calcul_texte": "L'outil positionne le Métal A, le Métal B, leur dilution, le métal d'apport et la composition finale estimée du joint. Vous visualisez ainsi directement l'influence du mélange sur la structure métallurgique attendue.",
+    "diagramme_difference_traces_titre": "Des tracés numériques pour permettre le calcul",
     "diagramme_difference_traces_texte": "Les frontières historiques ont été digitalisées et certaines lignes intermédiaires sont obtenues par interpolation. Leur apparence peut donc différer légèrement des reproductions imprimées ou des supports de cours, sans modifier les équivalents chrome et nickel utilisés pour positionner le joint.",
     "diagramme_difference_lecture_titre": "Trois niveaux de lecture",
     "diagramme_difference_lecture_texte": "La zone bleue représente la cible prioritaire retenue par l'outil. La zone verte élargit la plage à examiner. Le corridor blanc conserve un repère historique indicatif lorsque les deux premières zones ne sont pas atteintes.",
@@ -248,8 +254,8 @@
     "col_designation": "Désignation",
     "col_plage": "Plage testée",
     "col_couverture_ideale": "Part en zone idéale",
-    "col_creq": "Cr éq du joint",
-    "col_nieq": "Ni éq du joint",
+    "col_creq": "Cr_eq JOINT",
+    "col_nieq": "Ni_eq JOINT",
     "col_ferrite": "% ferrite",
     "col_distance": "Distance",
     "col_verdict": "Verdict",
@@ -269,16 +275,16 @@
     "apport_manuel_badge": "Proposé",
     "carte_synthese": "Synthèse Schaeffler",
     "col_metal": "Métal",
-    "col_creq_s": "Cr éq Schaeffler",
-    "col_nieq_s": "Ni éq Schaeffler",
-    "col_creq_d": "Cr éq DeLong",
-    "col_nieq_d": "Ni éq DeLong",
-    "col_creq_w": "Cr éq WRC",
-    "col_nieq_w": "Ni éq WRC",
+    "col_creq_s": "Cr_eq (S)",
+    "col_nieq_s": "Ni_eq (S)",
+    "col_creq_d": "Cr_eq (DeLong)",
+    "col_nieq_d": "Ni_eq (DeLong)",
+    "col_creq_w": "Cr_eq (WRC)",
+    "col_nieq_w": "Ni_eq (WRC)",
     "ferrite_note": "% ferrite estimé par interpolation entre les iso-ferrite du diagramme de Schaeffler. Les duplex sont hors périmètre actuel.",
     "saisie_libre": "[saisie libre]",
-    "lbl_creq": "Cr éq",
-    "lbl_nieq": "Ni éq",
+    "lbl_creq": "Cr_eq",
+    "lbl_nieq": "Ni_eq",
     "lbl_ferrite": "% ferrite",
     "ferrite_hors_domaine": "Ferrite non estimée hors du faisceau d’iso-lignes",
     "val_metalA": "Métal A",
@@ -292,9 +298,9 @@
     "verdict_hors": "Hors zone",
     "risque_austenite": "risque de fissuration à chaud détecté hors des zones admises",
     "risque_martensite": "risque de fissuration à froid détecté en zone martensitique",
-    "risque_sigma": "risque de phase sigma (Cr éq > 25)",
+    "risque_sigma": "risque de phase sigma (Cr_eq > 25)",
     "risque_grossissement_grain": "risque de grossissement du grain (ferrite quasi pure)",
-    "synth_choisir": "Sélectionnez un apport dans le tableau pour afficher le verdict du joint.",
+    "synth_choisir": "Sélectionnez un apport dans le tableau pour afficher le verdict du JOINT.",
     "aide_dilution": "Aucun apport ne reste dans une zone admise sur toute la plage du procédé. Resserrez la plage uniquement si vous disposez d'une mesure ou d'un retour d'atelier fiable.",
     "limite_ideale_basse": "limite idéale à 5 %",
     "limite_ideale_haute": "limite idéale à 15 %",
@@ -303,15 +309,15 @@
     "zones_explication": [
       {
         "titre": "Zone A - Austénite",
-        "texte": "L'austénite est une structure généralement ductile, favorisée surtout par le nickel. Si le métal fondu devient presque entièrement austénitique, le risque de fissuration à chaud augmente pendant la solidification. Une petite quantité de ferrite aide habituellement à limiter ce risque."
+        "texte": "L'austénite est une structure généralement ductile, favorisée notamment par le nickel. Si le métal fondu devient presque entièrement austénitique, le risque de fissuration à chaud augmente pendant la solidification. Une petite quantité de ferrite aide habituellement à limiter ce risque."
       },
       {
         "titre": "Zone M - Martensite",
-        "texte": "La martensite peut apparaître lorsque certains aciers refroidissent trop rapidement. Elle est dure mais fragile. Associée aux contraintes de soudage et à l'hydrogène, elle augmente le risque de fissuration à froid. Le préchauffage et la maîtrise de l'hydrogène réduisent ce risque."
+        "texte": "La martensite peut apparaître lorsque certains aciers refroidissent trop rapidement. Elle est dure mais fragile. Associée aux contraintes de soudage et à l'hydrogène, elle augmente le risque de fissuration à froid. Le préchauffage et la maîtrise de l'hydrogène permettent de réduire ce risque."
       },
       {
         "titre": "Zone F - Ferrite",
-        "texte": "La ferrite est une structure favorisée surtout par le chrome. Une proportion excessive de ferrite peut diminuer la ténacité et la ductilité du joint, en particulier après une exposition à une température élevée."
+        "texte": "La ferrite est une structure favorisée notamment par le chrome. Une proportion excessive de ferrite peut diminuer la ténacité et la ductilité du joint, en particulier après une exposition à une température élevée."
       },
       {
         "titre": "Zone A+M (Austénite + Martensite)",
@@ -322,7 +328,7 @@
         "texte": "Cette zone associe la fragilité possible de la martensite et les limites d'une forte proportion de ferrite. Elle est généralement défavorable et demande une vérification attentive du métal d'apport, du refroidissement et des conditions de soudage."
       },
       {
-        "titre": "Zone A+M+F : austénite, martensite et ferrite",
+        "titre": "Zone A+M+F : Austénite + Martensite + Ferrite",
         "texte": "La zone grisée réunit les trois structures : austénite, martensite et ferrite. Le corridor blanc en forme de S se situe à l'intérieur de cette zone. Il constitue une solution de sécurité admise après la zone idéale et la zone acceptable."
       },
       {
@@ -345,15 +351,15 @@
     "etagement_intro": "Comment lire le diagramme et le classement :",
     "etagement": [
       {
-        "titre": "1. Zone idéale bleue",
+        "titre": "1 : Zone idéale bleue",
         "texte": "Cible prioritaire de l'outil, située entre 5 et 15 % de ferrite delta. Le classement privilégie le centre de cette bande, où le compromis est généralement favorable entre la limitation de la fissuration à chaud et le maintien des propriétés mécaniques."
       },
       {
-        "titre": "2. Zone acceptable verte",
+        "titre": "2 : Zone acceptable verte",
         "texte": "Plage élargie de 0 à 20 % de ferrite. Le résultat peut rester utilisable, mais il doit être examiné avec plus de prudence : trop peu de ferrite favorise la fissuration à chaud, tandis qu'une quantité élevée peut dégrader certaines propriétés du joint."
       },
       {
-        "titre": "3. Corridor de sécurité blanc",
+        "titre": "3 : Corridor de sécurité blanc",
         "texte": "Ce corridor en forme de S est compris dans la zone A+M+F grisée. Le résultat y reste admis comme solution de repli, après la zone idéale bleue et la zone acceptable verte."
       }
     ]
@@ -372,9 +378,9 @@
     "compteur_page_libelle": "visiteurs uniques sur cette page"
   },
   "fiche": {
-    "bouton": "Générer la fiche d'aide au DMOS préparatoire",
-    "titre": "Fiche d'aide au DMOS préparatoire - soudabilite.com",
-    "signature_pied": "Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie",
+    "bouton": "Générer la fiche PDF",
+    "titre": "Fiche paramètres de soudage - soudabilite.com",
+    "signature_pied": "Tony SANCHEZ - BTS CRCI- Pôle Formation UIMM de Savoie",
     "date": "Date",
     "repere": "Repère / affaire",
     "col_epaisseur": "Épaisseur",

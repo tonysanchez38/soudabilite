@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "note": "Manifest d'entrée pour outils/trcs_batch/batch_trcs_overnight.py : composition, groupe ISO 15608 et seuil_hv (HV10 max acceptable, cf. hv10_limites.json - pas encore créé) par nuance TRCS de référence (CLAUDE.md #18). Composition reprise telle quelle de assets/data/data.json quand disponible - aucune valeur inventée ici. groupe_iso_15608 et seuil_hv restent null tant que Tony ne les a pas fournis (CLAUDE.md, 'Points à NE PAS trancher seul' : coordonnées TRCS). Ce fichier n'est PAS la sortie du pipeline - c'est son entrée, à compléter à la main."
+    "note": "Manifest d'entrée pour outils/trcs_batch/batch_trcs_overnight.py : composition, groupe ISO 15608 et seuil_hv (HV10 max acceptable, cf. hv10_limites.json - pas encore créé) par nuance TRCS de référence (DECISIONS.md #18). Composition reprise telle quelle de assets/data/data.json quand disponible - aucune valeur inventée ici. groupe_iso_15608 et seuil_hv restent null tant que Tony ne les a pas fournis (DECISIONS.md, 'Points à NE PAS trancher seul' : coordonnées TRCS). Ce fichier n'est PAS la sortie du pipeline - c'est son entrée, à compléter à la main."
   },
   "nuances": {
     "s235jr": {

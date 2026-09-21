@@ -37,7 +37,7 @@ let reglagesPersonnalises = null;
 let tungsteneModifieManuel = false;
 
 // Composition manuelle active par rôle. L'apport C est traité dans l'onglet
-// Analyse (résultat Schaeffler), pas ici - cf. CLAUDE.md (architecture Lot 4).
+// Analyse (résultat Schaeffler), pas ici - cf. DECISIONS.md (architecture Lot 4).
 const manuel = { a: false, b: false };
 
 // Devient vrai dès que l'utilisateur touche D_A/D_B/D_C à la main : la
@@ -523,10 +523,10 @@ function valeursParDefaut() {
   appliquerSuggestionDilution();
 }
 
-// --- Fiche imprimable (window.print + @media print - CLAUDE.md #25) ----
+// --- Fiche imprimable (window.print + @media print - DECISIONS.md #25) ----
 // Peuple #fiche-impression à partir de l'état courant du formulaire et de
 // l'apport retenu (Analyse), juste avant window.print(). Pas de dépendance
-// externe (remplace le plan initial jsPDF, cf. CLAUDE.md).
+// externe (remplace le plan initial jsPDF, cf. DECISIONS.md).
 function libelleSelect(id) {
   const opt = document.getElementById(id)?.selectedOptions?.[0];
   // Option placeholder (valeur vide, ex. "Rechercher une électrode…") : pas

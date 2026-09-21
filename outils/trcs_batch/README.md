@@ -1,7 +1,7 @@
 # Pipeline TRCS overnight
 
 Digitalisation semi-automatique des 5 courbes TRCS de référence
-(S235JR, S355/E36, P265GH, 15CD4, 25CD4 — CLAUDE.md #18) à partir de
+(S235JR, S355/E36, P265GH, 15CD4, 25CD4 - DECISIONS.md #18) à partir de
 PDF sources, plus calcul de CE_IIW et HV_M/HV_B (formules spec.md §8)
 pour chaque nuance.
 
@@ -25,7 +25,7 @@ Deux limites connues à vérifier dans le rapport avant usage :
   visuellement ;
 - l'interpolation HV(t85) est une rampe linéaire provisoire (pas
   encore l'arctan de Yurioka, spec.md §8.4, dont le paramètre `t*`
-  n'est pas sourcé dans ce dépôt) — `methode_interpolation:
+  n'est pas sourcé dans ce dépôt) - `methode_interpolation:
   "piecewise_lineaire_provisoire"` dans chaque résultat le rappelle.
 
 ## Avant de lancer
@@ -34,7 +34,7 @@ Deux limites connues à vérifier dans le rapport avant usage :
    administrateur (installe Poppler/pdftoppm et Tesseract OCR via
    winget, plus les dépendances Python).
 2. Compléter `assets/data/trcs/_manifest.json` : au minimum `seuil_hv`
-   pour chaque nuance (n'existe encore nulle part dans le dépôt —
+   pour chaque nuance (n'existe encore nulle part dans le dépôt -
    dépend de `hv10_limites.json`, pas encore créé, et du groupe ISO
    15608). La composition de 4 des 5 nuances est déjà reprise de
    `assets/data/data.json` ; **15CD4 est absent de la banque** et doit

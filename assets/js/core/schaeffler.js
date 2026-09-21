@@ -1,7 +1,7 @@
 // soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
 // schaeffler.js - géométrie du diagramme de Schaeffler.
-// Réf. spec.md §1 (Cr_eq / Ni_eq) et CLAUDE.md #17 (ferrite) / zone idéale.
+// Réf. spec.md §1 (Cr_eq / Ni_eq) et DECISIONS.md #17 (ferrite) / zone idéale.
 // Fonctions pures. Placement/lecture sur axes Schaeffler (Cr_eq, Ni_eq).
 //
 // % ferrite : estimation par interpolation entre les iso-ferrite réelles.
@@ -76,7 +76,7 @@ export function msWalkerGooch(comp) {
 // zone idéale n'est plus un polygone indépendant mais un entonnoir entre
 // deux iso-ferrite (5-15 % idéal, 0-20 % acceptable), restreint à la zone AF
 // et à Cr_eq ≤ 25 (mur sigma) - même définition géométrique que le rendu
-// (schaeffler_svg.js), pour zéro divergence écran/verdict (CLAUDE.md #9).
+// (schaeffler_svg.js), pour zéro divergence écran/verdict (DECISIONS.md #9).
 // Cascade de priorité (validée Tony) : ideal > acceptable > zone_s (dernier
 // recours, overlay digitalisé du diagramme papier de référence) > hors. Le
 // classement des 7 apports (distance au centre) n'utilise pas cette cascade.
@@ -96,7 +96,7 @@ export function niveauIdeal(crEq, niEq, zones, zoneS) {
 // Verdict Schaeffler : niveau (idéal / acceptable / zone_s / hors) + risques.
 // risques par appartenance à la zone métallurgique réelle (classifieZone),
 // sauf sigma (seuil Cr_eq) et martensite (indice Walker-Gooch sur la
-// composition, cf. spec.md §11/§12, CLAUDE.md).
+// composition, cf. spec.md §11/§12, DECISIONS.md).
 export function verdictSchaeffler(crEq, niEq, comp, zones, zoneS) {
   const niveau = niveauIdeal(crEq, niEq, zones, zoneS);
 

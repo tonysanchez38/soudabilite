@@ -1,7 +1,7 @@
 // =========================================================================
 // vue_analyse.js - rendu de la section Analyse (Schaeffler + apports).
 // Partagé par parametres.js : la section #analyse vit désormais sur la même
-// page que la saisie DMOS (CLAUDE.md #24), état transmis en mémoire (plus
+// page que la saisie DMOS (DECISIONS.md #24), état transmis en mémoire (plus
 // de sessionStorage pour ce flux). Logique métier déléguée à assets/js/core/.
 // =========================================================================
 
@@ -157,7 +157,7 @@ function rendreEtagement() {
   });
 }
 
-// --- Aiguillage carbone/hétérogène/inox (CLAUDE.md #32) -----------------
+// --- Aiguillage carbone/hétérogène/inox (DECISIONS.md #32) -----------------
 // Bascule les cartes Diagramme/Synthèse Schaeffler et l'encart carbone
 // selon MODE.type. Le tableau des 7 apports gère sa propre carte dans
 // majMeilleursApports() (cascade duplex-en-base -> carbone -> normal).
@@ -185,7 +185,7 @@ function majModeAffichage() {
 
 // Encart carbone/carbone : CE_IIW de chaque métal de base (rappel du seuil
 // indicatif 0.42), puis préchauffe - une seule méthode affichée à la fois
-// (core/prechauffe.js, CLAUDE.md #32).
+// (core/prechauffe.js, DECISIONS.md #32).
 function majCarbone() {
   const liste = $("[data-liste=carbone-ce]");
   if (!liste) return;
@@ -375,7 +375,7 @@ function majMeilleursApports() {
     return;
   }
 
-  // 2) CLAUDE.md #32 : aciers non/faiblement alliés des deux côtés - le
+  // 2) DECISIONS.md #32 : aciers non/faiblement alliés des deux côtés - le
   // diagramme de Schaeffler (et donc la sélection d'apport par proximité de
   // zone) ne s'applique pas. Carte entière masquée, cf. majModeAffichage().
   if (MODE.type === "carbone") {

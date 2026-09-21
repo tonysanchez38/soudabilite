@@ -2,7 +2,7 @@
 // =========================================================================
 // schaeffler_svg.js - rendu SVG natif du diagramme de Schaeffler.
 // Coordonnées réelles (Cr_eq en abscisse, Ni_eq en ordonnée). Aucune image
-// de fond (CLAUDE.md : projection en coordonnées réelles). Aucune logique
+// de fond (DECISIONS.md : projection en coordonnées réelles). Aucune logique
 // métier : purement graphique.
 // =========================================================================
 

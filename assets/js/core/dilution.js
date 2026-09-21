@@ -2,7 +2,7 @@
 // =========================================================================
 // dilution.js - chimie du bain fondu par dilution.
 // Réf. spec.md §2 (composition du JOINT, point intermédiaire D_mélange).
-// Vocabulaire (CLAUDE.md) : D_A, D_B = contributions des métaux de base
+// Vocabulaire (DECISIONS.md) : D_A, D_B = contributions des métaux de base
 // fondus au bain ; D_C = fraction d'apport dans le bain. D_A+D_B+D_C = 1.
 // Fonctions pures : renvoient de nouveaux objets composition.
 // =========================================================================

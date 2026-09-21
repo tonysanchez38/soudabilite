@@ -27,7 +27,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Choices.js (combobox à recherche - CLAUDE.md #11), chargé via CDN. -->
+    <!-- Choices.js (combobox à recherche - DECISIONS.md #11), chargé via CDN. -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css"
@@ -35,12 +35,12 @@
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
     <link rel="stylesheet" href="assets/css/main.css?v=20260921-charte-v2" />
-    <!-- Fiche imprimable (window.print + @media print - CLAUDE.md #25). -->
+    <!-- Fiche imprimable (window.print + @media print - DECISIONS.md #25). -->
     <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-3" media="print" />
 
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
-         les bloqueurs de pub (AdGuard etc.) - CLAUDE.md #22. -->
+         les bloqueurs de pub (AdGuard etc.) - DECISIONS.md #22. -->
     <script
       data-goatcounter="https://soudabilite.com/gc/count"
       async
@@ -287,9 +287,9 @@
         </div>
 
         <!-- ==================== Section Analyse (fusionnée) =============== -->
-        <!-- CLAUDE.md #24 : Paramètres et Analyse forment une seule page
+        <!-- DECISIONS.md #24 : Paramètres et Analyse forment une seule page
              continue. La sélection du métal d'apport C reste un résultat de
-             l'analyse Schaeffler (CLAUDE.md étape 5), pas une donnée saisie
+             l'analyse Schaeffler (DECISIONS.md étape 5), pas une donnée saisie
              ci-dessus. -->
         <section id="analyse" class="analyse">
           <section class="param-intro">
@@ -304,7 +304,7 @@
 
           <div data-analyse="contenu">
             <!-- CARTE 0 - Aciers non/faiblement alliés des deux côtés :
-                 Schaeffler non pertinent (CLAUDE.md #32). -->
+                 Schaeffler non pertinent (DECISIONS.md #32). -->
             <section class="carte carte--form" data-carte="carbone" hidden>
               <h2 class="bloc__titre" data-i18n="analyse.carte_carbone_titre"></h2>
               <p class="note" data-i18n="analyse.carbone_message"></p>
@@ -485,9 +485,9 @@
           <p class="pied__compteur" data-compteur-analyses hidden></p>
         </div>
         <div class="pied__signatures">
-          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" target="_blank" rel="noopener noreferrer">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
             <span class="pied__linkedin-icone" aria-hidden="true">in</span>
-            <span class="pied__signature-texte">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
+            <span class="pied__signature-texte" data-i18n="footer.signature">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
           </a>
           <p class="pied__credit">Conçu et développé par <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
         </div>
