@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Calculateur de Soudabilité - soudabilite.com
+     Page 404. GitHub Pages la sert pour toute adresse introuvable, quelle
+     que soit sa profondeur : tous les chemins sont donc absolus (/...). -->
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Tony SANCHEZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Page introuvable | Soudabilite.com</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <style>
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:flex-end}
+      .nav__lien{white-space:nowrap}
+      @media (max-width:720px){
+        .topbar__inner{flex-wrap:wrap;row-gap:.5rem}
+        .nav{width:100%;justify-content:flex-start}
+        .nav__lien{font-size:.86rem}
+      }
+      .mtn{display:flex;align-items:center;justify-content:center;min-height:62vh;padding:2.5rem 1rem}
+      .mtn__carte{width:100%;max-width:620px;text-align:center;padding:2.75rem 2rem;border-radius:14px;
+        border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035)}
+      .mtn__marque{font-weight:700;font-size:1.05rem;margin:0 0 1.35rem}
+      .mtn__marque span{color:#38a9f5}
+      .mtn__code{display:inline-block;padding:.45rem 1.05rem;border-radius:999px;
+        background:rgba(56,169,245,.14);color:#38a9f5;font-size:.88rem;font-weight:600;margin:0 0 1.5rem}
+      .mtn__titre{font-size:1.95rem;line-height:1.2;margin:0 0 1.15rem;font-weight:700}
+      .mtn__texte{line-height:1.6;margin:0 0 .85rem;opacity:.82}
+      .mtn__liens{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1.6rem}
+      @media (max-width:520px){.mtn__carte{padding:2rem 1.25rem}.mtn__titre{font-size:1.5rem}}
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <a class="nav__marque" href="/">www.soudabilite.com</a>
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__lien" href="/">Accueil</a>
+          <a class="nav__lien nav__lien--principal" href="/analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien" href="/guide-metallurgique.html">Guide métallurgique</a>
+          <a class="nav__lien" href="/bibliotheque-materiaux.html">Bibliothèque matériaux</a>
+          <a class="nav__lien" href="/reglementation-dmos.html">Réglementation DMOS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="mtn">
+        <div class="mtn__carte">
+          <p class="mtn__marque">www.<span>soudabilite.com</span></p>
+          <p class="mtn__code">Erreur 404</p>
+          <h1 class="mtn__titre">Cette page n'existe pas.</h1>
+          <p class="mtn__texte">L'adresse a peut-être changé lors de la réorganisation du site, ou elle contient une faute de frappe.</p>
+          <div class="mtn__liens">
+            <a class="btn-primaire" href="/analyse-thermique-metallurgique.html">Lancer une analyse</a>
+            <a class="btn-lien" href="/">Retour à l'accueil</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS.</p>
+      </div>
+    </footer>
+  </body>
+</html>

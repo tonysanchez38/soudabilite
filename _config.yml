@@ -1,0 +1,23 @@
+# Configuration de publication GitHub Pages - soudabilite.com
+#
+# Les fichiers et dossiers listés ci-dessous restent dans le dépôt
+# (documentation de conception, outils de développement, tests), mais
+# ne sont PAS publiés sur le site. Sans cette liste, GitHub Pages
+# convertit les fichiers .md en pages HTML indexables par Google
+# (CLAUDE.html, DECISIONS.html, spec.html), qui concurrencent les
+# vraies pages du site sur les mêmes mots-clés.
+#
+# Ne pas ajouter ici de fichier situé sous assets/ : le calculateur
+# en dépend.
+
+exclude:
+  - CLAUDE.md
+  - DECISIONS.md
+  - spec.md
+  - README.md
+  - LICENSE
+  - cloudflare
+  - tests
+  - outils
+  - fiches_trcs
+  - maj-charte-v2.zip
