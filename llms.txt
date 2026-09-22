@@ -6,10 +6,16 @@
 
 - [Calculateur : analyse thermique et métallurgique](https://soudabilite.com/analyse-thermique-metallurgique.html) : saisie des métaux de base, du procédé et du joint, diagramme de Schaeffler, dilution, classement de 7 métaux d'apport, préchauffage.
 - [Bibliothèque des matériaux](https://soudabilite.com/bibliotheque-materiaux.html) : 52 métaux de base et 194 métaux d'apport, compositions chimiques et équivalents Cr et Ni de Schaeffler, classés par procédé ISO 4063.
+- [Calcul du préchauffage](https://soudabilite.com/calcul-prechauffage-soudage.html) : carbone équivalent, méthodes Séférian et BWRA, cas chiffré sur une bride P355NL1 de 20 mm.
 - [Guide métallurgique](https://soudabilite.com/guide-metallurgique.html) : zones métallurgiques, dilution, choix du métal d'apport, fissuration à froid et à chaud, préchauffage.
 
 ## Conventions
 
-- Énergie de soudage en kJ/cm, selon NF EN 1011-1.
+- Énergie de soudage calculée selon la formule et les rendements de la NF EN 1011-1, affichée en kJ/cm (la norme l'exprime en kJ/mm ; 1 kJ/mm = 10 kJ/cm).
 - Équivalents Schaeffler : Cr_eq = Cr + Mo + 1,5 Si + 0,5 Nb ; Ni_eq = Ni + 30 C + 0,5 Mn.
 - Teneur en ferrite exprimée en pourcentage interpolé sur le diagramme de Schaeffler, distincte du Ferrite Number du WRC-1992.
+
+## English
+
+- [Weldability calculator, English overview](https://soudabilite.com/en/): what the tool does, who it is for, standards used. The calculator interface is in French.
+- [How to calculate the preheat temperature before welding](https://soudabilite.com/en/welding-preheat-calculation.html): carbon equivalent, Seferian and BWRA methods, worked example.

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!-- Calculateur de Soudabilité - soudabilite.com
+     Conception et développement : Tony SANCHEZ
+     Page de contenu en HTML statique (pas d'i18n) pour l'indexation.
+     Toutes les valeurs chiffrées sont issues du moteur de calcul en ligne. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
+    <meta name="author" content="Tony SANCHEZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="How to calculate the preheat temperature before welding: carbon equivalent, Seferian and BWRA methods, worked example on a 20 mm P355NL1 flange." />
+    <title>Welding preheat temperature calculation | Soudabilite.com</title>
+    <link rel="canonical" href="https://soudabilite.com/en/welding-preheat-calculation.html" />
+    <link rel="alternate" hreflang="fr" href="https://soudabilite.com/calcul-prechauffage-soudage.html" />
+    <link rel="alternate" hreflang="en" href="https://soudabilite.com/en/welding-preheat-calculation.html" />
+    <link rel="alternate" hreflang="x-default" href="https://soudabilite.com/calcul-prechauffage-soudage.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content="Welding preheat temperature calculation" />
+    <meta property="og:description" content="How to calculate the preheat temperature before welding: carbon equivalent, Seferian and BWRA methods, worked example on a 20 mm P355NL1 flange." />
+    <meta property="og:url" content="https://soudabilite.com/en/welding-preheat-calculation.html" />
+    <meta property="og:image" content="https://soudabilite.com/apercu-social-github.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/assets/css/main.css?v=20260921-charte-v3" />
+    <script
+      data-goatcounter="https://soudabilite.com/gc/count"
+      async
+      src="/gc/count.js"
+    ></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "How to calculate the preheat temperature before welding",
+      "inLanguage": "en",
+      "about": "Preheat, carbon equivalent, Seferian method, BWRA method, hydrogen cracking",
+      "author": {
+        "@type": "Person",
+        "name": "Tony SANCHEZ"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Soudabilite.com"
+      },
+      "mainEntityOfPage": "https://soudabilite.com/en/welding-preheat-calculation.html",
+      "datePublished": "2026-09-22",
+      "dateModified": "2026-09-22"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://soudabilite.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Preheat calculation",
+          "item": "https://soudabilite.com/en/welding-preheat-calculation.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "From which carbon equivalent do I need to preheat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The calculator uses 0.42 % on the IIW carbon equivalent as a guide value. Above it, preheat must be checked. It is a screening value, not a rule: thickness, restraint and hydrogen also count."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Seferian and BWRA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seferian calculates a temperature with a formula, and corrects the carbon equivalent for thickness. BWRA reads the temperature in a table, from a weldability index, the Thermal Severity Number and the electrode diameter. The calculator uses BWRA for covered electrodes when the coating type is given."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does thickness change the preheat temperature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For a P355NL1 flange, the temperature goes from 146 °C at 10 mm to 162 °C at 30 mm. However, the steel composition has a bigger effect than thickness."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to preheat stainless steel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, not for austenitic stainless steels. You limit the heat input and you control the interpass temperature."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <!-- Navigation : libelles en dur (pas de data-i18n). -->
+    <style>
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:center}
+      .nav__lien{white-space:nowrap}
+      @media (max-width:720px){
+        .nav__lien{font-size:.86rem}
+      }
+
+      /* ================= Guide métallurgique ================= */
+      .gm{display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
+      .gm__sommaire{font-size:var(--fs-sm);width:100%;text-align:center;margin-top:var(--sp-4)}
+      .gm__sommaire p{margin:0 0 var(--sp-2);color:var(--texte-faible);font-weight:600}
+      .gm__sommaire ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem}
+      .gm__sommaire a{display:block;padding:.35rem .8rem;color:var(--texte-doux);line-height:1.35;border:1px solid var(--gris-bordure);border-radius:999px}
+      .gm__sommaire a:hover{color:var(--encre);text-decoration:none;border-color:var(--bleu)}
+      .gm__corps{min-width:0;width:100%;max-width:760px}
+      .gm__tete{margin-bottom:var(--sp-5);text-align:center}
+      .gm__tete p{text-align:left}
+      .gm__tete .gm__chapo{text-align:center}
+      .gm__tete h1{font-size:var(--fs-2xl);line-height:1.2;margin:0 0 var(--sp-4);letter-spacing:-.015em}
+      .gm__chapo{font-size:var(--fs-lg);line-height:1.6;color:var(--encre);margin:0 0 var(--sp-3)}
+      .gm section{padding-top:var(--sp-6);margin-top:var(--sp-6);border-top:1px solid var(--gris-bordure);scroll-margin-top:var(--sp-4)}
+      .gm h2{font-size:var(--fs-xl);line-height:1.25;margin:0 0 var(--sp-4);color:var(--bleu);text-align:center}
+      .gm h3{font-size:var(--fs-lg);margin:var(--sp-5) 0 var(--sp-2);color:var(--encre)}
+      .gm p,.gm li{line-height:1.65}
+      .gm p{margin:0 0 var(--sp-3)}
+      .gm ul{margin:0 0 var(--sp-4);padding-left:1.2rem}
+      .gm li{margin-bottom:.35rem}
+      .gm strong{color:var(--encre)}
+      .gm__doux{color:var(--texte-doux);font-size:var(--fs-sm)}
+      .fil{margin:var(--sp-5) 0 var(--sp-4);width:100%;height:auto;display:block;aspect-ratio:760/180}
+      .fil text{font-family:var(--font-sans)}
+      .duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin:var(--sp-4) 0}
+      .fiche{background:var(--surface);border:1px solid var(--gris-bordure);border-radius:var(--radius);padding:var(--sp-4) var(--sp-5)}
+      .fiche h3{margin-top:0}
+      .fiche dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:.4rem var(--sp-3);font-size:var(--fs-sm)}
+      .fiche dt{color:var(--texte-faible)}
+      .fiche dd{margin:0;line-height:1.5}
+      .fiche__nuances{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--texte-doux);margin:0 0 var(--sp-3)}
+      .encart{border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-4) 0;border-left:3px solid}
+      .encart p:last-child,.encart ul:last-child{margin-bottom:0}
+      .encart__titre{font-weight:700;margin:0 0 .35rem}
+      .encart--alerte{background:var(--ambre-voile);border-color:var(--ambre)}
+      .encart--alerte .encart__titre{color:var(--ambre)}
+      .encart--pratique{background:var(--vert-voile);border-color:var(--vert)}
+      .encart--pratique .encart__titre{color:var(--vert)}
+      .encart--outil{background:var(--bleu-voile);border-color:var(--bleu)}
+      .encart--outil .encart__titre{color:var(--bleu)}
+      .formule{font-family:var(--font-mono);font-size:.95rem;background:var(--fond);border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-3) 0 var(--sp-4);overflow-x:auto;white-space:nowrap;line-height:1.9}
+      .formule sub{font-size:.75em}
+      .frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .3em}
+      .frac>span:first-child{border-bottom:1px solid var(--encre);padding:0 .3em}
+      .frac>span:last-child{padding:0 .3em}
+      .defile{overflow-x:auto;margin:var(--sp-4) 0;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm)}
+      .gm table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+      .gm th,.gm td{padding:.6rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--gris-bordure);line-height:1.5}
+      .gm th{background:var(--gris-fond);color:var(--encre);font-weight:600}
+      .gm tr:last-child td{border-bottom:0}
+      .gm td:first-child{font-weight:600;color:var(--encre)}
+      .schema{margin:var(--sp-4) 0;text-align:center}
+      .schema svg{width:100%;height:auto;display:block;margin:0 auto}
+      .schema figcaption{font-size:var(--fs-xs);color:var(--texte-faible);margin-top:var(--sp-2)}
+      .schema--triangle svg{max-width:460px;aspect-ratio:460/330}
+      .schema--coupe svg{max-width:560px;aspect-ratio:560/210}
+      .zones{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);margin:var(--sp-4) 0}
+      .zone{border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4)}
+      .zone h3{font-size:var(--fs-base);margin:0 0 .3rem}
+      .zone p{font-size:var(--fs-sm);margin:0;color:var(--texte-doux)}
+      .zone--cible{border-color:var(--bleu-bordure);background:var(--bleu-voile)}
+      .check{list-style:none;padding:0;counter-reset:etape}
+      .check li{counter-increment:etape;position:relative;padding:var(--sp-3) var(--sp-4) var(--sp-3) 3rem;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);margin-bottom:var(--sp-2)}
+      .check li::before{content:counter(etape);position:absolute;left:var(--sp-4);top:var(--sp-3);font-weight:700;color:var(--bleu);font-family:var(--font-mono)}
+      .cta{display:table;margin-left:auto;margin-right:auto;margin-top:var(--sp-2);padding:.55rem 1rem;border-radius:var(--radius-sm);background:var(--bleu-fonce);color:var(--blanc);font-weight:600;font-size:var(--fs-sm)}
+      .cta:hover{background:var(--bleu);color:var(--fond);text-decoration:none}
+      .cta:focus-visible,.gm a:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
+      .gm__cloture{font-size:var(--fs-lg);font-weight:600;color:var(--encre);margin-top:var(--sp-5);text-align:center}
+      .sources{font-size:var(--fs-sm);color:var(--texte-doux)}
+      @media (max-width:640px){
+        .duo,.zones{grid-template-columns:1fr}
+        .gm__tete h1{font-size:1.65rem}
+        .fiche dl{grid-template-columns:1fr}
+        .fiche dt{margin-top:.3rem}
+      }
+      @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    </style>
+  </head>
+  <body>
+    <!-- ===================== Navigation bar ===================== -->
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <a class="nav__marque" href="/en/">
+          <img class="nav__logo" src="/favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
+          <span>www.soudabilite.com</span>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a class="nav__lien" href="/en/">Home</a>
+          <a class="nav__lien nav__lien--principal" href="/analyse-thermique-metallurgique.html" hreflang="fr">Calculator (FR)</a>
+          <a class="nav__lien is-active" href="/en/welding-preheat-calculation.html" aria-current="page">Preheat guide</a>
+          <a class="nav__lien" href="/bibliotheque-materiaux.html" hreflang="fr">Materials library (FR)</a>
+          <a class="nav__lien nav__lang" href="/calcul-prechauffage-soudage.html" hreflang="fr" lang="fr">FR</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= Contenu ============================= -->
+    <main class="page">
+      <div class="conteneur gm">
+
+        <article class="gm__corps">
+
+          <header class="gm__tete">
+            <p class="gm__doux"><a href="/en/">Home</a> &rsaquo; Preheat calculation</p>
+            <h1>How to calculate the preheat temperature before welding</h1>
+            <p class="gm__chapo">A P355NL1 flange, 20 mm thick, to weld onto its nozzle. The material certificate is in the file, the welding machine is set, and one question is still open: do I need to heat the part before welding, and to what temperature?</p>
+            <p>Too little, and the zone under the weld hardens and cracks the next day. Too much, and you lose time and gas for nothing. Between the two, there is a calculation. This page explains the one the calculator uses, step by step, on this exact case.</p>
+            <a class="cta" href="/analyse-thermique-metallurgique.html" hreflang="fr">Open the calculator (French interface)</a>
+          </header>
+
+          <nav class="gm__sommaire" aria-label="Contents">
+            <p class="gm__doux">Contents</p>
+            <ol>
+              <li><a href="#why">Why preheat</a></li>
+              <li><a href="#carbon-equivalent">Screening with the carbon equivalent</a></li>
+              <li><a href="#seferian">The Seferian method</a></li>
+              <li><a href="#worked-example">Worked example</a></li>
+              <li><a href="#bwra">The BWRA method</a></li>
+              <li><a href="#limits">What the calculation does not cover</a></li>
+              <li><a href="#faq">Frequently asked questions</a></li>
+            </ol>
+          </nav>
+
+          <section id="why" aria-labelledby="t-why">
+            <h2 id="t-why">Why preheat</h2>
+            <p><strong>Preheating means slowing down the cooling.</strong> Nothing more, and it is a lot.</p>
+            <p>A thick steel part cools the weld fast: the cold mass pulls the heat away. In the heat-affected zone (HAZ), this fast cooling turns austenite into martensite, which is hard and brittle. If diffusible hydrogen is present and the joint is restrained, the three conditions for hydrogen cracking, also called cold cracking, are all there.</p>
+            <p>Preheating acts on two of these three conditions at the same time. It limits the formation of martensite, and it gives hydrogen time to leave the weld.</p>
+          </section>
+
+          <section id="carbon-equivalent" aria-labelledby="t-ce">
+            <h2 id="t-ce">Step 1: screening with the carbon equivalent</h2>
+            <p><strong>Before you calculate a temperature, ask if you need one.</strong></p>
+            <p>The carbon equivalent (CE) brings all the elements that harden steel into one single value, expressed as a percentage of carbon. The calculator uses the IIW formula:</p>
+            <div class="formule">CE = %C + <span class="frac"><span>%Mn</span><span>6</span></span> + <span class="frac"><span>%Cr + %Mo + %V</span><span>5</span></span> + <span class="frac"><span>%Ni + %Cu</span><span>15</span></span></div>
+            <p>Below 0.42 %, the steel is generally considered weldable without preheat in normal conditions. Above this value, preheat must be checked. For the P355NL1 flange:</p>
+            <div class="formule">CE = 0.18 + 1.4/6 + (0.3 + 0.08)/5 + 0.5/15 = 0.18 + 0.233 + 0.076 + 0.033 = 0.523</div>
+            <p>0.523 is above the guide value. We need to calculate a temperature.</p>
+            <div class="encart encart--outil">
+              <p class="encart__titre">The threshold sorts, it does not calculate</p>
+              <p>0.42 is a first screening value, not a rule. Thickness, restraint and the hydrogen class of the consumable also affect the decision.</p>
+            </div>
+          </section>
+
+          <section id="seferian" aria-labelledby="t-seferian">
+            <h2 id="t-seferian">Step 2: the Seferian method</h2>
+            <p><strong>Seferian turns a chemical composition and a thickness into a temperature.</strong> The calculation takes three lines.</p>
+            <p>First, a carbon equivalent specific to this method, different from the IIW one:</p>
+            <div class="formule">Ceq = %C + <span class="frac"><span>%Mn + %Cr</span><span>9</span></span> + <span class="frac"><span>%Ni</span><span>18</span></span> + <span class="frac"><span>7 × %Mo</span><span>90</span></span></div>
+            <p>Then a thickness correction, with e in millimetres:</p>
+            <div class="formule">Ceq<sub>c</sub> = Ceq × (1 + 0.005 × e)</div>
+            <p>Finally, the preheat temperature:</p>
+            <div class="formule">Tp = 350 × √(Ceq<sub>c</sub> − 0.25)     in °C</div>
+            <p>If Ceq<sub>c</sub> stays below 0.25, the formula gives no temperature: no preheat is calculated. The calculator applies Seferian to each of the two base metals, each one with its own thickness, and shows both results side by side.</p>
+          </section>
+
+          <section id="worked-example" aria-labelledby="t-example">
+            <h2 id="t-example">Worked example: P355NL1 flange, 20 mm thick</h2>
+            <p>Composition from the materials library of the site: C 0.18; Mn 1.4; Cr 0.3; Ni 0.5; Mo 0.08.</p>
+            <div class="formule">Ceq  = 0.18 + (1.4 + 0.3)/9 + 0.5/18 + 7 × 0.08/90 = 0.403
+Ceq<sub>c</sub> = 0.403 × (1 + 0.005 × 20) = 0.403 × 1.10 = 0.443
+Tp   = 350 × √(0.443 − 0.25) = 350 × √0.193 ≈ 154 °C</div>
+            <p>The calculator shows <strong>154 °C</strong> for this flange. Same steel grade, three thicknesses:</p>
+            <div class="defile">
+              <table>
+                <thead><tr><th>Thickness</th><th>Corrected Ceq</th><th>Preheat temperature</th></tr></thead>
+                <tbody>
+                  <tr><td>10 mm</td><td>0.423</td><td>146 °C</td></tr>
+                  <tr><td>20 mm</td><td>0.443</td><td>154 °C</td></tr>
+                  <tr><td>30 mm</td><td>0.463</td><td>162 °C</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Ten more millimetres, eight more degrees. Thickness matters, but composition matters more. At 20 mm, an S355J0 needs 115 °C and a 42CrMo4 needs 217 °C.</p>
+            <div class="encart encart--alerte">
+              <p class="encart__titre">When the two indicators disagree</p>
+              <p>The S355J0 in the library has a CE of 0.403, below the 0.42 guide value. Yet Seferian still gives it 115 °C at 20 mm. The two indicators do not answer the same question: the first one sorts, the second one calculates. When they disagree, it is a signal to open EN 1011-2, not to keep the number you prefer.</p>
+            </div>
+          </section>
+
+          <section id="bwra" aria-labelledby="t-bwra">
+            <h2 id="t-bwra">The BWRA method, for covered electrodes</h2>
+            <p><strong>When the welding process is manual metal arc welding with covered electrodes, process 111, the calculator switches to the BWRA method.</strong> The choice depends on the type of coating, rutile, basic or cellulosic, and not on the hydrogen class alone.</p>
+            <p>The method has three steps. A carbon equivalent specific to the method:</p>
+            <div class="formule">Ceq<sub>BWRA</sub> = %C + <span class="frac"><span>%Mn</span><span>20</span></span> + <span class="frac"><span>%Ni</span><span>15</span></span> + <span class="frac"><span>%Cr + %Mo + %V</span><span>10</span></span></div>
+            <p>A Thermal Severity Number (TSN), which shows how well the joint can take the heat away:</p>
+            <div class="formule">TSN = (sum of the thicknesses of the joint members) / 6</div>
+            <p>Then a table reading: the carbon equivalent and the coating give a weldability index, shown as a letter. The temperature is read where this index, the TSN and the electrode diameter meet. Between two rows of the table, the calculator interpolates.</p>
+            <p>Seferian corrects thickness inside the carbon equivalent. BWRA uses it as a separate axis of the table. The two methods are never mixed: the calculator shows one method at a time, and explains why it chose it.</p>
+          </section>
+
+          <section id="limits" aria-labelledby="t-limits">
+            <h2 id="t-limits">What the calculation does not cover</h2>
+            <p><strong>A correct number in a narrow frame is better than a vague number in a wide one.</strong> Here is the frame.</p>
+            <ul>
+              <li>The hydrogen class of the consumable is not yet part of the displayed calculation.</li>
+              <li>Heat input is not part of the Seferian method. EN 1011-2 includes it, together with hydrogen and combined thickness: it is the reference to confirm a preheat temperature.</li>
+              <li>The cooling time t8/5 and the expected HAZ hardness are not calculated.</li>
+              <li>For a dissimilar joint between carbon steel and stainless steel, preheat is not calculated: the analysis focuses on the composition of the weld metal.</li>
+              <li>Austenitic stainless steels are not preheated. The interpass temperature is controlled instead.</li>
+            </ul>
+            <p>The displayed value is a starting point to prepare a preliminary welding procedure specification (pWPS) according to EN ISO 15607. It must be checked against the standard, the material certificate and the procedure qualification test.</p>
+            <div class="encart encart--outil">
+              <p class="encart__titre">About units</p>
+              <p>The calculator shows heat input in kJ/cm. EN 1011-1 gives it in kJ/mm. The formula and the thermal efficiency factors are the same: 1 kJ/mm = 10 kJ/cm.</p>
+            </div>
+            <a class="cta" href="/analyse-thermique-metallurgique.html" hreflang="fr">Open the calculator (French interface)</a>
+          </section>
+
+          <section id="faq" aria-labelledby="t-faq">
+            <h2 id="t-faq">Frequently asked questions</h2>
+            <h3>From which carbon equivalent do I need to preheat?</h3>
+            <p>The calculator uses 0.42 % on the IIW carbon equivalent as a guide value. Above it, preheat must be checked. It is a screening value, not a rule: thickness, restraint and hydrogen also count.</p>
+            <h3>What is the difference between Seferian and BWRA?</h3>
+            <p>Seferian calculates a temperature with a formula, and corrects the carbon equivalent for thickness. BWRA reads the temperature in a table, from a weldability index, the Thermal Severity Number and the electrode diameter. The calculator uses BWRA for covered electrodes when the coating type is given.</p>
+            <h3>Does thickness change the preheat temperature?</h3>
+            <p>Yes. For a P355NL1 flange, the temperature goes from 146 °C at 10 mm to 162 °C at 30 mm. However, the steel composition has a bigger effect than thickness.</p>
+            <h3>Do I need to preheat stainless steel?</h3>
+            <p>No, not for austenitic stainless steels. You limit the heat input and you control the interpass temperature.</p>
+          </section>
+
+          <section id="sources" aria-labelledby="t-sources">
+            <h2 id="t-sources">Sources</h2>
+            <ul class="sources">
+              <li>EN 1011-2: arc welding of ferritic steels, preheat and avoidance of hydrogen cracking.</li>
+              <li>EN 1011-1: general guidance for arc welding, heat input and thermal efficiency.</li>
+              <li>EN ISO 2560: covered electrodes for non-alloy steels, hydrogen classes.</li>
+              <li>EN ISO 15607: general rules for welding procedures, preliminary WPS.</li>
+              <li>Seferian method and BWRA method: calculation of the preheat temperature.</li>
+            </ul>
+            <p class="gm__cloture">Preheat is calculated, checked, then held. Guessing it costs a repair.</p>
+          </section>
+
+        </article>
+
+      </div>
+    </main>
+
+    <!-- ==================== Footer =================== -->
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer">Welding preparation aid. It does not replace a qualified WPS or a WPQR. The tool is in beta, updates are planned.</p>
+        <div class="pied__signatures">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" target="_blank" rel="noopener noreferrer" aria-label="Tony SANCHEZ on LinkedIn (new tab)">
+            <span class="pied__linkedin-icone" aria-hidden="true">in</span>
+            <span class="pied__signature-texte">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
+          </a>
+          <p class="pied__credit">Designed and developed by <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "58d3688c64a3491ea87da7ba0f2f0767"}'></script>
+  </body>
+</html>

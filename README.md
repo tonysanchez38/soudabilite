@@ -25,7 +25,7 @@ L'outil prépare, il ne qualifie pas. Il ne remplace ni un DMOS qualifié, ni un
 | NF EN ISO 15607 | Règles générales, DMOS préliminaire |
 | NF EN ISO 15609-1 | Contenu du descriptif de mode opératoire |
 | NF EN ISO 15614-1 | Épreuve de qualification du mode opératoire |
-| NF EN 1011-1 | Énergie de soudage, exprimée en kJ/cm |
+| NF EN 1011-1 | Énergie de soudage : formule et rendements thermiques (affichée en kJ/cm, 1 kJ/mm = 10 kJ/cm) |
 | NF EN 1011-2 | Aciers ferritiques, préchauffage |
 | ISO/TR 15608 | Groupement des matériaux |
 

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!-- Calculateur de Soudabilité - soudabilite.com
+     Conception et développement : Tony SANCHEZ
+     Page de contenu en HTML statique (pas d'i18n) pour l'indexation.
+     Toutes les valeurs chiffrées sont issues du moteur de calcul en ligne. -->
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
+    <meta name="author" content="Tony SANCHEZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Calculer la température de préchauffage avant soudage : carbone équivalent, méthodes Séférian et BWRA, cas chiffré sur une bride P355NL1 de 20 mm." />
+    <title>Calcul du préchauffage en soudage | Soudabilite.com</title>
+    <link rel="canonical" href="https://soudabilite.com/calcul-prechauffage-soudage.html" />
+    <link rel="alternate" hreflang="fr" href="https://soudabilite.com/calcul-prechauffage-soudage.html" />
+    <link rel="alternate" hreflang="en" href="https://soudabilite.com/en/welding-preheat-calculation.html" />
+    <link rel="alternate" hreflang="x-default" href="https://soudabilite.com/calcul-prechauffage-soudage.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Calcul du préchauffage en soudage" />
+    <meta property="og:description" content="Calculer la température de préchauffage avant soudage : carbone équivalent, méthodes Séférian et BWRA, cas chiffré sur une bride P355NL1 de 20 mm." />
+    <meta property="og:url" content="https://soudabilite.com/calcul-prechauffage-soudage.html" />
+    <meta property="og:image" content="https://soudabilite.com/apercu-social-github.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260921-charte-v3" />
+    <script
+      data-goatcounter="https://soudabilite.com/gc/count"
+      async
+      src="/gc/count.js"
+    ></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Calculer la température de préchauffage avant soudage",
+      "inLanguage": "fr",
+      "about": "Préchauffage, carbone équivalent, méthode Séférian, méthode BWRA, fissuration à froid",
+      "author": {
+        "@type": "Person",
+        "name": "Tony SANCHEZ"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Soudabilite.com"
+      },
+      "mainEntityOfPage": "https://soudabilite.com/calcul-prechauffage-soudage.html",
+      "datePublished": "2026-09-22",
+      "dateModified": "2026-09-22"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://soudabilite.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide métallurgique",
+          "item": "https://soudabilite.com/guide-metallurgique.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Calcul du préchauffage",
+          "item": "https://soudabilite.com/calcul-prechauffage-soudage.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "À partir de quel carbone équivalent faut-il préchauffer ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le calculateur retient 0,42 % comme repère sur le CE de l'IIW. Au-dessus, le préchauffage doit être examiné. C'est un seuil de tri, pas une règle : l'épaisseur, le bridage et l'hydrogène comptent aussi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre Séférian et BWRA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Séférian calcule une température par formule, en corrigeant le carbone équivalent par l'épaisseur. BWRA lit la température dans une table, à partir d'un indice de soudabilité, de l'indice de sévérité thermique et du diamètre d'électrode. Le calculateur retient BWRA pour l'électrode enrobée quand l'enrobage est renseigné."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'épaisseur change-t-elle la température de préchauffage ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Sur une bride P355NL1, la température passe de 146 °C à 10 mm à 162 °C à 30 mm. La composition de l'acier pèse toutefois davantage que l'épaisseur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il préchauffer un acier inoxydable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non pour les inox austénitiques. On limite l'apport de chaleur et on surveille la température entre passes."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <!-- Navigation : libelles en dur (pas de data-i18n). -->
+    <style>
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:center}
+      .nav__lien{white-space:nowrap}
+      @media (max-width:720px){
+        .nav__lien{font-size:.86rem}
+      }
+
+      /* ================= Guide métallurgique ================= */
+      .gm{display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
+      .gm__sommaire{font-size:var(--fs-sm);width:100%;text-align:center;margin-top:var(--sp-4)}
+      .gm__sommaire p{margin:0 0 var(--sp-2);color:var(--texte-faible);font-weight:600}
+      .gm__sommaire ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem}
+      .gm__sommaire a{display:block;padding:.35rem .8rem;color:var(--texte-doux);line-height:1.35;border:1px solid var(--gris-bordure);border-radius:999px}
+      .gm__sommaire a:hover{color:var(--encre);text-decoration:none;border-color:var(--bleu)}
+      .gm__corps{min-width:0;width:100%;max-width:760px}
+      .gm__tete{margin-bottom:var(--sp-5);text-align:center}
+      .gm__tete p{text-align:left}
+      .gm__tete .gm__chapo{text-align:center}
+      .gm__tete h1{font-size:var(--fs-2xl);line-height:1.2;margin:0 0 var(--sp-4);letter-spacing:-.015em}
+      .gm__chapo{font-size:var(--fs-lg);line-height:1.6;color:var(--encre);margin:0 0 var(--sp-3)}
+      .gm section{padding-top:var(--sp-6);margin-top:var(--sp-6);border-top:1px solid var(--gris-bordure);scroll-margin-top:var(--sp-4)}
+      .gm h2{font-size:var(--fs-xl);line-height:1.25;margin:0 0 var(--sp-4);color:var(--bleu);text-align:center}
+      .gm h3{font-size:var(--fs-lg);margin:var(--sp-5) 0 var(--sp-2);color:var(--encre)}
+      .gm p,.gm li{line-height:1.65}
+      .gm p{margin:0 0 var(--sp-3)}
+      .gm ul{margin:0 0 var(--sp-4);padding-left:1.2rem}
+      .gm li{margin-bottom:.35rem}
+      .gm strong{color:var(--encre)}
+      .gm__doux{color:var(--texte-doux);font-size:var(--fs-sm)}
+      .fil{margin:var(--sp-5) 0 var(--sp-4);width:100%;height:auto;display:block;aspect-ratio:760/180}
+      .fil text{font-family:var(--font-sans)}
+      .duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin:var(--sp-4) 0}
+      .fiche{background:var(--surface);border:1px solid var(--gris-bordure);border-radius:var(--radius);padding:var(--sp-4) var(--sp-5)}
+      .fiche h3{margin-top:0}
+      .fiche dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:.4rem var(--sp-3);font-size:var(--fs-sm)}
+      .fiche dt{color:var(--texte-faible)}
+      .fiche dd{margin:0;line-height:1.5}
+      .fiche__nuances{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--texte-doux);margin:0 0 var(--sp-3)}
+      .encart{border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-4) 0;border-left:3px solid}
+      .encart p:last-child,.encart ul:last-child{margin-bottom:0}
+      .encart__titre{font-weight:700;margin:0 0 .35rem}
+      .encart--alerte{background:var(--ambre-voile);border-color:var(--ambre)}
+      .encart--alerte .encart__titre{color:var(--ambre)}
+      .encart--pratique{background:var(--vert-voile);border-color:var(--vert)}
+      .encart--pratique .encart__titre{color:var(--vert)}
+      .encart--outil{background:var(--bleu-voile);border-color:var(--bleu)}
+      .encart--outil .encart__titre{color:var(--bleu)}
+      .formule{font-family:var(--font-mono);font-size:.95rem;background:var(--fond);border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-3) 0 var(--sp-4);overflow-x:auto;white-space:nowrap;line-height:1.9}
+      .formule sub{font-size:.75em}
+      .frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .3em}
+      .frac>span:first-child{border-bottom:1px solid var(--encre);padding:0 .3em}
+      .frac>span:last-child{padding:0 .3em}
+      .defile{overflow-x:auto;margin:var(--sp-4) 0;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm)}
+      .gm table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+      .gm th,.gm td{padding:.6rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--gris-bordure);line-height:1.5}
+      .gm th{background:var(--gris-fond);color:var(--encre);font-weight:600}
+      .gm tr:last-child td{border-bottom:0}
+      .gm td:first-child{font-weight:600;color:var(--encre)}
+      .schema{margin:var(--sp-4) 0;text-align:center}
+      .schema svg{width:100%;height:auto;display:block;margin:0 auto}
+      .schema figcaption{font-size:var(--fs-xs);color:var(--texte-faible);margin-top:var(--sp-2)}
+      .schema--triangle svg{max-width:460px;aspect-ratio:460/330}
+      .schema--coupe svg{max-width:560px;aspect-ratio:560/210}
+      .zones{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);margin:var(--sp-4) 0}
+      .zone{border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4)}
+      .zone h3{font-size:var(--fs-base);margin:0 0 .3rem}
+      .zone p{font-size:var(--fs-sm);margin:0;color:var(--texte-doux)}
+      .zone--cible{border-color:var(--bleu-bordure);background:var(--bleu-voile)}
+      .check{list-style:none;padding:0;counter-reset:etape}
+      .check li{counter-increment:etape;position:relative;padding:var(--sp-3) var(--sp-4) var(--sp-3) 3rem;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);margin-bottom:var(--sp-2)}
+      .check li::before{content:counter(etape);position:absolute;left:var(--sp-4);top:var(--sp-3);font-weight:700;color:var(--bleu);font-family:var(--font-mono)}
+      .cta{display:table;margin-left:auto;margin-right:auto;margin-top:var(--sp-2);padding:.55rem 1rem;border-radius:var(--radius-sm);background:var(--bleu-fonce);color:var(--blanc);font-weight:600;font-size:var(--fs-sm)}
+      .cta:hover{background:var(--bleu);color:var(--fond);text-decoration:none}
+      .cta:focus-visible,.gm a:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
+      .gm__cloture{font-size:var(--fs-lg);font-weight:600;color:var(--encre);margin-top:var(--sp-5);text-align:center}
+      .sources{font-size:var(--fs-sm);color:var(--texte-doux)}
+      @media (max-width:640px){
+        .duo,.zones{grid-template-columns:1fr}
+        .gm__tete h1{font-size:1.65rem}
+        .fiche dl{grid-template-columns:1fr}
+        .fiche dt{margin-top:.3rem}
+      }
+      @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    </style>
+  </head>
+  <body>
+    <!-- ===================== Barre de navigation ===================== -->
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <a class="nav__marque" href="/">
+          <img class="nav__logo" src="favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
+          <span>www.soudabilite.com</span>
+        </a>
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__lien" href="/">Accueil</a>
+          <a class="nav__lien" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien is-active" href="guide-metallurgique.html" aria-current="page">Guide métallurgique</a>
+          <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
+          <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
+          <a class="nav__lien nav__lang" href="/en/welding-preheat-calculation.html" hreflang="en" lang="en">EN</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= Contenu ============================= -->
+    <main class="page">
+      <div class="conteneur gm">
+
+        <article class="gm__corps">
+
+          <header class="gm__tete">
+            <p class="gm__doux"><a href="/">Accueil</a> &rsaquo; <a href="guide-metallurgique.html">Guide métallurgique</a> &rsaquo; Calcul du préchauffage</p>
+            <h1>Calculer la température de préchauffage avant soudage</h1>
+            <p class="gm__chapo">Une bride P355NL1 de 20 mm à souder sur sa tubulure. Le certificat matière est dans le dossier, le poste est réglé, et une question reste ouverte : faut-il chauffer la pièce avant de souder, et à combien ?</p>
+            <p>Trop peu, la zone sous le cordon trempe et fissure le lendemain. Trop, on brûle du temps et du gaz pour rien. Entre les deux, il y a un calcul. Cette page déroule celui du calculateur, étape par étape, sur ce cas précis.</p>
+            <a class="cta" href="analyse-thermique-metallurgique.html">Calculer le préchauffage de mon assemblage</a>
+          </header>
+
+          <nav class="gm__sommaire" aria-label="Sommaire">
+            <p class="gm__doux">Sommaire</p>
+            <ol>
+              <li><a href="#pourquoi">Pourquoi préchauffer</a></li>
+              <li><a href="#carbone-equivalent">Trier avec le carbone équivalent</a></li>
+              <li><a href="#seferian">La méthode Séférian</a></li>
+              <li><a href="#cas-chiffre">Le cas chiffré</a></li>
+              <li><a href="#bwra">La méthode BWRA</a></li>
+              <li><a href="#limites">Ce que le calcul ne couvre pas</a></li>
+              <li><a href="#questions">Questions fréquentes</a></li>
+            </ol>
+          </nav>
+
+          <section id="pourquoi" aria-labelledby="t-pourquoi">
+            <h2 id="t-pourquoi">Pourquoi préchauffer</h2>
+            <p><strong>Préchauffer, c'est ralentir le refroidissement.</strong> Rien de plus, et c'est beaucoup.</p>
+            <p>Un acier épais refroidit vite le cordon : la masse froide aspire la chaleur. Dans la zone affectée thermiquement, ce refroidissement brutal transforme l'austénite en martensite, dure et fragile. Si de l'hydrogène diffusible est présent et que l'assemblage est bridé, les trois conditions de la fissuration à froid sont réunies.</p>
+            <p>Le préchauffage agit sur deux de ces trois conditions à la fois. Il limite la formation de martensite, et il laisse à l'hydrogène le temps de sortir du joint. Le mécanisme complet est expliqué dans le <a href="guide-metallurgique.html#fissuration">guide métallurgique</a>.</p>
+          </section>
+
+          <section id="carbone-equivalent" aria-labelledby="t-ce">
+            <h2 id="t-ce">Étape 1 : trier avec le carbone équivalent</h2>
+            <p><strong>Avant de chiffrer une température, on se demande s'il faut en chiffrer une.</strong></p>
+            <p>Le carbone équivalent ramène tous les éléments qui durcissent l'acier à une seule valeur, exprimée comme un pourcentage de carbone. Le calculateur utilise la formule de l'IIW :</p>
+            <div class="formule">CE = %C + <span class="frac"><span>%Mn</span><span>6</span></span> + <span class="frac"><span>%Cr + %Mo + %V</span><span>5</span></span> + <span class="frac"><span>%Ni + %Cu</span><span>15</span></span></div>
+            <p>Sous 0,42 %, l'acier est réputé soudable sans préchauffage dans des conditions courantes. Au-dessus, le préchauffage doit être examiné. Pour la bride P355NL1 :</p>
+            <div class="formule">CE = 0,18 + 1,4/6 + (0,3 + 0,08)/5 + 0,5/15 = 0,18 + 0,233 + 0,076 + 0,033 = 0,523</div>
+            <p>0,523 : on est au-dessus du repère. Le calcul de température s'impose.</p>
+            <div class="encart encart--outil">
+              <p class="encart__titre">Le seuil trie, il ne chiffre pas</p>
+              <p>0,42 est un repère de dégrossissage, pas une règle. L'épaisseur, le bridage et la classe d'hydrogène du consommable pèsent aussi sur la décision.</p>
+            </div>
+          </section>
+
+          <section id="seferian" aria-labelledby="t-seferian">
+            <h2 id="t-seferian">Étape 2 : la méthode Séférian</h2>
+            <p><strong>Séférian transforme une composition et une épaisseur en température.</strong> Le calcul tient en trois lignes.</p>
+            <p>D'abord un carbone équivalent propre à la méthode, différent de celui de l'IIW :</p>
+            <div class="formule">Ceq = %C + <span class="frac"><span>%Mn + %Cr</span><span>9</span></span> + <span class="frac"><span>%Ni</span><span>18</span></span> + <span class="frac"><span>7 × %Mo</span><span>90</span></span></div>
+            <p>Puis une correction d'épaisseur, e en millimètres :</p>
+            <div class="formule">Ceq<sub>c</sub> = Ceq × (1 + 0,005 × e)</div>
+            <p>Enfin la température de préchauffage :</p>
+            <div class="formule">Tp = 350 × √(Ceq<sub>c</sub> − 0,25)     en °C</div>
+            <p>Si Ceq<sub>c</sub> reste sous 0,25, la formule ne donne aucune température : aucun préchauffage n'est calculé. Le calculateur applique Séférian à chacun des deux métaux de base, chacun avec sa propre épaisseur, et affiche les deux résultats côte à côte.</p>
+          </section>
+
+          <section id="cas-chiffre" aria-labelledby="t-cas">
+            <h2 id="t-cas">Le cas chiffré : bride P355NL1 de 20 mm</h2>
+            <p>Composition retenue dans la bibliothèque du site : C 0,18 ; Mn 1,4 ; Cr 0,3 ; Ni 0,5 ; Mo 0,08.</p>
+            <div class="formule">Ceq  = 0,18 + (1,4 + 0,3)/9 + 0,5/18 + 7 × 0,08/90 = 0,403
+Ceq<sub>c</sub> = 0,403 × (1 + 0,005 × 20) = 0,403 × 1,10 = 0,443
+Tp   = 350 × √(0,443 − 0,25) = 350 × √0,193 ≈ 154 °C</div>
+            <p>Le calculateur affiche <strong>154 °C</strong> pour cette bride. Même nuance, trois épaisseurs :</p>
+            <div class="defile">
+              <table>
+                <thead><tr><th>Épaisseur</th><th>Ceq corrigé</th><th>Température de préchauffage</th></tr></thead>
+                <tbody>
+                  <tr><td>10 mm</td><td>0,423</td><td>146 °C</td></tr>
+                  <tr><td>20 mm</td><td>0,443</td><td>154 °C</td></tr>
+                  <tr><td>30 mm</td><td>0,463</td><td>162 °C</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Dix millimètres de plus, huit degrés de plus. L'épaisseur pèse, mais la composition pèse davantage. À 20 mm, un S355J0 demande 115 °C et un 42CrMo4 en demande 217.</p>
+            <div class="encart encart--alerte">
+              <p class="encart__titre">Quand les deux indicateurs divergent</p>
+              <p>Le S355J0 de la bibliothèque affiche un CE de 0,403, sous le repère de 0,42. Séférian lui donne pourtant 115 °C à 20 mm. Les deux indicateurs ne répondent pas à la même question : le premier trie, le second chiffre. Quand ils divergent, c'est le signal pour ouvrir la NF EN 1011-2, pas pour retenir le chiffre qui arrange.</p>
+            </div>
+          </section>
+
+          <section id="bwra" aria-labelledby="t-bwra">
+            <h2 id="t-bwra">La méthode BWRA, pour l'électrode enrobée</h2>
+            <p><strong>Quand le procédé est l'électrode enrobée, 111, le calculateur bascule sur la méthode BWRA.</strong> L'aiguillage se fait sur le type d'enrobage, rutile, basique ou cellulosique, et non sur la seule classe d'hydrogène.</p>
+            <p>La méthode suit trois temps. Un carbone équivalent propre :</p>
+            <div class="formule">Ceq<sub>BWRA</sub> = %C + <span class="frac"><span>%Mn</span><span>20</span></span> + <span class="frac"><span>%Ni</span><span>15</span></span> + <span class="frac"><span>%Cr + %Mo + %V</span><span>10</span></span></div>
+            <p>Un indice de sévérité thermique, le TSN, qui traduit la capacité de l'assemblage à évacuer la chaleur :</p>
+            <div class="formule">TSN = (somme des épaisseurs des pièces du joint) / 6</div>
+            <p>Puis une lecture de table : le carbone équivalent et l'enrobage donnent un indice de soudabilité, noté par une lettre, et la température se lit au croisement de cet indice, du TSN et du diamètre d'électrode. Entre deux lignes de la table, le calculateur interpole.</p>
+            <p>Séférian corrige l'épaisseur dans le carbone équivalent. BWRA la traite comme un axe de table séparé. Les deux mécanismes ne se mélangent pas : le calculateur n'affiche qu'une méthode à la fois, avec la justification de son choix.</p>
+          </section>
+
+          <section id="limites" aria-labelledby="t-limites">
+            <h2 id="t-limites">Ce que le calcul ne couvre pas</h2>
+            <p><strong>Un chiffre juste dans un cadre étroit vaut mieux qu'un chiffre flou dans un cadre large.</strong> Voici le cadre.</p>
+            <ul>
+              <li>La classe d'hydrogène du consommable n'entre pas encore dans le calcul affiché.</li>
+              <li>L'énergie de soudage n'intervient pas dans Séférian. La NF EN 1011-2 l'intègre, avec l'hydrogène et l'épaisseur combinée : c'est la référence pour confirmer un préchauffage.</li>
+              <li>Le temps de refroidissement t8/5 et la dureté prévisible en zone affectée ne sont pas calculés.</li>
+              <li>Sur un assemblage hétérogène acier et inox, le préchauffage n'est pas calculé : l'analyse porte sur la composition du bain fondu.</li>
+              <li>Sur les inox austénitiques, on ne préchauffe pas. On surveille la température entre passes.</li>
+            </ul>
+            <p>La valeur affichée est un point de départ pour préparer un DMOS préliminaire. Elle se confronte à la norme, au certificat matière et à l'épreuve de qualification.</p>
+            <a class="cta" href="analyse-thermique-metallurgique.html">Ouvrir le calculateur</a>
+          </section>
+
+          <section id="questions" aria-labelledby="t-questions">
+            <h2 id="t-questions">Questions fréquentes</h2>
+            <h3>À partir de quel carbone équivalent faut-il préchauffer ?</h3>
+            <p>Le calculateur retient 0,42 % comme repère sur le CE de l'IIW. Au-dessus, le préchauffage doit être examiné. C'est un seuil de tri, pas une règle : l'épaisseur, le bridage et l'hydrogène comptent aussi.</p>
+            <h3>Quelle différence entre Séférian et BWRA ?</h3>
+            <p>Séférian calcule une température par formule, en corrigeant le carbone équivalent par l'épaisseur. BWRA lit la température dans une table, à partir d'un indice de soudabilité, de l'indice de sévérité thermique et du diamètre d'électrode. Le calculateur retient BWRA pour l'électrode enrobée quand l'enrobage est renseigné.</p>
+            <h3>L'épaisseur change-t-elle la température de préchauffage ?</h3>
+            <p>Oui. Sur une bride P355NL1, la température passe de 146 °C à 10 mm à 162 °C à 30 mm. La composition de l'acier pèse toutefois davantage que l'épaisseur.</p>
+            <h3>Faut-il préchauffer un acier inoxydable ?</h3>
+            <p>Non pour les inox austénitiques. On limite l'apport de chaleur et on surveille la température entre passes.</p>
+          </section>
+
+          <section id="sources" aria-labelledby="t-sources">
+            <h2 id="t-sources">Sources</h2>
+            <ul class="sources">
+              <li>NF EN 1011-2 : soudage à l'arc des aciers ferritiques, préchauffage et prévention de la fissuration à froid.</li>
+              <li>NF EN 1011-1 : directives générales pour le soudage à l'arc, énergie de soudage.</li>
+              <li>NF EN ISO 2560 : électrodes enrobées pour aciers non alliés, classes d'hydrogène.</li>
+              <li>Méthode de Séférian et méthode BWRA : calcul de la température de préchauffage.</li>
+            </ul>
+            <p class="gm__cloture">Un préchauffage se calcule, se vérifie, puis se tient. Le deviner coûte une reprise.</p>
+          </section>
+
+        </article>
+
+      </div>
+    </main>
+
+    <!-- ==================== Pied de page permanent =================== -->
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.</p>
+        <div class="pied__compteurs">
+          <p class="pied__compteur" data-compteur hidden></p>
+          <p class="pied__compteur" data-compteur-analyses hidden></p>
+        </div>
+        <div class="pied__signatures">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
+            <span class="pied__linkedin-icone" aria-hidden="true">in</span>
+            <span class="pied__signature-texte" data-i18n="footer.signature">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
+          </a>
+          <p class="pied__credit">Conçu et développé par <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "58d3688c64a3491ea87da7ba0f2f0767"}'></script>
+  </body>
+</html>
