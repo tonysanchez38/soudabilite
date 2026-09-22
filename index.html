@@ -37,7 +37,7 @@
     />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css?v=20260921-charte-v3" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260922-langues-v1" />
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
          les bloqueurs de pub (AdGuard etc.) - DECISIONS.md #22. -->
@@ -47,7 +47,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260921-charte-v3" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260922-langues-v1" as="style" />
     <script type="module" src="assets/js/app.js"></script>
     <script type="application/ld+json">
     {
@@ -140,8 +140,11 @@
           <a class="nav__lien" href="guide-metallurgique.html">Guide métallurgique</a>
           <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
           <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
-          <a class="nav__lien nav__lang" href="/en.html" hreflang="en" lang="en">EN</a>
         </nav>
+        <div class="langues" role="group" aria-label="Langue / Language">
+          <span class="langues__lien is-active" aria-current="true" lang="fr"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#fff"/><path d="M0 1.5A1.5 1.5 0 0 1 1.5 0H7v15H1.5A1.5 1.5 0 0 1 0 13.5z" fill="#1b4fa0"/><path d="M14 0h5.5A1.5 1.5 0 0 1 21 1.5v12a1.5 1.5 0 0 1-1.5 1.5H14z" fill="#c8102e"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">FR</span></span>
+          <a class="langues__lien" href="/en/" hreflang="en" lang="en" title="English version"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#1b3a82"/><path d="M0 0l21 15M21 0L0 15" stroke="#fff" stroke-width="3"/><path d="M0 0l21 15M21 0L0 15" stroke="#c8102e" stroke-width="1.6"/><path d="M10.5 0v15M0 7.5h21" stroke="#fff" stroke-width="5"/><path d="M10.5 0v15M0 7.5h21" stroke="#c8102e" stroke-width="3"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">EN</span></a>
+        </div>
       </div>
     </header>
 

@@ -1668,3 +1668,68 @@ table {
     grid-template-columns: 1fr;
   }
 }
+
+/* ======================================================================= */
+/* 11. Sélecteur de langue (22/09/2026)                                    */
+/*     Deux drapeaux en haut à droite de la barre de navigation.           */
+/*     Chaque lien pointe vers la page jumelle, jamais vers l'accueil.     */
+/* ======================================================================= */
+
+.topbar__inner {
+  position: relative;
+}
+.langues {
+  position: absolute;
+  top: var(--sp-3);
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.langues__lien {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--texte-doux);
+  text-decoration: none;
+  line-height: 1;
+}
+a.langues__lien:hover {
+  color: var(--encre);
+  border-color: var(--bleu);
+  text-decoration: none;
+}
+a.langues__lien:focus-visible {
+  outline: 2px solid var(--bleu);
+  outline-offset: 2px;
+}
+.langues__lien.is-active {
+  color: var(--encre);
+  border-color: var(--gris-bordure);
+  background: var(--surface);
+  cursor: default;
+}
+.langues__drapeau {
+  display: block;
+  flex: 0 0 auto;
+  border-radius: 2px;
+  opacity: 0.55;
+}
+.langues__lien.is-active .langues__drapeau,
+a.langues__lien:hover .langues__drapeau {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .langues {
+    position: static;
+    justify-content: center;
+    margin-top: var(--sp-1);
+  }
+}
