@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Saisie des métaux de base, du procédé et de la géométrie du joint. Calcul automatique de l'intensité, de la tension, de l'énergie de soudage et positionnement sur le diagramme de Schaeffler."
+      content="Calculateur de soudabilité en ligne : diagramme de Schaeffler, dilution, préchauffage et choix du métal d'apport parmi 7 candidats. Gratuit."
     />
     <!-- Titre en dur (SEO) : ne pas piloter par i18n, doit être présent
          sans exécution de JS pour l'indexation. -->
@@ -50,14 +50,26 @@
     <link rel="preload" href="assets/css/main.css?v=20260921-charte-v3" as="style" />
     <script type="module" src="assets/js/parametres.js?v=20260825-lecture-apport-3"></script>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TechArticle",
-      "headline": "Comprendre les zones métallurgiques du diagramme de Schaeffler",
-      "about": "Diagramme de Schaeffler, fissuration à chaud, fissuration à froid, ferrite delta",
-      "author": { "@type": "Person", "name": "Tony SANCHEZ" },
-      "publisher": { "@type": "Organization", "name": "Soudabilite.com" }
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculateur de soudabilité : analyse thermique et métallurgique",
+  "url": "https://soudabilite.com/analyse-thermique-metallurgique.html",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "Tous navigateurs",
+  "inLanguage": "fr",
+  "description": "Positionnement du joint soudé sur le diagramme de Schaeffler avec prise en compte de la dilution, classement de 7 métaux d'apport, carbone équivalent, énergie de soudage en kJ/cm et température de préchauffage.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Tony Sanchez"
+  },
+  "isAccessibleForFree": true
+}
     </script>
     <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
          s'affichent sans dependre du chargement de fr.json. -->
@@ -67,6 +79,11 @@
       @media (max-width:720px){
         .nav__lien{font-size:.86rem}
       }
+    </style>
+    <!-- Titre de la fiche imprimable : balise p (et non h1) pour que la page
+         ne porte qu'un seul h1. Reprend la regle .fiche-entete h1 de print.css. -->
+    <style media="print">
+      .fiche-entete .fiche-titre{margin:0 0 2mm;font-size:15pt;font-weight:700}
     </style>
   </head>
   <body>
@@ -92,35 +109,35 @@
       <div class="conteneur parametres">
         <section class="param-intro">
           <h1 class="hero__titre" data-i18n="parametres.titre">Paramètres et analyse de soudabilité</h1>
-          <p class="param-intro__texte" data-i18n="parametres.intro"></p>
+          <p class="param-intro__texte" data-i18n="parametres.intro">Renseignez les métaux, le procédé et la géométrie du joint. Les réglages électriques sont proposés automatiquement puis restent modifiables en mode personnalisé.</p>
         </section>
 
         <div class="param-layout">
           <form class="param-form" id="form-dmos" autocomplete="off">
             <!-- Métaux de base -->
             <section class="carte carte--form">
-              <h2 class="bloc__titre" data-i18n="parametres.section_metaux"></h2>
+              <h2 class="bloc__titre" data-i18n="parametres.section_metaux">Métaux de base</h2>
               <div class="form-grid">
                 <div class="champ">
-                  <label class="champ__label" for="metal-a" data-i18n="parametres.label_metal_a"></label>
+                  <label class="champ__label" for="metal-a" data-i18n="parametres.label_metal_a">Métal A</label>
                   <select id="metal-a" class="champ__select" data-combobox="metal"></select>
-                  <button type="button" class="btn-lien" data-toggle-comp="a" data-i18n="parametres.comp_manuelle_ajouter"></button>
+                  <button type="button" class="btn-lien" data-toggle-comp="a" data-i18n="parametres.comp_manuelle_ajouter">+ composition manuelle</button>
                   <div class="comp-manuelle" data-comp="a" hidden></div>
                   <p class="comp-eq" data-eq="a"></p>
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="metal-b" data-i18n="parametres.label_metal_b"></label>
+                  <label class="champ__label" for="metal-b" data-i18n="parametres.label_metal_b">Métal B</label>
                   <select id="metal-b" class="champ__select" data-combobox="metal"></select>
-                  <button type="button" class="btn-lien" data-toggle-comp="b" data-i18n="parametres.comp_manuelle_ajouter"></button>
+                  <button type="button" class="btn-lien" data-toggle-comp="b" data-i18n="parametres.comp_manuelle_ajouter">+ composition manuelle</button>
                   <div class="comp-manuelle" data-comp="b" hidden></div>
                   <p class="comp-eq" data-eq="b"></p>
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="ep-a" data-i18n="parametres.label_epaisseur_a"></label>
+                  <label class="champ__label" for="ep-a" data-i18n="parametres.label_epaisseur_a">Épaisseur A (mm)</label>
                   <input id="ep-a" class="champ__input" type="number" min="0" step="0.1" inputmode="decimal" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="ep-b" data-i18n="parametres.label_epaisseur_b"></label>
+                  <label class="champ__label" for="ep-b" data-i18n="parametres.label_epaisseur_b">Épaisseur B (mm)</label>
                   <input id="ep-b" class="champ__input" type="number" min="0" step="0.1" inputmode="decimal" />
                 </div>
               </div>
@@ -129,48 +146,48 @@
             <!-- Procédé, électrode / consommable et métal d'apport -->
             <!-- Chronologie EE (111) : enrobage → diamètre → puis apport. -->
             <section class="carte carte--form">
-              <h2 class="bloc__titre" data-i18n="parametres.section_procede"></h2>
+              <h2 class="bloc__titre" data-i18n="parametres.section_procede">Procédé et électrode</h2>
               <div class="form-grid">
                 <div class="champ">
-                  <label class="champ__label" for="procede" data-i18n="parametres.label_procede"></label>
+                  <label class="champ__label" for="procede" data-i18n="parametres.label_procede">Procédé de soudage</label>
                   <select id="procede" class="champ__select"></select>
                 </div>
                 <div class="champ" data-champ="enrobage" hidden>
-                  <label class="champ__label" for="enrobage" data-i18n="parametres.label_enrobage"></label>
+                  <label class="champ__label" for="enrobage" data-i18n="parametres.label_enrobage">Type d'enrobage</label>
                   <select id="enrobage" class="champ__select"></select>
-                  <p class="erreur" data-enrobage-avertissement hidden data-i18n="parametres.enrobage_non_couvert"></p>
+                  <p class="erreur" data-enrobage-avertissement hidden data-i18n="parametres.enrobage_non_couvert">BWRA n'est pas disponible pour cet enrobage : affichage prudent de Séférian, sans assimilation au rutile.</p>
                 </div>
                 <div class="champ" data-champ="diametre" hidden>
-                  <label class="champ__label" for="diametre" data-i18n="parametres.label_diametre"></label>
+                  <label class="champ__label" for="diametre" data-i18n="parametres.label_diametre">Diamètre électrode (mm)</label>
                   <select id="diametre" class="champ__select"></select>
                 </div>
                 <div class="champ champ--large" data-champ="tungstene" hidden>
-                  <label class="champ__label" for="tungstene" data-i18n="parametres.label_tungstene"></label>
+                  <label class="champ__label" for="tungstene" data-i18n="parametres.label_tungstene">Électrode tungstène</label>
                   <select id="tungstene" class="champ__select" data-combobox="tungstene"></select>
                   <p class="note" data-tungstene-conseil></p>
                 </div>
                 <div class="champ" data-champ="diametre-fil" hidden>
-                  <label class="champ__label" for="diametre-fil" data-i18n="parametres.label_diametre_fil"></label>
+                  <label class="champ__label" for="diametre-fil" data-i18n="parametres.label_diametre_fil">Diamètre fil (mm)</label>
                   <select id="diametre-fil" class="champ__select"></select>
                 </div>
-                <p class="note champ--large" data-i18n="parametres.apport_analyse_note"></p>
+                <p class="note champ--large" data-i18n="parametres.apport_analyse_note">Le métal d'apport est proposé plus bas, dans l'analyse, après un calcul sur toute la plage de dilution du procédé.</p>
               </div>
             </section>
 
             <!-- Assemblage -->
             <section class="carte carte--form">
-              <h2 class="bloc__titre" data-i18n="parametres.section_joint"></h2>
+              <h2 class="bloc__titre" data-i18n="parametres.section_joint">Assemblage</h2>
               <div class="form-grid form-grid--trois">
                 <div class="champ">
-                  <label class="champ__label" for="position" data-i18n="parametres.label_position"></label>
+                  <label class="champ__label" for="position" data-i18n="parametres.label_position">Position de soudage</label>
                   <select id="position" class="champ__select"></select>
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="assemblage" data-i18n="parametres.label_assemblage"></label>
+                  <label class="champ__label" for="assemblage" data-i18n="parametres.label_assemblage">Type d'assemblage</label>
                   <select id="assemblage" class="champ__select"></select>
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="chanfrein" data-i18n="parametres.label_chanfrein"></label>
+                  <label class="champ__label" for="chanfrein" data-i18n="parametres.label_chanfrein">Type de chanfrein</label>
                   <select id="chanfrein" class="champ__select"></select>
                 </div>
               </div>
@@ -178,110 +195,110 @@
 
             <!-- Intensité et vitesse -->
             <section class="carte carte--form">
-              <h2 class="bloc__titre" data-i18n="parametres.section_intensite"></h2>
+              <h2 class="bloc__titre" data-i18n="parametres.section_intensite">Paramètres d'intensité et de vitesse</h2>
               <div class="champ champ--large">
-                <label class="champ__label" for="mode-reglages" data-i18n="parametres.label_mode_reglages"></label>
+                <label class="champ__label" for="mode-reglages" data-i18n="parametres.label_mode_reglages">Mode de réglage</label>
                 <select id="mode-reglages" class="champ__select">
-                  <option value="auto" data-i18n="parametres.mode_auto"></option>
-                  <option value="personnalise" data-i18n="parametres.mode_personnalise"></option>
+                  <option value="auto" data-i18n="parametres.mode_auto">AUTO : valeurs proposées</option>
+                  <option value="personnalise" data-i18n="parametres.mode_personnalise">PERSONNALISÉ : valeurs modifiables</option>
                 </select>
               </div>
               <div class="form-grid form-grid--trois" data-grid="intensite">
                 <div class="champ">
-                  <label class="champ__label" for="reglage-i" data-i18n="parametres.res_intensite"></label>
+                  <label class="champ__label" for="reglage-i" data-i18n="parametres.res_intensite">Intensité I</label>
                   <input id="reglage-i" class="champ__input" data-reglage="intensite" type="number" min="0" step="1" inputmode="numeric" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="reglage-u" data-i18n="parametres.res_tension"></label>
+                  <label class="champ__label" for="reglage-u" data-i18n="parametres.res_tension">Tension U</label>
                   <input id="reglage-u" class="champ__input" data-reglage="tension" type="number" min="0" step="0.1" inputmode="decimal" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="vitesse" data-i18n="parametres.label_vitesse"></label>
+                  <label class="champ__label" for="vitesse" data-i18n="parametres.label_vitesse">Vitesse de soudage Vs (cm/min)</label>
                   <input id="vitesse" class="champ__input" data-reglage="vitesse" type="number" min="0" step="0.5" inputmode="decimal" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="reglage-en" data-i18n="parametres.label_en"></label>
+                  <label class="champ__label" for="reglage-en" data-i18n="parametres.label_en">Énergie nominale En (kJ/cm)</label>
                   <input id="reglage-en" class="champ__input" data-reglage="energieNominale" type="number" min="0" step="0.001" inputmode="decimal" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="reglage-q" data-i18n="parametres.label_eq"></label>
+                  <label class="champ__label" for="reglage-q" data-i18n="parametres.label_eq">Énergie corrigée Q (kJ/cm)</label>
                   <input id="reglage-q" class="champ__input" data-reglage="energieCorrigee" type="number" min="0" step="0.001" inputmode="decimal" />
                 </div>
               </div>
-              <p class="note" data-i18n="parametres.reglages_note"></p>
-              <p class="note" data-note="tig-hetero" hidden data-i18n="parametres.note_tig_hetero"></p>
+              <p class="note" data-i18n="parametres.reglages_note">En mode personnalisé, modifier l'intensité, la tension ou la vitesse recalcule l'énergie. Modifier l'énergie recalcule la vitesse, sans toucher à l'intensité ni à la tension.</p>
+              <p class="note" data-note="tig-hetero" hidden data-i18n="parametres.note_tig_hetero">Intensité réduite - protection du côté inox.</p>
             </section>
 
             <!-- Dilution -->
             <section class="carte carte--form">
-              <h2 class="bloc__titre" data-i18n="parametres.section_dilution"></h2>
-              <p class="note" data-i18n="parametres.dilution_note"></p>
+              <h2 class="bloc__titre" data-i18n="parametres.section_dilution">Dilution</h2>
+              <p class="note" data-i18n="parametres.dilution_note">Le cordon mélange trois parts : le métal A fondu, le métal B fondu et le métal d'apport. Les trois parts font 100 %. La dilution est la somme des deux parts fondues.</p>
               <div class="form-grid form-grid--trois">
                 <div class="champ">
-                  <label class="champ__label" for="da" data-i18n="parametres.label_da"></label>
+                  <label class="champ__label" for="da" data-i18n="parametres.label_da">Part fondue du métal A (%)</label>
                   <input id="da" class="champ__input" type="number" min="0" max="100" step="1" inputmode="numeric" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="db" data-i18n="parametres.label_db"></label>
+                  <label class="champ__label" for="db" data-i18n="parametres.label_db">Part fondue du métal B (%)</label>
                   <input id="db" class="champ__input" type="number" min="0" max="100" step="1" inputmode="numeric" />
                 </div>
                 <div class="champ">
-                  <label class="champ__label" for="dc" data-i18n="parametres.label_dc"></label>
+                  <label class="champ__label" for="dc" data-i18n="parametres.label_dc">Part de métal d'apport (%)</label>
                   <input id="dc" class="champ__input" type="number" min="0" max="100" step="1" inputmode="numeric" />
                 </div>
               </div>
-              <p class="erreur" data-erreur-dilution hidden data-i18n="parametres.dilution_erreur"></p>
-              <p class="note" data-i18n="parametres.dilution_indicative_note"></p>
-              <button type="button" class="btn-lien" data-suggestion-dilution data-i18n="parametres.dilution_suggestion_btn"></button>
+              <p class="erreur" data-erreur-dilution hidden data-i18n="parametres.dilution_erreur">Les trois parts doivent faire 100 % au total.</p>
+              <p class="note" data-i18n="parametres.dilution_indicative_note">Valeur indicative par procédé/préparation - la précision réelle nécessite une macrographie de l'assemblage réel.</p>
+              <button type="button" class="btn-lien" data-suggestion-dilution data-i18n="parametres.dilution_suggestion_btn">Suggestion procédé</button>
             </section>
           </form>
 
           <!-- Résultats (énergie) -->
           <aside class="param-resultats">
             <section class="carte carte--resultats">
-              <h2 class="bloc__titre" data-i18n="parametres.section_resultats"></h2>
+              <h2 class="bloc__titre" data-i18n="parametres.section_resultats">Énergie de soudage</h2>
               <dl class="res">
                 <div class="res__ligne">
-                  <dt class="res__label" data-i18n="parametres.res_intensite"></dt>
+                  <dt class="res__label" data-i18n="parametres.res_intensite">Intensité I</dt>
                   <dd class="res__valeur">
                     <span data-res="I">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_a"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_a">A</span>
                   </dd>
                 </div>
                 <div class="res__ligne">
-                  <dt class="res__label" data-i18n="parametres.res_tension"></dt>
+                  <dt class="res__label" data-i18n="parametres.res_tension">Tension U</dt>
                   <dd class="res__valeur">
                     <span data-res="U">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_v"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_v">V</span>
                   </dd>
                 </div>
                 <div class="res__ligne">
-                  <dt class="res__label" data-i18n="parametres.res_vitesse"></dt>
+                  <dt class="res__label" data-i18n="parametres.res_vitesse">Vitesse Vs</dt>
                   <dd class="res__valeur">
                     <span data-res="Vs">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_cmmin"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_cmmin">cm/min</span>
                   </dd>
                 </div>
                 <div class="res__ligne">
-                  <dt class="res__label" data-i18n="parametres.res_en"></dt>
+                  <dt class="res__label" data-i18n="parametres.res_en">Énergie nominale En</dt>
                   <dd class="res__valeur">
                     <span data-res="En">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_kjcm"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_kjcm">kJ/cm</span>
                   </dd>
                 </div>
                 <div class="res__ligne res__ligne--fort">
-                  <dt class="res__label" data-i18n="parametres.res_eq"></dt>
+                  <dt class="res__label" data-i18n="parametres.res_eq">Énergie corrigée Q</dt>
                   <dd class="res__valeur">
                     <span data-res="Q">-</span>
-                    <span class="res__unite" data-i18n="parametres.unite_kjcm"></span>
+                    <span class="res__unite" data-i18n="parametres.unite_kjcm">kJ/cm</span>
                   </dd>
                 </div>
                 <div class="res__ligne">
-                  <dt class="res__label" data-i18n="parametres.res_rendement"></dt>
+                  <dt class="res__label" data-i18n="parametres.res_rendement">Rendement k</dt>
                   <dd class="res__valeur"><span data-res="k">-</span></dd>
                 </div>
               </dl>
-              <p class="note" data-i18n="parametres.resultats_note"></p>
+              <p class="note" data-i18n="parametres.resultats_note">Q = k × En, avec k le rendement thermique du procédé (EN 1011-1). Valeurs exprimées en kJ/cm.</p>
             </section>
           </aside>
         </div>
@@ -293,38 +310,38 @@
              ci-dessus. -->
         <section id="analyse" class="analyse">
           <section class="param-intro">
-            <h2 class="hero__titre" data-i18n="analyse.titre"></h2>
-            <p class="param-intro__texte" data-analyse-intro data-i18n="analyse.intro"></p>
+            <h2 class="hero__titre" data-i18n="analyse.titre">Analyse</h2>
+            <p class="param-intro__texte" data-analyse-intro data-i18n="analyse.intro">Placement du joint sur le diagramme de Schaeffler et comparaison de 7 métaux d'apport sur toute la plage de dilution du procédé. L'outil calcule et propose ; il ne qualifie pas.</p>
           </section>
 
           <!-- Aucun métal A/B renseigné ci-dessus -->
           <section class="carte carte--form" data-analyse="vide" hidden>
-            <p data-i18n="analyse.message_vide"></p>
+            <p data-i18n="analyse.message_vide">Renseignez les métaux A et B ci-dessus (composition) pour afficher le diagramme de Schaeffler et la sélection des apports.</p>
           </section>
 
           <div data-analyse="contenu">
             <!-- CARTE 0 - Aciers non/faiblement alliés des deux côtés :
                  Schaeffler non pertinent (DECISIONS.md #32). -->
             <section class="carte carte--form" data-carte="carbone" hidden>
-              <h2 class="bloc__titre" data-i18n="analyse.carte_carbone_titre"></h2>
-              <p class="note" data-i18n="analyse.carbone_message"></p>
+              <h2 class="bloc__titre" data-i18n="analyse.carte_carbone_titre">Analyse thermique</h2>
+              <p class="note" data-i18n="analyse.carbone_message">Le diagramme de Schaeffler ne s'applique pas aux aciers non ou faiblement alliés. Pour cet assemblage, l'analyse pertinente est le risque de fissuration à froid, évalué ci-dessous par le carbone équivalent et la méthode de préchauffe la plus adaptée.</p>
               <dl class="ce-iiw-liste" data-liste="carbone-ce"></dl>
-              <p class="note" data-i18n="analyse.carbone_seuil"></p>
+              <p class="note" data-i18n="analyse.carbone_seuil">Seuil indicatif : soudable sans préchauffe si CE_IIW &lt; 0.42 %.</p>
 
               <!-- Une seule méthode de préchauffe visible à la fois -
                    choisirMethodePreachauffe() (core/prechauffe.js). -->
               <p class="note" data-methode-message></p>
 
               <div data-methode-bloc="seferian">
-                <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_seferian_titre"></h3>
+                <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_seferian_titre">Préchauffe - Séférian</h3>
                 <div class="tableau-defilant">
                   <table class="tableau">
                     <thead>
                       <tr>
-                        <th data-i18n="analyse.col_metal"></th>
-                        <th data-i18n="analyse.col_ceq_seferian"></th>
-                        <th data-i18n="analyse.col_ceqc_seferian"></th>
-                        <th data-i18n="analyse.col_tp"></th>
+                        <th data-i18n="analyse.col_metal">Métal</th>
+                        <th data-i18n="analyse.col_ceq_seferian">Ceq</th>
+                        <th data-i18n="analyse.col_ceqc_seferian">Ceq compensé</th>
+                        <th data-i18n="analyse.col_tp">Tp (°C)</th>
                       </tr>
                     </thead>
                     <tbody data-liste="seferian"></tbody>
@@ -333,9 +350,9 @@
               </div>
 
               <div data-methode-bloc="bwra">
-                <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_bwra_titre"></h3>
+                <h3 class="bloc__soustitre" data-i18n="analyse.prechauffe_bwra_titre">Préchauffe - BWRA</h3>
                 <div class="champ">
-                  <label class="champ__label" for="bwra-diametre" data-i18n="analyse.bwra_diametre_label"></label>
+                  <label class="champ__label" for="bwra-diametre" data-i18n="analyse.bwra_diametre_label">Diamètre électrode (BWRA)</label>
                   <select id="bwra-diametre" class="champ__select">
                     <option value="3.2">3.2 mm</option>
                     <option value="4">4 mm</option>
@@ -348,11 +365,11 @@
                   <table class="tableau">
                     <thead>
                       <tr>
-                        <th data-i18n="analyse.col_metal"></th>
-                        <th data-i18n="analyse.col_ceq_bwra"></th>
-                        <th data-i18n="analyse.col_indice_bwra"></th>
-                        <th data-i18n="analyse.col_tp"></th>
-                        <th data-i18n="analyse.col_tracabilite"></th>
+                        <th data-i18n="analyse.col_metal">Métal</th>
+                        <th data-i18n="analyse.col_ceq_bwra">Ceq BWRA</th>
+                        <th data-i18n="analyse.col_indice_bwra">Indice</th>
+                        <th data-i18n="analyse.col_tp">Tp (°C)</th>
+                        <th data-i18n="analyse.col_tracabilite">Traçabilité</th>
                       </tr>
                     </thead>
                     <tbody data-liste="bwra"></tbody>
@@ -363,46 +380,46 @@
 
             <!-- CARTE 1 - Diagramme de Schaeffler -->
             <section class="carte carte--form" data-carte="diagramme">
-              <h2 class="bloc__titre" data-i18n="analyse.carte_diagramme"></h2>
-              <p class="diagramme-introduction" data-i18n="analyse.diagramme_intro_court"></p>
-              <p class="note" data-heterogene-note hidden data-i18n="analyse.heterogene_note"></p>
+              <h2 class="bloc__titre" data-i18n="analyse.carte_diagramme">Diagramme de Schaeffler</h2>
+              <p class="diagramme-introduction" data-i18n="analyse.diagramme_intro_court">Une interprétation interactive du diagramme de Schaeffler : l'outil calcule la dilution, positionne le joint et classe les métaux d'apport. Les résultats restent des estimations métallurgiques.</p>
+              <p class="note" data-heterogene-note hidden data-i18n="analyse.heterogene_note">Assemblage hétérogène : l'analyse reste centrée sur le bain fondu et le diagramme de Schaeffler. Le préchauffage n'est pas calculé dans ce cas.</p>
               <div class="schaeffler-zone">
                 <svg id="schaeffler" class="schaeffler-svg" role="img" aria-label="Diagramme de Schaeffler"></svg>
               </div>
               <ul class="legende">
-                <li><span class="legende__pastille lg-a"></span><span data-i18n="analyse.leg_a"></span></li>
-                <li><span class="legende__pastille lg-b"></span><span data-i18n="analyse.leg_b"></span></li>
-                <li><span class="legende__pastille legende__pastille--carre lg-d"></span><span data-i18n="analyse.leg_dmelange"></span></li>
-                <li><span class="legende__pastille lg-c"></span><span data-i18n="analyse.leg_c"></span></li>
-                <li><span class="legende__pastille legende__pastille--triangle lg-j"></span><span data-i18n="analyse.leg_joint"></span></li>
-                <li><span class="legende__pastille lg-id"></span><span data-i18n="analyse.leg_ideale"></span></li>
-                <li><span class="legende__pastille lg-ac"></span><span data-i18n="analyse.leg_acceptable"></span></li>
-                <li><span class="legende__pastille legende__pastille--carre lg-amf"></span><span data-i18n="analyse.leg_amf"></span></li>
-                <li><span class="legende__pastille lg-s"></span><span data-i18n="analyse.leg_zone_s"></span></li>
+                <li><span class="legende__pastille lg-a"></span><span data-i18n="analyse.leg_a">Métal A</span></li>
+                <li><span class="legende__pastille lg-b"></span><span data-i18n="analyse.leg_b">Métal B</span></li>
+                <li><span class="legende__pastille legende__pastille--carre lg-d"></span><span data-i18n="analyse.leg_dmelange">Dilution A+B</span></li>
+                <li><span class="legende__pastille lg-c"></span><span data-i18n="analyse.leg_c">Métal d'apport</span></li>
+                <li><span class="legende__pastille legende__pastille--triangle lg-j"></span><span data-i18n="analyse.leg_joint">Joint</span></li>
+                <li><span class="legende__pastille lg-id"></span><span data-i18n="analyse.leg_ideale">1. Zone idéale (5 à 15 % de ferrite)</span></li>
+                <li><span class="legende__pastille lg-ac"></span><span data-i18n="analyse.leg_acceptable">2. Zone acceptable</span></li>
+                <li><span class="legende__pastille legende__pastille--carre lg-amf"></span><span data-i18n="analyse.leg_amf">Zone A+M+F grisée</span></li>
+                <li><span class="legende__pastille lg-s"></span><span data-i18n="analyse.leg_zone_s">3. Corridor de sécurité blanc</span></li>
               </ul>
               <details class="diagramme-explication">
-                <summary data-i18n="analyse.diagramme_difference_titre"></summary>
+                <summary data-i18n="analyse.diagramme_difference_titre">Pourquoi ce diagramme diffère-t-il des supports de cours ?</summary>
                 <div class="diagramme-explication__contenu">
-                  <p data-i18n="analyse.diagramme_difference_intro"></p>
+                  <p data-i18n="analyse.diagramme_difference_intro">Le graphique de Soudabilite.com reprend les principes du diagramme de Schaeffler historique et les transforme en une aide à la décision interactive.</p>
 
                   <section>
-                    <h3 data-i18n="analyse.diagramme_difference_calcul_titre"></h3>
-                    <p data-i18n="analyse.diagramme_difference_calcul_texte"></p>
+                    <h3 data-i18n="analyse.diagramme_difference_calcul_titre">Un calcul adapté à votre assemblage</h3>
+                    <p data-i18n="analyse.diagramme_difference_calcul_texte">L'outil positionne le métal A, le métal B, leur dilution, le métal d'apport et la composition finale estimée du joint. Vous voyez directement l'influence du mélange sur la structure métallurgique attendue.</p>
                   </section>
 
                   <section>
-                    <h3 data-i18n="analyse.diagramme_difference_traces_titre"></h3>
-                    <p data-i18n="analyse.diagramme_difference_traces_texte"></p>
+                    <h3 data-i18n="analyse.diagramme_difference_traces_titre">Des tracés numériques au service du calcul</h3>
+                    <p data-i18n="analyse.diagramme_difference_traces_texte">Les frontières historiques ont été digitalisées et certaines lignes intermédiaires sont obtenues par interpolation. Leur apparence peut donc différer légèrement des reproductions imprimées ou des supports de cours, sans modifier les équivalents chrome et nickel utilisés pour positionner le joint.</p>
                   </section>
 
                   <section>
-                    <h3 data-i18n="analyse.diagramme_difference_lecture_titre"></h3>
-                    <p data-i18n="analyse.diagramme_difference_lecture_texte"></p>
+                    <h3 data-i18n="analyse.diagramme_difference_lecture_titre">Trois niveaux de lecture</h3>
+                    <p data-i18n="analyse.diagramme_difference_lecture_texte">La zone bleue représente la cible prioritaire retenue par l'outil. La zone verte élargit la plage à examiner. Le corridor blanc conserve un repère historique indicatif lorsque les deux premières zones ne sont pas atteintes.</p>
                   </section>
 
                   <section>
-                    <h3 data-i18n="analyse.diagramme_difference_limite_titre"></h3>
-                    <p data-i18n="analyse.diagramme_difference_limite_texte"></p>
+                    <h3 data-i18n="analyse.diagramme_difference_limite_titre">Une estimation, pas une qualification</h3>
+                    <p data-i18n="analyse.diagramme_difference_limite_texte">Le diagramme estime une tendance métallurgique à partir des compositions et de la dilution saisies. Il ne garantit ni la structure réelle du métal fondu ni les propriétés du joint. La validation définitive repose sur le DMOS, la QMOS applicable et, lorsque nécessaire, une mesure réelle de la ferrite.</p>
                   </section>
                 </div>
               </details>
@@ -411,36 +428,36 @@
             <!-- Génération de la fiche placée au point logique du parcours :
                  après lecture du diagramme, avant comparaison des apports. -->
             <div class="pdf-action">
-              <button type="button" id="btn-pdf" class="btn-primaire" data-i18n="fiche.bouton"></button>
+              <button type="button" id="btn-pdf" class="btn-primaire" data-i18n="fiche.bouton">Générer la fiche d'aide au DMOS préparatoire</button>
             </div>
 
             <!-- CARTE 2 - Sélection des 7 apports les plus robustes -->
             <section class="carte carte--form" data-carte="apports">
-              <h2 class="bloc__titre" data-i18n="analyse.carte_apports"></h2>
-              <p class="note" data-apports-note data-i18n="analyse.apports_note"></p>
-              <p class="note" data-duplex-indisponible hidden data-i18n="analyse.duplex_indisponible"></p>
+              <h2 class="bloc__titre" data-i18n="analyse.carte_apports">Sélection des 7 apports les plus robustes</h2>
+              <p class="note" data-apports-note data-i18n="analyse.apports_note">Chaque apport est contrôlé sur toute la plage de dilution du procédé. Le classement retient d'abord le pire résultat rencontré, puis la part de la plage située en zone idéale. Cliquez une ligne pour afficher le détail sur le diagramme.</p>
+              <p class="note" data-duplex-indisponible hidden data-i18n="analyse.duplex_indisponible">Branche duplex/superduplex en cours de validation - la sélection d'apport n'est pas encore proposée pour ces métaux de base.</p>
               <div class="tableau-defilant" data-zone-apports>
                 <table class="tableau tableau--apports">
                   <thead>
                     <tr>
-                      <th data-i18n="analyse.col_rang"></th>
-                      <th data-i18n="analyse.col_designation"></th>
-                      <th data-i18n="analyse.col_plage"></th>
-                      <th data-i18n="analyse.col_couverture_ideale"></th>
-                      <th data-i18n="analyse.col_verdict"></th>
+                      <th data-i18n="analyse.col_rang">Rang</th>
+                      <th data-i18n="analyse.col_designation">Désignation</th>
+                      <th data-i18n="analyse.col_plage">Plage testée</th>
+                      <th data-i18n="analyse.col_couverture_ideale">Part en zone idéale</th>
+                      <th data-i18n="analyse.col_verdict">Verdict</th>
                     </tr>
                   </thead>
                   <tbody data-liste="apports"></tbody>
                 </table>
               </div>
-              <p class="note" data-aide-dilution hidden data-i18n="analyse.aide_dilution"></p>
-              <button type="button" class="btn-lien" data-toggle-comp-c aria-expanded="false" data-i18n="analyse.comp_manuelle_c"></button>
+              <p class="note" data-aide-dilution hidden data-i18n="analyse.aide_dilution">Aucun apport ne reste dans une zone admise sur toute la plage du procédé. Resserrez la plage uniquement si vous disposez d'une mesure ou d'un retour d'atelier fiable.</p>
+              <button type="button" class="btn-lien" data-toggle-comp-c aria-expanded="false" data-i18n="analyse.comp_manuelle_c">+ composition manuelle (apport hors-liste)</button>
               <div class="comp-manuelle" data-comp="c" hidden>
                 <label class="champ">
-                  <span class="champ__label" data-i18n="analyse.apport_manuel_nom"></span>
-                  <input class="champ__input" data-apport-manuel-nom type="text" data-i18n-attr="placeholder:analyse.apport_manuel_ph" />
+                  <span class="champ__label" data-i18n="analyse.apport_manuel_nom">Désignation de l'apport proposé</span>
+                  <input class="champ__input" data-apport-manuel-nom type="text" data-i18n-attr="placeholder:analyse.apport_manuel_ph" / placeholder="Ex. ER309L proposé">
                 </label>
-                <p class="note" data-i18n="analyse.apport_manuel_note"></p>
+                <p class="note" data-i18n="analyse.apport_manuel_note">L'apport manuel est recalculé et classé avec les mêmes règles que la banque. Son rang réel reste affiché même s'il est hors du top 7.</p>
               </div>
             </section>
 
@@ -452,23 +469,23 @@
 
             <!-- CARTE 3 - Synthèse Schaeffler -->
             <section class="carte carte--form" data-carte="synthese">
-              <h2 class="bloc__titre" data-i18n="analyse.carte_synthese"></h2>
+              <h2 class="bloc__titre" data-i18n="analyse.carte_synthese">Synthèse Schaeffler</h2>
               <div data-synth="verdict"></div>
               <div class="tableau-defilant">
                 <table class="tableau">
                   <thead>
                     <tr>
-                      <th data-i18n="analyse.col_metal"></th>
-                      <th data-i18n="analyse.col_creq_s"></th>
-                      <th data-i18n="analyse.col_nieq_s"></th>
-                      <th data-i18n="analyse.col_creq_d"></th>
-                      <th data-i18n="analyse.col_nieq_d"></th>
+                      <th data-i18n="analyse.col_metal">Métal</th>
+                      <th data-i18n="analyse.col_creq_s">Cr éq Schaeffler</th>
+                      <th data-i18n="analyse.col_nieq_s">Ni éq Schaeffler</th>
+                      <th data-i18n="analyse.col_creq_d">Cr éq DeLong</th>
+                      <th data-i18n="analyse.col_nieq_d">Ni éq DeLong</th>
                     </tr>
                   </thead>
                   <tbody data-synth="valeurs"></tbody>
                 </table>
               </div>
-              <p class="note" data-i18n="analyse.ferrite_note"></p>
+              <p class="note" data-i18n="analyse.ferrite_note">% ferrite estimé par interpolation entre les iso-ferrite du diagramme de Schaeffler. Les duplex sont hors périmètre actuel.</p>
             </section>
           </div>
         </section>
@@ -502,7 +519,7 @@
     <section id="fiche-impression" aria-hidden="true">
       <div class="fiche-page">
         <header class="fiche-entete">
-        <h1 data-i18n="fiche.titre"></h1>
+        <p class="fiche-titre" data-i18n="fiche.titre"></p>
         <p class="fiche-meta">
           <span data-i18n="fiche.date"></span> :
           <strong data-fiche="date"></strong>
@@ -581,18 +598,18 @@
       </section>
 
         <footer class="fiche-pied">
-          <a data-i18n="fiche.signature_pied" data-i18n-attr="href:presentation.linkedin_url"></a>
+          <a data-i18n="fiche.signature_pied" data-i18n-attr="href:presentation.linkedin_url" href="https://www.linkedin.com/in/tonysanchez38/">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</a>
         </footer>
       </div>
 
       <div class="fiche-page fiche-page--diagramme">
         <section class="fiche-section fiche-diagramme">
-          <h2 data-i18n="analyse.carte_diagramme"></h2>
+          <h2 data-i18n="analyse.carte_diagramme">Diagramme de Schaeffler</h2>
           <img id="schaeffler-print" alt="Diagramme de Schaeffler" />
         </section>
 
         <footer class="fiche-pied">
-          <a data-i18n="fiche.signature_pied" data-i18n-attr="href:presentation.linkedin_url"></a>
+          <a data-i18n="fiche.signature_pied" data-i18n-attr="href:presentation.linkedin_url" href="https://www.linkedin.com/in/tonysanchez38/">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</a>
         </footer>
       </div>
     </section>

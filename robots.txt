@@ -1,3 +1,12 @@
 User-agent: *
 Allow: /
+
+# Fichiers de travail du projet : lisibles dans le depot, exclus de l'index.
+Disallow: /*.md$
+Disallow: /*.zip$
+Disallow: /fr.json
+Disallow: /main.css
+Disallow: /tests/
+Disallow: /outils/
+
 Sitemap: https://soudabilite.com/sitemap.xml

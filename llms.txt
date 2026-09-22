@@ -1,0 +1,15 @@
+# Soudabilite.com
+
+> Outil gratuit d'aide à la préparation du soudage, en français, destiné aux étudiants, techniciens méthodes et coordinateurs en soudage. Il positionne un joint soudé sur le diagramme de Schaeffler en tenant compte de la dilution, classe les métaux d'apport, calcule le carbone équivalent, l'énergie de soudage en kJ/cm et la température de préchauffage. Il ne qualifie pas un mode opératoire et ne remplace ni un DMOS qualifié ni une QMOS.
+
+## Pages
+
+- [Calculateur : analyse thermique et métallurgique](https://soudabilite.com/analyse-thermique-metallurgique.html) : saisie des métaux de base, du procédé et du joint, diagramme de Schaeffler, dilution, classement de 7 métaux d'apport, préchauffage.
+- [Bibliothèque des matériaux](https://soudabilite.com/bibliotheque-materiaux.html) : 52 métaux de base et 194 métaux d'apport, compositions chimiques et équivalents Cr et Ni de Schaeffler, classés par procédé ISO 4063.
+- [Guide métallurgique](https://soudabilite.com/guide-metallurgique.html) : zones métallurgiques, dilution, choix du métal d'apport, fissuration à froid et à chaud, préchauffage.
+
+## Conventions
+
+- Énergie de soudage en kJ/cm, selon NF EN 1011-1.
+- Équivalents Schaeffler : Cr_eq = Cr + Mo + 1,5 Si + 0,5 Nb ; Ni_eq = Ni + 30 C + 0,5 Mn.
+- Teneur en ferrite exprimée en pourcentage interpolé sur le diagramme de Schaeffler, distincte du Ferrite Number du WRC-1992.
