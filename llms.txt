@@ -17,5 +17,5 @@
 
 ## English
 
-- [Weldability calculator, English overview](https://soudabilite.com/en/): what the tool does, who it is for, standards used. The calculator interface is in French.
-- [How to calculate the preheat temperature before welding](https://soudabilite.com/en/welding-preheat-calculation.html): carbon equivalent, Seferian and BWRA methods, worked example.
+- [Weldability calculator, English overview](https://soudabilite.com/en.html): what the tool does, who it is for, standards used. The calculator interface is in French.
+- [How to calculate the preheat temperature before welding](https://soudabilite.com/welding-preheat-calculation.html): carbon equivalent, Seferian and BWRA methods, worked example.

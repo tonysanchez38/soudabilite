@@ -1,252 +1,337 @@
 <!DOCTYPE html>
 <!-- Calculateur de Soudabilité - soudabilite.com
-     Conception et développement : Tony SANCHEZ
-     Page de contenu en HTML statique (pas d'i18n) pour l'indexation.
-     Toutes les valeurs chiffrées sont issues du moteur de calcul en ligne. -->
-<html lang="en">
+     Conception et développement : Tony SANCHEZ -->
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
     <meta name="author" content="Tony SANCHEZ" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Free weldability calculator: Schaeffler diagram with dilution, filler metal selection, carbon equivalent, heat input and preheat. Based on EN standards." />
-    <title>Free online weldability calculator | Soudabilite.com</title>
-    <link rel="canonical" href="https://soudabilite.com/en/" />
+    <meta
+      name="description"
+      content="Préparez un DMOS en un seul paramétrage : analyse de Schaeffler, préchauffage, métaux d'apport, réglages de soudage et impression des résultats."
+    />
+    <!-- Titre en dur (SEO) : ne pas piloter par i18n, doit être présent
+         sans exécution de JS pour l'indexation. -->
+    <title>Calculateur de soudabilité, Schaeffler et préchauffage</title>
+    <link rel="canonical" href="https://soudabilite.com/" />
     <link rel="alternate" hreflang="fr" href="https://soudabilite.com/" />
-    <link rel="alternate" hreflang="en" href="https://soudabilite.com/en/" />
+    <link rel="alternate" hreflang="en" href="https://soudabilite.com/en.html" />
     <link rel="alternate" hreflang="x-default" href="https://soudabilite.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_GB" />
-    <meta property="og:title" content="Free online weldability calculator" />
-    <meta property="og:description" content="Free weldability calculator: Schaeffler diagram with dilution, filler metal selection, carbon equivalent, heat input and preheat. Based on EN standards." />
-    <meta property="og:url" content="https://soudabilite.com/en/" />
+    <meta property="og:title" content="Calculateur de soudabilité, Schaeffler et préchauffage" />
+    <meta
+      property="og:description"
+      content="Un seul paramétrage pour obtenir l'analyse de Schaeffler ou le calcul de préchauffage, les métaux d'apport, les réglages et l'impression des résultats."
+    />
+    <meta property="og:url" content="https://soudabilite.com/" />
     <meta property="og:image" content="https://soudabilite.com/apercu-social-github.png" />
     <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="640" />
+    <meta property="og:image:alt" content="Soudabilite.com, calculateur de soudabilité en ligne gratuit" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="twitter:title" content="Calculateur de soudabilité, Schaeffler et préchauffage" />
+    <meta
+      name="twitter:description"
+      content="Un seul paramétrage pour analyser un assemblage, lire les résultats et préparer les paramètres de soudage."
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="/assets/css/main.css?v=20260921-charte-v3" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260921-charte-v3" />
+    <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
+         (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
+         les bloqueurs de pub (AdGuard etc.) - DECISIONS.md #22. -->
     <script
       data-goatcounter="https://soudabilite.com/gc/count"
       async
       src="/gc/count.js"
     ></script>
+    <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="assets/css/main.css?v=20260921-charte-v3" as="style" />
+    <script type="module" src="assets/js/app.js"></script>
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
     {
-      "@type": "WebPage",
-      "name": "Free online weldability calculator",
-      "url": "https://soudabilite.com/en/",
-      "inLanguage": "en"
-    },
-    {
-      "@type": "WebApplication",
-      "name": "Soudabilite.com weldability calculator",
-      "url": "https://soudabilite.com/analyse-thermique-metallurgique.html",
-      "applicationCategory": "EngineeringApplication",
-      "operatingSystem": "All web browsers",
-      "inLanguage": "fr",
-      "description": "Places a weld joint on the Schaeffler diagram with dilution, ranks 7 filler metals, calculates carbon equivalent, heat input and preheat temperature.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR"
-      },
-      "isAccessibleForFree": true
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://soudabilite.com/#website",
+          "name": "Soudabilite.com",
+          "url": "https://soudabilite.com/",
+          "inLanguage": "fr-FR"
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://soudabilite.com/#application",
+          "name": "Calculateur de Soudabilité",
+          "alternateName": "Soudabilite.com",
+          "url": "https://soudabilite.com/",
+          "applicationCategory": "EngineeringApplication",
+          "applicationSubCategory": "Calculateur de soudabilité et aide à la préparation du DMOS",
+          "operatingSystem": "Web",
+          "browserRequirements": "Navigateur web moderne avec JavaScript",
+          "isAccessibleForFree": true,
+          "inLanguage": "fr-FR",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          "description": "Un seul paramétrage des métaux de base, du procédé et du joint pour obtenir une analyse de Schaeffler ou un calcul de préchauffage, une aide à la lecture, des réglages de soudage et l'impression des paramètres.",
+          "featureList": [
+            "Analyse d'un assemblage sur le diagramme de Schaeffler",
+            "Sélection de métaux d'apport",
+            "Calcul du carbone équivalent",
+            "Calcul de la température de préchauffage",
+            "Aide à la lecture des résultats métallurgiques",
+            "Réglage des paramètres du poste à souder",
+            "Impression des paramètres"
+          ],
+          "audience": [
+            {
+              "@type": "EducationalAudience",
+              "educationalRole": "student",
+              "audienceType": "Étudiants en BTS CRCI et personnes en formation de soudeur, tuyauteur ou chaudronnier"
+            },
+            {
+              "@type": "EducationalAudience",
+              "educationalRole": "teacher",
+              "audienceType": "Formateurs et enseignants en soudage, chaudronnerie et tuyauterie"
+            },
+            {
+              "@type": "ProfessionalAudience",
+              "audienceType": "Artisans, entrepreneurs, préparateurs, bureaux méthodes, coordinateurs et ingénieurs en soudage"
+            }
+          ],
+          "author": {
+            "@type": "Person",
+            "name": "Tony SANCHEZ"
+          },
+          "creator": {
+            "@type": "Organization",
+            "name": "Bid Consulting",
+            "url": "https://bid-consulting.fr/"
+          }
+        }
+      ]
     }
-  ]
-}
     </script>
-    <!-- Navigation : libelles en dur (pas de data-i18n). -->
+    <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
+         s'affichent sans dependre du chargement de fr.json. -->
     <style>
       .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:center}
       .nav__lien{white-space:nowrap}
       @media (max-width:720px){
         .nav__lien{font-size:.86rem}
       }
-
-      /* ================= Guide métallurgique ================= */
-      .gm{display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
-      .gm__sommaire{font-size:var(--fs-sm);width:100%;text-align:center;margin-top:var(--sp-4)}
-      .gm__sommaire p{margin:0 0 var(--sp-2);color:var(--texte-faible);font-weight:600}
-      .gm__sommaire ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem}
-      .gm__sommaire a{display:block;padding:.35rem .8rem;color:var(--texte-doux);line-height:1.35;border:1px solid var(--gris-bordure);border-radius:999px}
-      .gm__sommaire a:hover{color:var(--encre);text-decoration:none;border-color:var(--bleu)}
-      .gm__corps{min-width:0;width:100%;max-width:760px}
-      .gm__tete{margin-bottom:var(--sp-5);text-align:center}
-      .gm__tete p{text-align:left}
-      .gm__tete .gm__chapo{text-align:center}
-      .gm__tete h1{font-size:var(--fs-2xl);line-height:1.2;margin:0 0 var(--sp-4);letter-spacing:-.015em}
-      .gm__chapo{font-size:var(--fs-lg);line-height:1.6;color:var(--encre);margin:0 0 var(--sp-3)}
-      .gm section{padding-top:var(--sp-6);margin-top:var(--sp-6);border-top:1px solid var(--gris-bordure);scroll-margin-top:var(--sp-4)}
-      .gm h2{font-size:var(--fs-xl);line-height:1.25;margin:0 0 var(--sp-4);color:var(--bleu);text-align:center}
-      .gm h3{font-size:var(--fs-lg);margin:var(--sp-5) 0 var(--sp-2);color:var(--encre)}
-      .gm p,.gm li{line-height:1.65}
-      .gm p{margin:0 0 var(--sp-3)}
-      .gm ul{margin:0 0 var(--sp-4);padding-left:1.2rem}
-      .gm li{margin-bottom:.35rem}
-      .gm strong{color:var(--encre)}
-      .gm__doux{color:var(--texte-doux);font-size:var(--fs-sm)}
-      .fil{margin:var(--sp-5) 0 var(--sp-4);width:100%;height:auto;display:block;aspect-ratio:760/180}
-      .fil text{font-family:var(--font-sans)}
-      .duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin:var(--sp-4) 0}
-      .fiche{background:var(--surface);border:1px solid var(--gris-bordure);border-radius:var(--radius);padding:var(--sp-4) var(--sp-5)}
-      .fiche h3{margin-top:0}
-      .fiche dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:.4rem var(--sp-3);font-size:var(--fs-sm)}
-      .fiche dt{color:var(--texte-faible)}
-      .fiche dd{margin:0;line-height:1.5}
-      .fiche__nuances{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--texte-doux);margin:0 0 var(--sp-3)}
-      .encart{border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-4) 0;border-left:3px solid}
-      .encart p:last-child,.encart ul:last-child{margin-bottom:0}
-      .encart__titre{font-weight:700;margin:0 0 .35rem}
-      .encart--alerte{background:var(--ambre-voile);border-color:var(--ambre)}
-      .encart--alerte .encart__titre{color:var(--ambre)}
-      .encart--pratique{background:var(--vert-voile);border-color:var(--vert)}
-      .encart--pratique .encart__titre{color:var(--vert)}
-      .encart--outil{background:var(--bleu-voile);border-color:var(--bleu)}
-      .encart--outil .encart__titre{color:var(--bleu)}
-      .formule{font-family:var(--font-mono);font-size:.95rem;background:var(--fond);border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-3) 0 var(--sp-4);overflow-x:auto;white-space:nowrap;line-height:1.9}
-      .formule sub{font-size:.75em}
-      .frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .3em}
-      .frac>span:first-child{border-bottom:1px solid var(--encre);padding:0 .3em}
-      .frac>span:last-child{padding:0 .3em}
-      .defile{overflow-x:auto;margin:var(--sp-4) 0;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm)}
-      .gm table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
-      .gm th,.gm td{padding:.6rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--gris-bordure);line-height:1.5}
-      .gm th{background:var(--gris-fond);color:var(--encre);font-weight:600}
-      .gm tr:last-child td{border-bottom:0}
-      .gm td:first-child{font-weight:600;color:var(--encre)}
-      .schema{margin:var(--sp-4) 0;text-align:center}
-      .schema svg{width:100%;height:auto;display:block;margin:0 auto}
-      .schema figcaption{font-size:var(--fs-xs);color:var(--texte-faible);margin-top:var(--sp-2)}
-      .schema--triangle svg{max-width:460px;aspect-ratio:460/330}
-      .schema--coupe svg{max-width:560px;aspect-ratio:560/210}
-      .zones{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);margin:var(--sp-4) 0}
-      .zone{border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4)}
-      .zone h3{font-size:var(--fs-base);margin:0 0 .3rem}
-      .zone p{font-size:var(--fs-sm);margin:0;color:var(--texte-doux)}
-      .zone--cible{border-color:var(--bleu-bordure);background:var(--bleu-voile)}
-      .check{list-style:none;padding:0;counter-reset:etape}
-      .check li{counter-increment:etape;position:relative;padding:var(--sp-3) var(--sp-4) var(--sp-3) 3rem;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);margin-bottom:var(--sp-2)}
-      .check li::before{content:counter(etape);position:absolute;left:var(--sp-4);top:var(--sp-3);font-weight:700;color:var(--bleu);font-family:var(--font-mono)}
-      .cta{display:table;margin-left:auto;margin-right:auto;margin-top:var(--sp-2);padding:.55rem 1rem;border-radius:var(--radius-sm);background:var(--bleu-fonce);color:var(--blanc);font-weight:600;font-size:var(--fs-sm)}
-      .cta:hover{background:var(--bleu);color:var(--fond);text-decoration:none}
-      .cta:focus-visible,.gm a:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
-      .gm__cloture{font-size:var(--fs-lg);font-weight:600;color:var(--encre);margin-top:var(--sp-5);text-align:center}
-      .sources{font-size:var(--fs-sm);color:var(--texte-doux)}
-      @media (max-width:640px){
-        .duo,.zones{grid-template-columns:1fr}
-        .gm__tete h1{font-size:1.65rem}
-        .fiche dl{grid-template-columns:1fr}
-        .fiche dt{margin-top:.3rem}
-      }
-      @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
     </style>
   </head>
   <body>
-    <!-- ===================== Navigation bar ===================== -->
+    <!-- ===================== Barre de navigation ===================== -->
     <header class="topbar">
       <div class="conteneur topbar__inner">
-        <a class="nav__marque" href="/en/">
-          <img class="nav__logo" src="/favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
+        <a class="nav__marque" href="/">
+          <img class="nav__logo" src="favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
           <span>www.soudabilite.com</span>
         </a>
-        <nav class="nav" aria-label="Main navigation">
-          <a class="nav__lien is-active" href="/en/" aria-current="page">Home</a>
-          <a class="nav__lien nav__lien--principal" href="/analyse-thermique-metallurgique.html" hreflang="fr">Calculator (FR)</a>
-          <a class="nav__lien" href="/en/welding-preheat-calculation.html">Preheat guide</a>
-          <a class="nav__lien" href="/bibliotheque-materiaux.html" hreflang="fr">Materials library (FR)</a>
-          <a class="nav__lien nav__lang" href="/" hreflang="fr" lang="fr">FR</a>
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__lien is-active" href="/" aria-current="page">Accueil</a>
+          <a class="nav__lien" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien" href="guide-metallurgique.html">Guide métallurgique</a>
+          <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
+          <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
+          <a class="nav__lien nav__lang" href="/en.html" hreflang="en" lang="en">EN</a>
         </nav>
       </div>
     </header>
 
     <!-- ========================= Contenu ============================= -->
     <main class="page">
-      <div class="conteneur gm">
+      <div class="conteneur presentation">
+        <!-- Hero : titre + sous-titre + description (3-4 lignes) -->
+        <section class="hero">
+          <h1 class="hero__titre" data-i18n="app.titre">Calculateur de soudabilité en ligne</h1>
+          <p class="hero__sous-titre" data-i18n="presentation.sous_titre">Aide à la préparation du DMOS</p>
+          <div class="hero__actions">
+            <a class="btn-primaire hero__cta" href="analyse-thermique-metallurgique.html">Lancer une analyse</a>
+            <p class="hero__aide">
+              Renseignez vos métaux et votre procédé. L'outil choisit
+              automatiquement l'analyse adaptée.
+            </p>
+          </div>
+          <p class="note" data-compteur-page hidden></p>
+        </section>
 
-        <article class="gm__corps">
+        <section class="carte presentation-seo" aria-labelledby="titre-outil-soudabilite">
+          <h2 id="titre-outil-soudabilite" class="bloc__titre">
+            Soudabilite.com : un outil d'aide à la préparation du DMOS
+          </h2>
+          <p>
+            Un seul paramétrage suffit pour préparer votre opération de
+            soudage. Selon les matériaux sélectionnés, Soudabilite.com réalise
+            automatiquement une analyse de Schaeffler ou un calcul de
+            préchauffage, puis vous aide à lire les résultats, choisir un métal
+            d'apport et préparer les réglages du poste.
+          </p>
+        </section>
 
-          <header class="gm__tete">
-            <h1>Free online weldability calculator</h1>
-            <p class="gm__chapo">A carbon steel pipe to weld onto a 304L stainless steel nozzle. The drawing gives no filler metal. The question comes before the arc is struck: what will I get in the weld metal, and will the joint hold?</p>
-            <p>I built soudabilite.com to answer this question before the first test piece. I work as a technical preparer in industrial piping, and I am a BTS CRCI student. The tool is free, with no account, and every formula refers to its standard.</p>
-            <a class="cta" href="/analyse-thermique-metallurgique.html" hreflang="fr">Open the calculator (French interface)</a>
-          </header>
+        <section class="parcours-outil" aria-labelledby="titre-parcours-outil">
+          <h2 id="titre-parcours-outil" class="bloc__titre">Comment ça marche ?</h2>
+          <ol class="parcours-outil__liste">
+            <li>
+              <span class="parcours-outil__numero">1</span>
+              <strong>Renseigner</strong>
+              <span>Métaux, procédé et joint</span>
+            </li>
+            <li>
+              <span class="parcours-outil__numero">2</span>
+              <strong>Analyser</strong>
+              <span>Schaeffler ou préchauffage</span>
+            </li>
+            <li>
+              <span class="parcours-outil__numero">3</span>
+              <strong>Exploiter</strong>
+              <span>Métal d'apport, réglages et impression</span>
+            </li>
+          </ol>
+        </section>
 
-          <section id="what-it-does" aria-labelledby="t-does">
-            <h2 id="t-does">What the calculator does</h2>
-            <p><strong>You enter two base metals, a welding process and a joint. The tool chooses the right analysis.</strong></p>
-            <ul>
-              <li><strong>Stainless steel or dissimilar joints.</strong> It calculates the chromium and nickel equivalents, builds the dilution line, places the joint on the Schaeffler diagram, estimates the ferrite content and ranks 7 filler metals over the full dilution range of the process.</li>
-              <li><strong>Non-alloy and low-alloy steels.</strong> It calculates the carbon equivalent and the preheat temperature with the Seferian or BWRA method.</li>
-              <li><strong>Heat input</strong> with the thermal efficiency factors of EN 1011-1, shown in kJ/cm (1 kJ/mm = 10 kJ/cm).</li>
-              <li><strong>Export</strong> of a preparation sheet, which can be used as a preliminary welding procedure specification (pWPS) according to EN ISO 15607.</li>
-            </ul>
-            <p>The <a href="/bibliotheque-materiaux.html" hreflang="fr">materials library</a> lists 52 base metals and 194 filler metals, with their full chemical composition.</p>
-          </section>
-
-          <section id="for-whom" aria-labelledby="t-whom">
-            <h2 id="t-whom">Who it is for</h2>
-            <p>Welding students, welding coordinators, process technicians and technical preparers. Anyone who must choose a filler metal or check a preheat temperature before writing a pWPS.</p>
-          </section>
-
-          <section id="what-it-does-not" aria-labelledby="t-not">
-            <h2 id="t-not">What it does not do</h2>
-            <p><strong>The tool prepares, it does not qualify.</strong> It does not replace a qualified WPS, a welding procedure qualification record (WPQR) or a procedure test according to EN ISO 15614-1. The values it gives are starting points, to check against tests and a macro-examination of the real joint.</p>
-          </section>
-
-          <section id="guides" aria-labelledby="t-guides">
-            <h2 id="t-guides">Guides in English</h2>
-            <ul>
-              <li><a href="/en/welding-preheat-calculation.html">How to calculate the preheat temperature before welding</a>: carbon equivalent, Seferian and BWRA methods, worked example on a P355NL1 flange.</li>
-            </ul>
-            <div class="encart encart--outil">
-              <p class="encart__titre">About the language</p>
-              <p>The calculator interface is in French for now. An English interface is in preparation. The diagram, the numbers and the steel grades can already be read without French.</p>
+        <section class="seo-complements" aria-label="Fonctionnement et publics du calculateur">
+          <details class="seo-accordeon seo-accordeon--exemple">
+            <summary>Voir un exemple concret d’analyse</summary>
+            <div class="seo-accordeon__contenu">
+              <p>
+                Exemple : assemblage d’un acier S235JR avec un acier inoxydable
+                316L, soudé avec le procédé TIG.
+              </p>
+              <p>
+                À partir de ce seul paramétrage, Soudabilite.com reconnaît un
+                assemblage hétérogène et lance automatiquement l’analyse de
+                Schaeffler.
+              </p>
+              <ul>
+                <li>positionnement du joint sur le diagramme de Schaeffler ;</li>
+                <li>proposition de métaux d’apport adaptés ;</li>
+                <li>aide simple à la lecture des résultats ;</li>
+                <li>indications pour préparer les réglages du poste ;</li>
+                <li>impression des paramètres et des résultats en PDF.</li>
+              </ul>
+              <p>
+                Le même parcours oriente automatiquement un assemblage homogène
+                en acier carbone vers le calcul du carbone équivalent et de la
+                température de préchauffage.
+              </p>
             </div>
+          </details>
+          <details class="seo-accordeon">
+            <summary>Ce que vous obtenez en un seul paramétrage</summary>
+            <p>
+              Après la sélection des métaux de base, du procédé de soudage et de
+              la géométrie du joint, Soudabilite.com oriente automatiquement
+              l'analyse. Pour un assemblage hétérogène ou inoxydable, l'outil
+              positionne le joint sur le diagramme de Schaeffler et propose les
+              métaux d'apport adaptés. Pour un assemblage homogène en acier
+              carbone, il calcule le carbone équivalent et la température de
+              préchauffage. Les résultats comprennent des définitions simples,
+              une aide à la lecture, des indications de réglage du poste à souder
+              et l'impression des paramètres.
+            </p>
+          </details>
+          <details class="seo-accordeon">
+            <summary>À qui s'adresse le calculateur ?</summary>
+            <p>
+              Le calculateur s'adresse aux étudiants en BTS CRCI et aux personnes
+              en formation de soudeur, tuyauteur ou chaudronnier, et aux
+              formateurs et enseignants. Il peut également accompagner les
+              artisans, entrepreneurs, bureaux méthodes, préparateurs,
+              coordinateurs de soudage, ingénieurs soudeurs et professionnels de
+              la qualification des modes opératoires. Il présente enfin une
+              réalisation concrète aux recruteurs et responsables des ressources
+              humaines recherchant des compétences en soudage, métallurgie,
+              méthodes et outils numériques.
+            </p>
+          </details>
+        </section>
+
+        <!-- Onglets puis cadre normatif, pleine largeur et centrés (charte v2) -->
+        <div class="grille-presentation grille-presentation--pile">
+          <!-- Sommaire des onglets (rempli par app.js depuis fr.json) -->
+          <section aria-labelledby="titre-sommaire">
+            <h2
+              id="titre-sommaire"
+              class="bloc__titre"
+            >Les rubriques du site</h2>
+            <div class="cartes">
+            <a class="carte carte--onglet" href="analyse-thermique-metallurgique.html">
+              <h3 class="carte__titre">Analyse thermique et métallurgique</h3>
+              <p class="carte__texte">Saisie des métaux de base, du procédé et de la géométrie du joint, puis analyse automatique, sélection des 7 apports les plus robustes et synthèse sur la même page.</p>
+            </a>
+            <a class="carte carte--onglet" href="guide-metallurgique.html">
+              <h3 class="carte__titre">Guide métallurgique</h3>
+              <p class="carte__texte">Acier carbone ou inox, zones métallurgiques, réglages du poste, dilution, choix du métal d'apport, fissuration et préchauffe.</p>
+            </a>
+            <a class="carte carte--onglet" href="bibliotheque-materiaux.html">
+              <h3 class="carte__titre">Bibliothèque des matériaux</h3>
+              <p class="carte__texte">Nuances d'aciers et métaux d'apport de référence, avec saisie libre pour une nuance hors-liste.</p>
+            </a>
+            <a class="carte carte--onglet" href="reglementation-dmos.html">
+              <h3 class="carte__titre">Réglementation et DMOS</h3>
+              <p class="carte__texte">Fiche d'aide au DMOS préparatoire, qualification des modes opératoires et groupement des matériaux. Rubrique en préparation.</p>
+            </a>
+          </div>
+          </section>
+          <!-- Tableau des normes (rempli par app.js depuis fr.json) -->
+          <section aria-labelledby="titre-normes">
+            <h2
+              id="titre-normes"
+              class="bloc__titre"
+              data-i18n="presentation.normes_titre"
+            >Cadre normatif</h2>
+            <table class="normes">
+              <thead>
+                <tr>
+                  <th data-i18n="presentation.normes_col_code">Référence</th>
+                  <th data-i18n="presentation.normes_col_objet">Objet</th>
+                </tr>
+              </thead>
+              <tbody data-liste="normes"></tbody>
+            </table>
           </section>
 
-          <section id="standards" aria-labelledby="t-standards">
-            <h2 id="t-standards">Standards used</h2>
-            <div class="defile">
-              <table>
-                <thead><tr><th>Standard</th><th>Subject</th></tr></thead>
-                <tbody>
-                  <tr><td>EN ISO 15607</td><td>General rules for welding procedures, preliminary WPS</td></tr>
-                  <tr><td>EN ISO 15609-1</td><td>Content of the welding procedure specification</td></tr>
-                  <tr><td>EN ISO 15614-1</td><td>Welding procedure test for steels and nickel alloys</td></tr>
-                  <tr><td>EN 1011-1</td><td>Heat input and thermal efficiency factors</td></tr>
-                  <tr><td>EN 1011-2</td><td>Ferritic steels, preheat</td></tr>
-                  <tr><td>ISO/TR 15608</td><td>Grouping system for metallic materials</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="gm__cloture">A calculation tool is only worth the trust of the people who use it.</p>
-          </section>
+        </div>
 
-        </article>
+        <div class="carte contenu-guide" id="contact">
+          <h2>Suivi de l'outil et contact</h2>
+          <p>Le calculateur est en développement continu. Les prochaines évolutions portent sur le calcul du temps de refroidissement et sur l'enrichissement de la bibliothèque des matériaux.</p>
+          <p>L'outil est en version beta. Le module d'analyse fait l'objet de tests par plusieurs utilisateurs, et des essais sur différents matériaux et procédés sont programmés. Pour toute question, suggestion, proposition de collaboration ou signalement d'anomalie, le lien de contact figure en pied de page.</p>
+          <p class="contenu-guide__action"><a class="btn-primaire" href="analyse-thermique-metallurgique.html">Lancer une analyse</a></p>
+        </div>
 
       </div>
     </main>
 
-    <!-- ==================== Footer =================== -->
+    <!-- ==================== Pied de page permanent =================== -->
     <footer class="pied">
       <div class="conteneur pied__inner">
-        <p class="pied__disclaimer">Welding preparation aid. It does not replace a qualified WPS or a WPQR. The tool is in beta, updates are planned.</p>
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.</p>
+        <div class="pied__compteurs">
+          <p class="pied__compteur" data-compteur hidden></p>
+          <p class="pied__compteur" data-compteur-analyses hidden></p>
+        </div>
         <div class="pied__signatures">
-          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" target="_blank" rel="noopener noreferrer" aria-label="Tony SANCHEZ on LinkedIn (new tab)">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
             <span class="pied__linkedin-icone" aria-hidden="true">in</span>
-            <span class="pied__signature-texte">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
+            <span class="pied__signature-texte" data-i18n="footer.signature">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
           </a>
-          <p class="pied__credit">Designed and developed by <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
+          <p class="pied__credit">Conçu et développé par <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
         </div>
       </div>
     </footer>
 
+    <!-- Cloudflare Web Analytics  - complémentaire à GoatCounter, ne règle
+         pas le blocage par ad blocker (même limite structurelle) mais
+         donne des métriques de performance/navigateur pour les visiteurs
+         non bloqués. -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "58d3688c64a3491ea87da7ba0f2f0767"}'></script>
   </body>
 </html>
