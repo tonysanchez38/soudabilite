@@ -1733,3 +1733,17 @@ a.langues__lien:hover .langues__drapeau {
     margin-top: var(--sp-1);
   }
 }
+
+/* ======================================================================= */
+/* 12. Mode de réglage visible (22/09/2026)                                */
+/* ======================================================================= */
+
+.champ--mode .champ__select {
+  border-color: var(--bleu-bordure);
+}
+.champ__aide {
+  margin: var(--sp-2) 0 0;
+  font-size: var(--fs-sm);
+  color: var(--texte-doux);
+  line-height: 1.5;
+}

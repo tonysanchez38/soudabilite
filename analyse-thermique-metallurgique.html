@@ -37,7 +37,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/main.css?v=20260922-langues-v1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260922-corrections-v1" />
     <!-- Fiche imprimable (window.print + @media print - DECISIONS.md #25). -->
     <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-3" media="print" />
 
@@ -50,7 +50,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260922-langues-v1" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260922-corrections-v1" as="style" />
     <script type="module" src="assets/js/parametres.js?v=20260825-lecture-apport-3"></script>
     <script type="application/ld+json">
 {
@@ -203,12 +203,13 @@
             <!-- Intensité et vitesse -->
             <section class="carte carte--form">
               <h2 class="bloc__titre" data-i18n="parametres.section_intensite">Paramètres d'intensité et de vitesse</h2>
-              <div class="champ champ--large">
+              <div class="champ champ--large champ--mode">
                 <label class="champ__label" for="mode-reglages" data-i18n="parametres.label_mode_reglages">Mode de réglage</label>
                 <select id="mode-reglages" class="champ__select">
-                  <option value="auto" data-i18n="parametres.mode_auto">AUTO : valeurs proposées</option>
-                  <option value="personnalise" data-i18n="parametres.mode_personnalise">PERSONNALISÉ : valeurs modifiables</option>
+                  <option value="auto" data-i18n="parametres.mode_auto">AUTO : valeurs proposées par l'outil</option>
+                  <option value="personnalise" data-i18n="parametres.mode_personnalise">PERSONNALISÉ : je saisis mes propres valeurs</option>
                 </select>
+                <p class="champ__aide" data-i18n="parametres.mode_aide">Vous pouvez imposer vos réglages : choisissez PERSONNALISÉ dans la liste ci-dessus, puis modifiez l'intensité, la tension, la vitesse ou l'énergie.</p>
               </div>
               <div class="form-grid form-grid--trois" data-grid="intensite">
                 <div class="champ">
