@@ -1,0 +1,529 @@
+{
+  "_meta": {
+    "lang": "en",
+    "note": "Single source of the visible strings (DECISIONS.md #23). No hard-coded text in HTML or JS."
+  },
+  "app": {
+    "titre": "Online weldability calculator"
+  },
+  "nav": {
+    "aria_label": "Main navigation",
+    "presentation": "Overview",
+    "parametres": "Calculator",
+    "data": "Data",
+    "annonces": "Contact"
+  },
+  "presentation": {
+    "sous_titre": "Help for preparing the WPS",
+    "beta_note": "Beta version - the analysis and the welding tests are still being checked.",
+    "description_avant": "A tool that helps you prepare a WPS (welding procedure specification). It calculates the chromium and nickel equivalents, places the joint on the ",
+    "description_lien": "Schaeffler diagram",
+    "description_apres": ", estimates the preheat, the t8/5 cooling time and the expected hardness, then compares the results with the limits given by the standards. The tool switches between carbon steel, stainless steel and dissimilar joints on its own. It does not replace a WPQR or a workshop test.",
+    "normes_titre": "Standards used",
+    "normes_col_code": "Reference",
+    "normes_col_objet": "Subject",
+    "normes": [
+      {
+        "code": "EN ISO 15609-1",
+        "objet": "WPS - content of the welding procedure specification"
+      },
+      {
+        "code": "EN ISO 15614-1",
+        "objet": "WPQR - welding procedure qualification test"
+      },
+      {
+        "code": "EN 1011-1",
+        "objet": "Arc welding - general rules, thermal efficiency factors"
+      },
+      {
+        "code": "EN 1011-2",
+        "objet": "Ferritic steels - preheat and t8/5 cooling time"
+      },
+      {
+        "code": "ISO/TR 15608",
+        "objet": "Grouping system for metallic materials"
+      },
+      {
+        "code": "EN ISO 5817",
+        "objet": "Acceptance levels for weld imperfections"
+      },
+      {
+        "code": "NACE MR0175 / ISO 15156",
+        "objet": "Steels for sour service (H2S) - hardness limit"
+      }
+    ],
+    "sommaire_titre": "The pages",
+    "onglets": [
+      {
+        "titre": "Calculator",
+        "description": "You enter the base metals, the process and the joint. The tool runs the analysis, ranks the 7 most robust filler metals and gives the summary on the same page.",
+        "lien": "parametres.html"
+      },
+      {
+        "titre": "Data",
+        "description": "Reference steel grades and filler metals, with free entry for a grade that is not in the list.",
+        "lien": "banque.html"
+      },
+      {
+        "titre": "Contact",
+        "description": "Updates to the tool, and contact for any question, idea or proposal to work together.",
+        "lien": "annonces.html"
+      }
+    ],
+    "auteur_nom": "Tony SANCHEZ",
+    "auteur_sep": "-",
+    "linkedin": "Contact",
+    "linkedin_url": "https://www.linkedin.com/in/tonysanchez38/"
+  },
+  "annonces": {
+    "titre": "Contact and updates",
+    "intro": "The weldability calculator is still being developed. New features are added step by step, update after update.",
+    "a_venir": "The next steps are the calculation of the cooling time, to avoid metallurgical risks, and more grades in the base metal and filler metal databases.",
+    "beta_avant": "The tool is in beta. The ",
+    "beta_lien": "analysis module",
+    "beta_apres": " is being tested by several users, and tests on different materials and processes are planned to check how reliable it is."
+  },
+  "banque": {
+    "titre": "Reference materials database",
+    "note_indicative": "Typical compositions (middle of the range given by the standard, or a typical supplier value). They do not give the composition of a real heat. Use the material certificate (3.1 or 3.2) for a qualified file.",
+    "titre_base": "Base metals",
+    "titre_apport": "Filler metals",
+    "groupe_111": "111 - Covered electrode (MMA)",
+    "groupe_141": "141 - TIG",
+    "groupe_131_135": "131/135 - MIG/MAG",
+    "apport_vide": "No filler metal listed for this process.",
+    "col_designation": "Designation",
+    "col_groupe_iso": "ISO group",
+    "col_creq": "Cr eq",
+    "col_nieq": "Ni eq",
+    "col_c": "%C",
+    "col_mn": "%Mn",
+    "col_si": "%Si",
+    "col_cr": "%Cr",
+    "col_ni": "%Ni",
+    "col_mo": "%Mo",
+    "col_nb": "%Nb",
+    "col_n": "%N",
+    "col_cu": "%Cu",
+    "col_ti": "%Ti",
+    "non_applicable": "-",
+    "detail_ajouter": "+ full composition",
+    "detail_retirer": "- full composition"
+  },
+  "parametres": {
+    "titre": "Parameters and weldability analysis",
+    "intro": "Enter the metals, the process and the joint. The tool proposes the electrical settings, and you can change them in custom mode.",
+    "section_metaux": "Base metals",
+    "label_metal_a": "Metal A",
+    "label_metal_b": "Metal B",
+    "ph_metal": "Search for a grade…",
+    "label_epaisseur_a": "Thickness A (mm)",
+    "label_epaisseur_b": "Thickness B (mm)",
+    "section_procede": "Process and electrode",
+    "label_procede": "Welding process",
+    "label_apport": "Filler metal",
+    "ph_apport": "Search for a filler metal…",
+    "apport_note": "The list is filtered by process. For a grade that is not listed, add a manual composition.",
+    "apport_vide": "No filler metal listed for this process - use free entry",
+    "apport_analyse_note": "The filler metal is proposed further down, in the analysis, after a calculation over the whole dilution range of the process.",
+    "apport_enrobage_note": "Filtering by covering type still to be completed in the database.",
+    "section_joint": "Joint",
+    "label_position": "Welding position",
+    "label_assemblage": "Joint type",
+    "label_chanfrein": "Edge preparation",
+    "section_intensite": "Current and travel speed",
+    "label_mode_reglages": "Setting mode",
+    "mode_auto": "AUTO: values proposed by the tool",
+    "mode_personnalise": "CUSTOM: I enter my own values",
+    "mode_aide": "You can impose your own settings: choose CUSTOM in the list above, then change the current, the voltage, the travel speed or the heat input.",
+    "label_diametre": "Electrode diameter (mm)",
+    "label_diametre_fil": "Wire diameter (mm)",
+    "label_tungstene": "Tungsten electrode",
+    "ph_tungstene": "Search for an electrode…",
+    "tungstene_conseil": "Preselected: {designation}, suitable for {intensite} A in DCEN. The type and the diameter change how the arc behaves, but they do not change the heat input calculation.",
+    "tungstene_indisponible": "No electrode in the database covers this current.",
+    "label_enrobage": "Covering type",
+    "comp_manuelle_ajouter": "+ manual composition",
+    "comp_manuelle_titre": "Composition used for the calculation (you can edit it)",
+    "comp_manuelle_reset": "Reset",
+    "saisie_libre": "[free entry]",
+    "eq_creq": "Cr eq",
+    "eq_nieq": "Ni eq",
+    "eq_ce": "CE_IIW",
+    "elements_comp": [
+      "C",
+      "Mn",
+      "Si",
+      "Cr",
+      "Ni",
+      "Mo",
+      "Nb",
+      "Ti",
+      "N",
+      "Cu"
+    ],
+    "label_intensite_manuelle": "Current I (A)",
+    "label_vitesse": "Travel speed Vs (cm/min)",
+    "vitesse_note": "Typical value filled in for the process. You can adjust it.",
+    "reglages_note": "In custom mode, changing the current, the voltage or the travel speed recalculates the heat input. Changing the heat input recalculates the travel speed, without touching the current or the voltage.",
+    "enrobage_non_couvert": "BWRA is not available for this covering type: the Seferian result is shown, without treating the covering as rutile.",
+    "note_tig_hetero": "Reduced current - protects the stainless steel side.",
+    "section_dilution": "Dilution",
+    "dilution_note": "The weld metal mixes three parts: melted metal A, melted metal B and filler metal. The three parts add up to 100 %. Dilution is the sum of the two melted base metal parts.",
+    "label_da": "Melted part of metal A (%)",
+    "label_db": "Melted part of metal B (%)",
+    "label_dc": "Filler metal part (%)",
+    "dilution_erreur": "The three parts must add up to 100 %.",
+    "dilution_indicative_note": "Typical value for the process and the edge preparation. A real figure needs a macro-examination of the actual joint.",
+    "dilution_suggestion_btn": "Process suggestion",
+    "section_resultats": "Heat input",
+    "res_intensite": "Current I",
+    "res_tension": "Voltage U",
+    "res_vitesse": "Speed Vs",
+    "label_en": "Arc energy En (kJ/cm)",
+    "label_eq": "Heat input Q (kJ/cm)",
+    "res_en": "Arc energy En",
+    "res_eq": "Heat input Q",
+    "res_rendement": "Efficiency k",
+    "resultats_note": "Q = k × En, where k is the thermal efficiency factor of the process (EN 1011-1). Values in kJ/cm.",
+    "res_vide": "-",
+    "unite_a": "A",
+    "unite_v": "V",
+    "unite_cmmin": "cm/min",
+    "unite_kjcm": "kJ/cm",
+    "combo_aucun_resultat": "No result",
+    "combo_aucune_option": "No option",
+    "procedes": [
+      {
+        "value": "111",
+        "label": "111 - Covered electrode (MMA)"
+      },
+      {
+        "value": "141",
+        "label": "141 - TIG"
+      },
+      {
+        "value": "131",
+        "label": "131 - MIG"
+      },
+      {
+        "value": "135",
+        "label": "135 - MAG"
+      }
+    ],
+    "positions": [
+      {
+        "value": "PA",
+        "label": "PA - flat"
+      },
+      {
+        "value": "PB",
+        "label": "PB - horizontal vertical fillet"
+      },
+      {
+        "value": "PC",
+        "label": "PC - horizontal (butt weld)"
+      },
+      {
+        "value": "PD",
+        "label": "PD - overhead fillet"
+      },
+      {
+        "value": "PE",
+        "label": "PE - overhead"
+      },
+      {
+        "value": "PF",
+        "label": "PF - vertical up"
+      },
+      {
+        "value": "PG",
+        "label": "PG - vertical down"
+      },
+      {
+        "value": "H-L045",
+        "label": "H-L045 - inclined pipe at 45°"
+      }
+    ],
+    "assemblages": [
+      {
+        "value": "BW",
+        "label": "BW - butt weld"
+      },
+      {
+        "value": "FW",
+        "label": "FW - fillet weld"
+      }
+    ],
+    "chanfreins": [
+      {
+        "value": "droit",
+        "label": "Square edge / I"
+      },
+      {
+        "value": "V",
+        "label": "V groove"
+      },
+      {
+        "value": "Y",
+        "label": "Y groove (with root face)"
+      },
+      {
+        "value": "X",
+        "label": "X groove"
+      },
+      {
+        "value": "demi-V",
+        "label": "Single bevel / K"
+      }
+    ],
+    "diametres": [
+      2.0,
+      2.5,
+      3.2,
+      4.0,
+      5.0
+    ],
+    "diametres_fil": [
+      0.8,
+      1.0,
+      1.2,
+      1.6
+    ],
+    "enrobages": [
+      {
+        "value": "R",
+        "label": "Rutile (R)"
+      },
+      {
+        "value": "B",
+        "label": "Basic (B)"
+      },
+      {
+        "value": "C",
+        "label": "Cellulosic (C)"
+      },
+      {
+        "value": "A",
+        "label": "Acid (A)"
+      },
+      {
+        "value": "RB",
+        "label": "Rutile-basic (RB)"
+      },
+      {
+        "value": "RC",
+        "label": "Rutile-cellulosic (RC)"
+      }
+    ]
+  },
+  "analyse": {
+    "titre": "Analysis",
+    "intro": "The joint is placed on the Schaeffler diagram and 7 filler metals are compared over the whole dilution range of the process. The tool calculates and proposes; it does not qualify.",
+    "intro_carbone": "Cold cracking risk for this joint between non-alloy or low-alloy steels: carbon equivalent and the right preheat method (Seferian or BWRA). The tool calculates and proposes; it does not qualify.",
+    "message_vide": "Enter metals A and B above (composition) to display the Schaeffler diagram and the filler metal selection.",
+    "carte_diagramme": "Schaeffler diagram",
+    "heterogene_note": "Dissimilar joint: the analysis stays focused on the weld metal and the Schaeffler diagram. Preheat is not calculated in this case.",
+    "carte_carbone_titre": "Thermal analysis",
+    "carbone_message": "The Schaeffler diagram does not apply to non-alloy or low-alloy steels. For this joint, the useful analysis is the cold cracking risk, estimated below with the carbon equivalent and the most suitable preheat method.",
+    "carbone_seuil": "Guide value: weldable without preheat if CE_IIW < 0.42 %.",
+    "lbl_ce_iiw": "CE_IIW =",
+    "methode_seferian_msg": "Seferian method used: the process or the covering family is not in the BWRA table available.",
+    "methode_bwra_msg": "BWRA method used: covered electrode process with the hydrogen class of the consumable filled in.",
+    "prechauffe_seferian_titre": "Preheat - Seferian",
+    "col_ceq_seferian": "Ceq",
+    "col_ceqc_seferian": "Ceq corrected",
+    "col_tp": "Tp (°C)",
+    "prechauffe_bwra_titre": "Preheat - BWRA",
+    "bwra_diametre_label": "Electrode diameter (BWRA)",
+    "col_ceq_bwra": "Ceq BWRA",
+    "col_indice_bwra": "Index",
+    "col_tracabilite": "Traceability",
+    "tp_aucun": "No preheat required",
+    "leg_a": "Metal A",
+    "leg_b": "Metal B",
+    "leg_dmelange": "Dilution A+B",
+    "leg_c": "Filler metal",
+    "leg_joint": "Joint",
+    "leg_ideale": "1. Ideal zone (5 to 15 % ferrite)",
+    "leg_acceptable": "2. Acceptable zone",
+    "leg_amf": "Grey A+M+F zone",
+    "leg_zone_s": "3. White safety corridor",
+    "joint_centre_plage": "Representative joint: middle of the range, at {valeur} % dilution",
+    "diagramme_intro_court": "An interactive reading of the Schaeffler diagram: the tool calculates the dilution, places the joint and ranks the filler metals. The results stay metallurgical estimates.",
+    "diagramme_difference_titre": "Why is this diagram different from the one in textbooks?",
+    "diagramme_difference_intro": "The Soudabilite.com chart follows the principles of the original Schaeffler diagram and turns them into an interactive decision aid.",
+    "diagramme_difference_calcul_titre": "A calculation made for your joint",
+    "diagramme_difference_calcul_texte": "The tool places metal A, metal B, their dilution, the filler metal and the estimated final composition of the joint. You see straight away how the mixture changes the expected structure.",
+    "diagramme_difference_traces_titre": "Digitised lines, used for calculation",
+    "diagramme_difference_traces_texte": "The original boundaries have been digitised and some intermediate lines come from interpolation. They may look slightly different from printed copies or course material, but the chromium and nickel equivalents used to place the joint are unchanged.",
+    "diagramme_difference_lecture_titre": "Three levels of reading",
+    "diagramme_difference_lecture_texte": "The blue zone is the first target of the tool. The green zone widens the range to look at. The white corridor keeps a historical fallback when the first two zones cannot be reached.",
+    "diagramme_difference_limite_titre": "An estimate, not a qualification",
+    "diagramme_difference_limite_texte": "The diagram estimates a metallurgical trend from the compositions and the dilution you entered. It does not guarantee the real structure of the weld metal or the properties of the joint. The final check is the WPS, the WPQR that applies and, when needed, a real ferrite measurement.",
+    "carte_apports": "The 7 most robust filler metals",
+    "apports_note": "Each filler metal is checked over the whole dilution range of the process. The ranking looks first at the worst result found, then at the share of the range inside the ideal zone. Click a row to see the detail on the diagram.",
+    "apports_vide": "No filler metal listed for this process - use manual entry.",
+    "duplex_indisponible": "The duplex and super duplex branch is still being checked. No filler metal selection is proposed yet for these base metals.",
+    "col_rang": "Rank",
+    "col_designation": "Designation",
+    "col_plage": "Range tested",
+    "col_couverture_ideale": "Share in the ideal zone",
+    "col_creq": "Cr eq of the joint",
+    "col_nieq": "Ni eq of the joint",
+    "col_ferrite": "% ferrite",
+    "col_distance": "Distance",
+    "col_verdict": "Result",
+    "plage_indisponible": "Not available",
+    "plage_ideal": "Ideal over the whole range",
+    "plage_acceptable": "Stable over the range",
+    "plage_zone_s": "Corridor reached",
+    "plage_hors": "Sensitive to dilution",
+    "plage_explication": "The result is based on the least favourable point of the whole process range.",
+    "plage_etudiee": "Range studied:",
+    "plage_en_zone_ideale": "of the range in the ideal zone",
+    "comp_manuelle_c": "+ manual composition (filler metal not listed)",
+    "apport_manuel_nom": "Name of the proposed filler metal",
+    "apport_manuel_ph": "For example: ER309L proposed",
+    "apport_manuel_note": "A manual filler metal is calculated and ranked with the same rules as the database. Its real rank is shown even if it is outside the top 7.",
+    "apport_manuel_defaut": "Manual filler metal",
+    "apport_manuel_badge": "Proposed",
+    "carte_synthese": "Schaeffler summary",
+    "col_metal": "Metal",
+    "col_creq_s": "Cr eq Schaeffler",
+    "col_nieq_s": "Ni eq Schaeffler",
+    "col_creq_d": "Cr eq DeLong",
+    "col_nieq_d": "Ni eq DeLong",
+    "col_creq_w": "Cr eq WRC",
+    "col_nieq_w": "Ni eq WRC",
+    "ferrite_note": "The ferrite content is estimated by interpolation between the iso-ferrite lines of the Schaeffler diagram. Duplex grades are outside the current scope.",
+    "saisie_libre": "[free entry]",
+    "lbl_creq": "Cr eq",
+    "lbl_nieq": "Ni eq",
+    "lbl_ferrite": "% ferrite",
+    "ferrite_hors_domaine": "Ferrite not estimated outside the iso-line area",
+    "val_metalA": "Metal A",
+    "val_metalB": "Metal B",
+    "val_apportC": "Filler metal",
+    "val_dmelange": "Dilution",
+    "val_joint": "Joint",
+    "verdict_ideal": "Ideal zone",
+    "verdict_acceptable": "Acceptable zone",
+    "verdict_zone_s": "Safety corridor",
+    "verdict_hors": "Outside the zones",
+    "risque_austenite": "hot cracking risk found outside the accepted zones",
+    "risque_martensite": "cold cracking risk found in the martensitic zone",
+    "risque_sigma": "sigma phase risk (Cr eq > 25)",
+    "risque_grossissement_grain": "grain growth risk (almost pure ferrite)",
+    "synth_choisir": "Select a filler metal in the table to see the result for the joint.",
+    "aide_dilution": "No filler metal stays in an accepted zone over the whole process range. Narrow the range only if you have a measurement or reliable workshop feedback.",
+    "limite_ideale_basse": "ideal limit at 5 %",
+    "limite_ideale_haute": "ideal limit at 15 %",
+    "elements_comp": [
+      "C",
+      "Mn",
+      "Si",
+      "Cr",
+      "Ni",
+      "Mo",
+      "Nb",
+      "Ti",
+      "N",
+      "Cu"
+    ],
+    "carte_zones_titre": "Understanding the metallurgical zones",
+    "zones_explication": [
+      {
+        "titre": "Zone A - Austenite",
+        "texte": "Austenite is usually a ductile structure, mainly promoted by nickel. If the weld metal becomes almost fully austenitic, the hot cracking risk rises during solidification. A small amount of ferrite usually helps to limit this risk."
+      },
+      {
+        "titre": "Zone M - Martensite",
+        "texte": "Martensite can appear when some steels cool down too fast. It is hard but brittle. With welding stresses and hydrogen, it raises the cold cracking risk. Preheating and low hydrogen practice reduce this risk."
+      },
+      {
+        "titre": "Zone F - Ferrite",
+        "texte": "Ferrite is a structure mainly promoted by chromium. Too much ferrite can lower the toughness and the ductility of the joint, especially after exposure to a high temperature."
+      },
+      {
+        "titre": "Zone A+M (Austenite + Martensite)",
+        "texte": "This zone holds austenite and martensite. The martensite makes the joint more sensitive to cold cracking, above all when the joint is heavily restrained or when hydrogen is not controlled."
+      },
+      {
+        "titre": "Zone M+F (Martensite + Ferrite)",
+        "texte": "This zone combines the possible brittleness of martensite with the limits of a high ferrite content. It is usually unfavourable and calls for a careful check of the filler metal, the cooling and the welding conditions."
+      },
+      {
+        "titre": "Zone A+M+F: austenite, martensite and ferrite",
+        "texte": "The grey zone holds the three structures: austenite, martensite and ferrite. The white S-shaped corridor lies inside this zone. It is a fallback solution, accepted after the ideal zone and the acceptable zone."
+      },
+      {
+        "titre": "Zone A+F (austenitic-ferritic)",
+        "texte": "This zone combines austenite and ferrite. It is often the target for welding stainless steels and some dissimilar joints, because the right balance limits the hot cracking risk without giving too much ferrite."
+      }
+    ],
+    "mecanismes_titre": "How a weld fails",
+    "mecanismes": [
+      {
+        "titre": "Hot cracking (liquation)",
+        "texte": "It appears while the weld metal solidifies. Shrinkage stresses, some impurities and a fully austenitic structure all make it more likely. A suitable amount of delta ferrite helps to lower this risk."
+      },
+      {
+        "titre": "Cold cracking (delayed)",
+        "texte": "It can appear several hours after welding. It usually comes from a brittle structure, residual stresses and diffusible hydrogen together. Preheating, controlled cooling and low hydrogen consumables reduce this risk."
+      }
+    ],
+    "etagement_titre": "Order of priority of the zones",
+    "etagement_intro": "How to read the diagram and the ranking:",
+    "etagement": [
+      {
+        "titre": "1. Blue ideal zone",
+        "texte": "The first target of the tool, between 5 and 15 % delta ferrite. The ranking favours the middle of this band, where the balance between hot cracking and mechanical properties is usually the best."
+      },
+      {
+        "titre": "2. Green acceptable zone",
+        "texte": "A wider range, from 0 to 20 % ferrite. The result can still be used, but it must be looked at with more care: too little ferrite favours hot cracking, while a high ferrite content can lower some properties of the joint."
+      },
+      {
+        "titre": "3. White safety corridor",
+        "texte": "This S-shaped corridor lies inside the grey A+M+F zone. A result here is accepted as a fallback, after the blue ideal zone and the green acceptable zone."
+      }
+    ],
+    "diag_corridor_titre": "A+M+F safety corridor - accepted after the ideal zone and then the acceptable zone.",
+    "diag_label_corridor": "SAFETY|CORRIDOR",
+    "diag_label_amf": "AUSTENITE + MARTENSITE|+ FERRITE (A+M+F)",
+    "diag_label_ideale": "IDEAL",
+    "diag_label_acceptable": "ACCEPTABLE",
+    "diag_axe_x": "% Cr eq = Cr + Mo + 1.5 Si + 0.5 Nb",
+    "diag_axe_y": "% Ni eq = Ni + 30 C + 0.5 Mn",
+    "diag_mur_sigma": "Cr eq = 25: sigma phase limit - above it, brittle intermetallic precipitation",
+    "diag_risque_a": "hot cracking risk",
+    "diag_risque_m": "cold cracking risk",
+    "diag_risque_f": "grain growth risk",
+    "evt_analyse": "Analysis done:"
+  },
+  "footer": {
+    "disclaimer": "Welding preparation aid. It does not replace a qualified WPS or a WPQR. The tool is being tested, updates are planned.",
+    "signature": "Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie",
+    "signature_lien_aria": "Tony SANCHEZ on LinkedIn (new tab)",
+    "compteur_consultations": "page views",
+    "compteur_analyses": "analyses run",
+    "compteur_total_url": "https://soudabilite.com/gc/counter/TOTAL.json",
+    "compteur_analyses_url": "https://soudabilite.com/gc/counter/analyse-realisee.json"
+  },
+  "analytics": {
+    "compteur_page_url_base": "https://soudabilite.com/gc/counter/",
+    "compteur_page_libelle": "unique visitors on this page"
+  },
+  "fiche": {
+    "bouton": "Create the preliminary WPS (pWPS) sheet",
+    "titre": "Preliminary WPS (pWPS) sheet - soudabilite.com",
+    "signature_pied": "Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie",
+    "date": "Date",
+    "repere": "Item / project",
+    "col_epaisseur": "Thickness",
+    "non_applicable": "-",
+    "section_apport": "Filler metal selected",
+    "apport_vide": "No filler metal selected."
+  }
+}

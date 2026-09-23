@@ -9,6 +9,8 @@
 // Crée une combobox à partir d'un <select> existant.
 // items : [{ value, label }]. placeholder : texte de recherche.
 // Renvoie l'instance Choices, ou null si repli natif.
+import { tr } from "./i18n.js";
+
 export function creerCombobox(selectEl, items, { placeholder = "" } = {}) {
   remplirSelectNatif(selectEl, items, placeholder);
 
@@ -24,8 +26,8 @@ export function creerCombobox(selectEl, items, { placeholder = "" } = {}) {
     placeholder: true,
     placeholderValue: placeholder,
     searchPlaceholderValue: placeholder,
-    noResultsText: "Aucun résultat",
-    noChoicesText: "Aucune option",
+    noResultsText: tr("parametres.combo_aucun_resultat", "Aucun résultat"),
+    noChoicesText: tr("parametres.combo_aucune_option", "Aucune option"),
   });
   return instance;
 }

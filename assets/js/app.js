@@ -54,7 +54,7 @@ function rendreOnglets() {
 
 async function init() {
   try {
-    await chargerChaines("fr");
+    await chargerChaines();
     appliquerChaines();
     rendreNormes();
     rendreOnglets();

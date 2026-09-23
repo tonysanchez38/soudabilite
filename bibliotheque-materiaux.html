@@ -28,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css?v=20260922-corrections-v1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260922-langues-v2" />
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
          les bloqueurs de pub (AdGuard etc.) - DECISIONS.md #22. -->
@@ -38,7 +38,7 @@
       src="/gc/count.js"
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260922-corrections-v1" as="style" />
+    <link rel="preload" href="assets/css/main.css?v=20260922-langues-v2" as="style" />
     <script type="module" src="assets/js/banque.js"></script>
     <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
          s'affichent sans dependre du chargement de fr.json. -->
@@ -106,7 +106,7 @@
         </nav>
         <div class="langues" role="group" aria-label="Langue / Language">
           <span class="langues__lien is-active" aria-current="true" lang="fr"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#fff"/><path d="M0 1.5A1.5 1.5 0 0 1 1.5 0H7v15H1.5A1.5 1.5 0 0 1 0 13.5z" fill="#1b4fa0"/><path d="M14 0h5.5A1.5 1.5 0 0 1 21 1.5v12a1.5 1.5 0 0 1-1.5 1.5H14z" fill="#c8102e"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">FR</span></span>
-          <a class="langues__lien" href="/en/" hreflang="en" lang="en" title="English version"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#1b3a82"/><path d="M0 0l21 15M21 0L0 15" stroke="#fff" stroke-width="3"/><path d="M0 0l21 15M21 0L0 15" stroke="#c8102e" stroke-width="1.6"/><path d="M10.5 0v15M0 7.5h21" stroke="#fff" stroke-width="5"/><path d="M10.5 0v15M0 7.5h21" stroke="#c8102e" stroke-width="3"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">EN</span></a>
+          <a class="langues__lien" href="/en/materials-library.html" hreflang="en" lang="en" title="English version"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#1b3a82"/><path d="M0 0l21 15M21 0L0 15" stroke="#fff" stroke-width="3"/><path d="M0 0l21 15M21 0L0 15" stroke="#c8102e" stroke-width="1.6"/><path d="M10.5 0v15M0 7.5h21" stroke="#fff" stroke-width="5"/><path d="M10.5 0v15M0 7.5h21" stroke="#c8102e" stroke-width="3"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">EN</span></a>
         </div>
       </div>
     </header>
@@ -117,7 +117,6 @@
         <div class="param-intro">
           <h1 class="hero__titre">Bibliothèque des matériaux</h1>
           <p class="param-intro__texte" data-i18n="banque.note_indicative">Compositions indicatives (milieu de fourchette normative ou valeur typique fournisseur) - ne garantissent pas la composition d'une coulée réelle. Se référer au certificat matière (3.1/3.2) pour un dossier qualifié.</p>
-          <p class="param-intro__texte">52 métaux de base et 194 métaux d'apport, classés par procédé de soudage : électrode enrobée 111, TIG 141, MIG et MAG 131 et 135. Pour chaque nuance, les équivalents chrome et nickel du diagramme de Schaeffler, et la composition chimique complète en carbone, manganèse, silicium, chrome, nickel, molybdène, niobium, azote, cuivre et titane. Ce sont les données qu'utilise le <a href="analyse-thermique-metallurgique.html">calculateur de soudabilité</a> pour positionner le joint et classer les apports.</p>
         </div>
 
         <section class="carte carte--form">

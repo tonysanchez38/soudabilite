@@ -159,10 +159,10 @@ function rendreMetauxApport(apports) {
 
 async function init() {
   try {
-    await chargerChaines("fr");
+    await chargerChaines();
     appliquerChaines();
     await Promise.all([rendreCompteur(), rendreCompteurAnalyses()]);
-    const banque = await fetch("assets/data/data.json").then((r) => r.json());
+    const banque = await fetch("/assets/data/data.json").then((r) => r.json());
     rendreMetauxBase(banque.metaux_base || []);
     rendreMetauxApport(banque.metaux_apport || []);
   } catch (err) {

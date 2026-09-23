@@ -3,10 +3,23 @@
 // i18n.js - chargement des chaînes visibles et injection dans le DOM.
 // Décision DECISIONS.md #23 : toute chaîne visible provient de
 // assets/i18n/<lang>.json. Aucune logique métier ici : uniquement du binding.
-// Le fichier en.json sera ajouté au Lot 3.
+// Deux dictionnaires : fr.json et en.json.
 // =========================================================================
 
 const LANG_DEFAUT = "fr";
+const LANGUES = ["fr", "en"];
+
+// Langue de la page : attribut lang de <html>, sinon français.
+export function langueCourante() {
+  const lang = (document.documentElement.getAttribute("lang") || "").slice(0, 2);
+  return LANGUES.includes(lang) ? lang : LANG_DEFAUT;
+}
+
+// Chaîne traduite avec repli sur le texte français fourni par l'appelant.
+export function tr(cle, secours) {
+  const valeur = t(cle);
+  return typeof valeur === "string" ? valeur : secours;
+}
 let CHAINES = {};
 
 // Résout une clé pointée ("presentation.titre") vers sa valeur dans l'objet.
@@ -21,8 +34,8 @@ export function t(cle) {
 
 // Charge le fichier de langue. Nécessite un service HTTP (fetch) :
 // fonctionne sur GitHub Pages et via un serveur local, pas en file://.
-export async function chargerChaines(lang = LANG_DEFAUT) {
-  const reponse = await fetch(`assets/i18n/${lang}.json`, { cache: "no-cache" });
+export async function chargerChaines(lang = langueCourante()) {
+  const reponse = await fetch(`/assets/i18n/${lang}.json`, { cache: "no-cache" });
   if (!reponse.ok) {
     throw new Error(
       `i18n : chargement de ${lang}.json impossible (HTTP ${reponse.status})`

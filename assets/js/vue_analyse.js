@@ -5,7 +5,7 @@
 // de sessionStorage pour ce flux). Logique métier déléguée à assets/js/core/.
 // =========================================================================
 
-import { t } from "./ui/i18n.js";
+import { t, tr } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
 import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260825-lecture-apport-3";
 import {
@@ -33,13 +33,16 @@ function texteModele(cle, valeurs = {}) {
 
 // Zone S (dernier recours) : overlay digitalisé du diagramme papier de
 // référence - cf. schaeffler_svg.js / core/schaeffler.js (niveauIdeal).
-const TITRE_ZONE_S =
-  "Corridor de sécurité A+M+F - zone admise après la zone idéale puis la zone acceptable.";
+const TITRE_ZONE_S = () =>
+  tr(
+    "analyse.diag_corridor_titre",
+    "Corridor de sécurité A+M+F - zone admise après la zone idéale puis la zone acceptable."
+  );
 
 // Titre (tooltip) du badge verdict : source duplex si applicable, sinon
 // rappel zone S si le niveau retourné est ce dernier recours.
 function titreVerdict(v) {
-  if (v.niveau === "zone_s") return TITRE_ZONE_S;
+  if (v.niveau === "zone_s") return TITRE_ZONE_S();
   return null;
 }
 
@@ -295,12 +298,12 @@ function initDiagramme() {
 
 function majDiagramme() {
   const points = [
-    { cr: A.pos[0], ni: A.pos[1], forme: "cercle", couleur: "#4ade80", etiquette: "Métal A", etiquetteTaille: 8.5, tooltip: tooltip(A) },
+    { cr: A.pos[0], ni: A.pos[1], forme: "cercle", couleur: "#4ade80", etiquette: tr("analyse.val_metalA", "Métal A"), etiquetteTaille: 8.5, tooltip: tooltip(A) },
     {
-      cr: B.pos[0], ni: B.pos[1], forme: "cercle", couleur: "#fb923c", etiquette: "Métal B",
+      cr: B.pos[0], ni: B.pos[1], forme: "cercle", couleur: "#fb923c", etiquette: tr("analyse.val_metalB", "Métal B"),
       etiquetteTaille: 8.5, etiquetteDx: -9, etiquetteDy: -8, etiquetteAncre: "end", tooltip: tooltip(B),
     },
-    { cr: D.pos[0], ni: D.pos[1], forme: "carre", couleur: "#cbd5e1", etiquette: "Dilution", etiquetteTaille: 8.5, tooltip: tooltip(D) },
+    { cr: D.pos[0], ni: D.pos[1], forme: "carre", couleur: "#cbd5e1", etiquette: tr("analyse.val_dmelange", "Dilution"), etiquetteTaille: 8.5, tooltip: tooltip(D) },
   ];
   const lignes = [{ de: A.pos, a: B.pos, pointille: true, couleur: "#ffffff", opacite: 0.5, epaisseur: 1.2 }];
 
@@ -311,7 +314,7 @@ function majDiagramme() {
     // ZF est donc géométriquement sur le segment Mb–C, pas de 3e segment.
     points.push({
       cr: C.pos[0], ni: C.pos[1], forme: "cercle", couleur: "#c084fc",
-      etiquette: "Métal d'apport", etiquetteTaille: 8.5,
+      etiquette: tr("analyse.val_apportC", "Métal d'apport"), etiquetteTaille: 8.5,
       etiquetteDx: 9, etiquetteDy: -8, tooltip: tooltip(C),
     });
     // La droite complète montre la construction métallurgique entre le
@@ -550,7 +553,7 @@ function choisirApport(r, tr) {
 function envoyerEvenementAnalyse(nomApport) {
   envoyerEvenement(
     "analyse-effectuee/" + encodeURIComponent(nomApport),
-    "Analyse effectuée : " + nomApport
+    tr("analyse.evt_analyse", "Analyse effectuée :") + " " + nomApport
   );
 }
 

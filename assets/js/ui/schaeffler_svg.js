@@ -6,6 +6,8 @@
 // métier : purement graphique.
 // =========================================================================
 
+import { tr } from "./i18n.js";
+
 import {
   ISO_FERRITE_SCHAEFFLER,
   echantillonneIso,
@@ -107,13 +109,16 @@ function courbeFermee(pts) {
 
 // Risque métallurgique des zones pures - cf. cahier des charges Tony.
 const RISQUE_ZONE = {
-  A: "risque de fissuration à chaud",
-  M: "risque de fissuration à froid",
-  F: "risque de grossissement de grain",
+  A: () => tr("analyse.diag_risque_a", "risque de fissuration à chaud"),
+  M: () => tr("analyse.diag_risque_m", "risque de fissuration à froid"),
+  F: () => tr("analyse.diag_risque_f", "risque de grossissement de grain"),
 };
 
-const TITRE_MUR_SIGMA =
-  "Cr_eq = 25 : limite phase sigma - au-delà, précipitation intermétallique fragilisante";
+const TITRE_MUR_SIGMA = () =>
+  tr(
+    "analyse.diag_mur_sigma",
+    "Cr éq = 25 : limite phase sigma - au-delà, précipitation intermétallique fragilisante"
+  );
 
 // Étiquette de zone déportée hors centroïde géométrique quand celui-ci
 // tombe sous la zone S blanche, les bandes cibles ou les points dynamiques
@@ -238,7 +243,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       stroke: "#0f172a", "stroke-width": 0.5,
     });
     const titre = el("title");
-    const risque = RISQUE_ZONE[z.id];
+    const risque = RISQUE_ZONE[z.id]?.();
     titre.textContent = risque ? `${z.nom} - ${risque}` : z.nom;
     poly.appendChild(titre);
     gPlan.appendChild(poly);
@@ -299,7 +304,10 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
     });
     const titre = el("title");
     titre.textContent =
-      "Corridor de sécurité A+M+F - zone admise après la zone idéale puis la zone acceptable.";
+      tr(
+        "analyse.diag_corridor_titre",
+        "Corridor de sécurité A+M+F - zone admise après la zone idéale puis la zone acceptable."
+      );
     zoneS.appendChild(titre);
     gZoneS.appendChild(zoneS);
     gPlan.appendChild(gZoneS);
@@ -308,7 +316,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   etiquetteMultiligne(gEtiquettes, {
     x: X(23),
     y: Y(7.3),
-    lignes: ["CORRIDOR", "DE SÉCURITÉ"],
+    lignes: tr("analyse.diag_label_corridor", "CORRIDOR|DE SÉCURITÉ").split("|"),
     couleur: "#0f172a",
     taille: 6.8,
     interligne: 7.8,
@@ -455,13 +463,13 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
   // IDÉALE : toujours déportée au-dessus de la bande (dans la zone A, hors
   // S), avec trait de rappel - ne partage jamais l'espace des points de
   // dilution qui gravitent près du centre de la bande elle-même.
-  etiquetteBande(meilleureAncreBande(5, 15), "IDÉALE", "#DBEAFE", {
+  etiquetteBande(meilleureAncreBande(5, 15), tr("analyse.diag_label_ideale", "IDÉALE"), "#DBEAFE", {
     deportForce: true, deportDX: 6, deportDY: -36,
   });
   // ACCEPTABLE : toujours déportée (repère franc dans le A+F coloré, à
   // droite/en dessous de la bande bleue) - l'ancrage inline flirtait avec
   // la frontière S/vert selon la géométrie du joint sélectionné.
-  etiquetteBande(meilleureAncreBande(15, 20), "ACCEPTABLE", "#D1FAE5", {
+  etiquetteBande(meilleureAncreBande(15, 20), tr("analyse.diag_label_acceptable", "ACCEPTABLE"), "#D1FAE5", {
     deportForce: true, deportDX: 20, deportDY: 17,
   });
 
@@ -472,7 +480,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       stroke: "#fb7185", "stroke-width": 1.3, "stroke-dasharray": "6 4",
     });
     const titre = el("title");
-    titre.textContent = TITRE_MUR_SIGMA;
+    titre.textContent = TITRE_MUR_SIGMA();
     mur.appendChild(titre);
     gPlan.appendChild(mur);
   }
@@ -485,7 +493,7 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       etiquetteMultiligne(gEtiquettes, {
         x: X(cx),
         y: Y(cy),
-        lignes: ["AUSTÉNITE + MARTENSITE", "+ FERRITE (A+M+F)"],
+        lignes: tr("analyse.diag_label_amf", "AUSTÉNITE + MARTENSITE|+ FERRITE (A+M+F)").split("|"),
         couleur: "#F8FAFC",
         taille: 7.2,
         interligne: 8.2,
@@ -518,10 +526,10 @@ export function creerDiagramme(svg, zones, fenetre, options = {}) {
       gAxes.appendChild(ty);
     }
     const lx = el("text", { x: padL + plotW / 2, y: H - 4, fill: "#cbd5e1", "font-size": 8.5, "text-anchor": "middle" });
-    lx.textContent = "% Eq Cr = Cr + Mo + 1,5 Si + 0,5 Nb";
+    lx.textContent = tr("analyse.diag_axe_x", "% Eq Cr = Cr + Mo + 1,5 Si + 0,5 Nb");
     gAxes.appendChild(lx);
     const ly = el("text", { x: 10, y: padT + plotH / 2, fill: "#cbd5e1", "font-size": 8.5, "text-anchor": "middle", transform: `rotate(-90 10 ${padT + plotH / 2})` });
-    ly.textContent = "% Eq Ni = Ni + 30 C + 0,5 Mn";
+    ly.textContent = tr("analyse.diag_axe_y", "% Eq Ni = Ni + 30 C + 0,5 Mn");
     gAxes.appendChild(ly);
     svg.appendChild(gAxes);
   }

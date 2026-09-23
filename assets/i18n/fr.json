@@ -23,13 +23,34 @@
     "normes_col_code": "Référence",
     "normes_col_objet": "Objet",
     "normes": [
-      { "code": "NF EN ISO 15609-1", "objet": "DMOS - contenu du descriptif de mode opératoire" },
-      { "code": "NF EN ISO 15614-1", "objet": "QMOS - épreuve de qualification de mode opératoire" },
-      { "code": "NF EN 1011-1", "objet": "Soudage à l'arc - généralités, rendements thermiques" },
-      { "code": "NF EN 1011-2", "objet": "Aciers ferritiques - préchauffe et temps de refroidissement t8/5" },
-      { "code": "ISO/TR 15608", "objet": "Système de groupement des matériaux métalliques" },
-      { "code": "NF EN ISO 5817", "objet": "Critères d'acceptation des défauts de soudure" },
-      { "code": "NACE MR0175 / ISO 15156", "objet": "Aciers pour milieux acides (H2S) - plafond de dureté" }
+      {
+        "code": "NF EN ISO 15609-1",
+        "objet": "DMOS - contenu du descriptif de mode opératoire"
+      },
+      {
+        "code": "NF EN ISO 15614-1",
+        "objet": "QMOS - épreuve de qualification de mode opératoire"
+      },
+      {
+        "code": "NF EN 1011-1",
+        "objet": "Soudage à l'arc - généralités, rendements thermiques"
+      },
+      {
+        "code": "NF EN 1011-2",
+        "objet": "Aciers ferritiques - préchauffe et temps de refroidissement t8/5"
+      },
+      {
+        "code": "ISO/TR 15608",
+        "objet": "Système de groupement des matériaux métalliques"
+      },
+      {
+        "code": "NF EN ISO 5817",
+        "objet": "Critères d'acceptation des défauts de soudure"
+      },
+      {
+        "code": "NACE MR0175 / ISO 15156",
+        "objet": "Aciers pour milieux acides (H2S) - plafond de dureté"
+      }
     ],
     "sommaire_titre": "Les onglets",
     "onglets": [
@@ -129,7 +150,18 @@
     "eq_creq": "Cr éq",
     "eq_nieq": "Ni éq",
     "eq_ce": "CE_IIW",
-    "elements_comp": ["C", "Mn", "Si", "Cr", "Ni", "Mo", "Nb", "Ti", "N", "Cu"],
+    "elements_comp": [
+      "C",
+      "Mn",
+      "Si",
+      "Cr",
+      "Ni",
+      "Mo",
+      "Nb",
+      "Ti",
+      "N",
+      "Cu"
+    ],
     "label_intensite_manuelle": "Intensité I (A)",
     "label_vitesse": "Vitesse de soudage Vs (cm/min)",
     "vitesse_note": "Valeur indicative pré-remplie selon le procédé, ajustable.",
@@ -160,42 +192,130 @@
     "unite_cmmin": "cm/min",
     "unite_kjcm": "kJ/cm",
     "procedes": [
-      { "value": "111", "label": "111 - Électrode enrobée (EE)" },
-      { "value": "141", "label": "141 - TIG" },
-      { "value": "131", "label": "131 - MIG" },
-      { "value": "135", "label": "135 - MAG" }
+      {
+        "value": "111",
+        "label": "111 - Électrode enrobée (EE)"
+      },
+      {
+        "value": "141",
+        "label": "141 - TIG"
+      },
+      {
+        "value": "131",
+        "label": "131 - MIG"
+      },
+      {
+        "value": "135",
+        "label": "135 - MAG"
+      }
     ],
     "positions": [
-      { "value": "PA", "label": "PA - à plat" },
-      { "value": "PB", "label": "PB - en angle à plat (corniche)" },
-      { "value": "PC", "label": "PC - horizontale (bout à bout)" },
-      { "value": "PD", "label": "PD - en angle au plafond" },
-      { "value": "PE", "label": "PE - au plafond" },
-      { "value": "PF", "label": "PF - verticale montante" },
-      { "value": "PG", "label": "PG - verticale descendante" },
-      { "value": "H-L045", "label": "H-L045 - inclinée (tube en pente à 45°)" }
+      {
+        "value": "PA",
+        "label": "PA - à plat"
+      },
+      {
+        "value": "PB",
+        "label": "PB - en angle à plat (corniche)"
+      },
+      {
+        "value": "PC",
+        "label": "PC - horizontale (bout à bout)"
+      },
+      {
+        "value": "PD",
+        "label": "PD - en angle au plafond"
+      },
+      {
+        "value": "PE",
+        "label": "PE - au plafond"
+      },
+      {
+        "value": "PF",
+        "label": "PF - verticale montante"
+      },
+      {
+        "value": "PG",
+        "label": "PG - verticale descendante"
+      },
+      {
+        "value": "H-L045",
+        "label": "H-L045 - inclinée (tube en pente à 45°)"
+      }
     ],
     "assemblages": [
-      { "value": "BW", "label": "BW - bout à bout" },
-      { "value": "FW", "label": "FW - soudure d'angle" }
+      {
+        "value": "BW",
+        "label": "BW - bout à bout"
+      },
+      {
+        "value": "FW",
+        "label": "FW - soudure d'angle"
+      }
     ],
     "chanfreins": [
-      { "value": "droit", "label": "Bord droit / I" },
-      { "value": "V", "label": "Chanfrein en V" },
-      { "value": "Y", "label": "Chanfrein en Y (avec talon)" },
-      { "value": "X", "label": "Chanfrein en X" },
-      { "value": "demi-V", "label": "Demi-V / K" }
+      {
+        "value": "droit",
+        "label": "Bord droit / I"
+      },
+      {
+        "value": "V",
+        "label": "Chanfrein en V"
+      },
+      {
+        "value": "Y",
+        "label": "Chanfrein en Y (avec talon)"
+      },
+      {
+        "value": "X",
+        "label": "Chanfrein en X"
+      },
+      {
+        "value": "demi-V",
+        "label": "Demi-V / K"
+      }
     ],
-    "diametres": [2.0, 2.5, 3.2, 4.0, 5.0],
-    "diametres_fil": [0.8, 1.0, 1.2, 1.6],
+    "diametres": [
+      2.0,
+      2.5,
+      3.2,
+      4.0,
+      5.0
+    ],
+    "diametres_fil": [
+      0.8,
+      1.0,
+      1.2,
+      1.6
+    ],
     "enrobages": [
-      { "value": "R", "label": "Rutile (R)" },
-      { "value": "B", "label": "Basique (B)" },
-      { "value": "C", "label": "Cellulosique (C)" },
-      { "value": "A", "label": "Acide (A)" },
-      { "value": "RB", "label": "Rutilo-basique (RB)" },
-      { "value": "RC", "label": "Rutilo-cellulosique (RC)" }
-    ]
+      {
+        "value": "R",
+        "label": "Rutile (R)"
+      },
+      {
+        "value": "B",
+        "label": "Basique (B)"
+      },
+      {
+        "value": "C",
+        "label": "Cellulosique (C)"
+      },
+      {
+        "value": "A",
+        "label": "Acide (A)"
+      },
+      {
+        "value": "RB",
+        "label": "Rutilo-basique (RB)"
+      },
+      {
+        "value": "RC",
+        "label": "Rutilo-cellulosique (RC)"
+      }
+    ],
+    "combo_aucun_resultat": "Aucun résultat",
+    "combo_aucune_option": "Aucune option"
   },
   "analyse": {
     "titre": "Analyse",
@@ -299,7 +419,18 @@
     "aide_dilution": "Aucun apport ne reste dans une zone admise sur toute la plage du procédé. Resserrez la plage uniquement si vous disposez d'une mesure ou d'un retour d'atelier fiable.",
     "limite_ideale_basse": "limite idéale à 5 %",
     "limite_ideale_haute": "limite idéale à 15 %",
-    "elements_comp": ["C", "Mn", "Si", "Cr", "Ni", "Mo", "Nb", "Ti", "N", "Cu"],
+    "elements_comp": [
+      "C",
+      "Mn",
+      "Si",
+      "Cr",
+      "Ni",
+      "Mo",
+      "Nb",
+      "Ti",
+      "N",
+      "Cu"
+    ],
     "carte_zones_titre": "Comprendre les zones métallurgiques",
     "zones_explication": [
       {
@@ -357,7 +488,19 @@
         "titre": "3. Corridor de sécurité blanc",
         "texte": "Ce corridor en forme de S est compris dans la zone A+M+F grisée. Le résultat y reste admis comme solution de repli, après la zone idéale bleue et la zone acceptable verte."
       }
-    ]
+    ],
+    "diag_corridor_titre": "Corridor de sécurité A+M+F - zone admise après la zone idéale puis la zone acceptable.",
+    "diag_label_corridor": "CORRIDOR|DE SÉCURITÉ",
+    "diag_label_amf": "AUSTÉNITE + MARTENSITE|+ FERRITE (A+M+F)",
+    "diag_label_ideale": "IDÉALE",
+    "diag_label_acceptable": "ACCEPTABLE",
+    "diag_axe_x": "% Eq Cr = Cr + Mo + 1,5 Si + 0,5 Nb",
+    "diag_axe_y": "% Eq Ni = Ni + 30 C + 0,5 Mn",
+    "diag_mur_sigma": "Cr éq = 25 : limite phase sigma - au-delà, précipitation intermétallique fragilisante",
+    "diag_risque_a": "risque de fissuration à chaud",
+    "diag_risque_m": "risque de fissuration à froid",
+    "diag_risque_f": "risque de grossissement de grain",
+    "evt_analyse": "Analyse effectuée :"
   },
   "footer": {
     "disclaimer": "Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.",

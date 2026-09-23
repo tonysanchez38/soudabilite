@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <!-- Calculateur de Soudabilité - soudabilite.com
      Conception et développement : Tony SANCHEZ -->
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
     <meta name="author" content="Tony SANCHEZ" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Calculateur de soudabilité en ligne : diagramme de Schaeffler, dilution, préchauffage et choix du métal d'apport parmi 7 candidats. Gratuit."
-    />
+    <meta name="description" content="Free weldability calculator: Schaeffler diagram with dilution, filler metal ranking, carbon equivalent, heat input and preheat. Based on EN standards." />
     <!-- Titre en dur (SEO) : ne pas piloter par i18n, doit être présent
          sans exécution de JS pour l'indexation. -->
-    <title>Analyse thermique et Schaeffler en ligne | Soudabilite.com</title>
-    <link rel="canonical" href="https://soudabilite.com/analyse-thermique-metallurgique.html" />
+    <title>Weldability calculator: Schaeffler, dilution, preheat | Soudabilite.com</title>
+    <link rel="canonical" href="https://soudabilite.com/en/weldability-calculator.html" />
+    <link rel="alternate" hreflang="fr" href="https://soudabilite.com/analyse-thermique-metallurgique.html" />
+    <link rel="alternate" hreflang="en" href="https://soudabilite.com/en/weldability-calculator.html" />
+    <link rel="alternate" hreflang="x-default" href="https://soudabilite.com/analyse-thermique-metallurgique.html" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Calculateur - Analyse de soudabilité" />
     <meta
@@ -27,7 +27,7 @@
     <meta property="og:image:height" content="640" />
     <meta property="og:image:alt" content="Soudabilite.com, calculateur de soudabilité en ligne gratuit" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
 
     <!-- Choices.js (combobox à recherche - DECISIONS.md #11), chargé via CDN. -->
@@ -37,9 +37,9 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/main.css?v=20260922-langues-v2" />
+    <link rel="stylesheet" href="/assets/css/main.css?v=20260922-langues-v2" />
     <!-- Fiche imprimable (window.print + @media print - DECISIONS.md #25). -->
-    <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-3" media="print" />
+    <link rel="stylesheet" href="/assets/css/print.css?v=20260826-signature-pdf-3" media="print" />
 
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
@@ -49,31 +49,10 @@
       async
       src="/gc/count.js"
     ></script>
-    <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/css/main.css?v=20260922-langues-v2" as="style" />
-    <script type="module" src="assets/js/parametres.js?v=20260825-lecture-apport-3"></script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Calculateur de soudabilité : analyse thermique et métallurgique",
-  "url": "https://soudabilite.com/analyse-thermique-metallurgique.html",
-  "applicationCategory": "EngineeringApplication",
-  "operatingSystem": "Tous navigateurs",
-  "inLanguage": "fr",
-  "description": "Positionnement du joint soudé sur le diagramme de Schaeffler avec prise en compte de la dilution, classement de 7 métaux d'apport, carbone équivalent, énergie de soudage en kJ/cm et température de préchauffage.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Tony Sanchez"
-  },
-  "isAccessibleForFree": true
-}
-    </script>
+    <link rel="preload" href="/assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="/assets/css/main.css?v=20260922-langues-v2" as="style" />
+    <script type="module" src="/assets/js/parametres.js?v=20260825-lecture-apport-3"></script>
+    
     <!-- Navigation : libelles en dur (pas de data-i18n) pour qu'ils
          s'affichent sans dependre du chargement de fr.json. -->
     <style>
@@ -93,20 +72,19 @@
     <!-- ===================== Barre de navigation ===================== -->
     <header class="topbar">
       <div class="conteneur topbar__inner">
-        <a class="nav__marque" href="/">
-          <img class="nav__logo" src="favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
+        <a class="nav__marque" href="/en/">
+          <img class="nav__logo" src="/favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
           <span>www.soudabilite.com</span>
         </a>
-        <nav class="nav" aria-label="Navigation principale">
-          <a class="nav__lien" href="/">Accueil</a>
-          <a class="nav__lien is-active" href="analyse-thermique-metallurgique.html" aria-current="page">Analyse thermique</a>
-          <a class="nav__lien" href="guide-metallurgique.html">Guide métallurgique</a>
-          <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
-          <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a class="nav__lien" href="/en/">Home</a>
+          <a class="nav__lien is-active" href="/en/weldability-calculator.html" aria-current="page">Calculator</a>
+          <a class="nav__lien" href="/en/materials-library.html">Materials library</a>
+          <a class="nav__lien" href="/welding-preheat-calculation.html">Preheat guide</a>
         </nav>
         <div class="langues" role="group" aria-label="Langue / Language">
-          <span class="langues__lien is-active" aria-current="true" lang="fr"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#fff"/><path d="M0 1.5A1.5 1.5 0 0 1 1.5 0H7v15H1.5A1.5 1.5 0 0 1 0 13.5z" fill="#1b4fa0"/><path d="M14 0h5.5A1.5 1.5 0 0 1 21 1.5v12a1.5 1.5 0 0 1-1.5 1.5H14z" fill="#c8102e"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">FR</span></span>
-          <a class="langues__lien" href="/en/weldability-calculator.html" hreflang="en" lang="en" title="English version"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#1b3a82"/><path d="M0 0l21 15M21 0L0 15" stroke="#fff" stroke-width="3"/><path d="M0 0l21 15M21 0L0 15" stroke="#c8102e" stroke-width="1.6"/><path d="M10.5 0v15M0 7.5h21" stroke="#fff" stroke-width="5"/><path d="M10.5 0v15M0 7.5h21" stroke="#c8102e" stroke-width="3"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">EN</span></a>
+          <a class="langues__lien" href="/analyse-thermique-metallurgique.html" hreflang="fr" lang="fr" title="Version française"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#fff"/><path d="M0 1.5A1.5 1.5 0 0 1 1.5 0H7v15H1.5A1.5 1.5 0 0 1 0 13.5z" fill="#1b4fa0"/><path d="M14 0h5.5A1.5 1.5 0 0 1 21 1.5v12a1.5 1.5 0 0 1-1.5 1.5H14z" fill="#c8102e"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">FR</span></a>
+          <span class="langues__lien is-active" aria-current="true" lang="en"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#1b3a82"/><path d="M0 0l21 15M21 0L0 15" stroke="#fff" stroke-width="3"/><path d="M0 0l21 15M21 0L0 15" stroke="#c8102e" stroke-width="1.6"/><path d="M10.5 0v15M0 7.5h21" stroke="#fff" stroke-width="5"/><path d="M10.5 0v15M0 7.5h21" stroke="#c8102e" stroke-width="3"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">EN</span></span>
         </div>
       </div>
     </header>
@@ -471,8 +449,8 @@
 
             <!-- CARTE 2bis - Comprendre les zones métallurgiques -->
             <section class="carte carte--form" data-carte="renvoi-zones">
-              <p class="note">Trois bandes structurent le classement : zone idéale entre 5 et 15 % de ferrite delta, zone acceptable de 0 à 20 %, puis le corridor de sécurité blanc compris dans la zone A+M+F.</p>
-              <p><a class="lien-outil" href="guide-metallurgique.html#zones-metallurgiques">Comprendre les sept zones métallurgiques et les mécanismes de fissuration</a></p>
+              <p class="note">Three bands drive the ranking: the ideal zone between 5 and 15 % delta ferrite, the acceptable zone from 0 to 20 %, then the white safety corridor inside the A+M+F zone.</p>
+              <p><a class="lien-outil" href="/guide-metallurgique.html#zones-metallurgiques" hreflang="fr">Understand the seven metallurgical zones and the cracking mechanisms (French)</a></p>
             </section>
 
             <!-- CARTE 3 - Synthèse Schaeffler -->
@@ -504,17 +482,17 @@
     <!-- ==================== Pied de page permanent =================== -->
     <footer class="pied">
       <div class="conteneur pied__inner">
-        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.</p>
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Welding preparation aid. It does not replace a qualified WPS or a WPQR. The tool is being tested, updates are planned.</p>
         <div class="pied__compteurs">
           <p class="pied__compteur" data-compteur hidden></p>
           <p class="pied__compteur" data-compteur-analyses hidden></p>
         </div>
         <div class="pied__signatures">
-          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Tony SANCHEZ on LinkedIn (new tab)" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
             <span class="pied__linkedin-icone" aria-hidden="true">in</span>
             <span class="pied__signature-texte" data-i18n="footer.signature">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
           </a>
-          <p class="pied__credit">Conçu et développé par <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
+          <p class="pied__credit">Designed and developed by <a href="https://bid-consulting.fr/" target="_blank" rel="noopener noreferrer">Bid Consulting</a></p>
         </div>
       </div>
     </footer>

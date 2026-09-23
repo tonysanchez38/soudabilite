@@ -647,12 +647,12 @@ function capturerDiagrammeEnImage(callback) {
 // --- Initialisation -----------------------------------------------------
 async function init() {
   try {
-    await chargerChaines("fr");
+    await chargerChaines();
     appliquerChaines();
 
     const [banque, zones] = await Promise.all([
-      fetch("assets/data/data.json", { cache: "no-cache" }).then((r) => r.json()),
-      fetch("assets/data/zones_schaeffler.json", { cache: "no-cache" }).then((r) => r.json()),
+      fetch("/assets/data/data.json", { cache: "no-cache" }).then((r) => r.json()),
+      fetch("/assets/data/zones_schaeffler.json", { cache: "no-cache" }).then((r) => r.json()),
     ]);
     BANQUE = banque;
     ZONES = zones;
