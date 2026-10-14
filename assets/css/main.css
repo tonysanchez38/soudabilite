@@ -1748,15 +1748,95 @@ a.langues__lien:hover .langues__drapeau {
   line-height: 1.5;
 }
 
-/* Lien LinkedIn de Bid Consulting, aligne sur la ligne de credit du pied. */
-.pied__credit-in {
+
+/* ----------------------------------------------------------------------- */
+/* Bandeau agence : marque Bid Consulting en pied de page.                  */
+/* Palette identique a celle de bid-consulting.fr (--bleu #38BDF8 sur       */
+/* --fond #0F172A), le badge reprend le logo officiel.                      */
+/* ----------------------------------------------------------------------- */
+.pied__agence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2) var(--sp-4);
+  width: 100%;
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--gris-bordure);
+}
+
+.pied__agence-mention {
+  color: var(--texte-faible);
+  font-size: var(--fs-xs);
+}
+
+.marque-bc {
   display: inline-flex;
-  vertical-align: text-bottom;
-  margin-left: 0.3rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--encre);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
   text-decoration: none;
 }
 
-.pied__credit-in:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+.marque-bc__logo {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  padding: 4px;
+  fill: var(--fond);
+  background: var(--bleu);
+  border-radius: 8px;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
+}
+
+.marque-bc__nom strong {
+  color: var(--bleu);
+  font-weight: 700;
+}
+
+.marque-bc:hover .marque-bc__nom,
+.marque-bc:focus-visible .marque-bc__nom {
+  text-decoration: underline;
+}
+
+.pied__agence-li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--bleu);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pied__agence-li svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.pied__agence-li:hover,
+.pied__agence-li:focus-visible {
+  text-decoration: underline;
+}
+
+.marque-bc:focus-visible,
+.pied__agence-li:focus-visible {
+  outline: 2px solid var(--bleu);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .pied__agence {
+    gap: var(--sp-2);
+  }
+  .pied__agence-mention {
+    width: 100%;
+    text-align: center;
+  }
 }
