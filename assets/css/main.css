@@ -1747,3 +1747,16 @@ a.langues__lien:hover .langues__drapeau {
   color: var(--texte-doux);
   line-height: 1.5;
 }
+
+/* Lien LinkedIn de Bid Consulting, aligne sur la ligne de credit du pied. */
+.pied__credit-in {
+  display: inline-flex;
+  vertical-align: text-bottom;
+  margin-left: 0.3rem;
+  text-decoration: none;
+}
+
+.pied__credit-in:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
