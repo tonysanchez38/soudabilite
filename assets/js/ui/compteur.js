@@ -8,26 +8,67 @@
 import { t } from "./i18n.js";
 import { COMPTEUR_PAGE_VISIBLE } from "../core/config.js";
 
-// Lit un endpoint /counter/*.json de GoatCounter. Renvoie l'objet
-// { count, count_unique } ou null si indisponible (compte absent, accès
-// non public, réseau) - dans ce cas on n'affiche simplement rien.
+// Adresse GoatCounter réelle, derrière le proxy first-party /gc/.
+// Sert uniquement de repli de lecture : voir urlsLecture().
+const GOATCOUNTER_DIRECT = "https://soudabilite.goatcounter.com";
+
+// Donne les adresses à essayer dans l'ordre pour lire un compteur.
+// Le proxy first-party passe en premier (il traverse les bloqueurs de
+// pub, DECISIONS.md #22). S'il est en panne - le 15/10/2026, la route
+// /gc/* renvoyait HTTP 525 - l'appel direct prend le relais : un
+// visiteur sans bloqueur voit le chiffre malgré la panne du proxy.
+function urlsLecture(url) {
+  if (!url) return [];
+  const coupe = url.indexOf("/gc/");
+  if (coupe === -1) return [url];
+  return [url, GOATCOUNTER_DIRECT + url.slice(coupe + 3)];
+}
+
+// Un appel, avec expiration. Résout l'objet { count, count_unique }
+// ou rejette (compte absent, accès non public, réseau, proxy en panne) :
+// le rejet est ce qui permet à Promise.any de passer à l'autre adresse.
+async function appel(url, expirationMs) {
+  const controleur = new AbortController();
+  const minuterie = setTimeout(() => controleur.abort(), expirationMs);
+  try {
+    const reponse = await fetch(url, { cache: "no-cache", signal: controleur.signal });
+    if (!reponse.ok) throw new Error(String(reponse.status));
+    return await reponse.json();
+  } finally {
+    clearTimeout(minuterie);
+  }
+}
+
+// Lit un endpoint /counter/*.json de GoatCounter, en deux temps.
+//   1. Le proxy first-party seul, avec une expiration courte. Tant qu'il
+//      répond, aucune requête ne part vers goatcounter.com : le blocage
+//      par nom de domaine reste contourné (DECISIONS.md #22).
+//   2. S'il n'a pas répondu, les deux adresses en parallèle, et la
+//      première qui aboutit l'emporte.
+// Mesure du 15/10/2026 : la route /gc/* renvoyait HTTP 525 un appel sur
+// deux. En série, l'attente cumulée dépassait souvent la patience du
+// visiteur et le compteur restait vide ; en parallèle, le chiffre
+// s'affiche dès qu'une des deux sources répond.
 async function litCompteur(url) {
-  if (!url) return null;
-  for (let tentative = 0; tentative < 2; tentative += 1) {
-    const controleur = new AbortController();
-    const expiration = setTimeout(() => controleur.abort(), 4000);
+  const adresses = urlsLecture(url);
+  if (adresses.length === 0) return null;
+
+  try {
+    return await appel(adresses[0], 3000);
+  } catch (err) {
+    // Le proxy n'a pas répondu : on élargit ci-dessous.
+  }
+
+  if (adresses.length === 1) return null;
+
+  // Deux salves parallèles : la source qui vient d'échouer peut répondre
+  // à l'essai suivant, la panne observée étant intermittente.
+  for (let salve = 0; salve < 2; salve += 1) {
     try {
-      const reponse = await fetch(url, {
-        cache: "no-cache",
-        signal: controleur.signal,
-      });
-      if (reponse.ok) return await reponse.json();
+      return await Promise.any(adresses.map((adresse) => appel(adresse, 4000)));
     } catch (err) {
-      // Une seconde tentative est effectuée ci-dessous.
-    } finally {
-      clearTimeout(expiration);
+      await new Promise((resolve) => setTimeout(resolve, 400));
     }
-    await new Promise((resolve) => setTimeout(resolve, 250));
   }
   return null;
 }
