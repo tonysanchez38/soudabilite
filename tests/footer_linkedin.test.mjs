@@ -2,7 +2,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const racine = new URL("../", import.meta.url);
-const pages = ["index.html", "parametres.html", "banque.html", "annonces.html"];
+// Pages servies aujourd'hui (parametres, banque et annonces sont des renvois 301).
+const pages = [
+  "index.html",
+  "analyse-thermique-metallurgique.html",
+  "bibliotheque-materiaux.html",
+  "guide-metallurgique.html",
+];
 const traductions = JSON.parse(
   await readFile(new URL("assets/i18n/fr.json", racine), "utf8"),
 );
@@ -14,7 +20,8 @@ for (const nom of pages) {
   assert.match(page, /class="pied__linkedin-icone" aria-hidden="true">in<\/span>/);
   assert.match(page, /class="pied__signature-texte" data-i18n="footer\.signature"/);
   assert.match(page, /aria-label:footer\.signature_lien_aria/);
-  assert.match(page, /main\.css\?v=20260827-icone-linkedin-1/);
+  // Version de cache libre : seul compte le paramètre ?v= qui force le rechargement.
+  assert.match(page, /main\.css\?v=[\w-]+/);
 }
 
 assert.equal(

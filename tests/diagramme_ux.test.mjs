@@ -7,7 +7,8 @@ const zones = JSON.parse(await readFile(new URL("assets/data/zones_schaeffler.js
 const vue = await readFile(new URL("assets/js/vue_analyse.js", racine), "utf8");
 const rendu = await readFile(new URL("assets/js/ui/schaeffler_svg.js", racine), "utf8");
 const parametres = await readFile(new URL("assets/js/parametres.js", racine), "utf8");
-const page = await readFile(new URL("parametres.html", racine), "utf8");
+// parametres.html est devenu analyse-thermique-metallurgique.html (renvoi 301).
+const page = await readFile(new URL("analyse-thermique-metallurgique.html", racine), "utf8");
 const styles = await readFile(new URL("assets/css/main.css", racine), "utf8");
 
 assert.equal(traductions.analyse.leg_a, "Métal A");
@@ -36,19 +37,26 @@ assert.match(traductions.analyse.heterogene_note, /Le préchauffage n'est pas ca
 const zoneAMF = zones.zones.find((zone) => zone.id === "AMF");
 assert.equal(zoneAMF?.couleur, "#94A3B8");
 
+// Les étiquettes passent désormais par l'i18n (tr(clé, repli français)).
 for (const etiquette of ["Métal A", "Métal B", "Dilution", "Métal d'apport"]) {
-  assert.ok(vue.includes(`etiquette: \"${etiquette}\"`), `Étiquette dynamique manquante : ${etiquette}`);
+  assert.ok(
+    new RegExp(`etiquette: tr\\("analyse\\.[a-zA-Z_]+", "${etiquette}"\\)`).test(vue),
+    `Étiquette dynamique manquante : ${etiquette}`,
+  );
 }
 assert.match(rendu, /AF: \[31\.0, 17\.2\]/);
-assert.match(rendu, /meilleureAncreBande\(15, 20\), "ACCEPTABLE"/);
-assert.match(rendu, /lignes: \["CORRIDOR", "DE SÉCURITÉ"\]/);
+assert.match(rendu, /meilleureAncreBande\(15, 20\), tr\("analyse\.diag_label_acceptable", "ACCEPTABLE"\)/);
+assert.match(rendu, /lignes: tr\("analyse\.diag_label_corridor", "CORRIDOR\|DE SÉCURITÉ"\)/);
 assert.match(rendu, /\[10, 15, 20\]\.includes\(pct\)/);
 assert.match(parametres, /vue_analyse\.js\?v=20260825-lecture-apport-3/);
 assert.match(parametres, /core\/energie\.js\?v=20260824-energie-diagramme-2/);
 assert.match(page, /parametres\.js\?v=20260825-lecture-apport-3/);
-assert.match(page, /CARTE 2bis[\s\S]*?<section class="carte carte--form" data-carte="zones">/);
+// La carte des zones a quitté la page d'analyse pour le guide métallurgique.
+const guide = await readFile(new URL("guide-metallurgique.html", racine), "utf8");
+assert.match(guide, /<section id="zones-metallurgiques"/);
+assert.match(page, /guide-metallurgique\.html#zones-metallurgiques/);
 assert.match(vue, /carteZones\.hidden = carbone/);
-assert.match(page, /main\.css\?v=20260827-icone-linkedin-1/);
+assert.match(page, /main\.css\?v=[\w-]+/);
 assert.match(page, /<details class="diagramme-explication">/);
 assert.match(page, /data-i18n="analyse\.diagramme_difference_limite_texte"/);
 assert.match(page, /data-i18n="analyse\.col_plage"/);
