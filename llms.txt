@@ -1,6 +1,6 @@
 # Soudabilite.com
 
-> Outil gratuit d'aide à la préparation du soudage, en français, destiné aux étudiants, techniciens méthodes et coordinateurs en soudage. Il positionne un joint soudé sur le diagramme de Schaeffler en tenant compte de la dilution, classe les métaux d'apport, calcule le carbone équivalent, l'énergie de soudage en kJ/cm et la température de préchauffage. Il ne qualifie pas un mode opératoire et ne remplace ni un DMOS qualifié ni une QMOS.
+> Outil gratuit d'aide à la préparation du soudage, en français et en anglais, destiné aux étudiants, techniciens méthodes et coordinateurs en soudage. Il positionne un joint soudé sur le diagramme de Schaeffler en tenant compte de la dilution, classe les métaux d'apport, calcule le carbone équivalent, l'énergie de soudage en kJ/cm et la température de préchauffage. Il ne qualifie pas un mode opératoire et ne remplace ni un DMOS qualifié ni une QMOS.
 
 ## Pages
 
@@ -17,5 +17,7 @@
 
 ## English
 
-- [Weldability calculator, English overview](https://soudabilite.com/en.html): what the tool does, who it is for, standards used. The calculator interface is in French.
+- [Weldability calculator, English overview](https://soudabilite.com/en/): what the tool does, who it is for, standards used.
+- [Weldability calculator](https://soudabilite.com/en/weldability-calculator.html): English interface, same engine and same values as the French version.
+- [Materials library](https://soudabilite.com/en/materials-library.html): base metals and filler metals with chemical composition and Schaeffler equivalents.
 - [How to calculate the preheat temperature before welding](https://soudabilite.com/welding-preheat-calculation.html): carbon equivalent, Seferian and BWRA methods, worked example.
