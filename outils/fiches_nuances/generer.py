@@ -179,7 +179,8 @@ def fiche(d):
 
         </article>
 '''
-    titre = f"{n} ({d['num']}) : soudabilité, préchauffage et métal d'apport | Soudabilite.com" if carbone else f"{n} ({d['num']}) : soudabilité et métal d'apport | Soudabilite.com"
+    # Titres courts (moins de 60 caractères) : Google tronque au-delà.
+    titre = f"{n} : soudabilité et préchauffage | Soudabilite.com" if carbone else f"{n} : soudabilité et métal d'apport | Soudabilite.com"
     return page(titre, desc, url, n, art)
 
 for d in D:
