@@ -44,6 +44,9 @@ def page(titre, desc, url, h1_crumb, article, ld_extra=None):
     s = re.sub(r'(<a class="langues__lien" href=")[^"]*(")', r'\1/en/\2', s, count=1)
     s = re.sub(r'        <article class="gm__corps">.*?</article>', lambda m: article.rstrip("\n"), s, count=1, flags=re.S)
     s = absolu(s)
+    # Onglet actif : les fiches dépendent de la bibliothèque, pas du guide.
+    s = s.replace('<a class="nav__lien is-active" href="/guide-metallurgique.html" aria-current="page">', '<a class="nav__lien" href="/guide-metallurgique.html">')
+    s = s.replace('<a class="nav__lien" href="/bibliotheque-materiaux.html">', '<a class="nav__lien is-active" href="/bibliotheque-materiaux.html" aria-current="page">')
     assert "—" not in article
     return s
 
