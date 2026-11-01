@@ -1748,3 +1748,61 @@ a.langues__lien:hover .langues__drapeau {
   line-height: 1.5;
 }
 
+
+/* ======================================================================= */
+/* 13. En-tête compact sur téléphone (01/11/2026)                          */
+/*     Avant : cinq onglets empilés, le contenu commençait sous 40 % de    */
+/*     l'écran. Après : marque et langues sur une ligne, onglets sur une   */
+/*     seule ligne défilante. Aucune règle précédente n'est supprimée.     */
+/* ======================================================================= */
+@media (max-width: 720px) {
+  .conteneur {
+    padding-inline: var(--sp-4);
+  }
+  .topbar__inner {
+    align-items: stretch;
+    gap: var(--sp-2);
+    padding-block: var(--sp-2);
+  }
+  .nav__marque {
+    align-self: flex-start;
+    font-size: 1.15rem;
+    min-height: 2rem;
+  }
+  .nav__logo {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .langues {
+    position: absolute;
+    top: var(--sp-2);
+    right: 0;
+    margin-top: 0;
+  }
+  .topbar .nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin-inline: calc(-1 * var(--sp-4));
+    padding-inline: var(--sp-4);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+  }
+  .topbar .nav::-webkit-scrollbar {
+    display: none;
+  }
+  .topbar .nav__lien {
+    flex: 0 0 auto;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.85rem;
+  }
+  /* Paragraphes longs : alignés à gauche sur petit écran, plus faciles à
+     suivre ; les titres restent centrés (charte du site). */
+  .gm .gm__tete .gm__chapo,
+  .contenu-guide p,
+  .presentation-seo p {
+    text-align: left;
+  }
+}

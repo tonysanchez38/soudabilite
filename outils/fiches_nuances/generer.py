@@ -13,7 +13,10 @@ B = "https://soudabilite.com"
 def f(x, n=2):
     return f"{x:.{n}f}".replace(".", ",")
 
-VERDICT = {"ideal": "Zone idéale", "acceptable": "Zone acceptable", "zone_s": "Corridor de sécurité", "hors": "Hors zones admises"}
+# Libellés repris du calculateur (assets/i18n/fr.json, analyse.plage_*) pour
+# qu'une fiche et l'écran d'analyse disent la même chose.
+_FR = json.load(open(f"{R}/assets/i18n/fr.json", encoding="utf-8"))["analyse"]
+VERDICT = {k: _FR[f"plage_{k}"] for k in ("ideal", "acceptable", "zone_s", "hors")}
 
 def absolu(s):
     s = re.sub(r'(href|src)="(?!https?:|/|#|mailto:|data:)([^"]+)"', r'\1="/\2"', s)
@@ -55,7 +58,7 @@ def table_compo(c):
 
 def table_apports(rows):
     l = "".join(f'<tr><td>{i+1}</td><td>{html.escape(r["designation"])}</td><td>{VERDICT[r["niveau"]]}</td><td>{r["ideal"]} %</td></tr>\n                  ' for i, r in enumerate(rows))
-    return f'<div class="defile">\n              <table>\n                <thead><tr><th>Rang</th><th>Apport</th><th>Pire résultat sur 15 à 30 %</th><th>Part en zone idéale</th></tr></thead>\n                <tbody>\n                  {l.strip()}\n                </tbody>\n              </table>\n            </div>'
+    return f'<div class="defile">\n              <table>\n                <thead><tr><th>Rang</th><th>Apport</th><th>Verdict sur 15 à 30 %</th><th>Part en zone idéale</th></tr></thead>\n                <tbody>\n                  {l.strip()}\n                </tbody>\n              </table>\n            </div>'
 
 def fiche(d):
     n = d["nom"]; carbone = d["type"] == "carbone"
@@ -105,7 +108,7 @@ def fiche(d):
             <h2 id="t-hetero">Souder le {n} sur un inox 316L</h2>
             <p>Cas calculé : bout à bout chanfreiné en V, procédé TIG, dilution partagée à parts égales, apport testé sur toute la plage de 15 à 30 %. Les trois apports les plus robustes :</p>
             {table_apports(h)}
-            <p>L'apport classé premier, {html.escape(h[0]["designation"])}, reste en zone idéale sur toute la plage : sa réserve de chrome et de nickel compense la part de {n} fondue. Le raisonnement complet est déroulé dans la page <a href="/diagramme-schaeffler-en-ligne.html">diagramme de Schaeffler en ligne</a>.</p>
+            <p>L'apport classé premier, {html.escape(h[0]["designation"])}, est idéal sur toute la plage : sa réserve de chrome et de nickel compense la part de {n} fondue. Le raisonnement complet est déroulé dans la page <a href="/diagramme-schaeffler-en-ligne.html">diagramme de Schaeffler en ligne</a>.</p>
           </section>'''
         sources.insert(1, "NF EN 1011-2 et méthode de Séférian : préchauffage des aciers ferritiques.")
         h1 = f"{n} : préchauffage et soudage sur inox"
