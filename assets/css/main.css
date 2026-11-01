@@ -1761,6 +1761,7 @@ a.langues__lien:hover .langues__drapeau {
   }
   .topbar__inner {
     align-items: stretch;
+    flex-wrap: nowrap;
     gap: var(--sp-2);
     padding-block: var(--sp-2);
   }
@@ -1780,6 +1781,8 @@ a.langues__lien:hover .langues__drapeau {
     margin-top: 0;
   }
   .topbar .nav {
+    min-width: 0;
+    max-width: calc(100% + 2 * var(--sp-4));
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
