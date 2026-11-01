@@ -415,6 +415,24 @@ recâble la thermique en repartant des formules dans spec.md.
 - JWES - méthode Yurioka de référence
 - Institut de Soudure, IIW/EWF - corpus normatif
 
+## Corrections de données validées
+
+**2026-11-01** (validées par Tony, sources dans le champ `source` de chaque fiche) :
+- INERTROD 308H : Ni 10 saisi dans la colonne Mo de l'Excel v1. Analyse type
+  Lincoln (ER308H / W 19 9 H). Schaeffler 29,60 / 2,55 devient 20,75 / 12,75.
+- ALTIG 309L (W 23 12 L) : composition d'un 308L dans l'Excel v1. Analyse type
+  Lincoln. Schaeffler 20,60 / 11,40 devient 24,68 / 14,50.
+- 36NiCrMo16 : Cr, Mo, Mn, Si absents. Milieu de fourchette 1.6773.
+  Schaeffler 0,00 / 14,80 devient 2,45 / 14,73 ; CE IIW 0,63 devient 1,12 ;
+  CET 0,46 devient 0,62 ; Séférian à 20 mm 219 °C devient 289 °C.
+- Bibliothèques FR et EN mises à jour sur les mêmes valeurs.
+
+## Robots IA
+
+**2026-11-01** : ligne retenue, être cité, pas entraîné. Bloc Cloudflare
+maintenu (robots d'entraînement refusés, ai-train=no), robots de recherche
+autorisés, llms.txt conservé.
+
 ## Fin
 
 Rappel : les 16 décisions actées sont fermes. Tout écart doit remonter à

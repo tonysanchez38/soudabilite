@@ -150,35 +150,35 @@
     {
       "designation": "36 Ni Cr Mo 16",
       "composition": {
-        "C": 0.36,
-        "Mn": null,
-        "Si": null,
-        "Cr": null,
-        "Ni": 4.0,
-        "Mo": null,
+        "C": 0.355,
+        "Mn": 0.45,
+        "Si": 0.2,
+        "Cr": 1.8,
+        "Ni": 3.85,
+        "Mo": 0.35,
         "Nb": null,
         "Ti": null,
         "N": null
       },
       "groupe_iso_15608": null,
-      "source": "Excel v1 Tony Sanchez",
+      "source": "Milieu de fourchette 1.6773 36NiCrMo16 (C 0,32-0,39 ; Si 0-0,40 ; Mn 0,30-0,60 ; Cr 1,6-2,0 ; Mo 0,25-0,45 ; Ni 3,6-4,1) ; correction 2026-11-01 (Cr, Mo, Mn, Si absents de l'Excel v1)",
       "equivalents": {
         "Schaeffler": {
-          "Cr_eq": 0.0,
-          "Ni_eq": 14.8
+          "Cr_eq": 2.45,
+          "Ni_eq": 14.725
         },
         "DeLong": {
-          "Cr_eq": 0.0,
-          "Ni_eq": 14.8
+          "Cr_eq": 2.45,
+          "Ni_eq": 14.725
         },
         "WRC_1992": {
-          "Cr_eq": 0.0,
-          "Ni_eq": 16.6
+          "Cr_eq": 2.15,
+          "Ni_eq": 16.275
         }
       },
       "carbone_equivalent": {
-        "CE_IIW": 0.6267,
-        "CET_EN1011_2": 0.46
+        "CE_IIW": 1.1167,
+        "CET_EN1011_2": 0.6213
       }
     },
     {
@@ -3884,30 +3884,30 @@
     {
       "designation": "ALTIG 309L - EN ISO 14343 : W 23 12 L",
       "composition": {
-        "C": 0.04,
-        "Mn": 1.4,
-        "Si": 0.4,
-        "Cr": 20.0,
-        "Ni": 9.5,
+        "C": 0.02,
+        "Mn": 1.8,
+        "Si": 0.45,
+        "Cr": 24.0,
+        "Ni": 13.0,
         "Mo": null,
         "Nb": null,
         "Ti": null,
         "N": null
       },
       "procede": "141_TIG",
-      "source": "Excel v1 Tony Sanchez",
+      "source": "Lincoln Electric, fiche ALTIG 309L-EN-07/11/22 (AWS A5.9 ER309L / EN ISO 14343-A W 23 12 L), analyse type du fil ; correction 2026-11-01 (composition 308L dans l'Excel v1)",
       "equivalents": {
         "Schaeffler": {
-          "Cr_eq": 20.6,
-          "Ni_eq": 11.4
+          "Cr_eq": 24.675,
+          "Ni_eq": 14.5
         },
         "DeLong": {
-          "Cr_eq": 20.6,
-          "Ni_eq": 11.4
+          "Cr_eq": 24.675,
+          "Ni_eq": 14.5
         },
         "WRC_1992": {
-          "Cr_eq": 20.0,
-          "Ni_eq": 10.9
+          "Cr_eq": 24.0,
+          "Ni_eq": 13.7
         }
       }
     },
@@ -4094,30 +4094,30 @@
     {
       "designation": "INERTROD 308H",
       "composition": {
-        "C": 0.055,
-        "Mn": 1.8,
-        "Si": 0.4,
-        "Cr": 19.0,
-        "Ni": null,
-        "Mo": 10.0,
+        "C": 0.06,
+        "Mn": 1.9,
+        "Si": 0.5,
+        "Cr": 20.0,
+        "Ni": 10.0,
+        "Mo": null,
         "Nb": null,
         "Ti": null,
         "N": null
       },
       "procede": null,
-      "source": "Excel v1 Tony Sanchez",
+      "source": "Lincoln Electric, fiche INERTROD 308H (AWS A5.9 ER308H / EN ISO 14343-A W 19 9 H), analyse type du fil ; correction 2026-11-01 (Ni saisi en Mo dans l'Excel v1)",
       "equivalents": {
         "Schaeffler": {
-          "Cr_eq": 29.6,
-          "Ni_eq": 2.55
+          "Cr_eq": 20.75,
+          "Ni_eq": 12.75
         },
         "DeLong": {
-          "Cr_eq": 29.6,
-          "Ni_eq": 2.55
+          "Cr_eq": 20.75,
+          "Ni_eq": 12.75
         },
         "WRC_1992": {
-          "Cr_eq": 29.0,
-          "Ni_eq": 1.925
+          "Cr_eq": 20.0,
+          "Ni_eq": 12.1
         }
       }
     },

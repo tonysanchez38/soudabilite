@@ -1,3 +1,9 @@
+# Ligne retenue le 2026-11-01 : etre cite, pas entraine.
+# Le bloc gere par Cloudflare (ajoute en tete a la livraison) refuse les
+# robots d'entrainement et pose ai-train=no ; les robots de recherche
+# (moteurs et assistants IA qui citent leurs sources) restent autorises.
+# llms.txt est conserve pour ces derniers.
+
 User-agent: *
 Allow: /
 
