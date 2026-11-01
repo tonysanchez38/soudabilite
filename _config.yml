@@ -20,5 +20,3 @@ exclude:
   - tests
   - outils
   - fiches_trcs
-  - maj-charte-v2.zip
-  - mnt
