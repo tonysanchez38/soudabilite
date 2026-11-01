@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!-- Calculateur de Soudabilité - soudabilite.com
+     Conception et développement : Tony SANCHEZ
+     Page de contenu en HTML statique (pas d'i18n) pour l'indexation.
+     Toutes les valeurs chiffrées sont issues du moteur de calcul en ligne. -->
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
+    <meta name="author" content="Tony SANCHEZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Diagramme de Schaeffler en ligne : équivalents chrome et nickel, dilution, cas chiffré S235JR sur 316L en TIG et choix du métal d'apport 309L." />
+    <title>Diagramme de Schaeffler en ligne et choix du métal d'apport | Soudabilite.com</title>
+    <link rel="canonical" href="https://soudabilite.com/diagramme-schaeffler-en-ligne.html" />
+    <link rel="alternate" hreflang="fr" href="https://soudabilite.com/diagramme-schaeffler-en-ligne.html" />
+    <link rel="alternate" hreflang="en" href="https://soudabilite.com/en/schaeffler-diagram-calculator.html" />
+    <link rel="alternate" hreflang="x-default" href="https://soudabilite.com/diagramme-schaeffler-en-ligne.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Diagramme de Schaeffler en ligne" />
+    <meta property="og:description" content="Diagramme de Schaeffler en ligne : équivalents chrome et nickel, dilution, cas chiffré S235JR sur 316L en TIG et choix du métal d'apport 309L." />
+    <meta property="og:url" content="https://soudabilite.com/diagramme-schaeffler-en-ligne.html" />
+    <meta property="og:image" content="https://soudabilite.com/apercu-social-github.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20261014-agence-v1" />
+    <script
+      data-goatcounter="https://soudabilite.com/gc/count"
+      async
+      src="/gc/count.js"
+    ></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Diagramme de Schaeffler en ligne : placer un joint et choisir le métal d'apport",
+      "inLanguage": "fr",
+      "about": "Diagramme de Schaeffler, chrome équivalent, nickel équivalent, dilution, métal d'apport",
+      "author": {
+        "@type": "Person",
+        "name": "Tony SANCHEZ"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Soudabilite.com"
+      },
+      "mainEntityOfPage": "https://soudabilite.com/diagramme-schaeffler-en-ligne.html",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://soudabilite.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide métallurgique",
+          "item": "https://soudabilite.com/guide-metallurgique.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Diagramme de Schaeffler en ligne",
+          "item": "https://soudabilite.com/diagramme-schaeffler-en-ligne.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "À quoi sert le diagramme de Schaeffler ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il prédit la structure du métal fondu d'un inox ou d'un assemblage inox et acier à partir de sa composition, et donc le risque de fissuration. Il sert à choisir le métal d'apport."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment calcule-t-on le chrome équivalent et le nickel équivalent ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cr éq = %Cr + %Mo + 1,5 × %Si + 0,5 × %Nb et Ni éq = %Ni + 30 × %C + 0,5 × %Mn, selon les formules de Schaeffler."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi souder un acier carbone sur un inox avec du 309L ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce que le 309L contient assez de chrome et de nickel pour compenser la part d'acier carbone fondue. Sur un S235JR soudé en TIG sur du 316L, il garde le joint en zone idéale sur toute la plage de dilution, là où un 308L glisse vers la martensite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle teneur en ferrite viser dans un joint inox ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le calculateur retient 5 à 15 % de ferrite comme zone idéale, et 0 à 20 % comme zone acceptable."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <!-- Navigation : libelles en dur (pas de data-i18n). -->
+    <style>
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:center}
+      .nav__lien{white-space:nowrap}
+      @media (max-width:720px){
+        .nav__lien{font-size:.86rem}
+      }
+
+      /* ================= Guide métallurgique ================= */
+      .gm{display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
+      .gm__sommaire{font-size:var(--fs-sm);width:100%;text-align:center;margin-top:var(--sp-4)}
+      .gm__sommaire p{margin:0 0 var(--sp-2);color:var(--texte-faible);font-weight:600}
+      .gm__sommaire ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem}
+      .gm__sommaire a{display:block;padding:.35rem .8rem;color:var(--texte-doux);line-height:1.35;border:1px solid var(--gris-bordure);border-radius:999px}
+      .gm__sommaire a:hover{color:var(--encre);text-decoration:none;border-color:var(--bleu)}
+      .gm__corps{min-width:0;width:100%;max-width:760px}
+      .gm__tete{margin-bottom:var(--sp-5);text-align:center}
+      .gm__tete p{text-align:left}
+      .gm__tete .gm__chapo{text-align:center}
+      .gm__tete h1{font-size:var(--fs-2xl);line-height:1.2;margin:0 0 var(--sp-4);letter-spacing:-.015em}
+      .gm__chapo{font-size:var(--fs-lg);line-height:1.6;color:var(--encre);margin:0 0 var(--sp-3)}
+      .gm section{padding-top:var(--sp-6);margin-top:var(--sp-6);border-top:1px solid var(--gris-bordure);scroll-margin-top:var(--sp-4)}
+      .gm h2{font-size:var(--fs-xl);line-height:1.25;margin:0 0 var(--sp-4);color:var(--bleu);text-align:center}
+      .gm h3{font-size:var(--fs-lg);margin:var(--sp-5) 0 var(--sp-2);color:var(--encre)}
+      .gm p,.gm li{line-height:1.65}
+      .gm p{margin:0 0 var(--sp-3)}
+      .gm ul{margin:0 0 var(--sp-4);padding-left:1.2rem}
+      .gm li{margin-bottom:.35rem}
+      .gm strong{color:var(--encre)}
+      .gm__doux{color:var(--texte-doux);font-size:var(--fs-sm)}
+      .fil{margin:var(--sp-5) 0 var(--sp-4);width:100%;height:auto;display:block;aspect-ratio:760/180}
+      .fil text{font-family:var(--font-sans)}
+      .duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin:var(--sp-4) 0}
+      .fiche{background:var(--surface);border:1px solid var(--gris-bordure);border-radius:var(--radius);padding:var(--sp-4) var(--sp-5)}
+      .fiche h3{margin-top:0}
+      .fiche dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:.4rem var(--sp-3);font-size:var(--fs-sm)}
+      .fiche dt{color:var(--texte-faible)}
+      .fiche dd{margin:0;line-height:1.5}
+      .fiche__nuances{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--texte-doux);margin:0 0 var(--sp-3)}
+      .encart{border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-4) 0;border-left:3px solid}
+      .encart p:last-child,.encart ul:last-child{margin-bottom:0}
+      .encart__titre{font-weight:700;margin:0 0 .35rem}
+      .encart--alerte{background:var(--ambre-voile);border-color:var(--ambre)}
+      .encart--alerte .encart__titre{color:var(--ambre)}
+      .encart--pratique{background:var(--vert-voile);border-color:var(--vert)}
+      .encart--pratique .encart__titre{color:var(--vert)}
+      .encart--outil{background:var(--bleu-voile);border-color:var(--bleu)}
+      .encart--outil .encart__titre{color:var(--bleu)}
+      .formule{font-family:var(--font-mono);font-size:.95rem;background:var(--fond);border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-3) 0 var(--sp-4);overflow-x:auto;white-space:nowrap;line-height:1.9}
+      .formule sub{font-size:.75em}
+      .frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .3em}
+      .frac>span:first-child{border-bottom:1px solid var(--encre);padding:0 .3em}
+      .frac>span:last-child{padding:0 .3em}
+      .defile{overflow-x:auto;margin:var(--sp-4) 0;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm)}
+      .gm table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+      .gm th,.gm td{padding:.6rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--gris-bordure);line-height:1.5}
+      .gm th{background:var(--gris-fond);color:var(--encre);font-weight:600}
+      .gm tr:last-child td{border-bottom:0}
+      .gm td:first-child{font-weight:600;color:var(--encre)}
+      .schema{margin:var(--sp-4) 0;text-align:center}
+      .schema svg{width:100%;height:auto;display:block;margin:0 auto}
+      .schema figcaption{font-size:var(--fs-xs);color:var(--texte-faible);margin-top:var(--sp-2)}
+      .schema--triangle svg{max-width:460px;aspect-ratio:460/330}
+      .schema--coupe svg{max-width:560px;aspect-ratio:560/210}
+      .zones{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);margin:var(--sp-4) 0}
+      .zone{border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4)}
+      .zone h3{font-size:var(--fs-base);margin:0 0 .3rem}
+      .zone p{font-size:var(--fs-sm);margin:0;color:var(--texte-doux)}
+      .zone--cible{border-color:var(--bleu-bordure);background:var(--bleu-voile)}
+      .check{list-style:none;padding:0;counter-reset:etape}
+      .check li{counter-increment:etape;position:relative;padding:var(--sp-3) var(--sp-4) var(--sp-3) 3rem;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);margin-bottom:var(--sp-2)}
+      .check li::before{content:counter(etape);position:absolute;left:var(--sp-4);top:var(--sp-3);font-weight:700;color:var(--bleu);font-family:var(--font-mono)}
+      .cta{display:table;margin-left:auto;margin-right:auto;margin-top:var(--sp-2);padding:.55rem 1rem;border-radius:var(--radius-sm);background:var(--bleu-fonce);color:var(--blanc);font-weight:600;font-size:var(--fs-sm)}
+      .cta:hover{background:var(--bleu);color:var(--fond);text-decoration:none}
+      .cta:focus-visible,.gm a:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
+      .gm__cloture{font-size:var(--fs-lg);font-weight:600;color:var(--encre);margin-top:var(--sp-5);text-align:center}
+      .sources{font-size:var(--fs-sm);color:var(--texte-doux)}
+      @media (max-width:640px){
+        .duo,.zones{grid-template-columns:1fr}
+        .gm__tete h1{font-size:1.65rem}
+        .fiche dl{grid-template-columns:1fr}
+        .fiche dt{margin-top:.3rem}
+      }
+      @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    </style>
+  </head>
+  <body>
+    <!-- ===================== Barre de navigation ===================== -->
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <a class="nav__marque" href="/">
+          <img class="nav__logo" src="favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
+          <span>www.soudabilite.com</span>
+        </a>
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__lien" href="/">Accueil</a>
+          <a class="nav__lien" href="analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien is-active" href="guide-metallurgique.html" aria-current="page">Guide métallurgique</a>
+          <a class="nav__lien" href="bibliotheque-materiaux.html">Bibliothèque matériaux</a>
+          <a class="nav__lien" href="reglementation-dmos.html">Réglementation DMOS</a>
+        </nav>
+        <div class="langues" role="group" aria-label="Langue / Language">
+          <span class="langues__lien is-active" aria-current="true" lang="fr"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#fff"/><path d="M0 1.5A1.5 1.5 0 0 1 1.5 0H7v15H1.5A1.5 1.5 0 0 1 0 13.5z" fill="#1b4fa0"/><path d="M14 0h5.5A1.5 1.5 0 0 1 21 1.5v12a1.5 1.5 0 0 1-1.5 1.5H14z" fill="#c8102e"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">FR</span></span>
+          <a class="langues__lien" href="/en/schaeffler-diagram-calculator.html" hreflang="en" lang="en" title="English version"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#1b3a82"/><path d="M0 0l21 15M21 0L0 15" stroke="#fff" stroke-width="3"/><path d="M0 0l21 15M21 0L0 15" stroke="#c8102e" stroke-width="1.6"/><path d="M10.5 0v15M0 7.5h21" stroke="#fff" stroke-width="5"/><path d="M10.5 0v15M0 7.5h21" stroke="#c8102e" stroke-width="3"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">EN</span></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================= Contenu ============================= -->
+    <main class="page">
+      <div class="conteneur gm">
+
+        <article class="gm__corps">
+
+          <header class="gm__tete">
+            <p class="gm__doux"><a href="/">Accueil</a> &rsaquo; <a href="guide-metallurgique.html">Guide métallurgique</a> &rsaquo; Diagramme de Schaeffler en ligne</p>
+            <h1>Diagramme de Schaeffler en ligne : placer un joint et choisir le métal d'apport</h1>
+            <p class="gm__chapo">Une tubulure en S235JR à souder sur une virole en 316L, en TIG. Le plan ne donne pas de métal d'apport. Avant d'amorcer l'arc, une question se pose : quel métal va-t-on obtenir dans le cordon ?</p>
+            <p>Le diagramme de Schaeffler répond à cette question depuis 1949. Le calculateur le reprend, ajoute la dilution et classe les métaux d'apport. Cette page déroule le calcul sur ce cas précis.</p>
+            <a class="cta" href="analyse-thermique-metallurgique.html">Placer mon assemblage sur le diagramme</a>
+          </header>
+
+          <nav class="gm__sommaire" aria-label="Sommaire">
+            <p class="gm__doux">Sommaire</p>
+            <ol>
+              <li><a href="#principe">Le principe</a></li>
+              <li><a href="#equivalents">Les équivalents chrome et nickel</a></li>
+              <li><a href="#dilution">La dilution</a></li>
+              <li><a href="#cas-chiffre">Le cas chiffré</a></li>
+              <li><a href="#bandes">Les trois bandes du classement</a></li>
+              <li><a href="#limites">Ce que le diagramme ne dit pas</a></li>
+              <li><a href="#questions">Questions fréquentes</a></li>
+            </ol>
+          </nav>
+
+          <section id="principe" aria-labelledby="t-principe">
+            <h2 id="t-principe">Le principe</h2>
+            <p><strong>Le diagramme de Schaeffler prédit la structure du métal fondu à partir de sa seule composition chimique.</strong> Austénite, ferrite, martensite, ou un mélange des trois.</p>
+            <p>Chaque élément d'alliage pousse le métal vers la ferrite ou vers l'austénite. Le diagramme regroupe les premiers dans un chrome équivalent, les seconds dans un nickel équivalent, et place le point sur un plan à deux axes. La zone où tombe le point annonce le risque : fissuration à chaud, fissuration à froid ou fragilisation.</p>
+          </section>
+
+          <section id="equivalents" aria-labelledby="t-equivalents">
+            <h2 id="t-equivalents">Les équivalents chrome et nickel</h2>
+            <p><strong>Deux nombres suffisent pour placer un métal.</strong> Le calculateur applique les formules de Schaeffler :</p>
+            <p class="formule">Cr éq = %Cr + %Mo + 1,5 × %Si + 0,5 × %Nb<br />Ni éq = %Ni + 30 × %C + 0,5 × %Mn</p>
+            <p>Le carbone pèse trente fois le nickel : quelques centièmes de carbone déplacent le point de façon visible. Pour le S235JR de la bibliothèque, on obtient Cr éq = 0,52 et Ni éq = 5,35. Pour le 316L, Cr éq = 21,00 et Ni éq = 13,90.</p>
+          </section>
+
+          <section id="dilution" aria-labelledby="t-dilution">
+            <h2 id="t-dilution">La dilution</h2>
+            <p><strong>Le cordon n'est jamais fait du seul métal d'apport.</strong> Il mélange une part du métal A fondu, une part du métal B fondu et le métal d'apport.</p>
+            <p class="formule">Joint = DA × A + DB × B + DC × C, avec DA + DB + DC = 100 %</p>
+            <p>La dilution est la somme des deux parts fondues, DA + DB. Elle dépend du procédé et de la préparation : le calculateur retient 15 à 30 % en TIG, 10 à 35 % en électrode enrobée, 20 à 40 % en MIG et MAG. Le point du joint se trouve sur le segment qui relie le mélange des métaux de base au métal d'apport.</p>
+          </section>
+
+          <section id="cas-chiffre" aria-labelledby="t-cas">
+            <h2 id="t-cas">Le cas chiffré : S235JR sur 316L en TIG</h2>
+            <p>Bout à bout chanfreiné en V, procédé 141. Le calculateur propose 15 % de dilution, partagée à parts égales : 7,5 % de S235JR, 7,5 % de 316L, 85 % de métal d'apport.</p>
+            <p><strong>Sans apport adapté, le mélange des deux bases tombe dans la zone austénite + martensite</strong> (Cr éq 10,76 ; Ni éq 9,63). C'est la zone de la fissuration à froid. Le métal d'apport doit tirer le joint hors de cette zone.</p>
+            <div class="defile">
+              <table>
+                <thead><tr><th>Apport</th><th>Joint Cr éq / Ni éq à 15 %</th><th>Ferrite estimée</th><th>Sur toute la plage 15 à 30 %</th></tr></thead>
+                <tbody>
+                  <tr><td>Fil 309L (INERTROD 309L Si)</td><td>23,10 / 13,05</td><td>11,6 %</td><td>Zone idéale sur 100 % de la plage</td></tr>
+                  <tr><td>Fil 308L (TIG 308L)</td><td>19,27 / 11,22</td><td>non chiffrée</td><td>Zone A+M+F, hors des zones admises à 30 %</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Le 308L convient pour souder deux inox entre eux. Face à un acier carbone, il ne contient pas assez de chrome et de nickel pour compenser la part d'acier fondue : le joint glisse vers la martensite dès que la dilution monte. Le 309L, plus chargé, garde le joint dans la zone idéale sur toute la plage du TIG. C'est la raison pour laquelle le 309L est l'apport de référence des assemblages acier carbone et inox.</p>
+            <p>Le calculateur traite de la même façon chaque apport de la bibliothèque compatible avec le procédé, puis affiche les sept plus robustes.</p>
+          </section>
+
+          <section id="bandes" aria-labelledby="t-bandes">
+            <h2 id="t-bandes">Les trois bandes du classement</h2>
+            <p><strong>Un apport n'est pas jugé sur un point, mais sur toute la plage de dilution du procédé.</strong> Le classement retient d'abord le pire résultat rencontré, puis la part de la plage passée en zone idéale.</p>
+            <ol>
+              <li><strong>Zone idéale</strong> : 5 à 15 % de ferrite delta. Assez de ferrite contre la fissuration à chaud, pas assez pour fragiliser.</li>
+              <li><strong>Zone acceptable</strong> : 0 à 20 % de ferrite. À examiner, avec les conditions de service.</li>
+              <li><strong>Corridor de sécurité</strong> : repère historique compris dans la zone A+M+F, retenu quand les deux premières zones ne sont pas atteintes.</li>
+            </ol>
+            <p>Le détail des sept zones métallurgiques et des mécanismes de fissuration est dans le <a href="guide-metallurgique.html#zones-metallurgiques">guide métallurgique</a>.</p>
+          </section>
+
+          <section id="limites" aria-labelledby="t-limites">
+            <h2 id="t-limites">Ce que le diagramme ne dit pas</h2>
+            <p><strong>Le diagramme estime une tendance. Il ne mesure rien.</strong> Voici le cadre.</p>
+            <ul>
+              <li>Les compositions de la bibliothèque sont des valeurs types ; le certificat matière 3.1 fait foi.</li>
+              <li>La dilution réelle se mesure sur une macrographie de l'assemblage.</li>
+              <li>L'azote n'entre pas dans les équivalents de Schaeffler ; le calculateur affiche aussi les équivalents de DeLong dans la synthèse.</li>
+              <li>Les aciers duplex sont hors du périmètre actuel.</li>
+            </ul>
+            <p>Le résultat sert à préparer un DMOS préliminaire. La validation repose sur la qualification du mode opératoire selon la NF EN ISO 15614-1 et, si nécessaire, sur une mesure réelle de la ferrite.</p>
+            <a class="cta" href="analyse-thermique-metallurgique.html">Ouvrir le calculateur</a>
+          </section>
+
+          <section id="questions" aria-labelledby="t-questions">
+            <h2 id="t-questions">Questions fréquentes</h2>
+            <h3>À quoi sert le diagramme de Schaeffler ?</h3>
+            <p>Il prédit la structure du métal fondu d'un inox ou d'un assemblage inox et acier à partir de sa composition, et donc le risque de fissuration. Il sert à choisir le métal d'apport.</p>
+            <h3>Comment calcule-t-on le chrome équivalent et le nickel équivalent ?</h3>
+            <p>Cr éq = %Cr + %Mo + 1,5 × %Si + 0,5 × %Nb et Ni éq = %Ni + 30 × %C + 0,5 × %Mn, selon les formules de Schaeffler.</p>
+            <h3>Pourquoi souder un acier carbone sur un inox avec du 309L ?</h3>
+            <p>Parce que le 309L contient assez de chrome et de nickel pour compenser la part d'acier carbone fondue. Sur un S235JR soudé en TIG sur du 316L, il garde le joint en zone idéale sur toute la plage de dilution, là où un 308L glisse vers la martensite.</p>
+            <h3>Quelle teneur en ferrite viser dans un joint inox ?</h3>
+            <p>Le calculateur retient 5 à 15 % de ferrite comme zone idéale, et 0 à 20 % comme zone acceptable.</p>
+          </section>
+
+          <section id="sources" aria-labelledby="t-sources">
+            <h2 id="t-sources">Sources</h2>
+            <ul class="sources">
+              <li>A. L. Schaeffler, diagramme de constitution du métal fondu des aciers inoxydables, 1949.</li>
+              <li>O. Hardouin Duparc, <a href="https://www.metallurgical-research.org/10.1051/metal/2017059" rel="noopener">The genesis of the Schaeffler diagram in the history of stainless steel</a>, Metallurgical Research and Technology, 2017.</li>
+              <li>NF EN ISO 15614-1 : épreuve de qualification d'un mode opératoire de soudage.</li>
+            </ul>
+            <p class="gm__cloture">Le métal d'apport se choisit sur le diagramme, pas sur l'étiquette de la bobine. Le joint, lui, ne pardonne pas l'approximation.</p>
+          </section>
+
+        </article>
+
+      </div>
+    </main>
+
+    <!-- ==================== Pied de page permanent =================== -->
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.</p>
+        <div class="pied__compteurs">
+          <p class="pied__compteur" data-compteur hidden></p>
+          <p class="pied__compteur" data-compteur-analyses hidden></p>
+        </div>
+        <div class="pied__signatures">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
+            <span class="pied__linkedin-icone" aria-hidden="true">in</span>
+            <span class="pied__signature-texte" data-i18n="footer.signature">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "58d3688c64a3491ea87da7ba0f2f0767"}'></script>
+  </body>
+</html>

@@ -8,6 +8,7 @@
 - [Bibliothèque des matériaux](https://soudabilite.com/bibliotheque-materiaux.html) : 52 métaux de base et 194 métaux d'apport, compositions chimiques et équivalents Cr et Ni de Schaeffler, classés par procédé ISO 4063.
 - [Calcul du préchauffage](https://soudabilite.com/calcul-prechauffage-soudage.html) : carbone équivalent, méthodes Séférian et BWRA, cas chiffré sur une bride P355NL1 de 20 mm.
 - [Calcul de l'énergie de soudage](https://soudabilite.com/calcul-energie-soudage.html) : formule NF EN 1011-1, rendement thermique par procédé, cas chiffré en TIG sur un tube 316L de 3 mm.
+- [Diagramme de Schaeffler en ligne](https://soudabilite.com/diagramme-schaeffler-en-ligne.html) : équivalents chrome et nickel, dilution, cas chiffré S235JR sur 316L en TIG, pourquoi un apport 309L.
 - [Guide métallurgique](https://soudabilite.com/guide-metallurgique.html) : zones métallurgiques, dilution, choix du métal d'apport, fissuration à froid et à chaud, préchauffage.
 
 ## Conventions
@@ -22,3 +23,5 @@
 - [Weldability calculator](https://soudabilite.com/en/weldability-calculator.html): English interface, same engine and same values as the French version.
 - [Materials library](https://soudabilite.com/en/materials-library.html): base metals and filler metals with chemical composition and Schaeffler equivalents.
 - [How to calculate the preheat temperature before welding](https://soudabilite.com/welding-preheat-calculation.html): carbon equivalent, Seferian and BWRA methods, worked example.
+- [How to calculate the welding heat input](https://soudabilite.com/en/welding-heat-input-calculation.html): EN 1011-1 formula, thermal efficiency factor by process, worked TIG example on a 316L tube.
+- [Schaeffler diagram calculator](https://soudabilite.com/en/schaeffler-diagram-calculator.html): chromium and nickel equivalents, dilution, worked example S235JR to 316L with TIG, why 309L.

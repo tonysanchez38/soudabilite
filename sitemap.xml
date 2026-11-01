@@ -36,6 +36,9 @@
   </url>
   <url>
     <loc>https://soudabilite.com/calcul-energie-soudage.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://soudabilite.com/calcul-energie-soudage.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://soudabilite.com/en/welding-heat-input-calculation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://soudabilite.com/calcul-energie-soudage.html" />
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -81,6 +84,33 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://soudabilite.com/bibliotheque-materiaux.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://soudabilite.com/en/materials-library.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://soudabilite.com/bibliotheque-materiaux.html" />
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://soudabilite.com/en/welding-heat-input-calculation.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://soudabilite.com/calcul-energie-soudage.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://soudabilite.com/en/welding-heat-input-calculation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://soudabilite.com/calcul-energie-soudage.html" />
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://soudabilite.com/diagramme-schaeffler-en-ligne.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://soudabilite.com/diagramme-schaeffler-en-ligne.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://soudabilite.com/en/schaeffler-diagram-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://soudabilite.com/diagramme-schaeffler-en-ligne.html" />
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://soudabilite.com/en/schaeffler-diagram-calculator.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://soudabilite.com/diagramme-schaeffler-en-ligne.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://soudabilite.com/en/schaeffler-diagram-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://soudabilite.com/diagramme-schaeffler-en-ligne.html" />
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
