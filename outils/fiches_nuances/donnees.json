@@ -1,0 +1,1028 @@
+[
+ {
+  "slug": "s235jr",
+  "nom": "S235JR",
+  "designation": "S 235 JR (E 24-2)",
+  "num": "1.0038",
+  "norme": "NF EN 10025-2",
+  "famille": "acier de construction non allié",
+  "composition": {
+   "C": 0.17,
+   "Mn": 0.5,
+   "Si": 0.35
+  },
+  "crEq": 0.52,
+  "niEq": 5.35,
+  "zone": "M",
+  "type": "carbone",
+  "ceIIW": 0.253,
+  "cet": 0.22,
+  "ceqSef": 0.226,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.237,
+    "tp": null
+   },
+   {
+    "e": 20,
+    "ceqc": 0.248,
+    "tp": null
+   },
+   {
+    "e": 30,
+    "ceqc": 0.259,
+    "tp": 34
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.6,
+    "cr": 23.1,
+    "ni": 13.05
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 65,
+    "ferrite": 16.6,
+    "cr": 24.71,
+    "ni": 12.96
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 58,
+    "ferrite": 7.3,
+    "cr": 20.87,
+    "ni": 12.41
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "s275jr",
+  "nom": "S275JR",
+  "designation": "S275JR (1.0044)",
+  "num": "1.0044",
+  "norme": "NF EN 10025-2",
+  "famille": "acier de construction non allié",
+  "composition": {
+   "C": 0.18,
+   "Mn": 1.4,
+   "Si": 0.2
+  },
+  "crEq": 0.3,
+  "niEq": 6.1,
+  "zone": "M",
+  "type": "carbone",
+  "ceIIW": 0.413,
+  "cet": 0.32,
+  "ceqSef": 0.336,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.352,
+    "tp": 112
+   },
+   {
+    "e": 20,
+    "ceqc": 0.369,
+    "tp": 121
+   },
+   {
+    "e": 30,
+    "ceqc": 0.386,
+    "tp": 129
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.3,
+    "cr": 23.08,
+    "ni": 13.1
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 71,
+    "ferrite": 16.4,
+    "cr": 24.7,
+    "ni": 13.02
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 52,
+    "ferrite": 7.1,
+    "cr": 20.85,
+    "ni": 12.46
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "s355j0",
+  "nom": "S355J0",
+  "designation": "S 355 JO (E 36-3)",
+  "num": "1.0553",
+  "norme": "NF EN 10025-2",
+  "famille": "acier de construction non allié",
+  "composition": {
+   "C": 0.17,
+   "Mn": 1.4,
+   "Si": 0.45
+  },
+  "crEq": 0.68,
+  "niEq": 5.8,
+  "zone": "M",
+  "type": "carbone",
+  "ceIIW": 0.403,
+  "cet": 0.31,
+  "ceqSef": 0.326,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.342,
+    "tp": 106
+   },
+   {
+    "e": 20,
+    "ceqc": 0.358,
+    "tp": 115
+   },
+   {
+    "e": 30,
+    "ceqc": 0.374,
+    "tp": 123
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.5,
+    "cr": 23.11,
+    "ni": 13.08
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 68,
+    "ferrite": 16.5,
+    "cr": 24.72,
+    "ni": 13
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 55,
+    "ferrite": 7.3,
+    "cr": 20.88,
+    "ni": 12.44
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "s355k2",
+  "nom": "S355K2",
+  "designation": "S 355 K2 J3 (E 36-4)",
+  "num": "1.0596",
+  "norme": "NF EN 10025-2",
+  "famille": "acier de construction non allié",
+  "composition": {
+   "C": 0.2,
+   "Mn": 1.6,
+   "Si": 0.55
+  },
+  "crEq": 0.83,
+  "niEq": 6.8,
+  "zone": "AM",
+  "type": "carbone",
+  "ceIIW": 0.467,
+  "cet": 0.36,
+  "ceqSef": 0.378,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.397,
+    "tp": 134
+   },
+   {
+    "e": 20,
+    "ceqc": 0.416,
+    "tp": 142
+   },
+   {
+    "e": 30,
+    "ceqc": 0.434,
+    "tp": 150
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.2,
+    "cr": 23.12,
+    "ni": 13.15
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 74,
+    "ferrite": 16.3,
+    "cr": 24.74,
+    "ni": 13.07
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 48,
+    "ferrite": 7.1,
+    "cr": 20.89,
+    "ni": 12.52
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "p235gh",
+  "nom": "P235GH",
+  "designation": "P235GH (1.0345)",
+  "num": "1.0345",
+  "norme": "NF EN 10028-2",
+  "famille": "acier non allié pour appareils à pression",
+  "composition": {
+   "C": 0.16,
+   "Mn": 0.9,
+   "Si": 0.2
+  },
+  "crEq": 0.3,
+  "niEq": 5.25,
+  "zone": "M",
+  "type": "carbone",
+  "ceIIW": 0.31,
+  "cet": 0.25,
+  "ceqSef": 0.26,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.273,
+    "tp": 53
+   },
+   {
+    "e": 20,
+    "ceqc": 0.286,
+    "tp": 66
+   },
+   {
+    "e": 30,
+    "ceqc": 0.299,
+    "tp": 77
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.5,
+    "cr": 23.08,
+    "ni": 13.04
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 68,
+    "ferrite": 16.6,
+    "cr": 24.7,
+    "ni": 12.95
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 58,
+    "ferrite": 7.3,
+    "cr": 20.85,
+    "ni": 12.4
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "p295gh",
+  "nom": "P295GH",
+  "designation": "P295GH (A48 CP)",
+  "num": "1.0481",
+  "norme": "NF EN 10028-2",
+  "famille": "acier non allié pour appareils à pression",
+  "composition": {
+   "C": 0.14,
+   "Mn": 1.2,
+   "Si": 0.3,
+   "Cr": 0.2,
+   "Ni": 0.3,
+   "Mo": 0.06,
+   "Nb": 0.015
+  },
+  "crEq": 0.72,
+  "niEq": 5.1,
+  "zone": "M",
+  "type": "carbone",
+  "ceIIW": 0.412,
+  "cet": 0.284,
+  "ceqSef": 0.317,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.333,
+    "tp": 101
+   },
+   {
+    "e": 20,
+    "ceqc": 0.349,
+    "tp": 110
+   },
+   {
+    "e": 30,
+    "ceqc": 0.364,
+    "tp": 118
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.7,
+    "cr": 23.11,
+    "ni": 13.03
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 65,
+    "ferrite": 7.4,
+    "cr": 20.88,
+    "ni": 12.39
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 61,
+    "ferrite": 16.7,
+    "cr": 24.73,
+    "ni": 12.94
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "p355nl1",
+  "nom": "P355NL1",
+  "designation": "P355NL1 (A510FP1)",
+  "num": "1.0566",
+  "norme": "NF EN 10028-3",
+  "famille": "acier à grains fins normalisé pour appareils à pression",
+  "composition": {
+   "C": 0.18,
+   "Mn": 1.4,
+   "Si": 0.5,
+   "Cr": 0.3,
+   "Ni": 0.5,
+   "Mo": 0.08,
+   "Nb": 0.05,
+   "Ti": 0.03
+  },
+  "crEq": 1.15,
+  "niEq": 6.6,
+  "zone": "AM",
+  "type": "carbone",
+  "ceIIW": 0.523,
+  "cet": 0.355,
+  "ceqSef": 0.403,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.423,
+    "tp": 146
+   },
+   {
+    "e": 20,
+    "ceqc": 0.443,
+    "tp": 154
+   },
+   {
+    "e": 30,
+    "ceqc": 0.463,
+    "tp": 162
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.4,
+    "cr": 23.15,
+    "ni": 13.14
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 71,
+    "ferrite": 16.4,
+    "cr": 24.76,
+    "ni": 13.05
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 55,
+    "ferrite": 7.2,
+    "cr": 20.91,
+    "ni": 12.5
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "16mo3",
+  "nom": "16Mo3",
+  "designation": "16Mo3 (1.5415)",
+  "num": "1.5415",
+  "norme": "NF EN 10028-2",
+  "famille": "acier faiblement allié au molybdène pour appareils à pression",
+  "composition": {
+   "C": 0.16,
+   "Mn": 0.7,
+   "Si": 0.25,
+   "Cr": 0.3,
+   "Mo": 0.3
+  },
+  "crEq": 0.97,
+  "niEq": 5.15,
+  "zone": "M",
+  "type": "carbone",
+  "ceIIW": 0.397,
+  "cet": 0.275,
+  "ceqSef": 0.294,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.309,
+    "tp": 85
+   },
+   {
+    "e": 20,
+    "ceqc": 0.324,
+    "tp": 95
+   },
+   {
+    "e": 30,
+    "ceqc": 0.339,
+    "tp": 104
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.7,
+    "cr": 23.13,
+    "ni": 13.03
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 65,
+    "ferrite": 7.5,
+    "cr": 20.9,
+    "ni": 12.39
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 61,
+    "ferrite": 16.8,
+    "cr": 24.75,
+    "ni": 12.95
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "13crmo4-5",
+  "nom": "13CrMo4-5",
+  "designation": "13CrMo4-5 (1.7335)",
+  "num": "1.7335",
+  "norme": "NF EN 10028-2",
+  "famille": "acier faiblement allié au chrome-molybdène pour appareils à pression",
+  "composition": {
+   "C": 0.13,
+   "Mn": 0.6,
+   "Si": 0.25,
+   "Cr": 0.9,
+   "Mo": 0.5
+  },
+  "crEq": 1.77,
+  "niEq": 4.2,
+  "zone": "M",
+  "type": "carbone",
+  "ceIIW": 0.51,
+  "cet": 0.285,
+  "ceqSef": 0.336,
+  "tp": [
+   {
+    "e": 10,
+    "ceqc": 0.352,
+    "tp": 112
+   },
+   {
+    "e": 20,
+    "ceqc": 0.369,
+    "tp": 121
+   },
+   {
+    "e": 30,
+    "ceqc": 0.386,
+    "tp": 129
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 12.2,
+    "cr": 23.19,
+    "ni": 12.96
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 84,
+    "ferrite": 7.9,
+    "cr": 20.96,
+    "ni": 12.32
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 48,
+    "ferrite": 17.2,
+    "cr": 24.81,
+    "ni": 12.88
+   }
+  ],
+  "heteroAvec": "316L"
+ },
+ {
+  "slug": "304",
+  "nom": "304",
+  "designation": "304 (X 6 Cr Ni 18 10 )",
+  "num": "1.4301",
+  "norme": "NF EN 10088-2",
+  "famille": "acier inoxydable austénitique au chrome-nickel",
+  "composition": {
+   "C": 0.07,
+   "Mn": 2,
+   "Si": 0.75,
+   "Cr": 18,
+   "Ni": 9
+  },
+  "crEq": 19.13,
+  "niEq": 12.1,
+  "zone": "AF",
+  "type": "inox",
+  "homo": [
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 9.6,
+    "cr": 22.12,
+    "ni": 12.78
+   },
+   {
+    "designation": "ALTIG 316L - EN ISO 14343 : W 19 12 3 L",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 7.7,
+    "cr": 21.31,
+    "ni": 12.7
+   },
+   {
+    "designation": "ALTIG 316L",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 7,
+    "cr": 21.14,
+    "ni": 12.78
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.6,
+    "cr": 22.96,
+    "ni": 12.91
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 65,
+    "ferrite": 16.7,
+    "cr": 24.57,
+    "ni": 12.83
+   },
+   {
+    "designation": "INERTROD 318 Si",
+    "niveau": "zone_s",
+    "ideal": 26,
+    "ferrite": 13.9,
+    "cr": 21.38,
+    "ni": 11.04
+   }
+  ],
+  "heteroAvec": "S235JR"
+ },
+ {
+  "slug": "304l",
+  "nom": "304L",
+  "designation": "304 L (X 2 Cr Ni 19-11)",
+  "num": "1.4306",
+  "norme": "NF EN 10088-2",
+  "famille": "acier inoxydable austénitique au chrome-nickel à bas carbone",
+  "composition": {
+   "C": 0.026,
+   "Mn": 1.2,
+   "Si": 0.54,
+   "Cr": 18.23,
+   "Ni": 10.18
+  },
+  "crEq": 19.04,
+  "niEq": 11.56,
+  "zone": "AMF",
+  "type": "inox",
+  "homo": [
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 9.7,
+    "cr": 22.11,
+    "ni": 12.7
+   },
+   {
+    "designation": "ALTIG 316L - EN ISO 14343 : W 19 12 3 L",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 7.9,
+    "cr": 21.3,
+    "ni": 12.61
+   },
+   {
+    "designation": "ALTIG 316L",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 7.2,
+    "cr": 21.13,
+    "ni": 12.7
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.8,
+    "cr": 22.95,
+    "ni": 12.87
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 61,
+    "ferrite": 16.8,
+    "cr": 24.57,
+    "ni": 12.79
+   },
+   {
+    "designation": "INERTROD 318",
+    "niveau": "acceptable",
+    "ideal": 39,
+    "ferrite": 6.4,
+    "cr": 20.87,
+    "ni": 12.7
+   }
+  ],
+  "heteroAvec": "S235JR"
+ },
+ {
+  "slug": "316",
+  "nom": "316",
+  "designation": "316 (Z 6 CN 17.11)",
+  "num": "1.4401",
+  "norme": "NF EN 10088-2",
+  "famille": "acier inoxydable austénitique au chrome-nickel-molybdène",
+  "composition": {
+   "C": 0.08,
+   "Mn": 2,
+   "Si": 0.75,
+   "Cr": 17,
+   "Ni": 12.5,
+   "Mo": 2.2
+  },
+  "crEq": 20.32,
+  "niEq": 15.9,
+  "zone": "A",
+  "type": "inox",
+  "homo": [
+   {
+    "designation": "INERTROD 316L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 13.8,
+    "cr": 22.66,
+    "ni": 12.12
+   },
+   {
+    "designation": "INERTROD 318 Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 14.7,
+    "cr": 22.96,
+    "ni": 12.12
+   },
+   {
+    "designation": "ALTIG 308L - EN ISO 14343 : W 19 9 L",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 9.1,
+    "cr": 20.56,
+    "ni": 11.56
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 81,
+    "ferrite": 15.9,
+    "cr": 24.66,
+    "ni": 13.11
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 39,
+    "ferrite": 6.7,
+    "cr": 20.82,
+    "ni": 12.56
+   },
+   {
+    "designation": "INERTROD 318 Si",
+    "niveau": "zone_s",
+    "ideal": 74,
+    "ferrite": 13.1,
+    "cr": 21.47,
+    "ni": 11.33
+   }
+  ],
+  "heteroAvec": "S235JR"
+ },
+ {
+  "slug": "316l",
+  "nom": "316L",
+  "designation": "316 L (Z 2 CN 18.12)",
+  "num": "1.4404",
+  "norme": "NF EN 10088-2",
+  "famille": "acier inoxydable austénitique au chrome-nickel-molybdène à bas carbone",
+  "composition": {
+   "C": 0.03,
+   "Mn": 2,
+   "Si": 1,
+   "Cr": 17.25,
+   "Ni": 12,
+   "Mo": 2.25
+  },
+  "crEq": 21,
+  "niEq": 13.9,
+  "zone": "A",
+  "type": "inox",
+  "homo": [
+   {
+    "designation": "ALTIG 347 - EN ISO 14343 : W 19 9 Nb Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 9.5,
+    "cr": 20.96,
+    "ni": 11.77
+   },
+   {
+    "designation": "TIG 308L (ER308L / W19.9L)",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 8.9,
+    "cr": 20.81,
+    "ni": 11.86
+   },
+   {
+    "designation": "ER347 (W 19 9 Nb)",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 8.4,
+    "cr": 20.6,
+    "ni": 11.82
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.6,
+    "cr": 23.1,
+    "ni": 13.05
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 65,
+    "ferrite": 16.6,
+    "cr": 24.71,
+    "ni": 12.96
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 58,
+    "ferrite": 7.3,
+    "cr": 20.87,
+    "ni": 12.41
+   }
+  ],
+  "heteroAvec": "S235JR"
+ },
+ {
+  "slug": "316ti",
+  "nom": "316Ti",
+  "designation": "316 Ti (X6CrNiMoTi 17-12-2 )",
+  "num": "1.4571",
+  "norme": "NF EN 10088-2",
+  "famille": "acier inoxydable austénitique au chrome-nickel-molybdène stabilisé au titane",
+  "composition": {
+   "C": 0.08,
+   "Mn": 2,
+   "Si": 1,
+   "Cr": 17.5,
+   "Ni": 12,
+   "Mo": 2.25,
+   "Ti": 0.55
+  },
+  "crEq": 21.25,
+  "niEq": 15.4,
+  "zone": "A",
+  "type": "inox",
+  "homo": [
+   {
+    "designation": "INERTROD 316L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 14.5,
+    "cr": 22.8,
+    "ni": 12.04
+   },
+   {
+    "designation": "ALTIG 347 - EN ISO 14343 : W 19 9 Nb Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 8.9,
+    "cr": 20.99,
+    "ni": 12
+   },
+   {
+    "designation": "TIG 308L (ER308L / W19.9L)",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 8.3,
+    "cr": 20.85,
+    "ni": 12.09
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.2,
+    "cr": 23.12,
+    "ni": 13.16
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 74,
+    "ferrite": 16.3,
+    "cr": 24.73,
+    "ni": 13.07
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 48,
+    "ferrite": 7,
+    "cr": 20.89,
+    "ni": 12.52
+   }
+  ],
+  "heteroAvec": "S235JR"
+ },
+ {
+  "slug": "321",
+  "nom": "321",
+  "designation": "X6 Cr Ni Ti 18-10",
+  "num": "1.4541",
+  "norme": "NF EN 10088-2",
+  "famille": "acier inoxydable austénitique au chrome-nickel stabilisé au titane",
+  "composition": {
+   "C": 0.08,
+   "Mn": 2,
+   "Si": 1,
+   "Cr": 18.5,
+   "Ni": 10.5,
+   "Ti": 0.6
+  },
+  "crEq": 20,
+  "niEq": 13.9,
+  "zone": "A",
+  "type": "inox",
+  "homo": [
+   {
+    "designation": "INERTROD 316L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 14.8,
+    "cr": 22.61,
+    "ni": 11.82
+   },
+   {
+    "designation": "ALTIG 347 - EN ISO 14343 : W 19 9 Nb Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 9.1,
+    "cr": 20.81,
+    "ni": 11.77
+   },
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 13.4,
+    "cr": 24.48,
+    "ni": 13.69
+   }
+  ],
+  "hetero": [
+   {
+    "designation": "INERTROD 309L Si",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11.3,
+    "cr": 23.02,
+    "ni": 13.05
+   },
+   {
+    "designation": "INERTROD 309L Mo",
+    "niveau": "acceptable",
+    "ideal": 71,
+    "ferrite": 16.4,
+    "cr": 24.64,
+    "ni": 12.96
+   },
+   {
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "acceptable",
+    "ideal": 52,
+    "ferrite": 7.1,
+    "cr": 20.79,
+    "ni": 12.41
+   }
+  ],
+  "heteroAvec": "S235JR"
+ }
+]

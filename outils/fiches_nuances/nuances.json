@@ -1,0 +1,17 @@
+[
+ {"slug":"s235jr","nom":"S235JR","designation":"S 235 JR (E 24-2)","num":"1.0038","norme":"NF EN 10025-2","famille":"acier de construction non allié"},
+ {"slug":"s275jr","nom":"S275JR","designation":"S275JR (1.0044)","num":"1.0044","norme":"NF EN 10025-2","famille":"acier de construction non allié"},
+ {"slug":"s355j0","nom":"S355J0","designation":"S 355 JO (E 36-3)","num":"1.0553","norme":"NF EN 10025-2","famille":"acier de construction non allié"},
+ {"slug":"s355k2","nom":"S355K2","designation":"S 355 K2 J3 (E 36-4)","num":"1.0596","norme":"NF EN 10025-2","famille":"acier de construction non allié"},
+ {"slug":"p235gh","nom":"P235GH","designation":"P235GH (1.0345)","num":"1.0345","norme":"NF EN 10028-2","famille":"acier non allié pour appareils à pression"},
+ {"slug":"p295gh","nom":"P295GH","designation":"P295GH (A48 CP)","num":"1.0481","norme":"NF EN 10028-2","famille":"acier non allié pour appareils à pression"},
+ {"slug":"p355nl1","nom":"P355NL1","designation":"P355NL1 (A510FP1)","num":"1.0566","norme":"NF EN 10028-3","famille":"acier à grains fins normalisé pour appareils à pression"},
+ {"slug":"16mo3","nom":"16Mo3","designation":"16Mo3 (1.5415)","num":"1.5415","norme":"NF EN 10028-2","famille":"acier faiblement allié au molybdène pour appareils à pression"},
+ {"slug":"13crmo4-5","nom":"13CrMo4-5","designation":"13CrMo4-5 (1.7335)","num":"1.7335","norme":"NF EN 10028-2","famille":"acier faiblement allié au chrome-molybdène pour appareils à pression"},
+ {"slug":"304","nom":"304","designation":"304 (X 6 Cr Ni 18 10 )","num":"1.4301","norme":"NF EN 10088-2","famille":"acier inoxydable austénitique au chrome-nickel"},
+ {"slug":"304l","nom":"304L","designation":"304 L (X 2 Cr Ni 19-11)","num":"1.4306","norme":"NF EN 10088-2","famille":"acier inoxydable austénitique au chrome-nickel à bas carbone"},
+ {"slug":"316","nom":"316","designation":"316 (Z 6 CN 17.11)","num":"1.4401","norme":"NF EN 10088-2","famille":"acier inoxydable austénitique au chrome-nickel-molybdène"},
+ {"slug":"316l","nom":"316L","designation":"316 L (Z 2 CN 18.12)","num":"1.4404","norme":"NF EN 10088-2","famille":"acier inoxydable austénitique au chrome-nickel-molybdène à bas carbone"},
+ {"slug":"316ti","nom":"316Ti","designation":"316 Ti (X6CrNiMoTi 17-12-2 )","num":"1.4571","norme":"NF EN 10088-2","famille":"acier inoxydable austénitique au chrome-nickel-molybdène stabilisé au titane"},
+ {"slug":"321","nom":"321","designation":"X6 Cr Ni Ti 18-10","num":"1.4541","norme":"NF EN 10088-2","famille":"acier inoxydable austénitique au chrome-nickel stabilisé au titane"}
+]

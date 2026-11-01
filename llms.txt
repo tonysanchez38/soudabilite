@@ -9,6 +9,7 @@
 - [Calcul du préchauffage](https://soudabilite.com/calcul-prechauffage-soudage.html) : carbone équivalent, méthodes Séférian et BWRA, cas chiffré sur une bride P355NL1 de 20 mm.
 - [Calcul de l'énergie de soudage](https://soudabilite.com/calcul-energie-soudage.html) : formule NF EN 1011-1, rendement thermique par procédé, cas chiffré en TIG sur un tube 316L de 3 mm.
 - [Diagramme de Schaeffler en ligne](https://soudabilite.com/diagramme-schaeffler-en-ligne.html) : équivalents chrome et nickel, dilution, cas chiffré S235JR sur 316L en TIG, pourquoi un apport 309L.
+- [Fiches nuances](https://soudabilite.com/nuances/) : quinze nuances courantes (S235JR à 13CrMo4-5, 304 à 321), carbone équivalent, préchauffage Séférian à 10, 20 et 30 mm, équivalents de Schaeffler, apport pour un assemblage hétérogène.
 - [Guide métallurgique](https://soudabilite.com/guide-metallurgique.html) : zones métallurgiques, dilution, choix du métal d'apport, fissuration à froid et à chaud, préchauffage.
 
 ## Conventions

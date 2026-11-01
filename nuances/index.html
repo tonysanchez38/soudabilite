@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- Calculateur de Soudabilité - soudabilite.com
+     Conception et développement : Tony SANCHEZ
+     Page de contenu en HTML statique (pas d'i18n) pour l'indexation.
+     Toutes les valeurs chiffrées sont issues du moteur de calcul en ligne. -->
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- build:signature Tony SANCHEZ / TS-SDB-2026 -->
+    <meta name="author" content="Tony SANCHEZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Fiches de soudabilité par nuance : S235JR, S355, P235GH, P355NL1, 16Mo3, 304L, 316L et autres. Carbone équivalent, préchauffage, équivalents de Schaeffler, métal d&#x27;apport." />
+    <title>Fiches nuances : soudabilité des aciers courants | Soudabilite.com</title>
+    <link rel="canonical" href="https://soudabilite.com/nuances/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Fiches nuances : soudabilité des aciers courants" />
+    <meta property="og:description" content="Fiches de soudabilité par nuance : S235JR, S355, P235GH, P355NL1, 16Mo3, 304L, 316L et autres. Carbone équivalent, préchauffage, équivalents de Schaeffler, métal d&#x27;apport." />
+    <meta property="og:url" content="https://soudabilite.com/nuances/" />
+    <meta property="og:image" content="https://soudabilite.com/apercu-social-github.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/assets/css/main.css?v=20261014-agence-v1" />
+    <script
+      data-goatcounter="https://soudabilite.com/gc/count"
+      async
+      src="/gc/count.js"
+    ></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Fiches nuances : soudabilité des aciers courants",
+      "inLanguage": "fr",
+      "author": {
+        "@type": "Person",
+        "name": "Tony SANCHEZ"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Soudabilite.com"
+      },
+      "mainEntityOfPage": "https://soudabilite.com/nuances/",
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://soudabilite.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bibliothèque des matériaux",
+          "item": "https://soudabilite.com/bibliotheque-materiaux.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Fiches nuances",
+          "item": "https://soudabilite.com/nuances/"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <!-- Navigation : libelles en dur (pas de data-i18n). -->
+    <style>
+      .nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem;justify-content:center}
+      .nav__lien{white-space:nowrap}
+      @media (max-width:720px){
+        .nav__lien{font-size:.86rem}
+      }
+
+      /* ================= Guide métallurgique ================= */
+      .gm{display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
+      .gm__sommaire{font-size:var(--fs-sm);width:100%;text-align:center;margin-top:var(--sp-4)}
+      .gm__sommaire p{margin:0 0 var(--sp-2);color:var(--texte-faible);font-weight:600}
+      .gm__sommaire ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem}
+      .gm__sommaire a{display:block;padding:.35rem .8rem;color:var(--texte-doux);line-height:1.35;border:1px solid var(--gris-bordure);border-radius:999px}
+      .gm__sommaire a:hover{color:var(--encre);text-decoration:none;border-color:var(--bleu)}
+      .gm__corps{min-width:0;width:100%;max-width:760px}
+      .gm__tete{margin-bottom:var(--sp-5);text-align:center}
+      .gm__tete p{text-align:left}
+      .gm__tete .gm__chapo{text-align:center}
+      .gm__tete h1{font-size:var(--fs-2xl);line-height:1.2;margin:0 0 var(--sp-4);letter-spacing:-.015em}
+      .gm__chapo{font-size:var(--fs-lg);line-height:1.6;color:var(--encre);margin:0 0 var(--sp-3)}
+      .gm section{padding-top:var(--sp-6);margin-top:var(--sp-6);border-top:1px solid var(--gris-bordure);scroll-margin-top:var(--sp-4)}
+      .gm h2{font-size:var(--fs-xl);line-height:1.25;margin:0 0 var(--sp-4);color:var(--bleu);text-align:center}
+      .gm h3{font-size:var(--fs-lg);margin:var(--sp-5) 0 var(--sp-2);color:var(--encre)}
+      .gm p,.gm li{line-height:1.65}
+      .gm p{margin:0 0 var(--sp-3)}
+      .gm ul{margin:0 0 var(--sp-4);padding-left:1.2rem}
+      .gm li{margin-bottom:.35rem}
+      .gm strong{color:var(--encre)}
+      .gm__doux{color:var(--texte-doux);font-size:var(--fs-sm)}
+      .fil{margin:var(--sp-5) 0 var(--sp-4);width:100%;height:auto;display:block;aspect-ratio:760/180}
+      .fil text{font-family:var(--font-sans)}
+      .duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin:var(--sp-4) 0}
+      .fiche{background:var(--surface);border:1px solid var(--gris-bordure);border-radius:var(--radius);padding:var(--sp-4) var(--sp-5)}
+      .fiche h3{margin-top:0}
+      .fiche dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:.4rem var(--sp-3);font-size:var(--fs-sm)}
+      .fiche dt{color:var(--texte-faible)}
+      .fiche dd{margin:0;line-height:1.5}
+      .fiche__nuances{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--texte-doux);margin:0 0 var(--sp-3)}
+      .encart{border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-4) 0;border-left:3px solid}
+      .encart p:last-child,.encart ul:last-child{margin-bottom:0}
+      .encart__titre{font-weight:700;margin:0 0 .35rem}
+      .encart--alerte{background:var(--ambre-voile);border-color:var(--ambre)}
+      .encart--alerte .encart__titre{color:var(--ambre)}
+      .encart--pratique{background:var(--vert-voile);border-color:var(--vert)}
+      .encart--pratique .encart__titre{color:var(--vert)}
+      .encart--outil{background:var(--bleu-voile);border-color:var(--bleu)}
+      .encart--outil .encart__titre{color:var(--bleu)}
+      .formule{font-family:var(--font-mono);font-size:.95rem;background:var(--fond);border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4);margin:var(--sp-3) 0 var(--sp-4);overflow-x:auto;white-space:nowrap;line-height:1.9}
+      .formule sub{font-size:.75em}
+      .frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .3em}
+      .frac>span:first-child{border-bottom:1px solid var(--encre);padding:0 .3em}
+      .frac>span:last-child{padding:0 .3em}
+      .defile{overflow-x:auto;margin:var(--sp-4) 0;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm)}
+      .gm table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+      .gm th,.gm td{padding:.6rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--gris-bordure);line-height:1.5}
+      .gm th{background:var(--gris-fond);color:var(--encre);font-weight:600}
+      .gm tr:last-child td{border-bottom:0}
+      .gm td:first-child{font-weight:600;color:var(--encre)}
+      .schema{margin:var(--sp-4) 0;text-align:center}
+      .schema svg{width:100%;height:auto;display:block;margin:0 auto}
+      .schema figcaption{font-size:var(--fs-xs);color:var(--texte-faible);margin-top:var(--sp-2)}
+      .schema--triangle svg{max-width:460px;aspect-ratio:460/330}
+      .schema--coupe svg{max-width:560px;aspect-ratio:560/210}
+      .zones{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);margin:var(--sp-4) 0}
+      .zone{border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);padding:var(--sp-3) var(--sp-4)}
+      .zone h3{font-size:var(--fs-base);margin:0 0 .3rem}
+      .zone p{font-size:var(--fs-sm);margin:0;color:var(--texte-doux)}
+      .zone--cible{border-color:var(--bleu-bordure);background:var(--bleu-voile)}
+      .check{list-style:none;padding:0;counter-reset:etape}
+      .check li{counter-increment:etape;position:relative;padding:var(--sp-3) var(--sp-4) var(--sp-3) 3rem;border:1px solid var(--gris-bordure);border-radius:var(--radius-sm);margin-bottom:var(--sp-2)}
+      .check li::before{content:counter(etape);position:absolute;left:var(--sp-4);top:var(--sp-3);font-weight:700;color:var(--bleu);font-family:var(--font-mono)}
+      .cta{display:table;margin-left:auto;margin-right:auto;margin-top:var(--sp-2);padding:.55rem 1rem;border-radius:var(--radius-sm);background:var(--bleu-fonce);color:var(--blanc);font-weight:600;font-size:var(--fs-sm)}
+      .cta:hover{background:var(--bleu);color:var(--fond);text-decoration:none}
+      .cta:focus-visible,.gm a:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
+      .gm__cloture{font-size:var(--fs-lg);font-weight:600;color:var(--encre);margin-top:var(--sp-5);text-align:center}
+      .sources{font-size:var(--fs-sm);color:var(--texte-doux)}
+      @media (max-width:640px){
+        .duo,.zones{grid-template-columns:1fr}
+        .gm__tete h1{font-size:1.65rem}
+        .fiche dl{grid-template-columns:1fr}
+        .fiche dt{margin-top:.3rem}
+      }
+      @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    </style>
+  </head>
+  <body>
+    <!-- ===================== Barre de navigation ===================== -->
+    <header class="topbar">
+      <div class="conteneur topbar__inner">
+        <a class="nav__marque" href="/">
+          <img class="nav__logo" src="/favicon.svg" alt="" aria-hidden="true" width="32" height="32" />
+          <span>www.soudabilite.com</span>
+        </a>
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__lien" href="/">Accueil</a>
+          <a class="nav__lien" href="/analyse-thermique-metallurgique.html">Analyse thermique</a>
+          <a class="nav__lien is-active" href="/guide-metallurgique.html" aria-current="page">Guide métallurgique</a>
+          <a class="nav__lien" href="/bibliotheque-materiaux.html">Bibliothèque matériaux</a>
+          <a class="nav__lien" href="/reglementation-dmos.html">Réglementation DMOS</a>
+        </nav>
+        <div class="langues" role="group" aria-label="Langue / Language">
+          <span class="langues__lien is-active" aria-current="true" lang="fr"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#fff"/><path d="M0 1.5A1.5 1.5 0 0 1 1.5 0H7v15H1.5A1.5 1.5 0 0 1 0 13.5z" fill="#1b4fa0"/><path d="M14 0h5.5A1.5 1.5 0 0 1 21 1.5v12a1.5 1.5 0 0 1-1.5 1.5H14z" fill="#c8102e"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">FR</span></span>
+          <a class="langues__lien" href="/en/" hreflang="en" lang="en" title="English version"><svg class="langues__drapeau" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="1.5" fill="#1b3a82"/><path d="M0 0l21 15M21 0L0 15" stroke="#fff" stroke-width="3"/><path d="M0 0l21 15M21 0L0 15" stroke="#c8102e" stroke-width="1.6"/><path d="M10.5 0v15M0 7.5h21" stroke="#fff" stroke-width="5"/><path d="M10.5 0v15M0 7.5h21" stroke="#c8102e" stroke-width="3"/><rect x="0.5" y="0.5" width="20" height="14" rx="1.5" fill="none" stroke="rgba(255,255,255,.35)"/></svg><span class="langues__code">EN</span></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================= Contenu ============================= -->
+    <main class="page">
+      <div class="conteneur gm">
+
+        <article class="gm__corps">
+
+          <header class="gm__tete">
+            <p class="gm__doux"><a href="/">Accueil</a> &rsaquo; <a href="/bibliotheque-materiaux.html">Bibliothèque des matériaux</a> &rsaquo; Fiches nuances</p>
+            <h1>Fiches nuances : soudabilité des aciers courants</h1>
+            <p class="gm__chapo">Une fiche par nuance, calculée par le moteur du site sur la composition de la bibliothèque : préchauffage pour les aciers, équivalents de Schaeffler pour les inox, métal d'apport pour un assemblage hétérogène.</p>
+            <a class="cta" href="/analyse-thermique-metallurgique.html">Ouvrir le calculateur</a>
+          </header>
+
+          <section id="aciers" aria-labelledby="t-aciers">
+            <h2 id="t-aciers">Aciers non alliés et faiblement alliés</h2>
+            <div class="defile">
+              <table>
+                <thead><tr><th>Nuance</th><th>Numéro</th><th>CE IIW</th><th>Séférian à 20 mm</th></tr></thead>
+                <tbody>
+                  <tr><td><a href="/nuances/s235jr.html">S235JR</a></td><td>1.0038</td><td>0,253</td><td>aucun</td></tr>
+                  <tr><td><a href="/nuances/s275jr.html">S275JR</a></td><td>1.0044</td><td>0,413</td><td>121 °C</td></tr>
+                  <tr><td><a href="/nuances/s355j0.html">S355J0</a></td><td>1.0553</td><td>0,403</td><td>115 °C</td></tr>
+                  <tr><td><a href="/nuances/s355k2.html">S355K2</a></td><td>1.0596</td><td>0,467</td><td>142 °C</td></tr>
+                  <tr><td><a href="/nuances/p235gh.html">P235GH</a></td><td>1.0345</td><td>0,310</td><td>66 °C</td></tr>
+                  <tr><td><a href="/nuances/p295gh.html">P295GH</a></td><td>1.0481</td><td>0,412</td><td>110 °C</td></tr>
+                  <tr><td><a href="/nuances/p355nl1.html">P355NL1</a></td><td>1.0566</td><td>0,523</td><td>154 °C</td></tr>
+                  <tr><td><a href="/nuances/16mo3.html">16Mo3</a></td><td>1.5415</td><td>0,397</td><td>95 °C</td></tr>
+                  <tr><td><a href="/nuances/13crmo4-5.html">13CrMo4-5</a></td><td>1.7335</td><td>0,510</td><td>121 °C</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="inox" aria-labelledby="t-inox">
+            <h2 id="t-inox">Aciers inoxydables austénitiques</h2>
+            <div class="defile">
+              <table>
+                <thead><tr><th>Nuance</th><th>Numéro</th><th>Cr éq</th><th>Ni éq</th></tr></thead>
+                <tbody>
+                  <tr><td><a href="/nuances/304.html">304</a></td><td>1.4301</td><td>19,13</td><td>12,10</td></tr>
+                  <tr><td><a href="/nuances/304l.html">304L</a></td><td>1.4306</td><td>19,04</td><td>11,56</td></tr>
+                  <tr><td><a href="/nuances/316.html">316</a></td><td>1.4401</td><td>20,32</td><td>15,90</td></tr>
+                  <tr><td><a href="/nuances/316l.html">316L</a></td><td>1.4404</td><td>21,00</td><td>13,90</td></tr>
+                  <tr><td><a href="/nuances/316ti.html">316Ti</a></td><td>1.4571</td><td>21,25</td><td>15,40</td></tr>
+                  <tr><td><a href="/nuances/321.html">321</a></td><td>1.4541</td><td>20,00</td><td>13,90</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="gm__cloture">Chaque valeur sort du calculateur. Le certificat matière garde le dernier mot.</p>
+          </section>
+
+        </article>
+
+      </div>
+    </main>
+
+    <!-- ==================== Pied de page permanent =================== -->
+    <footer class="pied">
+      <div class="conteneur pied__inner">
+        <p class="pied__disclaimer" data-i18n="footer.disclaimer">Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.</p>
+        <div class="pied__compteurs">
+          <p class="pied__compteur" data-compteur hidden></p>
+          <p class="pied__compteur" data-compteur-analyses hidden></p>
+        </div>
+        <div class="pied__signatures">
+          <a class="pied__signature" href="https://www.linkedin.com/in/tonysanchez38/" aria-label="Profil LinkedIn de Tony SANCHEZ (nouvel onglet)" data-i18n-attr="href:presentation.linkedin_url;aria-label:footer.signature_lien_aria" target="_blank" rel="noopener noreferrer">
+            <span class="pied__linkedin-icone" aria-hidden="true">in</span>
+            <span class="pied__signature-texte" data-i18n="footer.signature">Tony SANCHEZ - BTS CRCI - Pôle Formation UIMM de Savoie</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "58d3688c64a3491ea87da7ba0f2f0767"}'></script>
+  </body>
+</html>
