@@ -459,6 +459,33 @@ Points vérifiés sur le dépôt avant toute modification :
 - En attente de Tony : remplir `groupe_iso_15608` et les équivalences
   ASME/ASTM dans data.json (données à sourcer, moteur et banque gelés).
 
+## Liens revendeurs, test TIG du 2026-11-02
+
+- Table séparée `assets/data/revendeurs.json` (data.json reste gelé),
+  module `assets/js/ui/revendeurs.js`. Liens affichés sous la désignation
+  dans le tableau des 7 apports, en TIG uniquement, quand la désignation
+  correspond au motif d'une famille ayant au moins un revendeur vérifié.
+  Liens `nofollow`, nouvel onglet, clic compté dans GoatCounter
+  (`revendeur-<famille>-<nom>`), masqués à l'impression.
+- ER309LSi : Setin (Lincoln LNT 309LSi), Trenois Decamps (Weld X ESA117),
+  Schweiss-Shop (MTC 1.4332). Vérifiés le 2026-11-02.
+- ER309LMo : aucune baguette TIG en vente en ligne trouvée en France
+  (AFSR, Trenois, Setin, Schweiss-Shop, Weld'X, HD Soudage en 404). Famille
+  vide, aucun lien affiché. À compléter par Tony (fournisseur habituel).
+
+## Anomalie moteur relevée le 2026-11-02 (non corrigée, moteur gelé)
+
+Le polygone A / A+F de `zones_schaeffler.json` ne coïncide pas avec
+l'iso-ferrite 0 % de la table FERRITE_G : à Cr_eq 24, le polygone classe
+« A » dès Ni_eq 14 alors que l'iso 0 % est à Ni_eq 18,25 (écart croissant
+avec Cr_eq ; coïncidence seulement vers Cr_eq 18). Conséquence : un 309L
+standard (W 23 12 L, ALTIG 309L, Cr_eq 24,7 / Ni_eq 14,5) est classé hors
+zone avec 8 % de ferrite calculée au point de dilution 15 %, alors qu'il
+est la référence du soudage hétérogène. La domination des 309LSi et
+309LMo dans la sélection vient en partie de cet écart. À trancher avec
+Tony : recaler la frontière A / A+F sur l'iso 0 % (ou l'inverse) à partir
+du fond Schaeffler de référence.
+
 ## Fin
 
 Rappel : les 16 décisions actées sont fermes. Tout écart doit remonter à

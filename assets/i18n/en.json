@@ -500,7 +500,9 @@
     "diag_risque_a": "hot cracking risk",
     "diag_risque_m": "cold cracking risk",
     "diag_risque_f": "grain growth risk",
-    "evt_analyse": "Analysis done:"
+    "evt_analyse": "Analysis done:",
+    "revendeurs_titre": "Equivalent",
+    "revendeurs_note": "Indicative links, no partnership. Check the certificate (EN ISO 14343) before buying."
   },
   "footer": {
     "disclaimer": "Welding preparation aid. It does not replace a qualified WPS or a WPQR. The tool is being tested, updates are planned.",

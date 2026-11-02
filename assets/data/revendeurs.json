@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "objet": "Liens revendeurs des métaux d'apport proposés dans la sélection des 7 apports. Phase de test : TIG, ER309LSi et ER309LMo uniquement.",
+    "verification": "2026-11-02",
+    "regle": "Liens indicatifs, sans partenariat ni rémunération. Une famille sans revendeur vérifié reste vide : aucun lien affiché.",
+    "a_valider_par_tony": [
+      "ER309LMo : aucune baguette TIG vendue en ligne en France trouvée le 2026-11-02 (AFSR, Trenois, Setin, Schweiss-Shop, Weld'X vérifiés).",
+      "Réserve ER309LSi : Boutique AFSR (titre 309LSi, fiche W 23 12 L / ER309L) et Welda (Belgique, prix sur compte)."
+    ]
+  },
+  "familles": [
+    {
+      "id": "ER309LSi",
+      "classement": "AWS A5.9 ER309LSi / EN ISO 14343-A W 23 12 L Si",
+      "motif": "309\\s*L\\s*Si",
+      "procedes": ["141"],
+      "revendeurs": [
+        {
+          "nom": "Setin",
+          "pays": "FR",
+          "produit": "Lincoln Electric LNT 309LSi, étui 5 kg, Ø 1,6 à 2,4 mm",
+          "url": "https://www.setin.fr/univers-soudage-tig-fil-dapport-309-l-si-a9796.html"
+        },
+        {
+          "nom": "Trenois Decamps",
+          "pays": "FR",
+          "produit": "Weld X TIG 309LSi (réf. ESA117), Ø 1,6 mm",
+          "url": "https://www.trenois.com/p/fil-tig-inox-ref-225-23593"
+        },
+        {
+          "nom": "Schweiss-Shop",
+          "pays": "DE",
+          "produit": "MTC 1.4332 / 23 12 L Si, étui 5 kg, Ø 2,4 mm",
+          "url": "https://www.schweiss-shop.de/en/mtc/14332-2312lsi-309lsi-24-mm-stainless-steel-tig-tig-rods-24-x-1000-mm-with-flat-stamping-pu-5-kg/358WTS0004"
+        }
+      ]
+    },
+    {
+      "id": "ER309LMo",
+      "classement": "AWS A5.9 ER309LMo / EN ISO 14343-A W 23 12 2 L",
+      "motif": "309\\s*L?\\s*Mo|309\\s*MoL",
+      "procedes": ["141"],
+      "revendeurs": []
+    }
+  ]
+}
