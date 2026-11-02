@@ -1,8 +1,8 @@
 // soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
 // revendeurs.js - liens revendeurs sous les apports de la sélection.
-// Phase de test (2026-11-02) : TIG (ER309LSi, ER309LMo) et électrode
-// enrobée (E309L, E309LMo).
+// Affichés seulement sur les apports au verdict « Idéal sur toute la
+// plage » (décision de Tony du 2026-11-02), en TIG et en électrode.
 // Données : assets/data/revendeurs.json, séparé de data.json (banque gelée).
 // Aucune logique métier : un motif de désignation donne une liste de liens.
 // =========================================================================
@@ -24,24 +24,19 @@ export async function chargerRevendeurs() {
   return FAMILLES;
 }
 
-// Famille correspondant à la désignation, pour le procédé courant, avec au
-// moins un revendeur vérifié. Liste « designations » exacte d'abord (corrige
-// une étiquette de banque fausse sans toucher data.json), puis « motif »
-// sauf « exclure ». Sinon null.
+// Famille correspondant à la désignation exacte de la banque (liste
+// « designations »), pour le procédé courant, avec au moins un revendeur
+// vérifié. Aucun rattachement par motif : une désignation non listée
+// n'affiche rien. Sinon null.
 const norm = (s) => String(s || "").replace(/\s+/g, " ").trim();
 
 export function familleRevendeurs(designation, procede) {
   if (!FAMILLES || !designation) return null;
   const d = norm(designation);
-  const candidates = FAMILLES.filter((f) => (f.procedes || []).includes(String(procede)));
-  const exacte = candidates.find((f) => (f.designations || []).map(norm).includes(d));
-  if (exacte) return exacte.revendeurs?.length ? exacte : null;
-  const parMotif = candidates.find(
-    (f) =>
-      new RegExp(f.motif, "i").test(d) &&
-      !(f.exclure && new RegExp(f.exclure, "i").test(d))
+  const f = FAMILLES.find(
+    (x) => (x.procedes || []).includes(String(procede)) && (x.designations || []).map(norm).includes(d)
   );
-  return parMotif?.revendeurs?.length ? parMotif : null;
+  return f?.revendeurs?.length ? f : null;
 }
 
 // Bloc « Équivalents en vente » : liens externes, ouverts dans un nouvel

@@ -7,7 +7,7 @@
 
 import { t, tr } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { chargerRevendeurs, familleRevendeurs, blocRevendeurs } from "./ui/revendeurs.js?v=20261102-revendeurs-ee";
+import { chargerRevendeurs, familleRevendeurs, blocRevendeurs } from "./ui/revendeurs.js?v=20261102-revendeurs-vert";
 import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260825-lecture-apport-3";
 import {
   crEqSchaeffler, niEqSchaeffler,
@@ -439,8 +439,10 @@ function majMeilleursApports() {
         t("analyse.col_plage"), t("analyse.col_couverture_ideale"),
       ]
     );
-    // Liens revendeurs (test TIG 309LSi/309LMo, ui/revendeurs.js).
-    const famille = r.origine === "manuel" ? null : familleRevendeurs(r.designation, ETAT?.procede);
+    // Liens revendeurs (ui/revendeurs.js) : seulement sur le verdict vert
+    // « Idéal sur toute la plage », jamais sur un apport saisi à la main.
+    const vert = (analyse?.niveauPire ?? r.niveau) === "ideal";
+    const famille = vert && r.origine !== "manuel" ? familleRevendeurs(r.designation, ETAT?.procede) : null;
     if (famille) tr.children[1]?.appendChild(blocRevendeurs(famille));
     if (analyse?.robuste) uneRobuste = true;
     const tdV = document.createElement("td");

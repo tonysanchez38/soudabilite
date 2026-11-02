@@ -482,6 +482,21 @@ Points vérifiés sur le dépôt avant toute modification :
   Note revendeur : norme du certificat propre à la famille (EN ISO 14343
   pour le fil, EN ISO 3581 pour l'électrode).
 
+## Liens revendeurs limités au verdict vert (2026-11-02, décision de Tony)
+
+- Les liens n'apparaissent que sur les lignes « Idéal sur toute la plage »,
+  en TIG et en électrode enrobée, jamais sur un apport saisi à la main.
+- Rattachement par désignation exacte de la banque (`designations`), plus
+  aucun motif : une désignation non listée n'affiche rien.
+- Familles couvertes (revendeurs vérifiés le 2026-11-02) :
+  TIG ER308L (3), ER308H (1), ER309L (2), ER309LSi (3), ER309LMo (1),
+  ER316L (3), ER318 (2), ER347 (2) ; électrode E308L (2), E309L (3),
+  E309LMo (1), E316L (3), E318 (1), E347 (1).
+- Revendeurs : Soudage Equipement (FR), Boutique AFSR (FR), Setin (FR),
+  Schweiss-Shop (DE, livre en France).
+- Sans revendeur : E308H, E 20 10 3 (MOLINOX B 20 10 S), E309-26. Points
+  à valider listés dans `revendeurs.json` (`_meta.a_valider_par_tony`).
+
 ## Anomalie moteur relevée le 2026-11-02 (non corrigée, moteur gelé)
 
 Le polygone A / A+F de `zones_schaeffler.json` ne coïncide pas avec
