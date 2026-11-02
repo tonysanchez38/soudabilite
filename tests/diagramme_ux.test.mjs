@@ -50,7 +50,7 @@ assert.match(rendu, /lignes: tr\("analyse\.diag_label_corridor", "CORRIDOR\|DE S
 assert.match(rendu, /\[10, 15, 20\]\.includes\(pct\)/);
 assert.match(parametres, /vue_analyse\.js\?v=20261102-revendeurs/);
 assert.match(parametres, /core\/energie\.js\?v=20260824-energie-diagramme-2/);
-assert.match(page, /parametres\.js\?v=20261102-revendeurs/);
+assert.match(page, /parametres\.js\?v=20261102-revendeurs-ee/);
 // La carte des zones a quitté la page d'analyse pour le guide métallurgique.
 const guide = await readFile(new URL("guide-metallurgique.html", racine), "utf8");
 assert.match(guide, /<section id="zones-metallurgiques"/);

@@ -473,6 +473,15 @@ Points vérifiés sur le dépôt avant toute modification :
   (AFSR, Trenois, Setin, Schweiss-Shop, Weld'X, HD Soudage en 404). Famille
   vide, aucun lien affiché. À compléter par Tony (fournisseur habituel).
 
+- Extension électrode enrobée (111), même jour : familles E309L
+  (Soudage Equipement, Boutique AFSR, Schweiss-Shop) et E309LMo
+  (Schweiss-Shop seul livrant en France). Correspondance par liste exacte
+  `designations` avant le motif : « OK 67.70 (E309L-17) » est une
+  E309LMo-17 (ESAB) étiquetée E309L dans data.json, rattachée à E309LMo
+  sans modifier la banque. Correction de l'étiquette à valider par Tony.
+  Note revendeur : norme du certificat propre à la famille (EN ISO 14343
+  pour le fil, EN ISO 3581 pour l'électrode).
+
 ## Anomalie moteur relevée le 2026-11-02 (non corrigée, moteur gelé)
 
 Le polygone A / A+F de `zones_schaeffler.json` ne coïncide pas avec

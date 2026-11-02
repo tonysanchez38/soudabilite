@@ -7,7 +7,7 @@
 
 import { t, tr } from "./ui/i18n.js";
 import { envoyerEvenement } from "./ui/analytics.js";
-import { chargerRevendeurs, familleRevendeurs, blocRevendeurs } from "./ui/revendeurs.js?v=20261102-revendeurs";
+import { chargerRevendeurs, familleRevendeurs, blocRevendeurs } from "./ui/revendeurs.js?v=20261102-revendeurs-ee";
 import { creerDiagramme } from "./ui/schaeffler_svg.js?v=20260825-lecture-apport-3";
 import {
   crEqSchaeffler, niEqSchaeffler,

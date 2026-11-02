@@ -1,11 +1,14 @@
 {
   "_meta": {
-    "objet": "Liens revendeurs des métaux d'apport proposés dans la sélection des 7 apports. Phase de test : TIG, ER309LSi et ER309LMo uniquement.",
+    "objet": "Liens revendeurs des métaux d'apport proposés dans la sélection des 7 apports. Phase de test : TIG (ER309LSi, ER309LMo) et électrode enrobée (E309L, E309LMo).",
     "verification": "2026-11-02",
-    "regle": "Liens indicatifs, sans partenariat ni rémunération. Une famille sans revendeur vérifié reste vide : aucun lien affiché.",
+    "regle": "Liens indicatifs, sans partenariat ni rémunération. Une famille sans revendeur vérifié reste vide : aucun lien affiché. Ordre de correspondance : liste « designations » exacte d'abord, puis « motif » sauf « exclure ».",
     "a_valider_par_tony": [
       "ER309LMo : aucune baguette TIG vendue en ligne en France trouvée le 2026-11-02 (AFSR, Trenois, Setin, Schweiss-Shop, Weld'X vérifiés).",
-      "Réserve ER309LSi : Boutique AFSR (titre 309LSi, fiche W 23 12 L / ER309L) et Welda (Belgique, prix sur compte)."
+      "Réserve ER309LSi : Boutique AFSR (titre 309LSi, fiche W 23 12 L / ER309L) et Welda (Belgique, prix sur compte).",
+      "Banque : « OK 67.70 (E309L-17) » est une E309LMo-17 (ESAB, 2,8 % Mo dans la banque). Rattachée à E309LMo par la liste designations, data.json non modifié.",
+      "E309LMo électrode : un seul revendeur vérifié livrant en France (Schweiss-Shop). Eisen-Neumüller (Böhler FOX CN 23/12 Mo-A) vend en ligne mais la livraison France n'est pas confirmée ; la page ERIKS.be n'existe plus.",
+      "E309L électrode : la fiche Setin (Daiko 309L) affiche des normes de fil (ER309L / EN ISO 14343), écartée."
     ]
   },
   "familles": [
@@ -13,7 +16,9 @@
       "id": "ER309LSi",
       "classement": "AWS A5.9 ER309LSi / EN ISO 14343-A W 23 12 L Si",
       "motif": "309\\s*L\\s*Si",
-      "procedes": ["141"],
+      "procedes": [
+        "141"
+      ],
       "revendeurs": [
         {
           "nom": "Setin",
@@ -33,14 +38,68 @@
           "produit": "MTC 1.4332 / 23 12 L Si, étui 5 kg, Ø 2,4 mm",
           "url": "https://www.schweiss-shop.de/en/mtc/14332-2312lsi-309lsi-24-mm-stainless-steel-tig-tig-rods-24-x-1000-mm-with-flat-stamping-pu-5-kg/358WTS0004"
         }
-      ]
+      ],
+      "norme": "EN ISO 14343"
     },
     {
       "id": "ER309LMo",
       "classement": "AWS A5.9 ER309LMo / EN ISO 14343-A W 23 12 2 L",
       "motif": "309\\s*L?\\s*Mo|309\\s*MoL",
-      "procedes": ["141"],
-      "revendeurs": []
+      "procedes": [
+        "141"
+      ],
+      "revendeurs": [],
+      "norme": "EN ISO 14343"
+    },
+    {
+      "id": "E309L",
+      "classement": "AWS A5.4 E309L-16 / E309L-17, EN ISO 3581-A E 23 12 L R",
+      "motif": "309\\s*L",
+      "exclure": "Mo|-15",
+      "procedes": [
+        "111"
+      ],
+      "revendeurs": [
+        {
+          "nom": "Soudage Equipement",
+          "pays": "FR",
+          "produit": "Électrode E309L-17 (E 23 12 L R 3 2), Ø 3,2 x 350",
+          "url": "https://soudage-equipement.com/electrode/896-electrode-enrobee-309l-br-32-x-350.html"
+        },
+        {
+          "nom": "Boutique AFSR",
+          "pays": "FR",
+          "produit": "Électrode E309L-16 (E 23 12 L R 3 2), Ø 3,2 x 350, étui 4,4 kg",
+          "url": "https://boutique-afsr.com/product/electrode-inox-309lsi-diametre-32x350-etuis-de-4-40kg/"
+        },
+        {
+          "nom": "Schweiss-Shop",
+          "pays": "DE",
+          "produit": "MTC 309 L (1.4332), type E309L-16, Ø 2,0 à 5,0 mm",
+          "url": "https://www.schweiss-shop.de/en/products/filler-materials/rod-electrodes/mtc/stainless-heat-resistant/309-l-electr-778"
+        }
+      ],
+      "norme": "EN ISO 3581"
+    },
+    {
+      "id": "E309LMo",
+      "classement": "AWS A5.4 E309LMo-16 / E309LMo-17, EN ISO 3581-A E 23 12 2 L R",
+      "motif": "309\\s*L?[\\s-]*Mo|309\\s*MoL",
+      "designations": [
+        "OK 67.70 (E309L-17)"
+      ],
+      "procedes": [
+        "111"
+      ],
+      "revendeurs": [
+        {
+          "nom": "Schweiss-Shop",
+          "pays": "DE",
+          "produit": "MTC 309 Mo (1.4459), E309MoL-16, Ø 2,0 à 5,0 mm",
+          "url": "https://www.schweiss-shop.de/en/products/filler-materials/rod-electrodes/mtc/stainless-heat-resistant/309-mo-electr-785"
+        }
+      ],
+      "norme": "EN ISO 3581"
     }
   ]
 }

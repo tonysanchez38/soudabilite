@@ -502,7 +502,7 @@
     "diag_risque_f": "risque de grossissement de grain",
     "evt_analyse": "Analyse effectuée :",
     "revendeurs_titre": "Équivalents",
-    "revendeurs_note": "Liens indicatifs, sans partenariat. Vérifier le certificat (EN ISO 14343) avant achat."
+    "revendeurs_note": "Liens indicatifs, sans partenariat. Vérifier le certificat ({norme}) avant achat."
   },
   "footer": {
     "disclaimer": "Aide à la préparation du DMOS. Ne se substitue ni à un DMOS qualifié ni à la QMOS. Outil en cours de test, des mises à jour sont prévues prochainement.",

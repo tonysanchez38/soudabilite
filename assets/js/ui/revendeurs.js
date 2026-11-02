@@ -1,7 +1,8 @@
 // soudabilite.com - Tony SANCHEZ - TS-SDB-2026
 // =========================================================================
 // revendeurs.js - liens revendeurs sous les apports de la sélection.
-// Phase de test (2026-11-02) : TIG, familles ER309LSi et ER309LMo.
+// Phase de test (2026-11-02) : TIG (ER309LSi, ER309LMo) et électrode
+// enrobée (E309L, E309LMo).
 // Données : assets/data/revendeurs.json, séparé de data.json (banque gelée).
 // Aucune logique métier : un motif de désignation donne une liste de liens.
 // =========================================================================
@@ -23,18 +24,24 @@ export async function chargerRevendeurs() {
   return FAMILLES;
 }
 
-// Famille dont le motif correspond à la désignation, pour le procédé courant,
-// avec au moins un revendeur vérifié. Sinon null.
+// Famille correspondant à la désignation, pour le procédé courant, avec au
+// moins un revendeur vérifié. Liste « designations » exacte d'abord (corrige
+// une étiquette de banque fausse sans toucher data.json), puis « motif »
+// sauf « exclure ». Sinon null.
+const norm = (s) => String(s || "").replace(/\s+/g, " ").trim();
+
 export function familleRevendeurs(designation, procede) {
   if (!FAMILLES || !designation) return null;
-  return (
-    FAMILLES.find(
-      (f) =>
-        f.revendeurs?.length &&
-        (f.procedes || []).includes(String(procede)) &&
-        new RegExp(f.motif, "i").test(designation)
-    ) || null
+  const d = norm(designation);
+  const candidates = FAMILLES.filter((f) => (f.procedes || []).includes(String(procede)));
+  const exacte = candidates.find((f) => (f.designations || []).map(norm).includes(d));
+  if (exacte) return exacte.revendeurs?.length ? exacte : null;
+  const parMotif = candidates.find(
+    (f) =>
+      new RegExp(f.motif, "i").test(d) &&
+      !(f.exclure && new RegExp(f.exclure, "i").test(d))
   );
+  return parMotif?.revendeurs?.length ? parMotif : null;
 }
 
 // Bloc « Équivalents en vente » : liens externes, ouverts dans un nouvel
@@ -63,7 +70,7 @@ export function blocRevendeurs(famille) {
   });
   const note = document.createElement("span");
   note.className = "revendeurs__note";
-  note.textContent = t("analyse.revendeurs_note");
+  note.textContent = t("analyse.revendeurs_note").replace("{norme}", famille.norme || "EN ISO");
   bloc.appendChild(note);
   return bloc;
 }
