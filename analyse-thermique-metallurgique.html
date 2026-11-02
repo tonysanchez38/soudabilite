@@ -42,7 +42,7 @@
 
     <link rel="stylesheet" href="assets/css/main.css?v=20261101-mobile-2" />
     <!-- Fiche imprimable (window.print + @media print - DECISIONS.md #25). -->
-    <link rel="stylesheet" href="assets/css/print.css?v=20260826-signature-pdf-3" media="print" />
+    <link rel="stylesheet" href="assets/css/print.css?v=20261102-fiche-dmos" media="print" />
 
     <!-- Analytics GoatCounter, proxifié en first-party via Cloudflare Worker
          (soudabilite.com/gc/*) pour éviter le blocage DNS de gc.zgo.at par
@@ -54,7 +54,7 @@
     ></script>
     <link rel="preload" href="assets/i18n/fr.json" as="fetch" crossorigin="anonymous" />
     <link rel="preload" href="assets/css/main.css?v=20261101-mobile-2" as="style" />
-    <script type="module" src="assets/js/parametres.js?v=20260825-lecture-apport-3"></script>
+    <script type="module" src="assets/js/parametres.js?v=20261102-fiche-dmos"></script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -590,6 +590,7 @@
           <div><dt data-i18n="parametres.res_en"></dt><dd data-fiche="En"></dd></div>
           <div><dt data-i18n="parametres.res_eq"></dt><dd data-fiche="Q"></dd></div>
           <div><dt data-i18n="parametres.res_rendement"></dt><dd data-fiche="k"></dd></div>
+          <div class="fiche-dl__large"><dt data-i18n="fiche.fenetre_q">Fenêtre Q ±25 %</dt><dd data-fiche="Q-fenetre"></dd></div>
         </dl>
       </section>
 
@@ -616,6 +617,24 @@
         <section class="fiche-section fiche-diagramme">
           <h2 data-i18n="analyse.carte_diagramme">Diagramme de Schaeffler</h2>
           <img id="schaeffler-print" alt="Diagramme de Schaeffler" />
+        </section>
+
+        <section class="fiche-section">
+          <h2 data-i18n="fiche.section_prechauffe">Préchauffage</h2>
+          <p data-fiche="prechauffe-methode"></p>
+          <dl class="fiche-dl fiche-dl--une-colonne" data-fiche-liste="prechauffe"></dl>
+        </section>
+
+        <section class="fiche-section">
+          <h2 data-i18n="fiche.section_completer">Rubriques à compléter pour le DMOS (EN ISO 15609-1)</h2>
+          <dl class="fiche-dl fiche-dl--saisie">
+            <div><dt data-i18n="fiche.groupe_a">Groupe ISO/TR 15608, métal A</dt><dd>__________</dd></div>
+            <div><dt data-i18n="fiche.groupe_b">Groupe ISO/TR 15608, métal B</dt><dd>__________</dd></div>
+            <div><dt data-i18n="fiche.classe_h">Classe hydrogène de l'apport</dt><dd>__________</dd></div>
+            <div><dt data-i18n="fiche.entre_passes">Température entre passes maxi</dt><dd>______ °C</dd></div>
+            <div><dt data-i18n="fiche.ref_qmos">Repère QMOS (EN ISO 15614-1)</dt><dd>__________</dd></div>
+            <div><dt data-i18n="fiche.ref_soudeur">Qualification soudeur (EN ISO 9606-1)</dt><dd>__________</dd></div>
+          </dl>
         </section>
 
         <footer class="fiche-pied">

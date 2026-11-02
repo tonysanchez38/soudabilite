@@ -524,6 +524,21 @@
     "col_epaisseur": "Épaisseur",
     "non_applicable": "-",
     "section_apport": "Métal d'apport retenu",
-    "apport_vide": "Aucun apport sélectionné."
+    "apport_vide": "Aucun apport sélectionné.",
+    "fenetre_q": "Fenêtre Q ±25 %",
+    "fenetre_q_note": "repère EN ISO 15614-1 si résilience ou dureté exigées",
+    "section_prechauffe": "Préchauffage",
+    "prechauffe_seferian": "Méthode Séférian, épaisseur propre à chaque métal de base. Valeur indicative, à confirmer selon NF EN 1011-2.",
+    "prechauffe_bwra": "Méthode BWRA, électrode enrobée. Valeur indicative, à confirmer selon NF EN 1011-2.",
+    "prechauffe_inox": "Assemblage inox : pas de préchauffage calculé. Limiter la température entre passes selon le DMOS.",
+    "prechauffe_heterogene": "Assemblage hétérogène : préchauffage non calculé par l'outil. Côté acier carbone, à évaluer selon NF EN 1011-2.",
+    "section_completer": "Rubriques à compléter pour le DMOS (EN ISO 15609-1)",
+    "groupe_a": "Groupe ISO/TR 15608, métal A",
+    "groupe_b": "Groupe ISO/TR 15608, métal B",
+    "classe_h": "Classe hydrogène de l'apport",
+    "entre_passes": "Température entre passes maxi",
+    "ref_qmos": "Repère QMOS (EN ISO 15614-1)",
+    "ref_soudeur": "Qualification soudeur (EN ISO 9606-1)",
+    "intervalle_a": "à"
   }
 }

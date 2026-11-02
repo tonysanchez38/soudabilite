@@ -524,6 +524,21 @@
     "col_epaisseur": "Thickness",
     "non_applicable": "-",
     "section_apport": "Filler metal selected",
-    "apport_vide": "No filler metal selected."
+    "apport_vide": "No filler metal selected.",
+    "fenetre_q": "Q window ±25 %",
+    "fenetre_q_note": "EN ISO 15614-1 reference when impact or hardness requirements apply",
+    "section_prechauffe": "Preheating",
+    "prechauffe_seferian": "Séférian method, thickness of each parent metal. Indicative value, to be confirmed against EN 1011-2.",
+    "prechauffe_bwra": "BWRA method, covered electrode. Indicative value, to be confirmed against EN 1011-2.",
+    "prechauffe_inox": "Stainless joint: no preheat calculated. Limit the interpass temperature as stated in the WPS.",
+    "prechauffe_heterogene": "Dissimilar joint: preheat not calculated by the tool. On the carbon steel side, assess it against EN 1011-2.",
+    "section_completer": "Fields to complete in the WPS (EN ISO 15609-1)",
+    "groupe_a": "ISO/TR 15608 group, metal A",
+    "groupe_b": "ISO/TR 15608 group, metal B",
+    "classe_h": "Filler hydrogen class",
+    "entre_passes": "Maximum interpass temperature",
+    "ref_qmos": "WPQR reference (EN ISO 15614-1)",
+    "ref_soudeur": "Welder qualification (EN ISO 9606-1)",
+    "intervalle_a": "to"
   }
 }

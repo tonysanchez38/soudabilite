@@ -154,6 +154,18 @@
     font-size: 9.5pt;
   }
 
+  /* Ligne pleine largeur (fenêtre d'énergie) et liste préchauffage sur une
+     colonne : textes plus longs que les couples valeur/unité. */
+  .fiche-dl > div.fiche-dl__large,
+  .fiche-dl--une-colonne > div {
+    grid-column: 1 / -1;
+  }
+
+  .fiche-dl--saisie dd {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
   .fiche-dl dt {
     color: #333333;
   }
@@ -170,6 +182,12 @@
   .fiche-diagramme {
     page-break-inside: avoid;
     break-inside: avoid;
+  }
+
+  /* Assemblage carbone/carbone : le diagramme est masqué à l'écran
+     (décision #32), il l'est aussi sur la fiche. */
+  .fiche-diagramme.fiche-diagramme--masque {
+    display: none !important;
   }
 
   .fiche-diagramme img {

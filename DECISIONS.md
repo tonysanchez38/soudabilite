@@ -433,6 +433,32 @@ recâble la thermique en repartant des formules dans spec.md.
 maintenu (robots d'entraînement refusés, ai-train=no), robots de recherche
 autorisés, llms.txt conservé.
 
+## Revue externe du 2026-11-02
+
+Points vérifiés sur le dépôt avant toute modification :
+
+- Axes Schaeffler : déjà justes (Cr_eq en abscisse, éléments alphagènes ;
+  Ni_eq en ordonnée, éléments gammagènes). Aucun changement.
+- Énergie : le rendement k (NF EN 1011-1) est déjà appliqué (Q = k x En)
+  dans le calculateur, le guide et les pages énergie. Aucun changement.
+- Normes abrogées (EN 287-1, EN 288, EN 1418) : aucune occurrence. Aucun
+  changement.
+- Terme « + 2 Ti » : absent des formules. Plages de dilution et bandes de
+  ferrite du guide identiques au moteur (PLAGES_DILUTION, 5-15 %, 0-20 %).
+- Fissuration à froid : condition de basse température rendue explicite
+  dans le guide et les pages préchauffage (FR/EN).
+- Fiche réflexe électrodes basiques ajoutée au guide (#electrodes-basiques),
+  valeurs sourcées Lincoln Electric « Storing and Redrying Electrodes » :
+  maintien 120-150 °C, re-séchage E7018 1 h à 340-400 °C. Les valeurs du
+  fabricant priment.
+- Fiche d'aide au DMOS : ajout de la fenêtre Q ±25 % (repère EN ISO 15614-1),
+  du préchauffage relu dans la carte Analyse thermique (zéro écart écran /
+  fiche), et d'un bloc de rubriques à compléter (groupes ISO/TR 15608,
+  classe hydrogène, entre-passes, QMOS, EN ISO 9606-1). Diagramme masqué
+  sur la fiche en carbone/carbone, comme à l'écran.
+- En attente de Tony : remplir `groupe_iso_15608` et les équivalences
+  ASME/ASTM dans data.json (données à sourcer, moteur et banque gelés).
+
 ## Fin
 
 Rappel : les 16 décisions actées sont fermes. Tout écart doit remonter à

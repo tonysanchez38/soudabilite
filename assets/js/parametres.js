@@ -577,6 +577,21 @@ function remplirFicheImpression() {
   poserFiche("En", avecUnite("En", t("parametres.unite_kjcm")));
   poserFiche("Q", avecUnite("Q", t("parametres.unite_kjcm")));
   poserFiche("k", lireRes("k"));
+  // Repère ±25 % autour de Q : limites d'énergie de la QMOS
+  // (EN ISO 15614-1) quand des exigences de résilience (borne haute) ou de
+  // dureté (borne basse) s'appliquent. Simple rappel, aucun verdict.
+  const q = Number.parseFloat(String(lireRes("Q")).replace(",", "."));
+  poserFiche(
+    "Q-fenetre",
+    Number.isFinite(q) && q > 0
+      ? `${(q * 0.75).toFixed(2)} ${t("fiche.intervalle_a")} ${(q * 1.25).toFixed(2)} ${t("parametres.unite_kjcm")} (${t("fiche.fenetre_q_note")})`
+      : vide
+  );
+  remplirPrechauffeFiche(fiche, poserFiche);
+  const carteDiagramme = document.querySelector('[data-carte="diagramme"]');
+  fiche
+    .querySelector(".fiche-diagramme")
+    ?.classList.toggle("fiche-diagramme--masque", Boolean(carteDiagramme?.hidden));
 
   poserFiche("dA", Number.isFinite(etat.dA) ? `${etat.dA} %` : vide);
   poserFiche("dB", Number.isFinite(etat.dB) ? `${etat.dB} %` : vide);
@@ -592,6 +607,43 @@ function remplirFicheImpression() {
       : t("fiche.apport_vide")
   );
 
+}
+
+// Préchauffage de la fiche : relu dans la carte « Analyse thermique »
+// (vue_analyse.js, majCarbone) telle qu'affichée, pour garantir zéro écart
+// entre l'écran et la fiche (décision #9). Aucun calcul refait ici.
+function remplirPrechauffeFiche(fiche, poserFiche) {
+  const liste = fiche.querySelector('[data-fiche-liste="prechauffe"]');
+  if (liste) liste.replaceChildren();
+  const carte = document.querySelector('[data-carte="carbone"]');
+
+  if (carte && !carte.hidden) {
+    const bloc = carte.querySelector("[data-methode-bloc]:not([hidden])");
+    const methode = bloc?.dataset.methodeBloc;
+    poserFiche("prechauffe-methode", methode ? t(`fiche.prechauffe_${methode}`) : t("fiche.non_applicable"));
+    const ce = [...carte.querySelectorAll('[data-liste="carbone-ce"] dd')].map((dd) => dd.textContent);
+    bloc?.querySelectorAll("tbody tr").forEach((ligne, i) => {
+      const cellules = ligne.querySelectorAll("td");
+      if (!liste || cellules.length < 4) return;
+      const div = document.createElement("div");
+      const dt = document.createElement("dt");
+      dt.textContent = cellules[0].textContent;
+      const dd = document.createElement("dd");
+      dd.textContent = [ce[i], `Tp ${cellules[3].textContent}`].filter(Boolean).join(" - ");
+      div.append(dt, dd);
+      liste.appendChild(div);
+    });
+    return;
+  }
+
+  const analyseVide = document.querySelector('[data-analyse="vide"]');
+  if (analyseVide && !analyseVide.hidden) {
+    poserFiche("prechauffe-methode", t("fiche.non_applicable"));
+    return;
+  }
+  const noteHeterogene = document.querySelector("[data-heterogene-note]");
+  const heterogene = noteHeterogene && !noteHeterogene.hidden;
+  poserFiche("prechauffe-methode", t(heterogene ? "fiche.prechauffe_heterogene" : "fiche.prechauffe_inox"));
 }
 
 // Capture le diagramme #schaeffler tel qu'affiché à l'écran (couleurs
