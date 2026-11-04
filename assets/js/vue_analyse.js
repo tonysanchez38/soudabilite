@@ -16,7 +16,7 @@ import {
 import { joint, melangeBases, plageDilution } from "./core/dilution.js?v=20260825-plage-dilution-1";
 import { ferriteSchaeffler, verdictSchaeffler, niveauIdeal } from "./core/schaeffler.js?v=20260825-plage-dilution-1";
 import { meilleursApports } from "./core/selection_apport.js?v=20260825-plage-dilution-1";
-import { estDuplex } from "./core/perimetre.js";
+import { estDuplex, usageAdmis } from "./core/perimetre.js?v=20261104-usage-apports";
 import { aiguille } from "./core/aiguillage.js?v=20260825-plage-dilution-1";
 import { ceIIW, ceqSeferian, tpSeferian } from "./core/carbone_eq.js";
 import { ceqBWRA, tpBWRA } from "./core/bwra.js";
@@ -393,8 +393,15 @@ function majMeilleursApports() {
   if (messageIndispo) messageIndispo.hidden = true;
 
   // Classement sur toute la plage du procédé. Les candidats duplex sont
-  // exclus car cette famille est hors périmètre du moteur actuel.
-  const apportsVisibles = (BANQUE.metaux_apport || []).filter((a) => !estDuplex(a.designation));
+  // exclus car cette famille est hors périmètre du moteur actuel. Le champ
+  // « usage » écarte les apports de rechargement, de fonte, et les apports
+  // réfractaires quand aucun métal de base n'est réfractaire (DECISIONS.md #35).
+  const baseRefractaire = [A, B].some((m) =>
+    (BANQUE.metaux_base || []).some((b) => b.designation === m.designation && b.refractaire === true)
+  );
+  const apportsVisibles = (BANQUE.metaux_apport || []).filter(
+    (a) => !estDuplex(a.designation) && usageAdmis(a, baseRefractaire)
+  );
 
   const rows = meilleursApports(apportsVisibles, ETAT.procede, {
     A: A.comp, B: B.comp, dA, dB, dC,

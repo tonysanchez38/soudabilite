@@ -650,12 +650,12 @@
     "ni": 12.83
    },
    {
-    "designation": "INERTROD 318 Si",
-    "niveau": "zone_s",
-    "ideal": 26,
-    "ferrite": 13.9,
-    "cr": 21.38,
-    "ni": 11.04
+    "designation": "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
+    "niveau": "hors",
+    "ideal": 58,
+    "ferrite": 7.3,
+    "cr": 20.73,
+    "ni": 12.27
    }
   ],
   "heteroAvec": "S235JR"
@@ -688,20 +688,20 @@
     "ni": 12.7
    },
    {
+    "designation": "SELECTARC INOX 16 TIG (ER316L)",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 7.8,
+    "cr": 21.53,
+    "ni": 12.87
+   },
+   {
     "designation": "ALTIG 316L - EN ISO 14343 : W 19 12 3 L",
     "niveau": "ideal",
     "ideal": 100,
     "ferrite": 7.9,
     "cr": 21.3,
     "ni": 12.61
-   },
-   {
-    "designation": "ALTIG 316L",
-    "niveau": "ideal",
-    "ideal": 100,
-    "ferrite": 7.2,
-    "cr": 21.13,
-    "ni": 12.7
    }
   ],
   "hetero": [
@@ -753,20 +753,20 @@
   "type": "inox",
   "homo": [
    {
-    "designation": "INERTROD 316L Si",
+    "designation": "SELECTARC 20/10S TIG (ER308LSi)",
     "niveau": "ideal",
     "ideal": 100,
-    "ferrite": 13.8,
-    "cr": 22.66,
-    "ni": 12.12
+    "ferrite": 9.6,
+    "cr": 21.28,
+    "ni": 12.03
    },
    {
-    "designation": "INERTROD 318 Si",
+    "designation": "SELECTARC INOX 8 TIG (ER308L)",
     "niveau": "ideal",
     "ideal": 100,
-    "ferrite": 14.7,
-    "cr": 22.96,
-    "ni": 12.12
+    "ferrite": 8,
+    "cr": 20.5,
+    "ni": 11.86
    },
    {
     "designation": "ALTIG 308L - EN ISO 14343 : W 19 9 L",
@@ -795,12 +795,12 @@
     "ni": 12.56
    },
    {
-    "designation": "INERTROD 318 Si",
-    "niveau": "zone_s",
-    "ideal": 74,
-    "ferrite": 13.1,
-    "cr": 21.47,
-    "ni": 11.33
+    "designation": "INERTROD 309L Si",
+    "niveau": "hors",
+    "ideal": 65,
+    "ferrite": 10.8,
+    "cr": 23.05,
+    "ni": 13.2
    }
   ],
   "heteroAvec": "S235JR"
@@ -826,28 +826,28 @@
   "type": "inox",
   "homo": [
    {
+    "designation": "SELECTARC 20/10S TIG (ER308LSi)",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 11,
+    "cr": 21.38,
+    "ni": 11.73
+   },
+   {
+    "designation": "SELECTARC 20/10NBS TIG (ER347Si)",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 9.8,
+    "cr": 21.13,
+    "ni": 11.82
+   },
+   {
     "designation": "ALTIG 347 - EN ISO 14343 : W 19 9 Nb Si",
     "niveau": "ideal",
     "ideal": 100,
     "ferrite": 9.5,
     "cr": 20.96,
     "ni": 11.77
-   },
-   {
-    "designation": "TIG 308L (ER308L / W19.9L)",
-    "niveau": "ideal",
-    "ideal": 100,
-    "ferrite": 8.9,
-    "cr": 20.81,
-    "ni": 11.86
-   },
-   {
-    "designation": "ER347 (W 19 9 Nb)",
-    "niveau": "ideal",
-    "ideal": 100,
-    "ferrite": 8.4,
-    "cr": 20.6,
-    "ni": 11.82
    }
   ],
   "hetero": [
@@ -900,11 +900,19 @@
   "type": "inox",
   "homo": [
    {
-    "designation": "INERTROD 316L Si",
+    "designation": "SELECTARC 20/10S TIG (ER308LSi)",
     "niveau": "ideal",
     "ideal": 100,
-    "ferrite": 14.5,
-    "cr": 22.8,
+    "ferrite": 10.2,
+    "cr": 21.42,
+    "ni": 11.96
+   },
+   {
+    "designation": "SELECTARC 20/10NBS TIG (ER347Si)",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 9.3,
+    "cr": 21.16,
     "ni": 12.04
    },
    {
@@ -914,14 +922,6 @@
     "ferrite": 8.9,
     "cr": 20.99,
     "ni": 12
-   },
-   {
-    "designation": "TIG 308L (ER308L / W19.9L)",
-    "niveau": "ideal",
-    "ideal": 100,
-    "ferrite": 8.3,
-    "cr": 20.85,
-    "ni": 12.09
    }
   ],
   "hetero": [
@@ -973,11 +973,19 @@
   "type": "inox",
   "homo": [
    {
-    "designation": "INERTROD 316L Si",
+    "designation": "SELECTARC 20/10S TIG (ER308LSi)",
     "niveau": "ideal",
     "ideal": 100,
-    "ferrite": 14.8,
-    "cr": 22.61,
+    "ferrite": 10.5,
+    "cr": 21.23,
+    "ni": 11.73
+   },
+   {
+    "designation": "SELECTARC 20/10NBS TIG (ER347Si)",
+    "niveau": "ideal",
+    "ideal": 100,
+    "ferrite": 9.4,
+    "cr": 20.98,
     "ni": 11.82
    },
    {
@@ -987,14 +995,6 @@
     "ferrite": 9.1,
     "cr": 20.81,
     "ni": 11.77
-   },
-   {
-    "designation": "INERTROD 309L Si",
-    "niveau": "ideal",
-    "ideal": 100,
-    "ferrite": 13.4,
-    "cr": 24.48,
-    "ni": 13.69
    }
   ],
   "hetero": [

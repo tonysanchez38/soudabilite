@@ -10,7 +10,8 @@
       "Banque : « OK 67.70 (E309L-17) » est une E309LMo-17 (ESAB) ; rattachée à E309LMo.",
       "Soudage Equipement affiche des prix TIG de 24 à 61 € pour un « étui 5 kg » : unité de prix (étui ou kg) à confirmer.",
       "« OK TIGROD 16.32 » rattaché à ER316L : composition 316L dans la banque et code article ESAB 1630 32 = OK Tigrod 316L Ø 3,2 [INCERTAIN].",
-      "2026-11-04 : 25 désignations Selectarc rattachées aux familles par classe AWS exacte et procédé ; classes approchées (« ~ », ex. ~ER309LMo, ~E307) non rattachées."
+      "2026-11-04 : 25 désignations Selectarc rattachées aux familles par classe AWS exacte et procédé ; classes approchées (« ~ », ex. ~ER309LMo, ~E307) non rattachées.",
+      "2026-11-04 : INERTROD 316L Si et INERTROD 318 Si retirés de la banque (Ni 10 % incompatible avec ER316LSi / ER318, 11 à 14 %)."
     ]
   },
   "familles": [
@@ -161,7 +162,6 @@
         "ALTIG 316L",
         "ALTIG 316L - EN ISO 14343 : W 19 12 3 L",
         "INERTROD 316L - EN 12072 : W 19 12 3 L",
-        "INERTROD 316L Si",
         "OK TIGROD 16.32",
         "SELECTARC 20/10M TIG (ER316L)",
         "SELECTARC 20/10MS TIG (ER316LSi)",
@@ -199,7 +199,6 @@
       "designations": [
         "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
         "INERTROD 318",
-        "INERTROD 318 Si",
         "SELECTARC 20/10MNB TIG (ER318)"
       ],
       "revendeurs": [

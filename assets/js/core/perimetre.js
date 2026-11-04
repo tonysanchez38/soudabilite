@@ -5,3 +5,16 @@ const RE_DUPLEX = /duplex|super.?duplex|\b2205\b|\b2507\b|\b2209\b|\b2594\b|25.2
 export function estDuplex(designation) {
   return RE_DUPLEX.test(designation || "");
 }
+
+// Usage d'un apport (data.json, champ « usage », DECISIONS.md #35).
+// assemblage : proposé dans la sélection des 7.
+// refractaire : proposé seulement si un métal de base est réfractaire
+// (champ « refractaire » de metaux_base) - un fil type 253MA ou 310 ne doit
+// pas passer devant un 309L ou un 316L sur un assemblage courant.
+// rechargement, fonte : jamais proposés pour un assemblage d'aciers.
+export function usageAdmis(apport, baseRefractaire = false) {
+  const usage = apport?.usage ?? "assemblage";
+  if (usage === "assemblage") return true;
+  if (usage === "refractaire") return baseRefractaire === true;
+  return false;
+}

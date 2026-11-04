@@ -5,7 +5,7 @@
 ## Pages
 
 - [Calculateur : analyse thermique et métallurgique](https://soudabilite.com/analyse-thermique-metallurgique.html) : saisie des métaux de base, du procédé et du joint, diagramme de Schaeffler, dilution, classement de 7 métaux d'apport, préchauffage.
-- [Bibliothèque des matériaux](https://soudabilite.com/bibliotheque-materiaux.html) : 52 métaux de base et 412 métaux d'apport, compositions chimiques et équivalents Cr et Ni de Schaeffler, classés par procédé ISO 4063.
+- [Bibliothèque des matériaux](https://soudabilite.com/bibliotheque-materiaux.html) : 46 métaux de base et 403 métaux d'apport, compositions chimiques et équivalents Cr et Ni de Schaeffler, classés par procédé ISO 4063.
 - [Calcul du préchauffage](https://soudabilite.com/calcul-prechauffage-soudage.html) : carbone équivalent, méthodes Séférian et BWRA, cas chiffré sur une bride P355NL1 de 20 mm.
 - [Calcul de l'énergie de soudage](https://soudabilite.com/calcul-energie-soudage.html) : formule NF EN 1011-1, rendement thermique par procédé, cas chiffré en TIG sur un tube 316L de 3 mm.
 - [Diagramme de Schaeffler en ligne](https://soudabilite.com/diagramme-schaeffler-en-ligne.html) : équivalents chrome et nickel, dilution, cas chiffré S235JR sur 316L en TIG, pourquoi un apport 309L.

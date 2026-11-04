@@ -252,6 +252,24 @@ catalogue, cet outil intègre en une interface unique :
     reste sur le module de préchauffage, avant le futur calcul t8/5. Cette
     décision remplace les parties contraires des décisions #2, #30 et #32.
 
+35. **Champ « usage » des apports et nettoyage de la banque (validé par Tony
+    le 04/11/2026)** : chaque entrée `metaux_apport` porte `usage` parmi
+    `assemblage`, `refractaire`, `rechargement`, `fonte`. `usageAdmis()`
+    (`core/perimetre.js`) filtre les candidats avant `meilleursApports()`
+    dans `vue_analyse.js` et dans `outils/fiches_nuances/calculer.mjs` :
+    `assemblage` toujours proposé ; `refractaire` (familles 310, 253MA,
+    25/35, 21/33, N155) proposé seulement si un métal de base porte
+    `"refractaire": true` (302 B, 310, 310S, X 12 Cr Ni 25-21, Nicrofer
+    3220) ; `rechargement` et `fonte` jamais proposés, mais visibles dans la
+    bibliothèque. Cause : un fil réfractaire 253MA (SELECTARC 21/10MA)
+    sortait 1er en TIG sur 304L + 304L au seul critère Schaeffler. Nettoyage
+    associé (plafond fixé par Tony : 15 % de chaque liste) : 6 métaux de base
+    retirés (composition incomplète ou contraire à la désignation, acier de
+    décolletage non soudable) et 13 apports (placeholders, alliages non
+    ferreux sans sens sur Schaeffler, compositions hors classe AWS). Liste
+    exacte dans `data.json` `_meta.nettoyage_2026_11_04`. Test :
+    `tests/usage_apports.test.mjs`.
+
 ## Séquence de construction - 11 étapes
 
 1. Fond et architecture (DECISIONS.md, arborescence, spec.md, data.json)
