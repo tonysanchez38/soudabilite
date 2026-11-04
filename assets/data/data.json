@@ -4,6 +4,7 @@
     "date_extraction": "2026-07-08",
     "version": "1.0.0",
     "note": "Les groupes ISO 15608 et procédés d'apport sont à compléter/vérifier dans une passe ultérieure.",
+    "ajout_selectarc": "2026-11-04 : 218 apports Selectarc (FSH Welding Group) ajoutés depuis les catalogues Panorama électrodes (éd. 3) et Panorama fils TIG/MIG, analyses type du métal déposé ; périmètre aciers non alliés, faiblement alliés, inoxydables et alliages de nickel ; fontes, aluminium, cuivreux, titane, cobalt, magnésium et rechargement exclus.",
     "convention_equivalents": {
       "Schaeffler_1949": "Cr_eq = %Cr + %Mo + 1.5*%Si + 0.5*%Nb ; Ni_eq = %Ni + 30*%C + 0.5*%Mn",
       "DeLong_1974": "Ni_eq = %Ni + 30*%C + 30*%N + 0.5*%Mn (Cr_eq identique Schaeffler)",
@@ -8318,6 +8319,6764 @@
         "WRC_1992": {
           "Cr_eq": 21.1,
           "Ni_eq": 12.7
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 48SP (E6013)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 14 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 51 (E6013)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.45,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 14 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.225
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.225
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 54 (E6013)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 14 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 52HP (E6013)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.45,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 14 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.225
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.225
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 55 (E6013)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.45,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 15 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.675,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 0.675,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC D6 (E6013)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 15 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC C6010 (E6010)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.45,
+        "Si": 0.2,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 15 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 3.825
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 3.825
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.2
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC RR B7 (E6013)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.3,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 15 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Galva 46 (E6013)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 0.2,
+        "Si": 0.3,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 15 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 1.9
+        },
+        "DeLong": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 1.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.1
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 160 (E7024)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.45,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 15 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.675,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 0.675,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B7018S (E7018-1)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.3,
+        "Si": 0.5,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 16 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 3.65
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 3.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B7016Sp (E7016)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.9,
+        "Si": 0.7,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 16 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.05,
+          "Ni_eq": 3.45
+        },
+        "DeLong": {
+          "Cr_eq": 1.05,
+          "Ni_eq": 3.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B58 (E7018)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.4,
+        "Si": 0.5,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 16 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.8
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 2.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B56S (E7018-1)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.1,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 16 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.55
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B70 (E10018-G)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.4,
+        "Si": 0.5,
+        "Cr": 0.2,
+        "Ni": 1.5,
+        "Mo": 0.4,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 17 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.35,
+          "Ni_eq": 5.2
+        },
+        "DeLong": {
+          "Cr_eq": 1.35,
+          "Ni_eq": 5.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 5.0
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B72 (E9018-G)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.2,
+        "Si": 0.5,
+        "Cr": 0.1,
+        "Ni": 0.8,
+        "Mo": 0.3,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 17 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.15,
+          "Ni_eq": 4.4
+        },
+        "DeLong": {
+          "Cr_eq": 1.15,
+          "Ni_eq": 4.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.4,
+          "Ni_eq": 4.3
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B73 (E9018-D1)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": null,
+        "Ni": null,
+        "Mo": 0.4,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 17 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.15,
+          "Ni_eq": 3.75
+        },
+        "DeLong": {
+          "Cr_eq": 1.15,
+          "Ni_eq": 3.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.4,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B74 (E8018-G)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.4,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": 0.2,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 2.7
+        },
+        "DeLong": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 2.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 2.3
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B77 (E11018-M)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.5,
+        "Si": 0.4,
+        "Cr": 0.4,
+        "Ni": 2.1,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 18 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 5.85
+        },
+        "DeLong": {
+          "Cr_eq": 1.5,
+          "Ni_eq": 5.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 5.6
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B75Cu (E8018-W2)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.0,
+        "Si": 0.4,
+        "Cr": 0.5,
+        "Ni": 0.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.4,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 18 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 4.0
+        },
+        "DeLong": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 4.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 4.1
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B60 (E7018-A1)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.8,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 18 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 3.4
+        },
+        "DeLong": {
+          "Cr_eq": 1.1,
+          "Ni_eq": 3.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B63 (E8018-B2)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.8,
+        "Si": 0.4,
+        "Cr": 1.1,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 18 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.2,
+          "Ni_eq": 4.0
+        },
+        "DeLong": {
+          "Cr_eq": 2.2,
+          "Ni_eq": 4.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.6,
+          "Ni_eq": 4.2
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B68 (E9018-B3)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.8,
+        "Si": 0.4,
+        "Cr": 2.25,
+        "Ni": null,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 3.85,
+          "Ni_eq": 2.5
+        },
+        "DeLong": {
+          "Cr_eq": 3.85,
+          "Ni_eq": 2.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.25,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B69 (E8018-B6)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.8,
+        "Si": 0.4,
+        "Cr": 5.0,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 19 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 6.1,
+          "Ni_eq": 3.4
+        },
+        "DeLong": {
+          "Cr_eq": 6.1,
+          "Ni_eq": 3.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 5.5,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B691 (E9015-B9)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.7,
+        "Si": 0.25,
+        "Cr": 9.0,
+        "Ni": 0.7,
+        "Mo": 1.0,
+        "Nb": 0.05,
+        "N": 0.05,
+        "Cu": 0.04,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 10.4,
+          "Ni_eq": 4.05
+        },
+        "DeLong": {
+          "Cr_eq": 10.4,
+          "Ni_eq": 5.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 10.035,
+          "Ni_eq": 5.21
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B609 (E8016-B8)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.8,
+        "Si": 0.4,
+        "Cr": 9.0,
+        "Ni": null,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 19 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 10.6,
+          "Ni_eq": 3.4
+        },
+        "DeLong": {
+          "Cr_eq": 10.6,
+          "Ni_eq": 3.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 10.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B691N (E9018-B9)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 0.6,
+        "Si": 0.25,
+        "Cr": 9.0,
+        "Ni": 0.6,
+        "Mo": 0.9,
+        "Nb": 0.04,
+        "N": 0.03,
+        "Cu": 0.05,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 10.295,
+          "Ni_eq": 3.6
+        },
+        "DeLong": {
+          "Cr_eq": 10.295,
+          "Ni_eq": 4.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 9.928,
+          "Ni_eq": 4.3625
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B82 (E8018-C1)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 1.0,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": 2.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 20 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 6.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 6.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 6.7
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B842 (E7018-G)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.2,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": 0.9,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 3.0
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B84 (E8018-C2)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.9,
+        "Si": 0.3,
+        "Cr": null,
+        "Ni": 3.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 20 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 6.95
+        },
+        "DeLong": {
+          "Cr_eq": 0.45,
+          "Ni_eq": 6.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 7.0
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B81 (E8018-C3)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 1.1,
+        "Si": 0.5,
+        "Cr": null,
+        "Ni": 1.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 20 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 5.15
+        },
+        "DeLong": {
+          "Cr_eq": 0.75,
+          "Ni_eq": 5.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 5.2
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10BC (E308L-16)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 19.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 22 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.2,
+          "Ni_eq": 10.75
+        },
+        "DeLong": {
+          "Cr_eq": 20.2,
+          "Ni_eq": 10.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 10.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 308B (E308L-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.6,
+        "Si": 0.4,
+        "Cr": 19.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 22 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.6,
+          "Ni_eq": 11.5
+        },
+        "DeLong": {
+          "Cr_eq": 19.6,
+          "Ni_eq": 11.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 10.9
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 308HR (E308L-26)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.7,
+        "Si": 0.9,
+        "Cr": 19.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 22 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.35,
+          "Ni_eq": 11.05
+        },
+        "DeLong": {
+          "Cr_eq": 20.35,
+          "Ni_eq": 11.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.0,
+          "Ni_eq": 10.9
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 308HB (E308H-15)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 19.5,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 22 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.1,
+          "Ni_eq": 11.9
+        },
+        "DeLong": {
+          "Cr_eq": 20.1,
+          "Ni_eq": 11.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.5,
+          "Ni_eq": 11.25
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 347 (E347-17)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 19.0,
+        "Ni": 9.5,
+        "Mo": null,
+        "Nb": 0.3,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 22 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.35,
+          "Ni_eq": 10.75
+        },
+        "DeLong": {
+          "Cr_eq": 20.35,
+          "Ni_eq": 10.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.21,
+          "Ni_eq": 10.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 16-8-2B (E16-8-2-15)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 16.0,
+        "Ni": 9.0,
+        "Mo": 1.7,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 22 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.3,
+          "Ni_eq": 11.4
+        },
+        "DeLong": {
+          "Cr_eq": 18.3,
+          "Ni_eq": 11.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.7,
+          "Ni_eq": 10.75
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10MBC (E316L-16)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 18.5,
+        "Ni": 12.0,
+        "Mo": 2.7,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 23 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.4,
+          "Ni_eq": 13.25
+        },
+        "DeLong": {
+          "Cr_eq": 22.4,
+          "Ni_eq": 13.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 316L (E316L-17)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 18.5,
+        "Ni": 12.2,
+        "Mo": 2.8,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 23 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.5,
+          "Ni_eq": 13.45
+        },
+        "DeLong": {
+          "Cr_eq": 22.5,
+          "Ni_eq": 13.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.3,
+          "Ni_eq": 13.25
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 316VD (E316L-16)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 18.0,
+        "Ni": 11.5,
+        "Mo": 2.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 23 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.7,
+          "Ni_eq": 12.75
+        },
+        "DeLong": {
+          "Cr_eq": 21.7,
+          "Ni_eq": 12.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.5,
+          "Ni_eq": 12.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 316NG (E316L-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.6,
+        "Si": 0.4,
+        "Cr": 18.0,
+        "Ni": 12.0,
+        "Mo": 2.7,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 23 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.3,
+          "Ni_eq": 14.0
+        },
+        "DeLong": {
+          "Cr_eq": 21.3,
+          "Ni_eq": 14.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.7,
+          "Ni_eq": 13.4
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 316HR (E316L-26)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.7,
+        "Si": 0.9,
+        "Cr": 18.0,
+        "Ni": 11.5,
+        "Mo": 2.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 23 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.85,
+          "Ni_eq": 13.05
+        },
+        "DeLong": {
+          "Cr_eq": 21.85,
+          "Ni_eq": 13.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.5,
+          "Ni_eq": 12.9
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 318 (E318-17)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 18.0,
+        "Ni": 12.0,
+        "Mo": 2.7,
+        "Nb": 0.3,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 24 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.05,
+          "Ni_eq": 13.25
+        },
+        "DeLong": {
+          "Cr_eq": 22.05,
+          "Ni_eq": 13.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.91,
+          "Ni_eq": 13.05
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 317L (E317L-17)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 19.0,
+        "Ni": 13.0,
+        "Mo": 3.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 24 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.7,
+          "Ni_eq": 13.95
+        },
+        "DeLong": {
+          "Cr_eq": 23.7,
+          "Ni_eq": 13.95
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.5,
+          "Ni_eq": 13.7
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 24/12S (E309L-16)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 22.5,
+        "Ni": 12.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 24 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.7,
+          "Ni_eq": 13.75
+        },
+        "DeLong": {
+          "Cr_eq": 23.7,
+          "Ni_eq": 13.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.5,
+          "Ni_eq": 13.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 309HR (E309L-26)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.7,
+        "Si": 0.9,
+        "Cr": 22.5,
+        "Ni": 12.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 24 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.85,
+          "Ni_eq": 14.05
+        },
+        "DeLong": {
+          "Cr_eq": 23.85,
+          "Ni_eq": 14.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.5,
+          "Ni_eq": 13.9
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 24/12Mo (E309LMo-17)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.7,
+        "Si": 0.8,
+        "Cr": 22.5,
+        "Ni": 12.5,
+        "Mo": 2.3,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 24 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.0,
+          "Ni_eq": 13.75
+        },
+        "DeLong": {
+          "Cr_eq": 26.0,
+          "Ni_eq": 13.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.8,
+          "Ni_eq": 13.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 307R (~E307-16)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 4.5,
+        "Si": 1.2,
+        "Cr": 18.0,
+        "Ni": 8.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 24 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.8,
+          "Ni_eq": 13.25
+        },
+        "DeLong": {
+          "Cr_eq": 19.8,
+          "Ni_eq": 13.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 11.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 307B (~E307-15)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 6.0,
+        "Si": 0.4,
+        "Cr": 18.0,
+        "Ni": 8.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 25 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.6,
+          "Ni_eq": 14.0
+        },
+        "DeLong": {
+          "Cr_eq": 18.6,
+          "Ni_eq": 14.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 11.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 18/8Mn (~E307-26)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 5.0,
+        "Si": 0.8,
+        "Cr": 18.0,
+        "Ni": 8.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 25 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.2,
+          "Ni_eq": 14.0
+        },
+        "DeLong": {
+          "Cr_eq": 19.2,
+          "Ni_eq": 14.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.0,
+          "Ni_eq": 12.0
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 308Mo (E308Mo-17)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.0,
+        "Si": 0.8,
+        "Cr": 20.5,
+        "Ni": 10.5,
+        "Mo": 3.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 25 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.7,
+          "Ni_eq": 12.2
+        },
+        "DeLong": {
+          "Cr_eq": 24.7,
+          "Ni_eq": 12.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.5,
+          "Ni_eq": 11.9
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 29/9 (~E312-16)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 1.0,
+        "Cr": 29.0,
+        "Ni": 9.5,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 25 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 31.0,
+          "Ni_eq": 12.8
+        },
+        "DeLong": {
+          "Cr_eq": 31.0,
+          "Ni_eq": 12.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.5,
+          "Ni_eq": 13.0
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 312HR (~E312-26)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.0,
+        "Si": 1.1,
+        "Cr": 26.5,
+        "Ni": 9.5,
+        "Mo": 0.2,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 25 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 28.35,
+          "Ni_eq": 11.8
+        },
+        "DeLong": {
+          "Cr_eq": 28.35,
+          "Ni_eq": 11.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.7,
+          "Ni_eq": 11.6
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 25/20R (~E310-16)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 2.0,
+        "Si": 0.9,
+        "Cr": 25.5,
+        "Ni": 20.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 26 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.85,
+          "Ni_eq": 24.5
+        },
+        "DeLong": {
+          "Cr_eq": 26.85,
+          "Ni_eq": 24.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 24.0
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 25/20B (E310-15)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 2.2,
+        "Si": 0.5,
+        "Cr": 25.5,
+        "Ni": 20.5,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 26 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.25,
+          "Ni_eq": 25.2
+        },
+        "DeLong": {
+          "Cr_eq": 26.25,
+          "Ni_eq": 25.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 24.7
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 310H (E310H-15)",
+      "composition": {
+        "C": 0.4,
+        "Mn": 2.0,
+        "Si": 0.7,
+        "Cr": 26.0,
+        "Ni": 21.0,
+        "Mo": 0.2,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 26 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 27.25,
+          "Ni_eq": 34.0
+        },
+        "DeLong": {
+          "Cr_eq": 27.25,
+          "Ni_eq": 34.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.2,
+          "Ni_eq": 35.0
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 253MA-AC (E 22 12 R 3 2)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.8,
+        "Si": 1.0,
+        "Cr": 22.0,
+        "Ni": 11.0,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": 0.1,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 26 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.6,
+          "Ni_eq": 14.4
+        },
+        "DeLong": {
+          "Cr_eq": 23.6,
+          "Ni_eq": 17.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.1,
+          "Ni_eq": 16.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 21/33Mn (E Z 21 33 Mn Nb B 4 2)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 4.5,
+        "Si": 0.5,
+        "Cr": 21.0,
+        "Ni": 33.0,
+        "Mo": null,
+        "Nb": 1.0,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 26 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.25,
+          "Ni_eq": 38.25
+        },
+        "DeLong": {
+          "Cr_eq": 22.25,
+          "Ni_eq": 38.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.7,
+          "Ni_eq": 36.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 25/35H (E Z 25 35 Nb H B 4 2)",
+      "composition": {
+        "C": 0.4,
+        "Mn": 1.8,
+        "Si": 1.0,
+        "Cr": 26.0,
+        "Ni": 35.0,
+        "Mo": null,
+        "Nb": 1.2,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 27 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 28.1,
+          "Ni_eq": 47.9
+        },
+        "DeLong": {
+          "Cr_eq": 28.1,
+          "Ni_eq": 47.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.84,
+          "Ni_eq": 49.0
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 2209 (E2209-17, duplex)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.9,
+        "Si": 0.9,
+        "Cr": 22.5,
+        "Ni": 9.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "N": 0.18,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 27 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.85,
+          "Ni_eq": 10.35
+        },
+        "DeLong": {
+          "Cr_eq": 26.85,
+          "Ni_eq": 15.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 13.65
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 2209B (E2209-15, duplex)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.0,
+        "Si": 0.5,
+        "Cr": 22.5,
+        "Ni": 9.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "N": 0.18,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 27 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.25,
+          "Ni_eq": 10.4
+        },
+        "DeLong": {
+          "Cr_eq": 26.25,
+          "Ni_eq": 15.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 13.65
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 2509MoB (E2594-15, super duplex)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": 25.0,
+        "Ni": 9.5,
+        "Mo": 4.0,
+        "Nb": null,
+        "N": 0.23,
+        "Cu": 0.7,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 27 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.75,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 29.75,
+          "Ni_eq": 18.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 15.675
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 2509MoWB (E2595-15, super duplex)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": 25.0,
+        "Ni": 9.3,
+        "Mo": 3.6,
+        "Nb": null,
+        "N": 0.23,
+        "Cu": 0.7,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 27 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.35,
+          "Ni_eq": 11.25
+        },
+        "DeLong": {
+          "Cr_eq": 29.35,
+          "Ni_eq": 18.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 28.6,
+          "Ni_eq": 15.475
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 385 (E385-16)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.4,
+        "Si": 0.8,
+        "Cr": 20.5,
+        "Ni": 25.0,
+        "Mo": 4.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 1.5,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 28 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.2,
+          "Ni_eq": 26.6
+        },
+        "DeLong": {
+          "Cr_eq": 26.2,
+          "Ni_eq": 26.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.0,
+          "Ni_eq": 26.425
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 383 (E383-16)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.4,
+        "Si": 0.8,
+        "Cr": 27.0,
+        "Ni": 31.0,
+        "Mo": 3.8,
+        "Nb": null,
+        "N": null,
+        "Cu": 1.0,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 28 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.0,
+          "Ni_eq": 32.6
+        },
+        "DeLong": {
+          "Cr_eq": 32.0,
+          "Ni_eq": 32.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.8,
+          "Ni_eq": 32.3
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 410B (E410-15)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.5,
+        "Cr": 13.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 28 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.75,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 13.75,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 13.0,
+          "Ni_eq": 3.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 13/4 (E410NiMo-15)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.6,
+        "Si": 0.3,
+        "Cr": 12.0,
+        "Ni": 4.2,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 28 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 12.95,
+          "Ni_eq": 5.7
+        },
+        "DeLong": {
+          "Cr_eq": 12.95,
+          "Ni_eq": 5.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 12.5,
+          "Ni_eq": 5.6
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 17/4Mo (E Z 16 5 1 B 4 2)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.6,
+        "Si": 0.3,
+        "Cr": 16.0,
+        "Ni": 5.0,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 28 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.45,
+          "Ni_eq": 6.5
+        },
+        "DeLong": {
+          "Cr_eq": 17.45,
+          "Ni_eq": 6.5
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 6.4
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B90 (ENiCrFe-3)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 5.5,
+        "Si": 0.5,
+        "Cr": 16.0,
+        "Ni": 65.75,
+        "Mo": 0.2,
+        "Nb": 2.0,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 31 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C, Fe ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.95,
+          "Ni_eq": 70.0
+        },
+        "DeLong": {
+          "Cr_eq": 17.95,
+          "Ni_eq": 70.0
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.6,
+          "Ni_eq": 67.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B91 (ENiCrMo-3)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.8,
+        "Si": 0.6,
+        "Cr": 21.0,
+        "Ni": 61.76,
+        "Mo": 8.5,
+        "Nb": 3.3,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 31 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.05,
+          "Ni_eq": 63.36
+        },
+        "DeLong": {
+          "Cr_eq": 32.05,
+          "Ni_eq": 63.36
+        },
+        "WRC_1992": {
+          "Cr_eq": 31.81,
+          "Ni_eq": 63.16
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B94 (ENiCrFe-2)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 2.8,
+        "Si": 0.5,
+        "Cr": 16.0,
+        "Ni": 70.14,
+        "Mo": 1.8,
+        "Nb": 1.7,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 31 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.4,
+          "Ni_eq": 73.34
+        },
+        "DeLong": {
+          "Cr_eq": 19.4,
+          "Ni_eq": 73.34
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.99,
+          "Ni_eq": 72.24
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC B96 (ENiCrMo-6)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 3.6,
+        "Si": 0.6,
+        "Cr": 13.5,
+        "Ni": 65.32,
+        "Mo": 7.0,
+        "Nb": 1.2,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 31 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.0,
+          "Ni_eq": 69.52
+        },
+        "DeLong": {
+          "Cr_eq": 22.0,
+          "Ni_eq": 69.52
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.34,
+          "Ni_eq": 68.12
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni59 (ENiCrMo-13)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.2,
+        "Si": 0.2,
+        "Cr": 23.0,
+        "Ni": 59.18,
+        "Mo": 15.8,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 32 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C, Si, Fe ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 39.1,
+          "Ni_eq": 59.88
+        },
+        "DeLong": {
+          "Cr_eq": 39.1,
+          "Ni_eq": 59.88
+        },
+        "WRC_1992": {
+          "Cr_eq": 38.8,
+          "Ni_eq": 59.905
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni82 (~ENiCrFe-3)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 5.0,
+        "Si": 0.4,
+        "Cr": 19.0,
+        "Ni": 68.87,
+        "Mo": 1.5,
+        "Nb": 2.2,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 32 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.2,
+          "Ni_eq": 72.27
+        },
+        "DeLong": {
+          "Cr_eq": 22.2,
+          "Ni_eq": 72.27
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.04,
+          "Ni_eq": 69.92
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni182 (ENiCrFe-3)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 6.0,
+        "Si": 0.4,
+        "Cr": 16.5,
+        "Ni": 68.86,
+        "Mo": 0.2,
+        "Nb": 2.0,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 32 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 18.3,
+          "Ni_eq": 73.06
+        },
+        "DeLong": {
+          "Cr_eq": 18.3,
+          "Ni_eq": 73.06
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.1,
+          "Ni_eq": 70.26
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni190 (ENiCu-7)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 3.2,
+        "Si": 0.7,
+        "Cr": null,
+        "Ni": 65.35,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 29.0,
+        "Ti": 0.5
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 32 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.05,
+          "Ni_eq": 68.45
+        },
+        "DeLong": {
+          "Cr_eq": 1.05,
+          "Ni_eq": 68.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 74.35
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni276 (ENiCrMo-4)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.6,
+        "Si": 0.2,
+        "Cr": 16.2,
+        "Ni": 57.83,
+        "Mo": 16.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 32 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.5,
+          "Ni_eq": 58.73
+        },
+        "DeLong": {
+          "Cr_eq": 32.5,
+          "Ni_eq": 58.73
+        },
+        "WRC_1992": {
+          "Cr_eq": 32.2,
+          "Ni_eq": 58.53
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni617 (~ENiCrCoMo-1)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 0.3,
+        "Si": 0.8,
+        "Cr": 21.0,
+        "Ni": 55.84,
+        "Mo": 9.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.3
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 33 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 31.2,
+          "Ni_eq": 57.79
+        },
+        "DeLong": {
+          "Cr_eq": 31.2,
+          "Ni_eq": 57.79
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.0,
+          "Ni_eq": 57.94
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni625 (ENiCrMo-3)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.6,
+        "Si": 0.4,
+        "Cr": 22.0,
+        "Ni": 61.56,
+        "Mo": 9.0,
+        "Nb": 3.4,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 33 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 33.3,
+          "Ni_eq": 63.06
+        },
+        "DeLong": {
+          "Cr_eq": 33.3,
+          "Ni_eq": 63.06
+        },
+        "WRC_1992": {
+          "Cr_eq": 33.38,
+          "Ni_eq": 62.96
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni625BF (ENiCrMo-3)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.56,
+        "Si": 0.4,
+        "Cr": 22.0,
+        "Ni": 64.2,
+        "Mo": 8.8,
+        "Nb": 3.3,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 33 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 33.05,
+          "Ni_eq": 65.68
+        },
+        "DeLong": {
+          "Cr_eq": 33.05,
+          "Ni_eq": 65.68
+        },
+        "WRC_1992": {
+          "Cr_eq": 33.11,
+          "Ni_eq": 65.6
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC Ni-A (ENiCrFe-2)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 3.0,
+        "Si": 0.4,
+        "Cr": 16.0,
+        "Ni": 70.86,
+        "Mo": 1.5,
+        "Nb": 2.2,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 33 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.2,
+          "Ni_eq": 73.56
+        },
+        "DeLong": {
+          "Cr_eq": 19.2,
+          "Ni_eq": 73.56
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.04,
+          "Ni_eq": 72.26
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NiTi3 (ENi-1)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.3,
+        "Si": 0.7,
+        "Cr": null,
+        "Ni": 96.77,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": 1.6
+      },
+      "procede": "111_EE",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama électrodes éd. 3, p. 33 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.05,
+          "Ni_eq": 97.82
+        },
+        "DeLong": {
+          "Cr_eq": 1.05,
+          "Ni_eq": 97.82
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 97.82
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F55 MIG/MAG (ER70S-2)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.2,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": 0.1
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 12 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 2.4
+        },
+        "DeLong": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 2.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F56 TIG (ER70S-3)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.1,
+        "Si": 0.65,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 12 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.975,
+          "Ni_eq": 2.65
+        },
+        "DeLong": {
+          "Cr_eq": 0.975,
+          "Ni_eq": 2.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F57 TIG (ER70S-6)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.45,
+        "Si": 0.85,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 12 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.275,
+          "Ni_eq": 2.825
+        },
+        "DeLong": {
+          "Cr_eq": 1.275,
+          "Ni_eq": 2.825
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F57 MIG/MAG (ER70S-6)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 1.45,
+        "Si": 0.85,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 12 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.275,
+          "Ni_eq": 2.825
+        },
+        "DeLong": {
+          "Cr_eq": 1.275,
+          "Ni_eq": 2.825
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 2.45
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F57N TIG (ER70S-G)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 1.1,
+        "Si": 0.61,
+        "Cr": 0.32,
+        "Ni": 0.09,
+        "Mo": 0.02,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.16,
+        "Ti": 0.002
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 12 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.255,
+          "Ni_eq": 3.34
+        },
+        "DeLong": {
+          "Cr_eq": 1.255,
+          "Ni_eq": 3.34
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.34,
+          "Ni_eq": 3.28
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F60 TIG (ER80S-D2)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.8,
+        "Si": 0.7,
+        "Cr": null,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.55,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 1.55,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 2.85
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F60 MIG/MAG (ER80S-D2)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.8,
+        "Si": 0.7,
+        "Cr": null,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.55,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 1.55,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 2.85
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F61 TIG (ER70S-A1)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 1.2,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.15,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 3.1875
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F61 MIG/MAG (ER70S-A1)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 1.2,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.15,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 3.1875
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F63 TIG (ER80S-B2)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.5,
+        "Cr": 1.3,
+        "Ni": null,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.55,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 2.55,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.8,
+          "Ni_eq": 3.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F63 MIG/MAG (ER80S-B2)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 0.6,
+        "Si": 0.6,
+        "Cr": 1.3,
+        "Ni": 0.03,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.7,
+          "Ni_eq": 3.03
+        },
+        "DeLong": {
+          "Cr_eq": 2.7,
+          "Ni_eq": 3.03
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.8,
+          "Ni_eq": 3.23
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F68 TIG (ER90S-B3)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.5,
+        "Cr": 2.4,
+        "Ni": null,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 4.15,
+          "Ni_eq": 3.3
+        },
+        "DeLong": {
+          "Cr_eq": 4.15,
+          "Ni_eq": 3.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.4,
+          "Ni_eq": 3.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F68 MIG/MAG (ER90S-B3)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.6,
+        "Si": 0.6,
+        "Cr": 2.4,
+        "Ni": 0.03,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 4.3,
+          "Ni_eq": 3.33
+        },
+        "DeLong": {
+          "Cr_eq": 4.3,
+          "Ni_eq": 3.33
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.4,
+          "Ni_eq": 3.58
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F69 TIG (ER80S-B6)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 0.5,
+        "Si": 0.4,
+        "Cr": 5.6,
+        "Ni": 0.1,
+        "Mo": 0.55,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.15,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 6.75,
+          "Ni_eq": 2.75
+        },
+        "DeLong": {
+          "Cr_eq": 6.75,
+          "Ni_eq": 2.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 6.15,
+          "Ni_eq": 2.9375
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F69 MIG/MAG (ER80S-B6)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 0.5,
+        "Si": 0.4,
+        "Cr": 5.6,
+        "Ni": 0.1,
+        "Mo": 0.55,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.15,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 13 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 6.75,
+          "Ni_eq": 2.75
+        },
+        "DeLong": {
+          "Cr_eq": 6.75,
+          "Ni_eq": 2.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 6.15,
+          "Ni_eq": 2.9375
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F609 TIG (ER80S-B8)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.5,
+        "Si": 0.4,
+        "Cr": 9.0,
+        "Ni": null,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 10.6,
+          "Ni_eq": 2.35
+        },
+        "DeLong": {
+          "Cr_eq": 10.6,
+          "Ni_eq": 2.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 10.0,
+          "Ni_eq": 2.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F609 MIG/MAG (ER80S-B8)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.5,
+        "Si": 0.4,
+        "Cr": 9.0,
+        "Ni": null,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 10.6,
+          "Ni_eq": 2.35
+        },
+        "DeLong": {
+          "Cr_eq": 10.6,
+          "Ni_eq": 2.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 10.0,
+          "Ni_eq": 2.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F691 TIG (ER90S-B9)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 0.6,
+        "Si": 0.25,
+        "Cr": 8.8,
+        "Ni": 0.65,
+        "Mo": 0.95,
+        "Nb": 0.06,
+        "N": 0.05,
+        "Cu": 0.03,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 10.155,
+          "Ni_eq": 3.65
+        },
+        "DeLong": {
+          "Cr_eq": 10.155,
+          "Ni_eq": 5.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 9.792,
+          "Ni_eq": 4.8075
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F691 MIG/MAG (ER90S-B9)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 0.6,
+        "Si": 0.25,
+        "Cr": 8.8,
+        "Ni": 0.65,
+        "Mo": 0.95,
+        "Nb": 0.06,
+        "N": 0.05,
+        "Cu": 0.03,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 10.155,
+          "Ni_eq": 3.65
+        },
+        "DeLong": {
+          "Cr_eq": 10.155,
+          "Ni_eq": 5.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 9.792,
+          "Ni_eq": 4.8075
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F75 TIG (ER80S-G)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.4,
+        "Si": 0.8,
+        "Cr": 0.4,
+        "Ni": 0.8,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.4,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.6,
+          "Ni_eq": 3.9
+        },
+        "DeLong": {
+          "Cr_eq": 1.6,
+          "Ni_eq": 3.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.4,
+          "Ni_eq": 3.7
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F75 MIG/MAG (ER80S-G)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.4,
+        "Si": 0.8,
+        "Cr": 0.4,
+        "Ni": 0.8,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.4,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.6,
+          "Ni_eq": 3.9
+        },
+        "DeLong": {
+          "Cr_eq": 1.6,
+          "Ni_eq": 3.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.4,
+          "Ni_eq": 3.7
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F77 TIG (ER100S-1)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": 0.15,
+        "Ni": 1.6,
+        "Mo": 0.35,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.25,
+          "Ni_eq": 4.75
+        },
+        "DeLong": {
+          "Cr_eq": 1.25,
+          "Ni_eq": 4.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 4.4
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F77 MIG/MAG (ER100S-1)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": 0.15,
+        "Ni": 1.6,
+        "Mo": 0.35,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.25,
+          "Ni_eq": 4.75
+        },
+        "DeLong": {
+          "Cr_eq": 1.25,
+          "Ni_eq": 4.75
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.5,
+          "Ni_eq": 4.4
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F81 TIG (ER80S-Ni1)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.2,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": 1.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 4.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 4.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F81 MIG/MAG (ER80S-Ni1)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.2,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": 1.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 4.6
+        },
+        "DeLong": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 4.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.55
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F82 TIG (ER80S-Ni2)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.1,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": 2.5,
+        "Mo": 0.05,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.95,
+          "Ni_eq": 5.45
+        },
+        "DeLong": {
+          "Cr_eq": 0.95,
+          "Ni_eq": 5.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.05,
+          "Ni_eq": 5.3
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F82 MIG/MAG (ER80S-Ni2)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.1,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": 2.5,
+        "Mo": 0.05,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 14 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.95,
+          "Ni_eq": 5.45
+        },
+        "DeLong": {
+          "Cr_eq": 0.95,
+          "Ni_eq": 5.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.05,
+          "Ni_eq": 5.3
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC A60 TIG (AIR 9117 A60)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 1.0,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 15 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 4.1
+        },
+        "DeLong": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 4.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.25
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC A60 MIG/MAG (AIR 9117 A60)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 1.0,
+        "Si": 0.6,
+        "Cr": null,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 15 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 4.1
+        },
+        "DeLong": {
+          "Cr_eq": 0.9,
+          "Ni_eq": 4.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 4.25
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC BMS TIG (AIR 9117 8CD12)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.1,
+        "Si": 0.7,
+        "Cr": 2.7,
+        "Ni": null,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 15 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 4.75,
+          "Ni_eq": 2.35
+        },
+        "DeLong": {
+          "Cr_eq": 4.75,
+          "Ni_eq": 2.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.7,
+          "Ni_eq": 2.1
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC BMS MIG/MAG (AIR 9117 8CD12)",
+      "composition": {
+        "C": 0.06,
+        "Mn": 1.1,
+        "Si": 0.7,
+        "Cr": 2.7,
+        "Ni": null,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 15 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 4.75,
+          "Ni_eq": 2.35
+        },
+        "DeLong": {
+          "Cr_eq": 4.75,
+          "Ni_eq": 2.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 3.7,
+          "Ni_eq": 2.1
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC SCVS TIG (AIR 9117 15CDV6)",
+      "composition": {
+        "C": 0.14,
+        "Mn": 1.0,
+        "Si": 0.15,
+        "Cr": 1.4,
+        "Ni": null,
+        "Mo": 0.9,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 15 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.525,
+          "Ni_eq": 4.7
+        },
+        "DeLong": {
+          "Cr_eq": 2.525,
+          "Ni_eq": 4.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 2.3,
+          "Ni_eq": 4.9
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC SCVS MIG/MAG (AIR 9117 15CDV6)",
+      "composition": {
+        "C": 0.14,
+        "Mn": 1.0,
+        "Si": 0.15,
+        "Cr": 1.4,
+        "Ni": null,
+        "Mo": 0.9,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 15 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 2.525,
+          "Ni_eq": 4.7
+        },
+        "DeLong": {
+          "Cr_eq": 2.525,
+          "Ni_eq": 4.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 2.3,
+          "Ni_eq": 4.9
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F66S TIG (AIR 9117 25CD4)",
+      "composition": {
+        "C": 0.23,
+        "Mn": 0.7,
+        "Si": 0.2,
+        "Cr": 1.2,
+        "Ni": 0.15,
+        "Mo": 0.2,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 15 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.7,
+          "Ni_eq": 7.4
+        },
+        "DeLong": {
+          "Cr_eq": 1.7,
+          "Ni_eq": 7.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 8.2
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F66S MIG/MAG (AIR 9117 25CD4)",
+      "composition": {
+        "C": 0.23,
+        "Mn": 0.7,
+        "Si": 0.2,
+        "Cr": 1.2,
+        "Ni": 0.15,
+        "Mo": 0.2,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "135_MAG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 15 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 1.7,
+          "Ni_eq": 7.4
+        },
+        "DeLong": {
+          "Cr_eq": 1.7,
+          "Ni_eq": 7.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 1.4,
+          "Ni_eq": 8.2
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 18/8MN TIG (~ER307)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 7.0,
+        "Si": 0.9,
+        "Cr": 19.0,
+        "Ni": 8.5,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 16 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 14.7
+        },
+        "DeLong": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 14.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.1,
+          "Ni_eq": 11.67
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 18/8MN MIG/MAG (~ER307)",
+      "composition": {
+        "C": 0.09,
+        "Mn": 7.0,
+        "Si": 0.9,
+        "Cr": 19.0,
+        "Ni": 8.5,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 16 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 14.7
+        },
+        "DeLong": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 14.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.1,
+          "Ni_eq": 11.67
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10 TIG (ER308L)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.8,
+        "Si": 0.42,
+        "Cr": 19.5,
+        "Ni": 9.8,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.13,
+          "Ni_eq": 11.15
+        },
+        "DeLong": {
+          "Cr_eq": 20.13,
+          "Ni_eq": 11.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.5,
+          "Ni_eq": 10.325
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10S TIG (ER308LSi)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.8,
+        "Si": 0.9,
+        "Cr": 20.0,
+        "Ni": 10.0,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.45,
+          "Ni_eq": 11.35
+        },
+        "DeLong": {
+          "Cr_eq": 21.45,
+          "Ni_eq": 11.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.1,
+          "Ni_eq": 10.545
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10S MIG/MAG (ER308LSi)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.8,
+        "Si": 0.9,
+        "Cr": 20.0,
+        "Ni": 10.0,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.45,
+          "Ni_eq": 11.35
+        },
+        "DeLong": {
+          "Cr_eq": 21.45,
+          "Ni_eq": 11.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.1,
+          "Ni_eq": 10.545
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 8 TIG (ER308L)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.8,
+        "Si": 0.42,
+        "Cr": 19.9,
+        "Ni": 9.8,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.53,
+          "Ni_eq": 11.15
+        },
+        "DeLong": {
+          "Cr_eq": 20.53,
+          "Ni_eq": 11.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.9,
+          "Ni_eq": 10.325
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 8S MIG/MAG (ER308LSi)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.8,
+        "Si": 0.9,
+        "Cr": 20.0,
+        "Ni": 10.0,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.45,
+          "Ni_eq": 11.35
+        },
+        "DeLong": {
+          "Cr_eq": 21.45,
+          "Ni_eq": 11.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.1,
+          "Ni_eq": 10.545
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10C TIG (ER308H)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 19.9,
+        "Ni": 9.7,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.5,
+          "Ni_eq": 12.1
+        },
+        "DeLong": {
+          "Cr_eq": 20.5,
+          "Ni_eq": 12.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.9,
+          "Ni_eq": 11.45
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10C MIG/MAG (ER308H)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 19.9,
+        "Ni": 9.7,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.5,
+          "Ni_eq": 12.1
+        },
+        "DeLong": {
+          "Cr_eq": 20.5,
+          "Ni_eq": 12.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.9,
+          "Ni_eq": 11.45
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10T TIG (~ER321)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": 18.0,
+        "Ni": 10.5,
+        "Mo": 0.3,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.3,
+        "Ti": 0.2
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.05,
+          "Ni_eq": 12.15
+        },
+        "DeLong": {
+          "Cr_eq": 19.05,
+          "Ni_eq": 12.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.3,
+          "Ni_eq": 11.625
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10T MIG/MAG (~ER321)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.5,
+        "Si": 0.5,
+        "Cr": 18.0,
+        "Ni": 10.5,
+        "Mo": 0.3,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.3,
+        "Ti": 0.2
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.05,
+          "Ni_eq": 12.15
+        },
+        "DeLong": {
+          "Cr_eq": 19.05,
+          "Ni_eq": 12.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.3,
+          "Ni_eq": 11.625
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10NB TIG (ER347)",
+      "composition": {
+        "C": 0.045,
+        "Mn": 1.5,
+        "Si": 0.4,
+        "Cr": 19.4,
+        "Ni": 9.3,
+        "Mo": 0.1,
+        "Nb": 0.6,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 17 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.4,
+          "Ni_eq": 11.4
+        },
+        "DeLong": {
+          "Cr_eq": 20.4,
+          "Ni_eq": 11.4
+        },
+        "WRC_1992": {
+          "Cr_eq": 19.92,
+          "Ni_eq": 10.9
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10NBS TIG (ER347Si)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.5,
+        "Si": 0.8,
+        "Cr": 19.5,
+        "Ni": 9.8,
+        "Mo": 0.2,
+        "Nb": 0.5,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.15,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 21.15,
+          "Ni_eq": 11.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.05,
+          "Ni_eq": 10.875
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10NBS MIG/MAG (ER347Si)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 1.5,
+        "Si": 0.8,
+        "Cr": 19.5,
+        "Ni": 9.8,
+        "Mo": 0.2,
+        "Nb": 0.5,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.15,
+          "Ni_eq": 11.45
+        },
+        "DeLong": {
+          "Cr_eq": 21.15,
+          "Ni_eq": 11.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.05,
+          "Ni_eq": 10.875
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10M TIG (ER316L)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.8,
+        "Si": 0.45,
+        "Cr": 18.6,
+        "Ni": 12.3,
+        "Mo": 2.8,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.075,
+          "Ni_eq": 13.8
+        },
+        "DeLong": {
+          "Cr_eq": 22.075,
+          "Ni_eq": 13.8
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.4,
+          "Ni_eq": 13.02
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10MS TIG (ER316LSi)",
+      "composition": {
+        "C": 0.018,
+        "Mn": 1.7,
+        "Si": 0.85,
+        "Cr": 18.5,
+        "Ni": 12.2,
+        "Mo": 2.7,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.475,
+          "Ni_eq": 13.59
+        },
+        "DeLong": {
+          "Cr_eq": 22.475,
+          "Ni_eq": 13.59
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 12.855
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10MS MIG/MAG (ER316LSi)",
+      "composition": {
+        "C": 0.018,
+        "Mn": 1.7,
+        "Si": 0.85,
+        "Cr": 18.5,
+        "Ni": 12.2,
+        "Mo": 2.7,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.475,
+          "Ni_eq": 13.59
+        },
+        "DeLong": {
+          "Cr_eq": 22.475,
+          "Ni_eq": 13.59
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 12.855
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 16 TIG (ER316L)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 1.8,
+        "Si": 0.45,
+        "Cr": 18.6,
+        "Ni": 11.6,
+        "Mo": 2.7,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.975,
+          "Ni_eq": 13.1
+        },
+        "DeLong": {
+          "Cr_eq": 21.975,
+          "Ni_eq": 13.1
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.3,
+          "Ni_eq": 12.32
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC INOX 16S MIG/MAG (ER316LSi)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 1.7,
+        "Si": 0.85,
+        "Cr": 18.5,
+        "Ni": 11.6,
+        "Mo": 2.7,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé ; C 0,08 % imprimé au catalogue pour un ER316LSi (≤ 0,03 % attendu) : à vérifier sur la fiche technique",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.475,
+          "Ni_eq": 14.85
+        },
+        "DeLong": {
+          "Cr_eq": 22.475,
+          "Ni_eq": 14.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.2,
+          "Ni_eq": 14.425
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10MN TIG (ER316LMn)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 7.0,
+        "Si": 0.5,
+        "Cr": 20.0,
+        "Ni": 16.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "N": 0.15,
+        "Cu": 0.15,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.75,
+          "Ni_eq": 20.1
+        },
+        "DeLong": {
+          "Cr_eq": 23.75,
+          "Ni_eq": 24.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 19.7375
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10MN MIG/MAG (ER316LMn)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 7.0,
+        "Si": 0.5,
+        "Cr": 20.0,
+        "Ni": 16.0,
+        "Mo": 3.0,
+        "Nb": null,
+        "N": 0.15,
+        "Cu": 0.15,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.75,
+          "Ni_eq": 20.1
+        },
+        "DeLong": {
+          "Cr_eq": 23.75,
+          "Ni_eq": 24.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 19.7375
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10MNB TIG (ER318)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.7,
+        "Si": 0.4,
+        "Cr": 19.6,
+        "Ni": 11.5,
+        "Mo": 2.6,
+        "Nb": 0.6,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 18 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.1,
+          "Ni_eq": 13.55
+        },
+        "DeLong": {
+          "Cr_eq": 23.1,
+          "Ni_eq": 13.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.62,
+          "Ni_eq": 12.95
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/10MNBS MIG/MAG (~ER318)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 1.7,
+        "Si": 0.85,
+        "Cr": 19.6,
+        "Ni": 11.5,
+        "Mo": 2.6,
+        "Nb": 0.6,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.775,
+          "Ni_eq": 13.55
+        },
+        "DeLong": {
+          "Cr_eq": 23.775,
+          "Ni_eq": 13.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.62,
+          "Ni_eq": 12.95
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 24/12 TIG (ER309L)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 23.2,
+        "Ni": 13.8,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.9,
+          "Ni_eq": 15.15
+        },
+        "DeLong": {
+          "Cr_eq": 23.9,
+          "Ni_eq": 15.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.3,
+          "Ni_eq": 14.345
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 24/12S TIG (ER309LSi)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.8,
+        "Si": 0.85,
+        "Cr": 23.3,
+        "Ni": 13.7,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.675,
+          "Ni_eq": 15.05
+        },
+        "DeLong": {
+          "Cr_eq": 24.675,
+          "Ni_eq": 15.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.4,
+          "Ni_eq": 14.25
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 24/12S MIG/MAG (ER309LSi)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.8,
+        "Si": 0.85,
+        "Cr": 23.3,
+        "Ni": 13.7,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.675,
+          "Ni_eq": 15.05
+        },
+        "DeLong": {
+          "Cr_eq": 24.675,
+          "Ni_eq": 15.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.4,
+          "Ni_eq": 14.25
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 24/12M TIG (~ER309LMo)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.5,
+        "Si": 0.55,
+        "Cr": 21.5,
+        "Ni": 14.5,
+        "Mo": 2.6,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.925,
+          "Ni_eq": 15.7
+        },
+        "DeLong": {
+          "Cr_eq": 24.925,
+          "Ni_eq": 15.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.1,
+          "Ni_eq": 15.05
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 24/12M MIG/MAG (~ER309LMo)",
+      "composition": {
+        "C": 0.015,
+        "Mn": 1.5,
+        "Si": 0.55,
+        "Cr": 21.5,
+        "Ni": 14.5,
+        "Mo": 2.6,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.925,
+          "Ni_eq": 15.7
+        },
+        "DeLong": {
+          "Cr_eq": 24.925,
+          "Ni_eq": 15.7
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.1,
+          "Ni_eq": 15.05
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 25/20 TIG (ER310)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.7,
+        "Si": 0.45,
+        "Cr": 26.0,
+        "Ni": 20.5,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.775,
+          "Ni_eq": 24.35
+        },
+        "DeLong": {
+          "Cr_eq": 26.775,
+          "Ni_eq": 24.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.1,
+          "Ni_eq": 24.025
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 25/20 MIG/MAG (ER310)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.7,
+        "Si": 0.45,
+        "Cr": 26.0,
+        "Ni": 20.5,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.775,
+          "Ni_eq": 24.35
+        },
+        "DeLong": {
+          "Cr_eq": 26.775,
+          "Ni_eq": 24.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.1,
+          "Ni_eq": 24.025
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 29/9 TIG (ER312)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 30.2,
+        "Ni": 9.3,
+        "Mo": 0.15,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.95,
+          "Ni_eq": 13.2
+        },
+        "DeLong": {
+          "Cr_eq": 30.95,
+          "Ni_eq": 13.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.35,
+          "Ni_eq": 12.825
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 29/9 MIG/MAG (ER312)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 30.2,
+        "Ni": 9.3,
+        "Mo": 0.15,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.95,
+          "Ni_eq": 13.2
+        },
+        "DeLong": {
+          "Cr_eq": 30.95,
+          "Ni_eq": 13.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.35,
+          "Ni_eq": 12.825
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 18/15 TIG (ER317L)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 1.4,
+        "Si": 0.4,
+        "Cr": 18.8,
+        "Ni": 13.6,
+        "Mo": 3.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.9,
+          "Ni_eq": 14.6
+        },
+        "DeLong": {
+          "Cr_eq": 22.9,
+          "Ni_eq": 14.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 13.975
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 18/15 MIG/MAG (ER317L)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 1.4,
+        "Si": 0.4,
+        "Cr": 18.8,
+        "Ni": 13.6,
+        "Mo": 3.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 19 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 22.9,
+          "Ni_eq": 14.6
+        },
+        "DeLong": {
+          "Cr_eq": 22.9,
+          "Ni_eq": 14.6
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.3,
+          "Ni_eq": 13.975
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/25CU TIG (ER385)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 25.0,
+        "Mo": 4.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 1.5,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 25.1,
+          "Ni_eq": 26.2
+        },
+        "DeLong": {
+          "Cr_eq": 25.1,
+          "Ni_eq": 26.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.5,
+          "Ni_eq": 25.725
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 20/25CU MIG/MAG (ER385)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 1.8,
+        "Si": 0.4,
+        "Cr": 20.0,
+        "Ni": 25.0,
+        "Mo": 4.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 1.5,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 25.1,
+          "Ni_eq": 26.2
+        },
+        "DeLong": {
+          "Cr_eq": 25.1,
+          "Ni_eq": 26.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 24.5,
+          "Ni_eq": 25.725
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 27/31CU TIG (ER383)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 1.8,
+        "Si": 0.15,
+        "Cr": 27.0,
+        "Ni": 31.0,
+        "Mo": 3.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 1.0,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.725,
+          "Ni_eq": 32.2
+        },
+        "DeLong": {
+          "Cr_eq": 30.725,
+          "Ni_eq": 32.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.5,
+          "Ni_eq": 31.6
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 27/31CU MIG/MAG (ER383)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 1.8,
+        "Si": 0.15,
+        "Cr": 27.0,
+        "Ni": 31.0,
+        "Mo": 3.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 1.0,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.725,
+          "Ni_eq": 32.2
+        },
+        "DeLong": {
+          "Cr_eq": 30.725,
+          "Ni_eq": 32.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.5,
+          "Ni_eq": 31.6
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC M13/0 TIG (ER410)",
+      "composition": {
+        "C": 0.3,
+        "Mn": 0.5,
+        "Si": 0.3,
+        "Cr": 13.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.45,
+          "Ni_eq": 9.25
+        },
+        "DeLong": {
+          "Cr_eq": 13.45,
+          "Ni_eq": 9.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 13.0,
+          "Ni_eq": 10.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC M13/0 MIG/MAG (ER410)",
+      "composition": {
+        "C": 0.3,
+        "Mn": 0.5,
+        "Si": 0.3,
+        "Cr": 13.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.45,
+          "Ni_eq": 9.25
+        },
+        "DeLong": {
+          "Cr_eq": 13.45,
+          "Ni_eq": 9.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 13.0,
+          "Ni_eq": 10.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC M13/0C TIG (ER420)",
+      "composition": {
+        "C": 0.3,
+        "Mn": 0.55,
+        "Si": 0.5,
+        "Cr": 13.0,
+        "Ni": null,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.75,
+          "Ni_eq": 9.275
+        },
+        "DeLong": {
+          "Cr_eq": 13.75,
+          "Ni_eq": 9.275
+        },
+        "WRC_1992": {
+          "Cr_eq": 13.0,
+          "Ni_eq": 10.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC M13/4 TIG (ER410NiMo)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.5,
+        "Si": 0.45,
+        "Cr": 12.3,
+        "Ni": 4.2,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.475,
+          "Ni_eq": 5.05
+        },
+        "DeLong": {
+          "Cr_eq": 13.475,
+          "Ni_eq": 5.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 12.8,
+          "Ni_eq": 4.92
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC M13/4 MIG/MAG (ER410NiMo)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.5,
+        "Si": 0.45,
+        "Cr": 12.3,
+        "Ni": 4.2,
+        "Mo": 0.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.475,
+          "Ni_eq": 5.05
+        },
+        "DeLong": {
+          "Cr_eq": 13.475,
+          "Ni_eq": 5.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 12.8,
+          "Ni_eq": 4.92
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F17/0 TIG (ER430)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.5,
+        "Si": 0.4,
+        "Cr": 16.5,
+        "Ni": 0.3,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.2,
+          "Ni_eq": 2.05
+        },
+        "DeLong": {
+          "Cr_eq": 17.2,
+          "Ni_eq": 2.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 16.6,
+          "Ni_eq": 2.07
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC F17/0 MIG/MAG (ER430)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.5,
+        "Si": 0.4,
+        "Cr": 16.5,
+        "Ni": 0.3,
+        "Mo": 0.1,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.08,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.2,
+          "Ni_eq": 2.05
+        },
+        "DeLong": {
+          "Cr_eq": 17.2,
+          "Ni_eq": 2.05
+        },
+        "WRC_1992": {
+          "Cr_eq": 16.6,
+          "Ni_eq": 2.07
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC D22/09 TIG (ER2209, duplex)",
+      "composition": {
+        "C": 0.012,
+        "Mn": 1.7,
+        "Si": 0.5,
+        "Cr": 23.0,
+        "Ni": 8.8,
+        "Mo": 3.2,
+        "Nb": null,
+        "N": 0.14,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.95,
+          "Ni_eq": 10.01
+        },
+        "DeLong": {
+          "Cr_eq": 26.95,
+          "Ni_eq": 14.21
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.2,
+          "Ni_eq": 12.02
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC D22/09 MIG/MAG (ER2209, duplex)",
+      "composition": {
+        "C": 0.012,
+        "Mn": 1.7,
+        "Si": 0.5,
+        "Cr": 23.0,
+        "Ni": 8.8,
+        "Mo": 3.2,
+        "Nb": null,
+        "N": 0.14,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 20 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.95,
+          "Ni_eq": 10.01
+        },
+        "DeLong": {
+          "Cr_eq": 26.95,
+          "Ni_eq": 14.21
+        },
+        "WRC_1992": {
+          "Cr_eq": 26.2,
+          "Ni_eq": 12.02
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC D25/09 TIG (ER2594, super duplex)",
+      "composition": {
+        "C": 0.012,
+        "Mn": 0.6,
+        "Si": 0.5,
+        "Cr": 25.5,
+        "Ni": 9.2,
+        "Mo": 4.0,
+        "Nb": null,
+        "N": 0.25,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.25,
+          "Ni_eq": 9.86
+        },
+        "DeLong": {
+          "Cr_eq": 30.25,
+          "Ni_eq": 17.36
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.5,
+          "Ni_eq": 14.62
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC D25/09 MIG/MAG (ER2594, super duplex)",
+      "composition": {
+        "C": 0.012,
+        "Mn": 0.6,
+        "Si": 0.5,
+        "Cr": 25.5,
+        "Ni": 9.2,
+        "Mo": 4.0,
+        "Nb": null,
+        "N": 0.25,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.25,
+          "Ni_eq": 9.86
+        },
+        "DeLong": {
+          "Cr_eq": 30.25,
+          "Ni_eq": 17.36
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.5,
+          "Ni_eq": 14.62
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC D25/09W TIG (ER2594, super duplex)",
+      "composition": {
+        "C": 0.018,
+        "Mn": 0.8,
+        "Si": 0.3,
+        "Cr": 25.2,
+        "Ni": 9.3,
+        "Mo": 3.7,
+        "Nb": null,
+        "N": 0.25,
+        "Cu": 0.6,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.35,
+          "Ni_eq": 10.24
+        },
+        "DeLong": {
+          "Cr_eq": 29.35,
+          "Ni_eq": 17.74
+        },
+        "WRC_1992": {
+          "Cr_eq": 28.9,
+          "Ni_eq": 15.08
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC D25/09W MIG/MAG (ER2594, super duplex)",
+      "composition": {
+        "C": 0.018,
+        "Mn": 0.8,
+        "Si": 0.3,
+        "Cr": 25.2,
+        "Ni": 9.3,
+        "Mo": 3.7,
+        "Nb": null,
+        "N": 0.25,
+        "Cu": 0.6,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.35,
+          "Ni_eq": 10.24
+        },
+        "DeLong": {
+          "Cr_eq": 29.35,
+          "Ni_eq": 17.74
+        },
+        "WRC_1992": {
+          "Cr_eq": 28.9,
+          "Ni_eq": 15.08
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 21/10MA TIG (W Z 21 10 N H)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 0.5,
+        "Si": 1.5,
+        "Cr": 21.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "N": 0.15,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.25,
+          "Ni_eq": 12.65
+        },
+        "DeLong": {
+          "Cr_eq": 23.25,
+          "Ni_eq": 17.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 15.8
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 21/10MA MIG/MAG (W Z 21 10 N H)",
+      "composition": {
+        "C": 0.08,
+        "Mn": 0.5,
+        "Si": 1.5,
+        "Cr": 21.0,
+        "Ni": 10.0,
+        "Mo": null,
+        "Nb": null,
+        "N": 0.15,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.25,
+          "Ni_eq": 12.65
+        },
+        "DeLong": {
+          "Cr_eq": 23.25,
+          "Ni_eq": 17.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 21.0,
+          "Ni_eq": 15.8
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 16/8M TIG (ER16-8-2)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 2.1,
+        "Si": 0.45,
+        "Cr": 16.5,
+        "Ni": 8.6,
+        "Mo": 2.0,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : Cu",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.175,
+          "Ni_eq": 12.65
+        },
+        "DeLong": {
+          "Cr_eq": 19.175,
+          "Ni_eq": 12.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.5,
+          "Ni_eq": 12.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 16/8M MIG/MAG (ER16-8-2)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 2.1,
+        "Si": 0.45,
+        "Cr": 16.5,
+        "Ni": 8.6,
+        "Mo": 2.0,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.2,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : Cu",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 19.175,
+          "Ni_eq": 12.65
+        },
+        "DeLong": {
+          "Cr_eq": 19.175,
+          "Ni_eq": 12.65
+        },
+        "WRC_1992": {
+          "Cr_eq": 18.5,
+          "Ni_eq": 12.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 17/4CU TIG (ER630)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.6,
+        "Si": 0.5,
+        "Cr": 16.0,
+        "Ni": 5.0,
+        "Mo": null,
+        "Nb": 0.2,
+        "N": null,
+        "Cu": 3.5,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 16.85,
+          "Ni_eq": 6.2
+        },
+        "DeLong": {
+          "Cr_eq": 16.85,
+          "Ni_eq": 6.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 16.14,
+          "Ni_eq": 6.925
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 17/4CU MIG/MAG (ER630)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.6,
+        "Si": 0.5,
+        "Cr": 16.0,
+        "Ni": 5.0,
+        "Mo": null,
+        "Nb": 0.2,
+        "N": null,
+        "Cu": 3.5,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 16.85,
+          "Ni_eq": 6.2
+        },
+        "DeLong": {
+          "Cr_eq": 16.85,
+          "Ni_eq": 6.2
+        },
+        "WRC_1992": {
+          "Cr_eq": 16.14,
+          "Ni_eq": 6.925
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 17/4MO TIG (X4CrNiMo16-5-1)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.9,
+        "Si": 0.3,
+        "Cr": 16.0,
+        "Ni": 4.4,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.45,
+          "Ni_eq": 6.35
+        },
+        "DeLong": {
+          "Cr_eq": 17.45,
+          "Ni_eq": 6.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 6.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 17/4MO MIG/MAG (X4CrNiMo16-5-1)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.9,
+        "Si": 0.3,
+        "Cr": 16.0,
+        "Ni": 4.4,
+        "Mo": 1.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 17.45,
+          "Ni_eq": 6.35
+        },
+        "DeLong": {
+          "Cr_eq": 17.45,
+          "Ni_eq": 6.35
+        },
+        "WRC_1992": {
+          "Cr_eq": 17.0,
+          "Ni_eq": 6.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 11/3M TIG (X11CrNiMoV12-3)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.7,
+        "Si": 0.3,
+        "Cr": 11.8,
+        "Ni": 2.7,
+        "Mo": 1.7,
+        "Nb": null,
+        "N": 0.03,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.95,
+          "Ni_eq": 6.65
+        },
+        "DeLong": {
+          "Cr_eq": 13.95,
+          "Ni_eq": 7.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 13.5,
+          "Ni_eq": 7.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 11/3M MIG/MAG (X11CrNiMoV12-3)",
+      "composition": {
+        "C": 0.12,
+        "Mn": 0.7,
+        "Si": 0.3,
+        "Cr": 11.8,
+        "Ni": 2.7,
+        "Mo": 1.7,
+        "Nb": null,
+        "N": 0.03,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 13.95,
+          "Ni_eq": 6.65
+        },
+        "DeLong": {
+          "Cr_eq": 13.95,
+          "Ni_eq": 7.55
+        },
+        "WRC_1992": {
+          "Cr_eq": 13.5,
+          "Ni_eq": 7.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 22/21CO TIG (W Z 22 21 3 CoWNbN)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.5,
+        "Si": 0.4,
+        "Cr": 22.0,
+        "Ni": 21.0,
+        "Mo": 3.2,
+        "Nb": 1.0,
+        "N": 0.15,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.3,
+          "Ni_eq": 24.75
+        },
+        "DeLong": {
+          "Cr_eq": 26.3,
+          "Ni_eq": 29.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.9,
+          "Ni_eq": 27.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC 22/21CO MIG/MAG (W Z 22 21 3 CoWNbN)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 1.5,
+        "Si": 0.4,
+        "Cr": 22.0,
+        "Ni": 21.0,
+        "Mo": 3.2,
+        "Nb": 1.0,
+        "N": 0.15,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 21 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.3,
+          "Ni_eq": 24.75
+        },
+        "DeLong": {
+          "Cr_eq": 26.3,
+          "Ni_eq": 29.25
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.9,
+          "Ni_eq": 27.5
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI22 TIG (ERNiCrMo-10)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.1,
+        "Si": 0.05,
+        "Cr": 21.4,
+        "Ni": 59.24,
+        "Mo": 13.2,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 34.675,
+          "Ni_eq": 59.59
+        },
+        "DeLong": {
+          "Cr_eq": 34.675,
+          "Ni_eq": 59.59
+        },
+        "WRC_1992": {
+          "Cr_eq": 34.6,
+          "Ni_eq": 59.59
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI22 MIG/MAG (ERNiCrMo-10)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.1,
+        "Si": 0.05,
+        "Cr": 21.4,
+        "Ni": 59.24,
+        "Mo": 13.2,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 34.675,
+          "Ni_eq": 59.59
+        },
+        "DeLong": {
+          "Cr_eq": 34.675,
+          "Ni_eq": 59.59
+        },
+        "WRC_1992": {
+          "Cr_eq": 34.6,
+          "Ni_eq": 59.59
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI59 TIG (ERNiCrMo-13)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.1,
+        "Si": 0.05,
+        "Cr": 23.0,
+        "Ni": 61.54,
+        "Mo": 15.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 38.075,
+          "Ni_eq": 61.89
+        },
+        "DeLong": {
+          "Cr_eq": 38.075,
+          "Ni_eq": 61.89
+        },
+        "WRC_1992": {
+          "Cr_eq": 38.0,
+          "Ni_eq": 61.89
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI59 MIG/MAG (ERNiCrMo-13)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.1,
+        "Si": 0.05,
+        "Cr": 23.0,
+        "Ni": 61.54,
+        "Mo": 15.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 38.075,
+          "Ni_eq": 61.89
+        },
+        "DeLong": {
+          "Cr_eq": 38.075,
+          "Ni_eq": 61.89
+        },
+        "WRC_1992": {
+          "Cr_eq": 38.0,
+          "Ni_eq": 61.89
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI60 TIG (ERNiCu-7)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 3.5,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": 64.27,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 29.0,
+        "Ti": 2.2
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 66.92
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 66.92
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 72.57
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI60 MIG/MAG (ERNiCu-7)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 3.5,
+        "Si": 0.4,
+        "Cr": null,
+        "Ni": 64.27,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 29.0,
+        "Ti": 2.2
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 66.92
+        },
+        "DeLong": {
+          "Cr_eq": 0.6,
+          "Ni_eq": 66.92
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 72.57
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI61 TIG (ERNi-1)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.3,
+        "Si": 0.2,
+        "Cr": null,
+        "Ni": 95.98,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": 3.3
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 96.73
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 96.73
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 96.705
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI61 MIG/MAG (ERNi-1)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.3,
+        "Si": 0.2,
+        "Cr": null,
+        "Ni": 95.98,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": 3.3
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 96.73
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 96.73
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 96.705
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI65 TIG (ERNiFeCr-1)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.6,
+        "Si": 0.2,
+        "Cr": 20.5,
+        "Ni": 41.0,
+        "Mo": 3.2,
+        "Nb": null,
+        "N": null,
+        "Cu": 1.8,
+        "Ti": 0.9
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.0,
+          "Ni_eq": 41.9
+        },
+        "DeLong": {
+          "Cr_eq": 24.0,
+          "Ni_eq": 41.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.7,
+          "Ni_eq": 42.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI65 MIG/MAG (ERNiFeCr-1)",
+      "composition": {
+        "C": 0.02,
+        "Mn": 0.6,
+        "Si": 0.2,
+        "Cr": 20.5,
+        "Ni": 41.0,
+        "Mo": 3.2,
+        "Nb": null,
+        "N": null,
+        "Cu": 1.8,
+        "Ti": 0.9
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 22 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.0,
+          "Ni_eq": 41.9
+        },
+        "DeLong": {
+          "Cr_eq": 24.0,
+          "Ni_eq": 41.9
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.7,
+          "Ni_eq": 42.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI82 TIG (ERNiCr-3)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 3.2,
+        "Si": 0.2,
+        "Cr": 20.5,
+        "Ni": 71.47,
+        "Mo": null,
+        "Nb": 2.3,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.3
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.95,
+          "Ni_eq": 73.97
+        },
+        "DeLong": {
+          "Cr_eq": 21.95,
+          "Ni_eq": 73.97
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.11,
+          "Ni_eq": 72.52
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI82 MIG/MAG (ERNiCr-3)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 3.2,
+        "Si": 0.2,
+        "Cr": 20.5,
+        "Ni": 71.47,
+        "Mo": null,
+        "Nb": 2.3,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.3
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 21.95,
+          "Ni_eq": 73.97
+        },
+        "DeLong": {
+          "Cr_eq": 21.95,
+          "Ni_eq": 73.97
+        },
+        "WRC_1992": {
+          "Cr_eq": 22.11,
+          "Ni_eq": 72.52
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI90 TIG (S-Ni 7090)",
+      "composition": {
+        "C": 0.13,
+        "Mn": 0.5,
+        "Si": 0.3,
+        "Cr": 20.0,
+        "Ni": 57.97,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": 2.5
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 62.12
+        },
+        "DeLong": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 62.12
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 62.545
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI90 MIG/MAG (S-Ni 7090)",
+      "composition": {
+        "C": 0.13,
+        "Mn": 0.5,
+        "Si": 0.3,
+        "Cr": 20.0,
+        "Ni": 57.97,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": 2.5
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : C ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 62.12
+        },
+        "DeLong": {
+          "Cr_eq": 20.45,
+          "Ni_eq": 62.12
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 62.545
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI263 TIG (S-Ni 7263)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.05,
+        "Si": 0.25,
+        "Cr": 20.0,
+        "Ni": 50.4,
+        "Mo": 5.9,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": 2.15
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.275,
+          "Ni_eq": 51.925
+        },
+        "DeLong": {
+          "Cr_eq": 26.275,
+          "Ni_eq": 51.925
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.9,
+          "Ni_eq": 52.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI263 MIG/MAG (S-Ni 7263)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.05,
+        "Si": 0.25,
+        "Cr": 20.0,
+        "Ni": 50.4,
+        "Mo": 5.9,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": 2.15
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 26.275,
+          "Ni_eq": 51.925
+        },
+        "DeLong": {
+          "Cr_eq": 26.275,
+          "Ni_eq": 51.925
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.9,
+          "Ni_eq": 52.15
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI276 TIG (ERNiCrMo-4)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.4,
+        "Si": 0.05,
+        "Cr": 16.0,
+        "Ni": 58.04,
+        "Mo": 16.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.075,
+          "Ni_eq": 58.54
+        },
+        "DeLong": {
+          "Cr_eq": 32.075,
+          "Ni_eq": 58.54
+        },
+        "WRC_1992": {
+          "Cr_eq": 32.0,
+          "Ni_eq": 58.39
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI276 MIG/MAG (ERNiCrMo-4)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.4,
+        "Si": 0.05,
+        "Cr": 16.0,
+        "Ni": 58.04,
+        "Mo": 16.0,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.075,
+          "Ni_eq": 58.54
+        },
+        "DeLong": {
+          "Cr_eq": 32.075,
+          "Ni_eq": 58.54
+        },
+        "WRC_1992": {
+          "Cr_eq": 32.0,
+          "Ni_eq": 58.39
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI601 TIG (ERNiCrFe-11)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": 23.0,
+        "Ni": 60.55,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.3,
+          "Ni_eq": 62.3
+        },
+        "DeLong": {
+          "Cr_eq": 23.3,
+          "Ni_eq": 62.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 62.325
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI601 MIG/MAG (ERNiCrFe-11)",
+      "composition": {
+        "C": 0.05,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": 23.0,
+        "Ni": 60.55,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 23.3,
+          "Ni_eq": 62.3
+        },
+        "DeLong": {
+          "Cr_eq": 23.3,
+          "Ni_eq": 62.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 23.0,
+          "Ni_eq": 62.325
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI617 TIG (ERNiCrCoMo-1)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": 22.0,
+        "Ni": 55.23,
+        "Mo": 8.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.4
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.8,
+          "Ni_eq": 57.58
+        },
+        "DeLong": {
+          "Cr_eq": 30.8,
+          "Ni_eq": 57.58
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.5,
+          "Ni_eq": 57.68
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI617 MIG/MAG (ERNiCrCoMo-1)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": 22.0,
+        "Ni": 55.23,
+        "Mo": 8.5,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.4
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.8,
+          "Ni_eq": 57.58
+        },
+        "DeLong": {
+          "Cr_eq": 30.8,
+          "Ni_eq": 57.58
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.5,
+          "Ni_eq": 57.68
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI625 TIG (ERNiCrMo-3)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.1,
+        "Si": 0.15,
+        "Cr": 22.0,
+        "Ni": 65.14,
+        "Mo": 8.7,
+        "Nb": 3.6,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.725,
+          "Ni_eq": 65.49
+        },
+        "DeLong": {
+          "Cr_eq": 32.725,
+          "Ni_eq": 65.49
+        },
+        "WRC_1992": {
+          "Cr_eq": 33.22,
+          "Ni_eq": 65.49
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI625 MIG/MAG (ERNiCrMo-3)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.1,
+        "Si": 0.15,
+        "Cr": 22.0,
+        "Ni": 65.14,
+        "Mo": 8.7,
+        "Nb": 3.6,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 23 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 32.725,
+          "Ni_eq": 65.49
+        },
+        "DeLong": {
+          "Cr_eq": 32.725,
+          "Ni_eq": 65.49
+        },
+        "WRC_1992": {
+          "Cr_eq": 33.22,
+          "Ni_eq": 65.49
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI690 TIG (ERNiCrFe-7)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.9,
+        "Si": 0.2,
+        "Cr": 30.0,
+        "Ni": 58.69,
+        "Mo": 0.1,
+        "Nb": 0.1,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.5
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : Mo, Nb ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.45,
+          "Ni_eq": 59.44
+        },
+        "DeLong": {
+          "Cr_eq": 30.45,
+          "Ni_eq": 59.44
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.17,
+          "Ni_eq": 59.04
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI690 MIG/MAG (ERNiCrFe-7)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.9,
+        "Si": 0.2,
+        "Cr": 30.0,
+        "Ni": 58.69,
+        "Mo": 0.1,
+        "Nb": 0.1,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.5
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : Mo, Nb ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.45,
+          "Ni_eq": 59.44
+        },
+        "DeLong": {
+          "Cr_eq": 30.45,
+          "Ni_eq": 59.44
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.17,
+          "Ni_eq": 59.04
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI718 TIG (ERNiFeCr-2)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.2,
+        "Si": 0.2,
+        "Cr": 19.0,
+        "Ni": 52.0,
+        "Mo": 3.0,
+        "Nb": 5.0,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.9
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.8,
+          "Ni_eq": 53.3
+        },
+        "DeLong": {
+          "Cr_eq": 24.8,
+          "Ni_eq": 53.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 53.4
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NI718 MIG/MAG (ERNiFeCr-2)",
+      "composition": {
+        "C": 0.04,
+        "Mn": 0.2,
+        "Si": 0.2,
+        "Cr": 19.0,
+        "Ni": 52.0,
+        "Mo": 3.0,
+        "Nb": 5.0,
+        "N": null,
+        "Cu": null,
+        "Ti": 0.9
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 24.8,
+          "Ni_eq": 53.3
+        },
+        "DeLong": {
+          "Cr_eq": 24.8,
+          "Ni_eq": 53.3
+        },
+        "WRC_1992": {
+          "Cr_eq": 25.5,
+          "Ni_eq": 53.4
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NICR80 TIG (~ERNiCr-6)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": 20.0,
+        "Ni": 78.6,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.3,
+          "Ni_eq": 81.85
+        },
+        "DeLong": {
+          "Cr_eq": 20.3,
+          "Ni_eq": 81.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 82.125
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NICR80 MIG/MAG (~ERNiCr-6)",
+      "composition": {
+        "C": 0.1,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": 20.0,
+        "Ni": 78.6,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.1,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 20.3,
+          "Ni_eq": 81.85
+        },
+        "DeLong": {
+          "Cr_eq": 20.3,
+          "Ni_eq": 81.85
+        },
+        "WRC_1992": {
+          "Cr_eq": 20.0,
+          "Ni_eq": 82.125
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NIW TIG (ERNiMo-3)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.4,
+        "Si": 0.2,
+        "Cr": 5.0,
+        "Ni": 64.32,
+        "Mo": 24.0,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.01,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : Cu, Co ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments) ; Ni imprimé 0,02 au catalogue (incohérent pour un ERNiMo-3 base nickel), traité comme Base",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.3,
+          "Ni_eq": 65.42
+        },
+        "DeLong": {
+          "Cr_eq": 29.3,
+          "Ni_eq": 65.42
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 65.3725
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NIW MIG/MAG (ERNiMo-3)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.4,
+        "Si": 0.2,
+        "Cr": 5.0,
+        "Ni": 64.32,
+        "Mo": 24.0,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.01,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé ; valeurs « < » prises à la borne haute : Cu, Co ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments) ; Ni imprimé 0,02 au catalogue (incohérent pour un ERNiMo-3 base nickel), traité comme Base",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 29.3,
+          "Ni_eq": 65.42
+        },
+        "DeLong": {
+          "Cr_eq": 29.3,
+          "Ni_eq": 65.42
+        },
+        "WRC_1992": {
+          "Cr_eq": 29.0,
+          "Ni_eq": 65.3725
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NIX TIG (ERNiCrMo-2)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.6,
+        "Si": 0.3,
+        "Cr": 22.0,
+        "Ni": 46.88,
+        "Mo": 8.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.25,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.95,
+          "Ni_eq": 49.28
+        },
+        "DeLong": {
+          "Cr_eq": 30.95,
+          "Ni_eq": 49.28
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.5,
+          "Ni_eq": 49.3925
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC NIX MIG/MAG (ERNiCrMo-2)",
+      "composition": {
+        "C": 0.07,
+        "Mn": 0.6,
+        "Si": 0.3,
+        "Cr": 22.0,
+        "Ni": 46.88,
+        "Mo": 8.5,
+        "Nb": null,
+        "N": null,
+        "Cu": 0.25,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé ; Ni = Base au catalogue, valeur calculée par différence (100 - somme des autres éléments)",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 30.95,
+          "Ni_eq": 49.28
+        },
+        "DeLong": {
+          "Cr_eq": 30.95,
+          "Ni_eq": 49.28
+        },
+        "WRC_1992": {
+          "Cr_eq": 30.5,
+          "Ni_eq": 49.3925
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC FENI36 TIG (FeNi36)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.3,
+        "Si": 0.1,
+        "Cr": null,
+        "Ni": 36.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 36.45
+        },
+        "DeLong": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 36.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 36.35
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC FENI36 MIG/MAG (FeNi36)",
+      "composition": {
+        "C": 0.01,
+        "Mn": 0.3,
+        "Si": 0.1,
+        "Cr": null,
+        "Ni": 36.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 36.45
+        },
+        "DeLong": {
+          "Cr_eq": 0.15,
+          "Ni_eq": 36.45
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 36.35
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC FENI50 TIG (FeNi55)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": null,
+        "Ni": 55.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "141_TIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 56.15
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 56.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 56.05
+        }
+      }
+    },
+    {
+      "designation": "SELECTARC FENI50 MIG/MAG (FeNi55)",
+      "composition": {
+        "C": 0.03,
+        "Mn": 0.5,
+        "Si": 0.2,
+        "Cr": null,
+        "Ni": 55.0,
+        "Mo": null,
+        "Nb": null,
+        "N": null,
+        "Cu": null,
+        "Ti": null
+      },
+      "procede": "131_MIG",
+      "source": "Selectarc (FSH Welding Group), catalogue Panorama fils TIG/MIG, p. 24 ; analyse chimique type du métal déposé",
+      "equivalents": {
+        "Schaeffler": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 56.15
+        },
+        "DeLong": {
+          "Cr_eq": 0.3,
+          "Ni_eq": 56.15
+        },
+        "WRC_1992": {
+          "Cr_eq": 0.0,
+          "Ni_eq": 56.05
         }
       }
     }

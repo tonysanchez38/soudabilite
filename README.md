@@ -12,7 +12,7 @@ Il s'adresse aux étudiants en BTS CRCI et en formation soudage, aux techniciens
 - **Assemblage acier non allié ou faiblement allié** : carbone équivalent, énergie de soudage et température de préchauffage selon la méthode Séférian ou BWRA.
 - **Export** d'une fiche de préparation, ou DMOS préliminaire au sens de la NF EN ISO 15607.
 
-La [bibliothèque des matériaux](https://soudabilite.com/bibliotheque-materiaux.html) recense 52 métaux de base et 194 métaux d'apport, avec leur composition chimique complète.
+La [bibliothèque des matériaux](https://soudabilite.com/bibliotheque-materiaux.html) recense 52 métaux de base et 412 métaux d'apport, avec leur composition chimique complète.
 
 ## Ce qu'il ne fait pas
 
@@ -43,4 +43,4 @@ Tony Sanchez, BTS CRCI, Pôle Formation UIMM de Savoie. Code sous licence MIT.
 
 ## English summary
 
-**[soudabilite.com](https://soudabilite.com)** is a free online weldability calculator, in French. It plots a weld joint on the Schaeffler diagram with dilution taken into account, ranks seven candidate filler metals across the whole dilution range of the welding process, and computes heat input in kJ/cm, carbon equivalent and preheat temperature. It includes a database of 52 base metals and 194 filler metals with full chemical composition. It is a preparation aid for welding students and coordinators: it does not qualify a welding procedure and does not replace a qualified WPS or a WPQR.
+**[soudabilite.com](https://soudabilite.com)** is a free online weldability calculator, in French. It plots a weld joint on the Schaeffler diagram with dilution taken into account, ranks seven candidate filler metals across the whole dilution range of the welding process, and computes heat input in kJ/cm, carbon equivalent and preheat temperature. It includes a database of 52 base metals and 412 filler metals with full chemical composition. It is a preparation aid for welding students and coordinators: it does not qualify a welding procedure and does not replace a qualified WPS or a WPQR.

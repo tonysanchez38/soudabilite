@@ -9,7 +9,8 @@
       "Non rattachés faute de classe explicite dans la banque : FLAMINOX 25.12, SAFINOX R 24 12 S, STARINOX R 18.8 S, STARINOX R 18.8.3 S, MOLINOX R 18.8, INOXAMFER.",
       "Banque : « OK 67.70 (E309L-17) » est une E309LMo-17 (ESAB) ; rattachée à E309LMo.",
       "Soudage Equipement affiche des prix TIG de 24 à 61 € pour un « étui 5 kg » : unité de prix (étui ou kg) à confirmer.",
-      "« OK TIGROD 16.32 » rattaché à ER316L : composition 316L dans la banque et code article ESAB 1630 32 = OK Tigrod 316L Ø 3,2 [INCERTAIN]."
+      "« OK TIGROD 16.32 » rattaché à ER316L : composition 316L dans la banque et code article ESAB 1630 32 = OK Tigrod 316L Ø 3,2 [INCERTAIN].",
+      "2026-11-04 : 25 désignations Selectarc rattachées aux familles par classe AWS exacte et procédé ; classes approchées (« ~ », ex. ~ER309LMo, ~E307) non rattachées."
     ]
   },
   "familles": [
@@ -24,6 +25,9 @@
         "ALTIG 308L - EN ISO 14343 : W 19 9 L",
         "INERTROD 308 L - EN 12072 : W 19 9L",
         "INERTROD 308 Si",
+        "SELECTARC 20/10 TIG (ER308L)",
+        "SELECTARC 20/10S TIG (ER308LSi)",
+        "SELECTARC INOX 8 TIG (ER308L)",
         "TIG 308L (ER308L / W19.9L)"
       ],
       "revendeurs": [
@@ -55,7 +59,8 @@
       ],
       "norme": "EN ISO 14343",
       "designations": [
-        "INERTROD 308H"
+        "INERTROD 308H",
+        "SELECTARC 20/10C TIG (ER308H)"
       ],
       "revendeurs": [
         {
@@ -75,6 +80,7 @@
       "norme": "EN ISO 14343",
       "designations": [
         "ALTIG 309L - EN ISO 14343 : W 23 12 L",
+        "SELECTARC 24/12 TIG (ER309L)",
         "TIG 309L (ER309L) - soudage hétérogène"
       ],
       "revendeurs": [
@@ -100,7 +106,8 @@
       ],
       "norme": "EN ISO 14343",
       "designations": [
-        "INERTROD 309L Si"
+        "INERTROD 309L Si",
+        "SELECTARC 24/12S TIG (ER309LSi)"
       ],
       "revendeurs": [
         {
@@ -156,6 +163,9 @@
         "INERTROD 316L - EN 12072 : W 19 12 3 L",
         "INERTROD 316L Si",
         "OK TIGROD 16.32",
+        "SELECTARC 20/10M TIG (ER316L)",
+        "SELECTARC 20/10MS TIG (ER316LSi)",
+        "SELECTARC INOX 16 TIG (ER316L)",
         "TIG 316L (ER316L / W19.12.3L)"
       ],
       "revendeurs": [
@@ -189,7 +199,8 @@
       "designations": [
         "ALTIG 318 - EN ISO 14343 : W 19 12 3 Nb",
         "INERTROD 318",
-        "INERTROD 318 Si"
+        "INERTROD 318 Si",
+        "SELECTARC 20/10MNB TIG (ER318)"
       ],
       "revendeurs": [
         {
@@ -217,7 +228,9 @@
         "ALTIG 347 - EN ISO 14343 : W 19 9 Nb Si",
         "ER347 (W 19 9 Nb)",
         "INERTROD 347",
-        "INERTROD 347 Si"
+        "INERTROD 347 Si",
+        "SELECTARC 20/10NB TIG (ER347)",
+        "SELECTARC 20/10NBS TIG (ER347Si)"
       ],
       "revendeurs": [
         {
@@ -249,6 +262,9 @@
         "OK 61.35  (E308L-15 )",
         "OK 61.35 Cryo  (E308L-15 )",
         "SAFINOX R 308L",
+        "SELECTARC 20/10BC (E308L-16)",
+        "SELECTARC 308HR (E308L-26)",
+        "SELECTARC INOX 308B (E308L-15)",
         "STARINOX E 308L HP DRY"
       ],
       "revendeurs": [
@@ -279,6 +295,8 @@
         "OK 67.60 (E309L-17)",
         "OK 67.75 (E309L-15)",
         "SAFINOX R 309L",
+        "SELECTARC 24/12S (E309L-16)",
+        "SELECTARC 309HR (E309L-26)",
         "STARINOX E 309L HP DRY"
       ],
       "revendeurs": [
@@ -313,7 +331,8 @@
         "FROINOX 309 Mo- L16",
         "OK 67.20 ((E309LMo-16))",
         "OK 67.70 (E309L-17)",
-        "OK 67.71 (E309LMo-26)"
+        "OK 67.71 (E309LMo-26)",
+        "SELECTARC 24/12Mo (E309LMo-17)"
       ],
       "revendeurs": [
         {
@@ -338,6 +357,11 @@
         "OK 63.34  (E316L-16)",
         "OK 63.41 (E316L-26)",
         "SAFINOX R 316L",
+        "SELECTARC 20/10MBC (E316L-16)",
+        "SELECTARC 316HR (E316L-26)",
+        "SELECTARC 316VD (E316L-16)",
+        "SELECTARC INOX 316L (E316L-17)",
+        "SELECTARC INOX 316NG (E316L-15)",
         "STARINOX E 316L HP DRY"
       ],
       "revendeurs": [
@@ -369,7 +393,8 @@
       ],
       "norme": "EN ISO 3581",
       "designations": [
-        "OK 63.80 (E318-17)"
+        "OK 63.80 (E318-17)",
+        "SELECTARC INOX 318 (E318-17)"
       ],
       "revendeurs": [
         {
@@ -392,7 +417,8 @@
         "OK 61.80  (E347-17)",
         "OK 61.81  (E347-16)",
         "OK 61.85  (E347-15)",
-        "OK 61.86  (E347-17)"
+        "OK 61.86  (E347-17)",
+        "SELECTARC INOX 347 (E347-17)"
       ],
       "revendeurs": [
         {
