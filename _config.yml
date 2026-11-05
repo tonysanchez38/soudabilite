@@ -20,3 +20,9 @@ exclude:
   - tests
   - outils
   - fiches_trcs
+
+# Dossier de vérification de l'application Android (Digital Asset Links).
+# Jekyll ignore par défaut les dossiers commençant par un point : sans
+# cette ligne, /.well-known/assetlinks.json ne serait pas publié.
+include:
+  - .well-known

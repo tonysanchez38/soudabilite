@@ -1,0 +1,28 @@
+/* soudabilite.com - Tony SANCHEZ - TS-SDB-2026
+   hors-ligne.css - page affichée quand une adresse n'est pas disponible
+   sans réseau. Reprend la carte centrée de la page de maintenance. */
+
+.hl{display:flex;align-items:center;justify-content:center;
+  min-height:62vh;padding:2.5rem 1rem}
+.hl__carte{width:100%;max-width:620px;text-align:center;
+  padding:2.75rem 2rem;border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.035)}
+.hl__marque{font-weight:700;font-size:1.05rem;letter-spacing:.01em;
+  margin:0 0 1.35rem}
+.hl__marque span{color:#38a9f5}
+.hl__pastille{display:inline-flex;align-items:center;gap:.5rem;
+  padding:.45rem 1.05rem;border-radius:999px;
+  background:rgba(56,169,245,.14);color:#38a9f5;
+  font-size:.88rem;font-weight:600;margin:0 0 1.5rem}
+.hl__point{width:8px;height:8px;border-radius:50%;background:#38a9f5;
+  display:inline-block}
+.hl__titre{font-size:1.95rem;line-height:1.2;margin:0 0 1.15rem;
+  font-weight:700}
+.hl__texte{line-height:1.6;margin:0 0 .85rem;opacity:.82}
+.hl__liens{list-style:none;padding:0;margin:1.6rem 0 0;
+  display:flex;flex-direction:column;gap:.6rem;align-items:center}
+@media (max-width:520px){
+  .hl__carte{padding:2rem 1.25rem}
+  .hl__titre{font-size:1.5rem}
+}
